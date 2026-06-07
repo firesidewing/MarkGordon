@@ -1,0 +1,50 @@
+/**
+ * Design tokens extracted from markgordon.ca (Jun 2026 audit).
+ * Source: computed styles + live site screenshots in docs/design-audit/
+ */
+@theme {
+	/* Typography */
+	--font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+	--font-display: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+
+	--text-body: 0.875rem;
+	--text-body--line-height: 1.8;
+	--text-nav: 0.9375rem;
+	--text-button: 1rem;
+	--text-h2: 1.75rem;
+	--text-h3: 1.5rem;
+	--text-h4: 1.125rem;
+	--text-h5: 1rem;
+
+	--font-weight-body: 400;
+	--font-weight-nav: 500;
+	--font-weight-button: 500;
+	--font-weight-h3: 600;
+	--font-weight-h2: 900;
+
+	--tracking-h2: 0.29375rem;
+
+	/* Colors */
+	--color-brand: #0047ab;
+	--color-brand-dark: #003580;
+	--color-text: #4a4a4a;
+	--color-text-heading: #262a2b;
+	--color-text-muted: #617175;
+	--color-text-subtle: #69727d;
+	--color-text-inverse: #ffffff;
+	--color-quote: #5dade2;
+
+	--color-surface: #ffffff;
+	--color-surface-muted: #f0f3f6;
+	--color-surface-alt: #f9f9f9;
+	--color-footer: #222329;
+	--color-footer-text: #bfbfbf;
+
+	/* Layout */
+	--container-content: 75rem;
+	--container-narrow: 48rem;
+
+	/* Components */
+	--radius-button: 1.25rem;
+	--spacing-section: 4rem;
+}

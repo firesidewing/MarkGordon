@@ -1,17 +1,20 @@
 ---
-
+import BaseLayout from '@/layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+	<main class="container-site py-16">
+		<p class="mb-4 text-sm font-medium uppercase tracking-widest text-brand">Scaffold ready</p>
+		<h1 class="heading-section mb-6">Empowering All Your Relationships</h1>
+		<p class="max-w-2xl text-text">
+			Phase 1.0 complete — Astro, Bun, Tailwind, Svelte, and Vercel adapter are configured.
+			Design tokens from the live site audit are loaded.
+		</p>
+		<a
+			class="btn-primary mt-8"
+			href="https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting"
+		>
+			Book Discovery Call
+		</a>
+	</main>
+</BaseLayout>

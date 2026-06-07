@@ -1,0 +1,44 @@
+@import "./tokens.css";
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@layer base {
+	html {
+		@apply scroll-smooth;
+	}
+
+	body {
+		@apply bg-surface font-sans text-body font-[var(--font-weight-body)] leading-[var(--text-body--line-height)] text-text antialiased;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-display text-text-heading;
+	}
+}
+
+@layer components {
+	.heading-section {
+		@apply font-display text-h2 font-[var(--font-weight-h2)] uppercase tracking-h2 text-brand;
+	}
+
+	.btn-primary {
+		@apply inline-flex items-center justify-center rounded-[var(--radius-button)] bg-brand px-11 py-3.5 font-display text-button font-[var(--font-weight-button)] uppercase text-text-inverse transition-colors hover:bg-brand-dark;
+	}
+
+	.btn-text {
+		@apply font-display text-button font-[var(--font-weight-button)] uppercase text-text-inverse underline-offset-4 hover:underline;
+	}
+
+	.container-site {
+		@apply mx-auto w-full max-w-[var(--container-content)] px-4 sm:px-6 lg:px-8;
+	}
+
+	.prose-site {
+		@apply prose prose-neutral max-w-none prose-headings:font-display prose-a:text-brand prose-a:no-underline hover:prose-a:underline;
+	}
+}

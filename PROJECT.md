@@ -113,16 +113,16 @@ Top bar: email + social icons (FB, Twitter/X, LinkedIn, Instagram, YouTube).
 ## Phase 1 — Marketing site
 
 ### 1.0 Scaffold
-- [ ] Switch package manager to Bun (`bun install`, update scripts)
-- [ ] `astro add tailwind svelte @astrojs/vercel`
-- [ ] Path aliases (`@/components`, `@/layouts`, `@/content`)
-- [ ] `src/styles/global.css` — Tailwind base + prose plugin
+- [x] Switch package manager to Bun (`bun install`, update scripts)
+- [x] `astro add tailwind svelte @astrojs/vercel`
+- [x] Path aliases (`@/components`, `@/layouts`, `@/content`)
+- [x] `src/styles/global.css` — Tailwind base + prose plugin
 
 ### 1.1 Design audit
-- [ ] Screenshot live site: home, about, blog post, keynote, mobile nav
-- [ ] Extract design tokens: fonts, colors, spacing, button styles, section patterns
-- [ ] Document in `src/styles/tokens.css` or Tailwind theme extension
-- [ ] Identify reusable section patterns (hero, card grid, testimonial slider, CTA band)
+- [x] Screenshot live site: home, about, blog post, keynote, mobile nav
+- [x] Extract design tokens: fonts, colors, spacing, button styles, section patterns
+- [x] Document in `src/styles/tokens.css` or Tailwind theme extension
+- [x] Identify reusable section patterns (hero, card grid, testimonial slider, CTA band)
 
 > **Visual parity goal:** Same look, new CSS. Elementor is layout reference only.
 
@@ -239,4 +239,6 @@ Issues spotted in export — handle in migration script or templates:
 - `export.xml` available for slug/URL mapping
 - Live reference: https://www.markgordon.ca/
 
-**Next action:** Phase 1.0 scaffold, then 1.1 design audit (screenshots before writing CSS).
+**Next action:** Phase 1.2 content pipeline (migration script from `output/` + `export.xml`).
+
+**Completed:** Phase 1.0 scaffold + 1.1 design audit. See `docs/design-audit/DESIGN.md` and `src/styles/tokens.css`.
