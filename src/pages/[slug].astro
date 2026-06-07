@@ -1,0 +1,47 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import MarketingPage from '@/layouts/MarketingPage.astro';
+import BlogPost from '@/layouts/BlogPost.astro';
+import { RESERVED_PAGE_SLUGS } from '@/utils/content';
+
+export async function getStaticPaths() {
+	const [pages, posts] = await Promise.all([getCollection('pages'), getCollection('blog')]);
+
+	const pagePaths = pages
+		.filter((entry) => !entry.data.draft && !RESERVED_PAGE_SLUGS.has(entry.data.slug))
+		.map((entry) => ({
+			params: { slug: entry.data.slug },
+			props: { kind: 'page' as const, id: entry.id },
+		}));
+
+	const postPaths = posts
+		.filter((entry) => !entry.data.draft)
+		.map((entry) => ({
+			params: { slug: entry.data.slug },
+			props: { kind: 'post' as const, id: entry.id },
+		}));
+
+	return [...pagePaths, ...postPaths];
+}
+
+const { kind, id } = Astro.props;
+
+const entry = kind === 'page' ? await getEntry('pages', id) : await getEntry('blog', id);
+const { Content } = await render(entry!);
+
+const hideSidebar =
+	kind === 'page' &&
+	['relationship-matters', 'faith-community-packages', 'products'].includes(entry!.data.slug);
+---
+
+{
+	kind === 'page' ? (
+		<MarketingPage title={entry!.data.title} showSidebar={!hideSidebar}>
+			<Content />
+		</MarketingPage>
+	) : (
+		<BlogPost post={entry!}>
+			<Content />
+		</BlogPost>
+	)
+}

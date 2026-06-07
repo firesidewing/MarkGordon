@@ -1,0 +1,29 @@
+---
+import MarketingPage from '@/layouts/MarketingPage.astro';
+import Button from '@/components/ui/Button.astro';
+---
+
+<MarketingPage
+	title="Videos"
+	intro="Mark delivers inspiring short videos and podcasts. Subscribe so you don't miss one!"
+>
+	<div class="not-prose mb-8 aspect-video w-full overflow-hidden rounded-sm bg-surface-alt">
+		<iframe
+			src="https://www.youtube.com/embed/videoseries?list=PLOiSNn4coE_6_qDKibfB6NKZjaXGAMBXm"
+			title="Mark Gordon video playlist"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowfullscreen
+			referrerpolicy="strict-origin-when-cross-origin"
+			class="h-full w-full border-0"
+			loading="lazy"
+		></iframe>
+	</div>
+	<p class="text-text-muted">
+		Browse the full archive of relationship videos and teaching content.
+	</p>
+	<div class="not-prose mt-6">
+		<Button href="https://www.youtube.com/@rmarkgordon" external>
+			View on YouTube →
+		</Button>
+	</div>
+</MarketingPage>

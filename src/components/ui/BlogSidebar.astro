@@ -1,5 +1,6 @@
 ---
 import HubSpotCTA from '@/components/ui/HubSpotCTA.astro';
+import { categoryUrl } from '@/utils/content';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -23,7 +24,7 @@ const { categories, activeCategory, recentPosts } = Astro.props;
 						categories.map(({ name, count }) => (
 							<li>
 								<a
-									href={`/blog/?category=${encodeURIComponent(name)}`}
+									href={categoryUrl(name)}
 									class:list={[
 										'flex items-center justify-between py-2.5 text-sm transition-colors hover:text-brand',
 										activeCategory === name ? 'font-semibold text-brand' : 'text-text-muted',

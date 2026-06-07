@@ -1,0 +1,40 @@
+---
+import MarketingPage from '@/layouts/MarketingPage.astro';
+import Button from '@/components/ui/Button.astro';
+import { homeAssets } from '@/data/home';
+
+const { podcastImg } = homeAssets;
+---
+
+<MarketingPage
+	title="Newsletter Signup"
+	intro="Weekly relationship tips, upcoming events, and the latest courses."
+	showSidebar={false}
+>
+	<div class="not-prose">
+		<p class="mb-6 leading-relaxed text-text-muted">
+			Join Mark's newsletter for practical relationship wisdom delivered to your inbox each week.
+		</p>
+		<Button href="https://www.markgordon.ca/newsletter-signup/" external>
+			Subscribe via Mailchimp
+		</Button>
+		<p class="mt-4 text-sm text-text-subtle">
+			Newsletter provider integration coming soon — this links to the current signup form.
+		</p>
+		<a
+			href="https://open.spotify.com/show/24p7utX5IUjVIAz3RrCiPh"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="mt-10 block overflow-hidden rounded-sm shadow-md"
+		>
+			<img
+				src={podcastImg.src}
+				alt="Mark Gordon podcast on Spotify"
+				width={podcastImg.width}
+				height={podcastImg.height}
+				class="h-auto w-full"
+				loading="lazy"
+			/>
+		</a>
+	</div>
+</MarketingPage>

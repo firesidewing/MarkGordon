@@ -5,6 +5,7 @@ import Card from '@/components/ui/Card.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import type { CollectionEntry } from 'astro:content';
 import {
+	categoryUrl,
 	formatDate,
 	getCategoryCounts,
 	getPublishedPosts,
@@ -40,7 +41,7 @@ const recentPosts = allPosts.filter((entry) => entry.id !== post.id).slice(0, 5)
 										categories.map((category) => (
 											<li>
 												<a
-													href={`/blog/?category=${encodeURIComponent(category)}`}
+													href={categoryUrl(category)}
 													class="rounded-sm bg-surface-muted px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-text-muted transition-colors hover:bg-brand hover:text-text-inverse"
 												>
 													{category}

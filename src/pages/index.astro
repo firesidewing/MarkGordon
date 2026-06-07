@@ -1,20 +1,70 @@
 ---
+import CourseCard from '@/components/sections/CourseCard.astro';
+import CtaBand from '@/components/sections/CtaBand.astro';
+import FeatureRow from '@/components/sections/FeatureRow.astro';
+import HeroHome from '@/components/sections/HeroHome.astro';
+import NewsletterCta from '@/components/sections/NewsletterCta.astro';
+import QuoteBlock from '@/components/sections/QuoteBlock.astro';
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import TestimonialsSection from '@/components/sections/TestimonialsSection.astro';
+import Section from '@/components/ui/Section.astro';
+import { featuredCourses, homeAssets, homeFeatures, miniCourses } from '@/data/home';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/config/site';
+
+const { coursesBanner } = homeAssets;
 ---
 
-<BaseLayout>
-	<div class="container-site py-16">
-		<p class="mb-4 text-sm font-medium uppercase tracking-widest text-brand">Scaffold ready</p>
-		<h1 class="heading-section mb-6">Empowering All Your Relationships</h1>
-		<p class="max-w-2xl text-text">
-			Phase 1.0 complete — Astro, Bun, Tailwind, Svelte, and Vercel adapter are configured.
-			Design tokens from the live site audit are loaded.
-		</p>
-		<a
-			class="btn-primary mt-8"
-			href="https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting"
-		>
-			Book Discovery Call
-		</a>
-	</div>
+<BaseLayout title={site.name} description={site.tagline}>
+	<HeroHome />
+	<CtaBand />
+	<QuoteBlock />
+
+	<Section variant="muted">
+		<SectionHeading title="Courses with Impact" centered class="mb-10" />
+		<div class="grid gap-6 lg:grid-cols-2">
+			{featuredCourses.map((course) => <CourseCard {...course} />)}
+		</div>
+	</Section>
+
+	<Section>
+		<SectionHeading title="More Courses" class="mb-8" />
+		<div class="grid gap-8 lg:grid-cols-2">
+			{
+				miniCourses.map((course) => (
+					<article class="rounded-sm border border-surface-muted bg-surface p-6 shadow-sm">
+						<h3 class="font-display text-h4 font-semibold text-brand">{course.title}</h3>
+						<p class="mt-2 font-semibold text-text-heading">{course.question}</p>
+						<p class="mt-3 text-sm leading-relaxed text-text-muted">{course.description}</p>
+						<a href={course.href} class="mt-4 inline-block text-sm font-semibold uppercase tracking-wide text-brand hover:underline">
+							Get Started Now! →
+						</a>
+					</article>
+				))
+			}
+		</div>
+		<div class="mt-10 overflow-hidden rounded-sm">
+			<img
+				src={coursesBanner.src}
+				alt="Online courses preview"
+				width={coursesBanner.width}
+				height={coursesBanner.height}
+				class="h-auto w-full"
+				loading="lazy"
+			/>
+		</div>
+	</Section>
+
+	<Section variant="muted">
+		<div class="space-y-16">
+			{
+				homeFeatures.map((feature, index) => (
+					<FeatureRow {...feature} reverse={index % 2 === 1} />
+				))
+			}
+		</div>
+	</Section>
+
+	<NewsletterCta />
+	<TestimonialsSection />
 </BaseLayout>

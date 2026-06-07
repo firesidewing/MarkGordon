@@ -1,0 +1,32 @@
+---
+import YouTube from '@/components/islands/YouTube.svelte';
+import Button from '@/components/ui/Button.astro';
+import { hubspot } from '@/config/site';
+import { homeHero, homeVideoId } from '@/data/home';
+
+const { title, intro } = homeHero;
+---
+
+<section class="bg-surface-muted">
+	<div class="container-site py-12 lg:py-16">
+		<div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+			<div class="order-2 lg:order-1">
+				<h1 class="heading-section mb-6">{title}</h1>
+				<p class="mb-6 text-base leading-relaxed text-text">{intro}</p>
+				<div class="flex flex-wrap gap-3">
+					<Button href={hubspot.discoveryCall} external>Book Discovery Call</Button>
+					<Button href="/relationship-matters/">Buy The Book</Button>
+				</div>
+				<p class="mt-6 text-sm text-text-muted">
+					Would you like stronger relationships?
+					<a href="https://blindspots.me/hcWAIr" class="font-semibold text-brand hover:underline" target="_blank" rel="noopener noreferrer">
+						Take the Free Blind Spot Test →
+					</a>
+				</p>
+			</div>
+			<div class="order-1 lg:order-2">
+				<YouTube videoId={homeVideoId} title={title} />
+			</div>
+		</div>
+	</div>
+</section>

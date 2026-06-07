@@ -1,0 +1,19 @@
+---
+import BlogIndex from '@/layouts/BlogIndex.astro';
+import { getCategoryCounts, getPublishedPosts } from '@/utils/content';
+
+export async function getStaticPaths() {
+	const categories = await getCategoryCounts();
+	return categories.map(({ name }) => ({
+		params: { category: name },
+		props: { categoryName: name },
+	}));
+}
+
+const { categoryName } = Astro.props;
+const posts = (await getPublishedPosts()).filter((post) =>
+	(post.data.categories ?? []).includes(categoryName),
+);
+---
+
+<BlogIndex posts={posts} activeCategory={categoryName} />

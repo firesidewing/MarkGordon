@@ -1,0 +1,31 @@
+---
+import bookNowImg from '@/assets/content/book-now/Mark-36-e1569198052878-750x1024.jpg';
+import MarketingPage from '@/layouts/MarketingPage.astro';
+import Button from '@/components/ui/Button.astro';
+import { hubspot } from '@/config/site';
+---
+
+<MarketingPage title="Book Now" showSidebar={false}>
+	<div class="not-prose">
+		<img
+			src={bookNowImg.src}
+			alt="Mark Gordon"
+			width={bookNowImg.width}
+			height={bookNowImg.height}
+			class="mb-8 h-auto max-w-sm rounded-sm shadow-md"
+			loading="lazy"
+		/>
+		<p class="mb-4 font-semibold text-brand">
+			Special pricing available for online coaching — book a discovery call to learn more.
+		</p>
+		<p class="mb-6 leading-relaxed text-text-muted">
+			Schedule a free 15-minute discovery call to discuss coaching options and find the right plan for you.
+		</p>
+		<Button href={hubspot.discoveryCall} external>
+			Book Discovery Call
+		</Button>
+		<p class="mt-4 text-sm text-text-subtle">
+			Online booking form integration coming soon.
+		</p>
+	</div>
+</MarketingPage>

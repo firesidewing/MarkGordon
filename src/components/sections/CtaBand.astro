@@ -1,0 +1,18 @@
+---
+import Button from '@/components/ui/Button.astro';
+import { hubspot } from '@/config/site';
+
+interface Props {
+	title?: string;
+	class?: string;
+}
+
+const { title = 'Ready to strengthen your relationships?', class: className } = Astro.props;
+---
+
+<section class:list={['bg-brand py-10 text-center sm:py-12', className]}>
+	<div class="container-site">
+		<p class="mb-6 font-display text-lg font-medium text-text-inverse sm:text-xl">{title}</p>
+		<Button href={hubspot.discoveryCall} external>Book Discovery Call</Button>
+	</div>
+</section>

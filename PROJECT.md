@@ -67,21 +67,21 @@ Examples:
 
 ### Phase 1 pages (migrate)
 
-- [ ] `/` — from `home2` (hero, courses preview, book, keynote, coaching, testimonials, newsletter CTA)
-- [ ] `/about-mark/`
-- [ ] `/blog/` — listing (export body is empty; generate from collection)
-- [ ] `/contact/`
-- [ ] `/keynote-speaker/`
-- [ ] `/workshop-facilitator/`
-- [ ] `/relationship-leadership-coaching/`
-- [ ] `/vlogs/`
-- [ ] `/relationship-matters/` (book)
-- [ ] `/blind-spot-assessment/`
-- [ ] `/faith-community-packages/`
-- [ ] `/book-now/`
-- [ ] `/thank-you/`
-- [ ] `/newsletter-signup/`
-- [ ] `/products/` *(confirm still linked in nav)*
+- [x] `/` — from `home2` (hero, courses preview, book, keynote, coaching, testimonials, newsletter CTA)
+- [x] `/about-mark/`
+- [x] `/blog/` — listing (export body is empty; generate from collection)
+- [x] `/contact/`
+- [x] `/keynote-speaker/`
+- [x] `/workshop-facilitator/`
+- [x] `/relationship-leadership-coaching/`
+- [x] `/vlogs/`
+- [x] `/relationship-matters/` (book)
+- [x] `/blind-spot-assessment/`
+- [x] `/faith-community-packages/`
+- [x] `/book-now/`
+- [x] `/thank-you/`
+- [x] `/newsletter-signup/`
+- [x] `/products/` *(confirm still linked in nav)*
 
 ### Defer to Phase 2 (stub or redirect to WP temporarily)
 
@@ -150,12 +150,12 @@ Top bar: email + social icons (FB, Twitter/X, LinkedIn, Instagram, YouTube).
 - [x] Shared components: `Button`, `Section`, `Card`, `Testimonial`, `YouTube`, `HubSpotCTA`
 
 ### 1.5 Build pages (in order)
-- [ ] **Homepage** — highest complexity; decompose `home2` markdown into structured sections/components (don't dump raw markdown)
-- [ ] **About, Contact** — simpler prose pages
-- [ ] **Service pages** — keynote, workshop, coaching (shared template)
-- [ ] **Book page** — relationship-matters
-- [ ] **Blog index + posts**
-- [ ] **Remaining** — vlogs, blind-spot, faith-community, book-now, thank-you, newsletter
+- [x] **Homepage** — highest complexity; decompose `home2` markdown into structured sections/components (don't dump raw markdown)
+- [x] **About, Contact** — simpler prose pages
+- [x] **Service pages** — keynote, workshop, coaching (shared template)
+- [x] **Book page** — relationship-matters
+- [x] **Blog index + posts**
+- [x] **Remaining** — vlogs, blind-spot, faith-community, book-now, thank-you, newsletter
 
 ### 1.6 Interactive bits (Svelte islands — only where needed)
 - [ ] Mobile navigation
@@ -239,6 +239,6 @@ Issues spotted in export — handle in migration script or templates:
 - `export.xml` available for slug/URL mapping
 - Live reference: https://www.markgordon.ca/
 
-**Next action:** Phase 1.5 — build pages (homepage first, then about/contact, service pages, blog routes).
+**Next action:** Phase 1.6 interactive bits (testimonials carousel, newsletter form provider) or Phase 1.7 SEO & redirects.
 
-**Completed:** Phase 1.0 scaffold, 1.1 design audit, 1.2 content pipeline, 1.3 layout shell, 1.4 page templates. Run `bun run migrate` to re-sync from `output/`.
+**Completed:** Phase 1.0–1.5. 47 static routes built (`bun run build`). Run `bun run migrate` to re-sync from `output/`.

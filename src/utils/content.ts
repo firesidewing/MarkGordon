@@ -12,6 +12,20 @@ export function postUrl(slug: string): string {
 	return `/${slug}/`;
 }
 
+export function categoryUrl(name: string): string {
+	return `/blog/category/${encodeURIComponent(name)}/`;
+}
+
+/** Page slugs handled by dedicated routes, not [slug].astro */
+export const RESERVED_PAGE_SLUGS = new Set([
+	'home2',
+	'blog',
+	'vlogs',
+	'blind-spot-assessment',
+	'newsletter-signup',
+	'book-now',
+]);
+
 export async function getPublishedPosts(): Promise<CollectionEntry<'blog'>[]> {
 	const posts = await getCollection('blog');
 	return posts

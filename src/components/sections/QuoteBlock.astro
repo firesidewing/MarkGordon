@@ -1,0 +1,38 @@
+---
+import Button from '@/components/ui/Button.astro';
+import { hubspot } from '@/config/site';
+import { homeQuote, homeResults } from '@/data/home';
+---
+
+<section class="container-site py-[var(--spacing-section)]">
+	<div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+		<div>
+			<blockquote class="border-l-4 border-quote pl-6">
+				<p class="text-xl font-medium italic leading-relaxed text-quote">
+					&ldquo;{homeQuote.text}&rdquo;
+				</p>
+			</blockquote>
+			<p class="mt-6 leading-relaxed text-text">{homeQuote.body}</p>
+			<p class="mt-4 font-display text-lg font-semibold text-brand">{homeQuote.emphasis}</p>
+			<p class="mt-4 leading-relaxed text-text">{homeQuote.mission}</p>
+		</div>
+		<div>
+			<h3 class="mb-4 font-display text-h4 font-semibold uppercase tracking-wide text-text-heading">
+				The results are&hellip;
+			</h3>
+			<ul class="space-y-3" role="list">
+				{
+					homeResults.map((item) => (
+						<li class="flex gap-3 text-sm leading-relaxed text-text">
+							<span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand" aria-hidden="true" />
+							{item}
+						</li>
+					))
+				}
+			</ul>
+			<div class="mt-8">
+				<Button href={hubspot.discoveryCall} external>Book Discovery Call</Button>
+			</div>
+		</div>
+	</div>
+</section>
