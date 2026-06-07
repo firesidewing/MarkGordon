@@ -1,0 +1,73 @@
+---
+import MobileNav from '@/components/islands/MobileNav.svelte';
+import TopBar from '@/components/layout/TopBar.astro';
+import { mainNav } from '@/config/site';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-surface shadow-sm">
+	<TopBar />
+	<div class="border-b border-surface-muted">
+		<div class="container-site flex h-[72px] items-center justify-between gap-4 lg:h-20">
+			<a href="/" class="shrink-0" aria-label="Mark Gordon — Home">
+				<img
+					src="/logo.png"
+					alt="Mark Gordon"
+					width="185"
+					height="106"
+					class="h-auto w-[140px] sm:w-[185px]"
+					loading="eager"
+				/>
+			</a>
+
+			<nav class="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+				{
+					mainNav.map((item) =>
+						item.children ? (
+							<div class="group relative">
+								<a
+									href={item.href}
+									class="nav-link flex items-center gap-1 px-3 py-2"
+									aria-haspopup="true"
+								>
+									{item.label}
+									<svg class="h-3 w-3 opacity-60" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+										<path d="M2.5 4.5L6 8l3.5-3.5" />
+									</svg>
+								</a>
+								<ul
+									class="invisible absolute right-0 top-full z-50 min-w-[16rem] translate-y-1 rounded-sm border border-surface-muted bg-surface py-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+									role="list"
+								>
+									{
+										item.children.map((child) => (
+											<li>
+												<a
+													href={child.href}
+													class="block px-4 py-2 text-sm text-text-heading transition-colors hover:bg-surface-muted hover:text-brand"
+													{...(child.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+												>
+													{child.label}
+												</a>
+											</li>
+										))
+									}
+								</ul>
+							</div>
+						) : (
+							<a
+								href={item.href}
+								class:list={['nav-link px-3 py-2', currentPath === item.href && 'text-brand']}
+							>
+								{item.label}
+							</a>
+						),
+					)
+				}
+			</nav>
+
+			<MobileNav client:media="(max-width: 1023px)" nav={mainNav} currentPath={currentPath} />
+		</div>
+	</div>
+</header>

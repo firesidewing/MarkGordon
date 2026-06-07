@@ -138,10 +138,10 @@ Top bar: email + social icons (FB, Twitter/X, LinkedIn, Instagram, YouTube).
 - [x] Run migration; verify 25 posts + 15 pages build
 
 ### 1.3 Layout shell
-- [ ] `BaseLayout.astro` — meta, fonts, global styles
-- [ ] `Header.astro` — logo, top bar (email + social), main nav
-- [ ] `MobileNav.svelte` — island for hamburger + dropdowns
-- [ ] `Footer.astro` — newsletter snippet, links, social, copyright
+- [x] `BaseLayout.astro` — meta, fonts, global styles
+- [x] `Header.astro` — logo, top bar (email + social), main nav
+- [x] `MobileNav.svelte` — island for hamburger + dropdowns
+- [x] `Footer.astro` — newsletter snippet, links, social, copyright
 
 ### 1.4 Page templates
 - [ ] `MarketingPage.astro` — title hero + prose body + optional sidebar CTA
@@ -239,6 +239,6 @@ Issues spotted in export — handle in migration script or templates:
 - `export.xml` available for slug/URL mapping
 - Live reference: https://www.markgordon.ca/
 
-**Next action:** Phase 1.3 layout shell (header, footer, mobile nav).
+**Next action:** Phase 1.4 page templates (MarketingPage, BlogPost, BlogIndex).
 
-**Completed:** Phase 1.0 scaffold, 1.1 design audit, 1.2 content pipeline. Run `bun run migrate` to re-sync from `output/`.
+**Completed:** Phase 1.0 scaffold, 1.1 design audit, 1.2 content pipeline, 1.3 layout shell. Run `bun run migrate` to re-sync from `output/`.

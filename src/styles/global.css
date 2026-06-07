@@ -41,4 +41,8 @@
 	.prose-site {
 		@apply prose prose-neutral max-w-none prose-headings:font-display prose-a:text-brand prose-a:no-underline hover:prose-a:underline;
 	}
+
+	.nav-link {
+		@apply font-display text-nav font-[var(--font-weight-nav)] text-text-heading transition-colors hover:text-brand;
+	}
 }
