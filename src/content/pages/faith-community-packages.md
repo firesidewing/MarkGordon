@@ -2,7 +2,7 @@
 title: "Faith Community Packages"
 slug: "faith-community-packages"
 date: 2023-05-11
-draft: false
+draft: true
 ---
 
 ![](../../assets/content/faith-community-packages/tsg-8.jpg) ![](../../assets/content/faith-community-packages/image-from-rawpixel-id-107968-original-1024x1024.jpg) ![](../../assets/content/faith-community-packages/FG6A9662-scaled-e1610423538726-1024x806.jpg) ![](../../assets/content/faith-community-packages/Mark-32-1-1024x1024.jpg)
