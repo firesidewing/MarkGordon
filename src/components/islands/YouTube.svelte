@@ -16,7 +16,7 @@
 	let playing = $state(!posterSrc);
 </script>
 
-<div class="aspect-video w-full overflow-hidden rounded-sm bg-surface-alt">
+<div class="relative aspect-video w-full overflow-hidden rounded-sm bg-surface-alt">
 	{#if playing}
 		<iframe
 			src="https://www.youtube.com/embed/{videoId}?autoplay=1"
@@ -24,12 +24,12 @@
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 			allowfullscreen
 			referrerpolicy="strict-origin-when-cross-origin"
-			class="h-full w-full border-0"
+			class="absolute inset-0 h-full w-full border-0"
 		></iframe>
 	{:else}
 		<button
 			type="button"
-			class="group relative h-full w-full cursor-pointer border-0 bg-transparent p-0"
+			class="group absolute inset-0 cursor-pointer border-0 bg-transparent p-0"
 			onclick={() => (playing = true)}
 			aria-label={`Play video: ${title}`}
 		>

@@ -24,6 +24,8 @@ export const RESERVED_PAGE_SLUGS = new Set([
 	'blind-spot-assessment',
 	'newsletter-signup',
 	'book-now',
+	'relationship-matters',
+	'faith-community-packages',
 ]);
 
 export async function getPublishedPosts(): Promise<CollectionEntry<'blog'>[]> {

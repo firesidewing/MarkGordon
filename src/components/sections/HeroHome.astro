@@ -15,6 +15,7 @@ const poster = await getImage({ src: videoCover, width: 800, format: 'webp' });
 		<div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
 			<div>
 				<YouTube
+					client:load
 					videoId={homeVideoId}
 					title={title}
 					posterSrc={poster.src}
