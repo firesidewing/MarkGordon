@@ -127,15 +127,15 @@ Top bar: email + social icons (FB, Twitter/X, LinkedIn, Instagram, YouTube).
 > **Visual parity goal:** Same look, new CSS. Elementor is layout reference only.
 
 ### 1.2 Content pipeline
-- [ ] Write `scripts/migrate-content.ts`:
+- [x] Write `scripts/migrate-content.ts`:
   - Parse `export.xml` → slug map (post_name → folder)
   - Copy markdown to `src/content/{blog,pages}/`
   - Inject frontmatter: `slug`, `draft: false`, preserve `title`, `date`, `categories`, `tags`
   - Move `images/` → `src/assets/content/[slug]/` and rewrite `![](images/...)` paths
   - Strip `<!--more-->` (use as excerpt split or remove)
   - Normalize YouTube embeds → frontmatter `videoId` or shared `<YouTube>` component
-- [ ] Define Astro content collections + Zod schemas
-- [ ] Run migration; verify 25 posts + 15 pages build
+- [x] Define Astro content collections + Zod schemas (`src/content.config.ts`)
+- [x] Run migration; verify 25 posts + 15 pages build
 
 ### 1.3 Layout shell
 - [ ] `BaseLayout.astro` — meta, fonts, global styles
@@ -239,6 +239,6 @@ Issues spotted in export — handle in migration script or templates:
 - `export.xml` available for slug/URL mapping
 - Live reference: https://www.markgordon.ca/
 
-**Next action:** Phase 1.2 content pipeline (migration script from `output/` + `export.xml`).
+**Next action:** Phase 1.3 layout shell (header, footer, mobile nav).
 
-**Completed:** Phase 1.0 scaffold + 1.1 design audit. See `docs/design-audit/DESIGN.md` and `src/styles/tokens.css`.
+**Completed:** Phase 1.0 scaffold, 1.1 design audit, 1.2 content pipeline. Run `bun run migrate` to re-sync from `output/`.
