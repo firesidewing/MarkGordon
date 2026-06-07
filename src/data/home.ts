@@ -10,15 +10,15 @@ export const homeVideoId = 'J0flKmjl8Qw';
 export const homeHero = {
 	title: 'Empowering All Your Relationships',
 	intro:
-		'Relationships are in crisis — I love to empower people in developing healthy relationships through transformational courses and content that gives you the tools needed to succeed.',
+		"Relationships are in crisis, that's why I love to empower people in developing healthy relationships. I do this through transformational Courses and creating content that gives you the tools needed to succeed.",
 };
 
 export const homeQuote = {
 	text: 'I am passionate about you enjoying healthy and trusting relationships.',
-	body: 'Today is filled with damaged relationships both personally and professionally. For healthy relationships to happen, people need to heal from the inside out.',
+	body: 'Today is filled with damaged relationships both personally and professionally, this epidemic continues to destroy families and erode the personal value people need to experience a flourishing life. For healthy relationships to happen, people need to heal from the inside out.',
 	emphasis: "That's where I come in!",
 	mission:
-		'I am committed to empowering all your relationships through coaching and teaching principles with the tools that provide skills needed for success.',
+		'I am committed to empowering all your relationships through a coaching process and teaching principles with the tools that provide skills needed for success. Simply stated, my mission is to "empower people in developing healthy relationships."',
 };
 
 export const homeResults = [
@@ -36,7 +36,13 @@ export const featuredCourses = [
 		price: '$79',
 		badge: 'Popular',
 		image: courseRmImg,
-		bullets: ['trust equity', 'healthy communication', 'living authentically', 'honesty', 'honour'],
+		bullets: [
+			'How to build trust equity',
+			'How to have healthy communication',
+			'How to live authentically',
+			'How honesty is a superpower',
+			'How to reclaim the lost art of honour',
+		],
 		description:
 			'Based on my groundbreaking book, this course is a powerful journey to relational healing — now available in video.',
 		href: '/online-courses/',
@@ -46,7 +52,12 @@ export const featuredCourses = [
 		subtitle: 'Building Confidence That Lasts Forever',
 		price: '$29',
 		badge: 'Mini-Series',
-		bullets: ['where confidence comes from', 'how faith changes self-perception', 'overcoming shame', 'building lasting confidence'],
+		bullets: [
+			'Where confidence comes from',
+			'How faith can change the way you see yourself',
+			'How shame destroys identity and erodes confidence',
+			'How to build confidence that lasts forever!',
+		],
 		description:
 			'Explore where your value comes from and get tools to build confidence that lasts forever.',
 		href: '/online-courses/',

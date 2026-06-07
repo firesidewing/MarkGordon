@@ -3,11 +3,12 @@ title: "Contact"
 slug: "contact"
 date: 2012-10-12
 draft: false
+contentLayout: "image-left"
+showHero: false
+showSidebar: false
 ---
 
 ## Get In Touch!
-
-![](../../assets/content/contact/Mark-36-e1569198052878-750x1024.jpg)
 
 Feel free to contact Mark by email or book a free 15 minute discovery call.
 

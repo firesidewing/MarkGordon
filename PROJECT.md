@@ -164,11 +164,11 @@ Top bar: email + social icons (FB, Twitter/X, LinkedIn, Instagram, YouTube).
 - [x] Blind spot assessment — Riddle embed (`yMIVAotF`), fallback to blindspots.me
 
 ### 1.7 SEO & redirects
-- [ ] `astro.config.mjs` → `site: 'https://www.markgordon.ca'`
-- [ ] Per-page `<title>`, description, OG image
-- [ ] `public/robots.txt`, sitemap ( `@astrojs/sitemap` )
-- [ ] `vercel.json` redirects: `/home2` → `/`, preserve all existing post/page slugs
-- [ ] Course URLs → temporary redirect to WP or "coming soon" page
+- [x] `astro.config.mjs` → `site: 'https://www.markgordon.ca'`
+- [x] Per-page `<title>`, description, OG image
+- [x] `public/robots.txt`, sitemap ( `@astrojs/sitemap` )
+- [x] `vercel.json` redirects: `/home2` → `/`, preserve all existing post/page slugs
+- [x] Course URLs → coming-soon stubs (`/online-courses/`, `/courses/*`, auth routes)
 
 ### 1.8 Deploy
 - [ ] Vercel project + preview deploys on PR
@@ -239,6 +239,6 @@ Issues spotted in export — handle in migration script or templates:
 - `export.xml` available for slug/URL mapping
 - Live reference: https://www.markgordon.ca/
 
-**Next action:** Phase 1.7 SEO & redirects (sitemap, vercel.json, OG tags).
+**Next action:** Phase 1.8 deploy (Vercel project, staging QA, cutover checklist).
 
-**Completed:** Phase 1.0–1.6. Run `bun run build` / `bun run dev` to preview. Run `bun run migrate` to re-sync from `output/`.
+**Completed:** Phase 1.0–1.7. 57 routes + sitemap. Run `bun run build` / `bun run dev` to preview.

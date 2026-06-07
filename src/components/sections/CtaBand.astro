@@ -1,18 +1,24 @@
 ---
-import Button from '@/components/ui/Button.astro';
-import { hubspot } from '@/config/site';
-
 interface Props {
-	title?: string;
 	class?: string;
 }
 
-const { title = 'Ready to strengthen your relationships?', class: className } = Astro.props;
+const { class: className } = Astro.props;
 ---
 
-<section class:list={['bg-brand py-10 text-center sm:py-12', className]}>
-	<div class="container-site">
-		<p class="mb-6 font-display text-lg font-medium text-text-inverse sm:text-xl">{title}</p>
-		<Button href={hubspot.discoveryCall} external>Book Discovery Call</Button>
+<section class:list={['bg-brand py-8 text-text-inverse sm:py-10', className]}>
+	<div class="container-site flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-center">
+		<div class="text-center sm:text-left">
+			<p class="font-display text-lg font-medium sm:text-xl">Would you like stronger relationships?</p>
+			<p class="mt-1 text-sm text-text-inverse/90">
+				Discover how in three minutes by knowing your blindspots
+			</p>
+		</div>
+		<a
+			href="/blind-spot-assessment/"
+			class="btn-text shrink-0 whitespace-nowrap"
+		>
+			Take the Free Test Now →
+		</a>
 	</div>
 </section>

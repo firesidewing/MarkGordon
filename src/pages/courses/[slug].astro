@@ -1,0 +1,23 @@
+---
+import ComingSoon from '@/components/sections/ComingSoon.astro';
+
+export function getStaticPaths() {
+	const slugs = [
+		'relationship-matters',
+		'godfidence-building-confidence-that-lasts-forever',
+		'understanding-anger',
+		'punching-shame-in-the-face',
+	];
+	return slugs.map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const title = slug!
+	.replace(/-/g, ' ')
+	.replace(/\b\w/g, (c) => c.toUpperCase());
+---
+
+<ComingSoon
+	title={title}
+	description="This course is being migrated to our new learning platform. Book a discovery call to learn more in the meantime."
+/>

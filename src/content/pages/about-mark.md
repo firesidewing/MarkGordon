@@ -1,16 +1,12 @@
 ---
-title: "About Mark"
+title: "About Mark Gordon"
 slug: "about-mark"
 date: 2012-09-21
 draft: false
+intro: "I am a Relationship Catalyst who Empowers people to develop healthy relationships through inspirational speaking, transformational courses, and coaching! I have seen hundreds of lives transformed with the principals taught."
+contentLayout: "image-left"
+showSidebar: false
 ---
-
-## About Mark Gordon​
-
-I am a Relationship Catalyst who Empowers people to develop healthy relationships through inspirational speaking, transformational courses, and coaching!  
-I have seen hundreds of lives transformed with the principals taught.
-
-![](../../assets/content/about-mark/Mark-36-e1569198052878-750x1024.jpg)
 
 I have been involved in community leadership, coaching, teaching, and keynote speaking for more than 30 years. My passion for people is evident to anyone who experience my speaking, writing, courses or coaching. I have a strong desire to empower people, families and organizations to become relationally, emotionally and spiritually healthy.
 

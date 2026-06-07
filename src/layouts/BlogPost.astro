@@ -11,6 +11,8 @@ import {
 	getPublishedPosts,
 	getRelatedPosts,
 } from '@/utils/content';
+import { youtubeOgImage } from '@/utils/seo';
+import { site } from '@/config/site';
 
 interface Props {
 	post: CollectionEntry<'blog'>;
@@ -24,7 +26,13 @@ const relatedPosts = getRelatedPosts(post, allPosts);
 const recentPosts = allPosts.filter((entry) => entry.id !== post.id).slice(0, 5);
 ---
 
-<BaseLayout title={title} description={excerpt}>
+<BaseLayout
+	title={title}
+	description={excerpt ?? `${title} — relationship insights from ${site.name}.`}
+	type="article"
+	publishedTime={date.toISOString()}
+	image={videoId ? youtubeOgImage(videoId) : undefined}
+>
 	<div class="container-site py-[var(--spacing-section)]">
 		<div class="lg:grid lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-12 xl:gap-16">
 			<article class="min-w-0">

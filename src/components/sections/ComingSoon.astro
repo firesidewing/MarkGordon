@@ -1,0 +1,39 @@
+---
+import Button from '@/components/ui/Button.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { hubspot, site } from '@/config/site';
+
+interface Props {
+	title: string;
+	description?: string;
+	noindex?: boolean;
+}
+
+const {
+	title,
+	description = 'This section is being rebuilt on our new platform. Check back soon or book a discovery call in the meantime.',
+	noindex = true,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} noindex={noindex}>
+	<section class="bg-brand py-12 text-center sm:py-16">
+		<div class="container-site">
+			<h1 class="font-display text-2xl font-[var(--font-weight-h2)] uppercase tracking-h2 text-text-inverse sm:text-3xl">
+				{title}
+			</h1>
+			<p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-text-inverse/90">
+				Coming soon on {site.name}
+			</p>
+		</div>
+	</section>
+	<div class="container-site py-[var(--spacing-section)]">
+		<div class="mx-auto max-w-xl text-center">
+			<p class="mb-8 leading-relaxed text-text-muted">{description}</p>
+			<div class="flex flex-wrap justify-center gap-3">
+				<Button href={hubspot.discoveryCall} external>Book Discovery Call</Button>
+				<Button href="/">Back to Home</Button>
+			</div>
+		</div>
+	</div>
+</BaseLayout>

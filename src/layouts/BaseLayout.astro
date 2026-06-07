@@ -1,20 +1,27 @@
 ---
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
+import SEO from '@/components/seo/SEO.astro';
 import { site } from '@/config/site';
 import '@/styles/global.css';
 
 interface Props {
 	title?: string;
 	description?: string;
+	image?: string;
+	type?: 'website' | 'article';
+	publishedTime?: string;
+	noindex?: boolean;
 }
 
 const {
 	title = site.name,
 	description = site.tagline,
+	image,
+	type = 'website',
+	publishedTime,
+	noindex = false,
 } = Astro.props;
-
-const pageTitle = title === site.name ? title : `${title} - ${site.name}`;
 ---
 
 <!doctype html>
@@ -25,14 +32,20 @@ const pageTitle = title === site.name ? title : `${title} - ${site.name}`;
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content={description} />
+		<SEO
+			title={title}
+			description={description}
+			image={image}
+			type={type}
+			publishedTime={publishedTime}
+			noindex={noindex}
+		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;900&family=Open+Sans:wght@400;600&display=swap"
 			rel="stylesheet"
 		/>
-		<title>{pageTitle}</title>
 	</head>
 	<body class="flex min-h-screen flex-col">
 		<Header />

@@ -2,7 +2,9 @@
 import { getCollection, getEntry, render } from 'astro:content';
 import MarketingPage from '@/layouts/MarketingPage.astro';
 import BlogPost from '@/layouts/BlogPost.astro';
+import { site } from '@/config/site';
 import { RESERVED_PAGE_SLUGS } from '@/utils/content';
+import { pageFeaturedImages, pageHeroImages } from '@/utils/page-images';
 
 export async function getStaticPaths() {
 	const [pages, posts] = await Promise.all([getCollection('pages'), getCollection('blog')]);
@@ -29,14 +31,24 @@ const { kind, id } = Astro.props;
 const entry = kind === 'page' ? await getEntry('pages', id) : await getEntry('blog', id);
 const { Content } = await render(entry!);
 
-const hideSidebar =
-	kind === 'page' &&
-	['relationship-matters', 'faith-community-packages', 'products'].includes(entry!.data.slug);
+const slug = entry!.data.slug;
+const heroImage = kind === 'page' ? pageHeroImages[slug] : undefined;
+const featuredImage = kind === 'page' ? pageFeaturedImages[slug] : undefined;
 ---
 
 {
 	kind === 'page' ? (
-		<MarketingPage title={entry!.data.title} showSidebar={!hideSidebar}>
+		<MarketingPage
+			title={entry!.data.title}
+			description={`${entry!.data.title} — ${site.tagline}`}
+			intro={entry!.data.intro}
+			heroImage={heroImage}
+			featuredImage={featuredImage}
+			heroLayout={entry!.data.heroLayout}
+			contentLayout={entry!.data.contentLayout ?? (featuredImage ? 'image-left' : 'default')}
+			showHero={entry!.data.showHero ?? true}
+			showSidebar={entry!.data.showSidebar ?? false}
+		>
 			<Content />
 		</MarketingPage>
 	) : (

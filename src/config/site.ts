@@ -65,8 +65,8 @@ export const mainNav: NavItem[] = [
 ];
 
 export const footerQuickLinks = [
-	{ label: 'Keynote Speaker', href: '/keynote-speaker/' },
-	{ label: 'Workshops', href: '/workshop-facilitator/' },
-	{ label: 'Coaching', href: '/relationship-leadership-coaching/' },
-	{ label: 'Buy the Book', href: '/relationship-matters/' },
+	{ label: 'KEYNOTE SPEAKER', href: '/keynote-speaker/' },
+	{ label: 'WORKSHOPS', href: '/workshop-facilitator/' },
+	{ label: 'COACHING', href: '/relationship-leadership-coaching/' },
+	{ label: 'BUY THE BOOK', href: '/relationship-matters/' },
 ] as const;
