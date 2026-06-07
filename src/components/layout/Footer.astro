@@ -1,19 +1,23 @@
 ---
+import { Image } from 'astro:assets';
 import SocialIcon from '@/components/icons/SocialIcon.astro';
+import logo from '@/assets/logo.png';
 import { footerQuickLinks, site, socialLinks } from '@/config/site';
 ---
 
 <footer class="bg-footer text-footer-text">
-	<div class="container-site py-12 lg:py-16">
+	<div class="mx-auto w-full max-w-content px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
 		<div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
 			<div class="flex flex-col items-start">
 				<a href="/" aria-label="Mark Gordon — Home">
-					<img
-						src="/logo.png"
+					<Image
+						src={logo}
 						alt="Mark Gordon"
-						width="150"
-						height="86"
-						class="h-auto w-[120px] brightness-0 invert"
+						width={logo.width}
+						height={logo.height}
+						widths={[100, 120]}
+						sizes="100px"
+						class="h-auto w-[100px] brightness-0 invert"
 						loading="lazy"
 					/>
 				</a>
@@ -70,7 +74,7 @@ import { footerQuickLinks, site, socialLinks } from '@/config/site';
 				<p class="mb-4 text-sm leading-relaxed">
 					Weekly relationship tips, upcoming events, and the latest courses.
 				</p>
-				<a href="/newsletter-signup/" class="btn-primary text-sm">
+				<a href="/newsletter-signup/" class="inline-flex items-center justify-center rounded-button bg-brand px-11 py-3.5 font-display text-sm text-button font-button uppercase text-text-inverse transition-colors hover:bg-brand-dark">
 					Subscribe
 				</a>
 			</div>
@@ -78,7 +82,7 @@ import { footerQuickLinks, site, socialLinks } from '@/config/site';
 	</div>
 
 	<div class="border-t border-white/10">
-		<div class="container-site flex flex-col items-center justify-between gap-3 py-5 text-xs sm:flex-row">
+		<div class="mx-auto flex w-full max-w-content flex-col items-center justify-between gap-3 px-4 py-5 text-xs sm:flex-row sm:px-6 lg:px-8">
 			<p>{site.copyright}</p>
 			<a href={`mailto:${site.email}`} class="transition-colors hover:text-text-inverse">
 				{site.email}

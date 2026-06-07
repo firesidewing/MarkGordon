@@ -20,8 +20,8 @@ const description = 'Relationship insights, encouragement, and practical wisdom 
 
 <BaseLayout title={pageTitle} description={description}>
 	<section class="bg-brand py-12 text-center sm:py-16">
-		<div class="container-site">
-			<h1 class="font-display text-2xl font-[var(--font-weight-h2)] uppercase tracking-h2 text-text-inverse sm:text-3xl">
+		<div class="mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8">
+			<h1 class="font-display text-2xl font-h2 uppercase tracking-h2 text-text-inverse sm:text-3xl">
 				{activeCategory ?? 'Blog'}
 			</h1>
 			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text-inverse/90">
@@ -34,7 +34,7 @@ const description = 'Relationship insights, encouragement, and practical wisdom 
 		</div>
 	</section>
 
-	<div class="container-site py-[var(--spacing-section)]">
+	<div class="mx-auto w-full max-w-content px-4 py-section sm:px-6 lg:px-8">
 		<div class="lg:grid lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-12 xl:gap-16">
 			<div class="min-w-0">
 				{
@@ -63,7 +63,7 @@ const description = 'Relationship insights, encouragement, and practical wisdom 
 								page.url.prev ? (
 									<a
 										href={page.url.prev}
-										class="rounded-[var(--radius-button)] border border-brand px-5 py-2 text-sm font-semibold uppercase tracking-wide text-brand transition-colors hover:bg-brand hover:text-text-inverse"
+										class="rounded-button border border-brand px-5 py-2 text-sm font-semibold uppercase tracking-wide text-brand transition-colors hover:bg-brand hover:text-text-inverse"
 									>
 										← Previous
 									</a>
@@ -78,7 +78,7 @@ const description = 'Relationship insights, encouragement, and practical wisdom 
 								page.url.next ? (
 									<a
 										href={page.url.next}
-										class="rounded-[var(--radius-button)] border border-brand px-5 py-2 text-sm font-semibold uppercase tracking-wide text-brand transition-colors hover:bg-brand hover:text-text-inverse"
+										class="rounded-button border border-brand px-5 py-2 text-sm font-semibold uppercase tracking-wide text-brand transition-colors hover:bg-brand hover:text-text-inverse"
 									>
 										Next →
 									</a>

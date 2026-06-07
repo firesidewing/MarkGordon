@@ -10,7 +10,7 @@ const { variant = 'default', narrow = false, class: className } = Astro.props;
 
 <section
 	class:list={[
-		'py-[var(--spacing-section)]',
+		'py-section',
 		variant === 'muted' && 'bg-surface-muted',
 		variant === 'brand' && 'bg-brand text-text-inverse',
 		className,
@@ -19,7 +19,7 @@ const { variant = 'default', narrow = false, class: className } = Astro.props;
 	<div
 		class:list={[
 			'mx-auto w-full px-4 sm:px-6 lg:px-8',
-			narrow ? 'max-w-[var(--container-narrow)]' : 'max-w-[var(--container-content)]',
+			narrow ? 'max-w-narrow' : 'max-w-content',
 		]}
 	>
 		<slot />

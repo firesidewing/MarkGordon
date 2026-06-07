@@ -10,6 +10,9 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
 	site: 'https://www.markgordon.ca',
 	adapter: vercel(),
+	image: {
+		remotePatterns: [{ protocol: 'https', hostname: 'i.ytimg.com' }],
+	},
 	vite: {
 		plugins: [tailwindcss()],
 		resolve: {

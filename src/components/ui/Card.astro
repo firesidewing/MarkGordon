@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { formatDate, postUrl } from '@/utils/content';
 
 interface Props {
@@ -35,7 +36,7 @@ const link = href ?? (slug ? postUrl(slug) : undefined);
 	{
 		image && (
 			<div class="aspect-[16/10] overflow-hidden bg-surface-alt">
-				<img src={image} alt={imageAlt || title} class="h-full w-full object-cover" loading="lazy" />
+				<Image src={image} alt={imageAlt || title} inferSize class="h-full w-full object-cover" loading="lazy" />
 			</div>
 		)
 	}
@@ -47,7 +48,7 @@ const link = href ?? (slug ? postUrl(slug) : undefined);
 				</time>
 			)
 		}
-		<h3 class="font-display text-h4 font-[var(--font-weight-h3)] text-text-heading">
+		<h3 class="font-display text-h4 font-h3 text-text-heading">
 			{
 				link ? (
 					<a href={link} class="transition-colors hover:text-brand">

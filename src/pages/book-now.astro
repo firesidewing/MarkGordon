@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import bookNowImg from '@/assets/content/book-now/Mark-36-e1569198052878-750x1024.jpg';
 import MarketingPage from '@/layouts/MarketingPage.astro';
 import Button from '@/components/ui/Button.astro';
@@ -7,8 +8,8 @@ import { hubspot } from '@/config/site';
 
 <MarketingPage title="Book Now" showSidebar={false}>
 	<div class="not-prose">
-		<img
-			src={bookNowImg.src}
+		<Image
+			src={bookNowImg}
 			alt="Mark Gordon"
 			width={bookNowImg.width}
 			height={bookNowImg.height}

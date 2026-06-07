@@ -33,11 +33,11 @@ const recentPosts = allPosts.filter((entry) => entry.id !== post.id).slice(0, 5)
 	publishedTime={date.toISOString()}
 	image={videoId ? youtubeOgImage(videoId) : undefined}
 >
-	<div class="container-site py-[var(--spacing-section)]">
+	<div class="mx-auto w-full max-w-content px-4 py-section sm:px-6 lg:px-8">
 		<div class="lg:grid lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-12 xl:gap-16">
 			<article class="min-w-0">
 				<header class="mb-8 border-b border-surface-muted pb-8">
-					<h1 class="font-display text-2xl font-[var(--font-weight-h2)] uppercase tracking-h2 text-brand sm:text-3xl">
+					<h1 class="font-display text-2xl font-h2 uppercase tracking-h2 text-brand sm:text-3xl">
 						{title}
 					</h1>
 					<div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-text-subtle">
@@ -69,14 +69,14 @@ const recentPosts = allPosts.filter((entry) => entry.id !== post.id).slice(0, 5)
 					</div>
 				)}
 
-				<div class="prose-site">
+				<div class="prose prose-neutral max-w-none prose-headings:font-display prose-a:text-brand prose-a:no-underline hover:prose-a:underline">
 					<slot />
 				</div>
 
 				{
 					relatedPosts.length > 0 && (
 						<section class="mt-12 border-t border-surface-muted pt-10">
-							<h2 class="heading-section mb-6">Related Posts</h2>
+							<h2 class="mb-6 font-display text-h2 font-h2 uppercase tracking-h2 text-brand">Related Posts</h2>
 							<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 								{
 									relatedPosts.map((related) => (

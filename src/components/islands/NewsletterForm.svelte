@@ -62,14 +62,13 @@
 </div>
 
 <style>
+	@reference "../../styles/global.css";
+
 	.newsletter-form :global(.hs-form) {
-		font-family: var(--font-sans);
+		@apply font-sans;
 	}
 
 	.newsletter-form :global(.hs-button) {
-		border-radius: var(--radius-button) !important;
-		background-color: var(--color-brand) !important;
-		font-family: var(--font-display) !important;
-		text-transform: uppercase !important;
+		@apply !rounded-button !bg-brand !font-display uppercase;
 	}
 </style>

@@ -29,7 +29,7 @@
 		<p class="mb-4 text-text-muted">The assessment embed could not be loaded.</p>
 		<a
 			href={blindSpot.directUrl}
-			class="btn-primary inline-flex"
+			class="inline-flex items-center justify-center rounded-button bg-brand px-11 py-3.5 font-display text-button font-button uppercase text-text-inverse transition-colors hover:bg-brand-dark"
 			target="_blank"
 			rel="noopener noreferrer"
 		>
@@ -49,7 +49,7 @@
 		data-embed-url="https://www.riddle.com/embed/a/{blindSpot.riddleId}?lazyImages=true&staticHeight=false"
 	>
 		<noscript>
-			<a href={blindSpot.directUrl} class="btn-primary inline-flex" target="_blank" rel="noopener noreferrer">
+			<a href={blindSpot.directUrl} class="inline-flex items-center justify-center rounded-button bg-brand px-11 py-3.5 font-display text-button font-button uppercase text-text-inverse transition-colors hover:bg-brand-dark" target="_blank" rel="noopener noreferrer">
 				Take the Free Test Now
 			</a>
 		</noscript>

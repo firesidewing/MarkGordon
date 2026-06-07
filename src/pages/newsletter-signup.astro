@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import NewsletterForm from '@/components/islands/NewsletterForm.svelte';
 import MarketingPage from '@/layouts/MarketingPage.astro';
 import { homeAssets } from '@/data/home';
@@ -22,8 +23,8 @@ const { podcastImg } = homeAssets;
 			rel="noopener noreferrer"
 			class="mt-10 block overflow-hidden rounded-sm shadow-md"
 		>
-			<img
-				src={podcastImg.src}
+			<Image
+				src={podcastImg}
 				alt="Mark Gordon podcast on Spotify"
 				width={podcastImg.width}
 				height={podcastImg.height}

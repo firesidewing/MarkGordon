@@ -1,0 +1,51 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Button from '@/components/ui/Button.astro';
+
+type Cta = { label: string; href: string; external?: boolean };
+
+interface Props {
+	title: string;
+	subtitle?: string;
+	description: string;
+	image: ImageMetadata;
+	ctas: Cta[];
+	imageBg?: string;
+}
+
+const { title, subtitle, description, image, ctas, imageBg } = Astro.props;
+---
+
+<article class="flex h-full flex-col overflow-hidden shadow-md">
+	<div
+		class:list={['aspect-[4/3] overflow-hidden', imageBg && 'flex items-center justify-center']}
+		style={imageBg ? `background-color: ${imageBg}` : undefined}
+	>
+		<Image
+			src={image}
+			alt={title}
+			width={image.width}
+			height={image.height}
+			class:list={['h-full w-full', imageBg ? 'object-contain p-4' : 'object-cover']}
+			loading="lazy"
+		/>
+	</div>
+	<div class="flex flex-1 flex-col items-center bg-[#1e1e1e] px-6 py-8 text-center text-text-inverse">
+		<h3 class="font-display text-h4 font-semibold uppercase tracking-wide">{title}</h3>
+		<div class="my-4 h-1 w-10 bg-brand" aria-hidden="true" />
+		{subtitle && (
+			<p class="text-sm font-medium uppercase leading-relaxed tracking-wide text-text-inverse/90">{subtitle}</p>
+		)}
+		<p class:list={['text-sm leading-relaxed text-text-inverse/80', subtitle ? 'mt-4' : 'mt-2']}>{description}</p>
+		<div class="mt-8 flex w-full max-w-[16rem] flex-col gap-3">
+			{
+				ctas.map((cta) => (
+					<Button href={cta.href} external={cta.external} class="w-full justify-center">
+						{cta.label}
+					</Button>
+				))
+			}
+		</div>
+	</div>
+</article>

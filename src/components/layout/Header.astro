@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import MobileNav from '@/components/islands/MobileNav.svelte';
 import TopBar from '@/components/layout/TopBar.astro';
+import logo from '@/assets/logo.png';
 import { mainNav } from '@/config/site';
 
 const currentPath = Astro.url.pathname;
@@ -9,14 +11,16 @@ const currentPath = Astro.url.pathname;
 <header class="sticky top-0 z-50 bg-surface shadow-sm">
 	<TopBar />
 	<div class="border-b border-surface-muted">
-		<div class="container-site flex h-[72px] items-center justify-between gap-4 lg:h-20">
-			<a href="/" class="shrink-0" aria-label="Mark Gordon — Home">
-				<img
-					src="/logo.png"
+		<div class="mx-auto flex h-[72px] w-full max-w-content items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
+			<a href="/" class="flex shrink-0 items-center" aria-label="Mark Gordon — Home">
+				<Image
+					src={logo}
 					alt="Mark Gordon"
-					width="185"
-					height="106"
-					class="h-auto w-[140px] sm:w-[185px]"
+					width={logo.width}
+					height={logo.height}
+					widths={[100, 130, 160]}
+					sizes="(max-width: 1023px) 100px, 130px"
+					class="h-10 w-auto max-h-10 lg:h-12 lg:max-h-12"
 					loading="eager"
 				/>
 			</a>
@@ -28,7 +32,7 @@ const currentPath = Astro.url.pathname;
 							<div class="group relative">
 								<a
 									href={item.href}
-									class="nav-link flex items-center gap-1 px-3 py-2"
+									class="flex items-center gap-1 px-3 py-2 font-display text-nav font-nav text-text-heading transition-colors hover:text-brand"
 									aria-haspopup="true"
 								>
 									{item.label}
@@ -58,7 +62,7 @@ const currentPath = Astro.url.pathname;
 						) : (
 							<a
 								href={item.href}
-								class:list={['nav-link px-3 py-2', currentPath === item.href && 'text-brand']}
+								class:list={['px-3 py-2 font-display text-nav font-nav text-text-heading transition-colors hover:text-brand', currentPath === item.href && 'text-brand']}
 							>
 								{item.label}
 							</a>

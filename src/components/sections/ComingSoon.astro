@@ -18,8 +18,8 @@ const {
 
 <BaseLayout title={title} description={description} noindex={noindex}>
 	<section class="bg-brand py-12 text-center sm:py-16">
-		<div class="container-site">
-			<h1 class="font-display text-2xl font-[var(--font-weight-h2)] uppercase tracking-h2 text-text-inverse sm:text-3xl">
+		<div class="mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8">
+			<h1 class="font-display text-2xl font-h2 uppercase tracking-h2 text-text-inverse sm:text-3xl">
 				{title}
 			</h1>
 			<p class="mx-auto mt-4 max-w-xl text-base leading-relaxed text-text-inverse/90">
@@ -27,7 +27,7 @@ const {
 			</p>
 		</div>
 	</section>
-	<div class="container-site py-[var(--spacing-section)]">
+	<div class="mx-auto w-full max-w-content px-4 py-section sm:px-6 lg:px-8">
 		<div class="mx-auto max-w-xl text-center">
 			<p class="mb-8 leading-relaxed text-text-muted">{description}</p>
 			<div class="flex flex-wrap justify-center gap-3">

@@ -1,55 +1,84 @@
 ---
-import type { ImageMetadata } from 'astro';
 import Button from '@/components/ui/Button.astro';
+
+type Bullet = { text: string; highlight?: string };
 
 interface Props {
 	title: string;
 	subtitle: string;
 	price: string;
-	bullets: string[];
+	bullets: Bullet[];
 	description: string;
 	href: string;
 	badge?: string;
-	image?: ImageMetadata;
 }
 
-const { title, subtitle, price, bullets, description, href, badge, image } = Astro.props;
+const { title, subtitle, price, bullets, description, href, badge } = Astro.props;
+
+function highlightText(text: string, highlight?: string) {
+	if (!highlight) return text;
+	const index = text.toLowerCase().indexOf(highlight.toLowerCase());
+	if (index === -1) return text;
+	const before = text.slice(0, index);
+	const match = text.slice(index, index + highlight.length);
+	const after = text.slice(index + highlight.length);
+	return { before, match, after };
+}
 ---
 
-<article class="flex h-full flex-col overflow-hidden rounded-sm bg-brand text-text-inverse shadow-md">
-	{
-		image && (
-			<div class="aspect-[16/9] overflow-hidden">
-				<img src={image.src} alt={title} width={image.width} height={image.height} class="h-full w-full object-cover" loading="lazy" />
-			</div>
-		)
-	}
-	<div class="flex flex-1 flex-col p-6 sm:p-8">
-		<div class="mb-3 flex items-start justify-between gap-3">
-			<h3 class="font-display text-h3 font-[var(--font-weight-h3)]">{title}</h3>
-			{badge && (
-				<span class="shrink-0 rounded-sm bg-white/20 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide">
-					{badge}
-				</span>
-			)}
-		</div>
-		<p class="text-sm leading-relaxed text-text-inverse/90">{subtitle}</p>
-		<p class="mt-3 font-display text-2xl font-semibold">{price}</p>
-		<ul class="mt-4 flex-1 space-y-1.5 text-sm" role="list">
+<article class="flex h-full flex-col overflow-hidden border border-surface-muted bg-surface shadow-sm">
+	<div class="relative bg-[#2d2d2d] px-6 py-5 text-text-inverse">
+		{
+			badge && (
+				<div class="pointer-events-none absolute right-0 top-0 h-20 w-20 overflow-hidden" aria-hidden="true">
+					<div class="absolute right-[-42px] top-[26px] w-[170px] rotate-45 bg-brand py-1.5 text-center text-[0.65rem] font-semibold uppercase tracking-wide text-text-inverse shadow-sm">
+						{badge}
+					</div>
+				</div>
+			)
+		}
+		<h3 class="pr-10 font-display text-h3 font-h3">{title}</h3>
+		<p class="mt-2 text-sm leading-relaxed text-text-inverse/85">{subtitle}</p>
+	</div>
+
+	<div class="flex flex-1 flex-col px-6 py-8 text-center">
+		<p class="font-display text-3xl font-semibold text-text-heading">{price}</p>
+
+		<ul class="mt-6 flex-1 space-y-3 text-left text-sm text-text" role="list">
 			{
-				bullets.map((bullet) => (
-					<li class="flex gap-2">
-						<span aria-hidden="true">•</span>
-						<span>{bullet}</span>
-					</li>
-				))
+				bullets.map((bullet) => {
+					const parts = highlightText(bullet.text, bullet.highlight);
+					return (
+						<li class="flex gap-3">
+							<span
+								class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-brand text-brand"
+								aria-hidden="true"
+							>
+								<svg class="h-3 w-3" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M2 6l3 3 5-5" />
+								</svg>
+							</span>
+							<span class="leading-relaxed">
+								{typeof parts === 'string' ? (
+									parts
+								) : (
+									<>
+										{parts.before}
+										<strong>{parts.match}</strong>
+										{parts.after}
+									</>
+								)}
+							</span>
+						</li>
+					);
+				})
 			}
 		</ul>
-		<p class="mt-4 text-sm leading-relaxed text-text-inverse/80">{description}</p>
-		<div class="mt-6">
-			<Button href={href} variant="text" class="!text-text-inverse hover:!underline">
-				Learn More →
-			</Button>
+
+		<div class="mt-8">
+			<Button href={href}>Learn More</Button>
 		</div>
+
+		<p class="mt-6 text-left text-sm leading-relaxed text-text-muted">{description}</p>
 	</div>
 </article>
