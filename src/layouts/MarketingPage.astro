@@ -1,0 +1,60 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HubSpotCTA from '@/components/ui/HubSpotCTA.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+	intro?: string;
+	heroImage?: string;
+	showSidebar?: boolean;
+}
+
+const {
+	title,
+	description,
+	intro,
+	heroImage,
+	showSidebar = true,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description ?? intro}>
+	<section
+		class:list={[
+			'relative flex min-h-[220px] items-center bg-brand sm:min-h-[280px]',
+			heroImage && 'bg-cover bg-center',
+		]}
+		style={heroImage ? `background-image: url(${heroImage})` : undefined}
+	>
+		<div class="absolute inset-0 bg-brand/85" aria-hidden="true" />
+		<div class="container-site relative py-12 text-center sm:py-16">
+			<h1 class="font-display text-2xl font-[var(--font-weight-h2)] uppercase tracking-h2 text-text-inverse sm:text-3xl lg:text-4xl">
+				{title}
+			</h1>
+			{intro && <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text-inverse/90">{intro}</p>}
+		</div>
+	</section>
+
+	<div class="container-site py-[var(--spacing-section)]">
+		<div
+			class:list={[
+				showSidebar && 'lg:grid lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_20rem] xl:gap-16',
+			]}
+		>
+			<article class="prose-site min-w-0">
+				<slot />
+			</article>
+
+			{
+				showSidebar && (
+					<aside class="mt-10 lg:mt-0">
+						<slot name="sidebar">
+							<HubSpotCTA class="sticky top-28" />
+						</slot>
+					</aside>
+				)
+			}
+		</div>
+	</div>
+</BaseLayout>

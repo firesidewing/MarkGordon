@@ -15,6 +15,10 @@ export const site = {
 	copyright: `Copyright ${new Date().getFullYear()} - Mark Gordon`,
 } as const;
 
+export const hubspot = {
+	discoveryCall: 'https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting',
+} as const;
+
 export const socialLinks = [
 	{ label: 'Facebook', href: 'https://www.facebook.com/mark.gordon.7545', icon: 'facebook' },
 	{ label: 'Twitter', href: 'https://twitter.com/rMarkGordon?lang=en', icon: 'twitter' },

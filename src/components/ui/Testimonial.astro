@@ -1,0 +1,20 @@
+---
+interface Props {
+	quote: string;
+	author: string;
+	role?: string;
+	class?: string;
+}
+
+const { quote, author, role, class: className } = Astro.props;
+---
+
+<figure class:list={['border-l-4 border-quote pl-6', className]}>
+	<blockquote class="text-base italic leading-relaxed text-quote">
+		<p>&ldquo;{quote}&rdquo;</p>
+	</blockquote>
+	<figcaption class="mt-4 text-sm font-semibold text-text-heading">
+		— {author}
+		{role && <span class="mt-1 block font-normal text-text-muted">{role}</span>}
+	</figcaption>
+</figure>

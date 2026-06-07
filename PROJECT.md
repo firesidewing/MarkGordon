@@ -144,10 +144,10 @@ Top bar: email + social icons (FB, Twitter/X, LinkedIn, Instagram, YouTube).
 - [x] `Footer.astro` — newsletter snippet, links, social, copyright
 
 ### 1.4 Page templates
-- [ ] `MarketingPage.astro` — title hero + prose body + optional sidebar CTA
-- [ ] `BlogPost.astro` — title, date, categories, prose, related posts
-- [ ] `BlogIndex.astro` — paginated post grid
-- [ ] Shared components: `Button`, `Section`, `Card`, `Testimonial`, `YouTube`, `HubSpotCTA`
+- [x] `MarketingPage.astro` — title hero + prose body + optional sidebar CTA
+- [x] `BlogPost.astro` — title, date, categories, prose, related posts
+- [x] `BlogIndex.astro` — paginated post grid
+- [x] Shared components: `Button`, `Section`, `Card`, `Testimonial`, `YouTube`, `HubSpotCTA`
 
 ### 1.5 Build pages (in order)
 - [ ] **Homepage** — highest complexity; decompose `home2` markdown into structured sections/components (don't dump raw markdown)
@@ -239,6 +239,6 @@ Issues spotted in export — handle in migration script or templates:
 - `export.xml` available for slug/URL mapping
 - Live reference: https://www.markgordon.ca/
 
-**Next action:** Phase 1.4 page templates (MarketingPage, BlogPost, BlogIndex).
+**Next action:** Phase 1.5 — build pages (homepage first, then about/contact, service pages, blog routes).
 
-**Completed:** Phase 1.0 scaffold, 1.1 design audit, 1.2 content pipeline, 1.3 layout shell. Run `bun run migrate` to re-sync from `output/`.
+**Completed:** Phase 1.0 scaffold, 1.1 design audit, 1.2 content pipeline, 1.3 layout shell, 1.4 page templates. Run `bun run migrate` to re-sync from `output/`.

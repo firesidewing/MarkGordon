@@ -1,0 +1,27 @@
+---
+interface Props {
+	variant?: 'default' | 'muted' | 'brand';
+	narrow?: boolean;
+	class?: string;
+}
+
+const { variant = 'default', narrow = false, class: className } = Astro.props;
+---
+
+<section
+	class:list={[
+		'py-[var(--spacing-section)]',
+		variant === 'muted' && 'bg-surface-muted',
+		variant === 'brand' && 'bg-brand text-text-inverse',
+		className,
+	]}
+>
+	<div
+		class:list={[
+			'mx-auto w-full px-4 sm:px-6 lg:px-8',
+			narrow ? 'max-w-[var(--container-narrow)]' : 'max-w-[var(--container-content)]',
+		]}
+	>
+		<slot />
+	</div>
+</section>
