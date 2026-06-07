@@ -158,10 +158,10 @@ Top bar: email + social icons (FB, Twitter/X, LinkedIn, Instagram, YouTube).
 - [x] **Remaining** — vlogs, blind-spot, faith-community, book-now, thank-you, newsletter
 
 ### 1.6 Interactive bits (Svelte islands — only where needed)
-- [ ] Mobile navigation
-- [ ] Testimonials carousel (homepage)
-- [ ] Newsletter form *(provider TBD: existing WP plugin? Mailchimp? HubSpot?)*
-- [ ] Blind spot assessment *(likely external embed — confirm)*
+- [x] Mobile navigation
+- [x] Testimonials carousel (homepage)
+- [x] Newsletter form — HubSpot embed (portal `23748604`, form `14655439-…`)
+- [x] Blind spot assessment — Riddle embed (`yMIVAotF`), fallback to blindspots.me
 
 ### 1.7 SEO & redirects
 - [ ] `astro.config.mjs` → `site: 'https://www.markgordon.ca'`
@@ -222,8 +222,8 @@ Issues spotted in export — handle in migration script or templates:
 
 ## Open decisions
 
-- [ ] Newsletter provider (keep WP plugin embed vs Mailchimp vs HubSpot forms)
-- [ ] Blind spot assessment — external tool embed URL?
+- [x] Newsletter provider — HubSpot forms (same as live WP site)
+- [x] Blind spot assessment — Riddle embed on `/blind-spot-assessment/`, nav links to blindspots.me
 - [ ] Contact form — static mailto vs form service?
 - [ ] Course URLs during Phase 1 — redirect to live WP or placeholder page?
 - [ ] `/products/` and `/event-payments/` — still needed?
@@ -239,6 +239,6 @@ Issues spotted in export — handle in migration script or templates:
 - `export.xml` available for slug/URL mapping
 - Live reference: https://www.markgordon.ca/
 
-**Next action:** Phase 1.6 interactive bits (testimonials carousel, newsletter form provider) or Phase 1.7 SEO & redirects.
+**Next action:** Phase 1.7 SEO & redirects (sitemap, vercel.json, OG tags).
 
-**Completed:** Phase 1.0–1.5. 47 static routes built (`bun run build`). Run `bun run migrate` to re-sync from `output/`.
+**Completed:** Phase 1.0–1.6. Run `bun run build` / `bun run dev` to preview. Run `bun run migrate` to re-sync from `output/`.

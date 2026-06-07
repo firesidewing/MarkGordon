@@ -1,6 +1,6 @@
 ---
+import NewsletterForm from '@/components/islands/NewsletterForm.svelte';
 import MarketingPage from '@/layouts/MarketingPage.astro';
-import Button from '@/components/ui/Button.astro';
 import { homeAssets } from '@/data/home';
 
 const { podcastImg } = homeAssets;
@@ -15,12 +15,7 @@ const { podcastImg } = homeAssets;
 		<p class="mb-6 leading-relaxed text-text-muted">
 			Join Mark's newsletter for practical relationship wisdom delivered to your inbox each week.
 		</p>
-		<Button href="https://www.markgordon.ca/newsletter-signup/" external>
-			Subscribe via Mailchimp
-		</Button>
-		<p class="mt-4 text-sm text-text-subtle">
-			Newsletter provider integration coming soon — this links to the current signup form.
-		</p>
+		<NewsletterForm client:load />
 		<a
 			href="https://open.spotify.com/show/24p7utX5IUjVIAz3RrCiPh"
 			target="_blank"

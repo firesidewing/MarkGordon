@@ -80,7 +80,7 @@
 
 		<nav
 			id="mobile-nav-panel"
-			class="fixed inset-y-0 right-0 z-50 flex w-[min(20rem,85vw)] flex-col overflow-y-auto bg-surface shadow-xl"
+			class="fixed inset-y-0 right-0 z-50 flex w-[min(20rem,85vw)] animate-[slideIn_0.2s_ease-out] flex-col overflow-y-auto bg-surface shadow-xl"
 			aria-label="Mobile navigation"
 		>
 			<div class="flex items-center justify-between border-b border-surface-muted px-4 py-3">
@@ -159,3 +159,14 @@
 		</nav>
 	{/if}
 </div>
+
+<style>
+	@keyframes slideIn {
+		from {
+			transform: translateX(100%);
+		}
+		to {
+			transform: translateX(0);
+		}
+	}
+</style>

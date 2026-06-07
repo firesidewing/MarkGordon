@@ -1,5 +1,5 @@
 ---
-import Button from '@/components/ui/Button.astro';
+import NewsletterForm from '@/components/islands/NewsletterForm.svelte';
 import { homeAssets } from '@/data/home';
 
 const { podcastImg } = homeAssets;
@@ -7,13 +7,13 @@ const { podcastImg } = homeAssets;
 
 <section class="bg-surface-muted">
 	<div class="container-site py-[var(--spacing-section)]">
-		<div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+		<div class="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
 			<div>
 				<h2 class="heading-section mb-3">Subscribe to My Newsletter</h2>
 				<p class="mb-6 leading-relaxed text-text-muted">
 					We send out weekly newsletters with relationship tips, news on upcoming events and the latest courses.
 				</p>
-				<Button href="/newsletter-signup/">Subscribe</Button>
+				<NewsletterForm client:visible />
 			</div>
 			<a
 				href="https://open.spotify.com/show/24p7utX5IUjVIAz3RrCiPh"

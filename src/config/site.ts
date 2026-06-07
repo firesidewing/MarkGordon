@@ -17,6 +17,16 @@ export const site = {
 
 export const hubspot = {
 	discoveryCall: 'https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting',
+	newsletterForm: {
+		portalId: '23748604',
+		formId: '14655439-3f03-4321-85b3-fb64acdc4955',
+		region: 'na1',
+	},
+} as const;
+
+export const blindSpot = {
+	riddleId: 'yMIVAotF',
+	directUrl: 'https://blindspots.me/hcWAIr',
 } as const;
 
 export const socialLinks = [
