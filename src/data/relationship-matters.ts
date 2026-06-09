@@ -6,7 +6,7 @@ export type BookRetailer = {
 export const bookRetailers: BookRetailer[][] = [
 	[
 		{
-			lines: ['FRIESENPRESS BOOKSTORE'],
+			lines: ['FRIESENPRESS', 'BOOKSTORE'],
 			href: 'https://books.friesenpress.com/store/title/119734000135991162/Mark-Gordon-Relationship-Matters',
 		},
 		{
