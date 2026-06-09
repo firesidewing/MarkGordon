@@ -13,7 +13,7 @@
 		};
 	};
 
-	let container: HTMLDivElement;
+	let container = $state<HTMLDivElement | undefined>(undefined);
 	let loaded = $state(false);
 	let error = $state(false);
 
@@ -57,7 +57,7 @@
 			or email <a href="mailto:mark@markgordon.ca" class="text-brand hover:underline">mark@markgordon.ca</a>.
 		</p>
 	{:else}
-		<div bind:this={container} class:opacity-0={!loaded} class="min-h-[10rem] transition-opacity duration-300"></div>
+		<div bind:this={container} class:opacity-0={!loaded} class="min-h-[10rem] transition-opacity duration-300 motion-reduce:transition-none"></div>
 	{/if}
 </div>
 

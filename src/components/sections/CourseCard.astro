@@ -11,9 +11,10 @@ interface Props {
 	description: string;
 	href: string;
 	badge?: string;
+	ctaLabel?: string;
 }
 
-const { title, subtitle, price, bullets, description, href, badge } = Astro.props;
+const { title, subtitle, price, bullets, description, href, badge, ctaLabel = `Explore ${title}` } = Astro.props;
 
 function highlightText(text: string, highlight?: string) {
 	if (!highlight) return text;
@@ -27,7 +28,7 @@ function highlightText(text: string, highlight?: string) {
 ---
 
 <article class="flex h-full flex-col overflow-hidden border border-surface-muted bg-surface shadow-sm">
-	<div class="relative bg-[#2d2d2d] px-6 py-5 text-text-inverse">
+	<div class="relative bg-card-header px-6 py-5 text-text-inverse">
 		{
 			badge && (
 				<div class="pointer-events-none absolute right-0 top-0 h-20 w-20 overflow-hidden" aria-hidden="true">
@@ -37,7 +38,7 @@ function highlightText(text: string, highlight?: string) {
 				</div>
 			)
 		}
-		<h3 class="pr-10 font-display text-h3 font-h3">{title}</h3>
+		<h3 class="pr-10 font-display text-white text-h3 font-h3">{title}</h3>
 		<p class="mt-2 text-sm leading-relaxed text-text-inverse/85">{subtitle}</p>
 	</div>
 
@@ -76,7 +77,7 @@ function highlightText(text: string, highlight?: string) {
 		</ul>
 
 		<div class="mt-8">
-			<Button href={href}>Learn More</Button>
+			<Button href={href}>{ctaLabel}</Button>
 		</div>
 
 		<p class="mt-6 text-left text-sm leading-relaxed text-text-muted">{description}</p>

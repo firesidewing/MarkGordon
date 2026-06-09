@@ -15,7 +15,7 @@ const poster = await getImage({ src: videoCover, width: 800, format: 'webp' });
 		<div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
 			<div>
 				<YouTube
-					client:load
+					client:visible
 					videoId={homeVideoId}
 					title={title}
 					posterSrc={poster.src}
@@ -24,7 +24,7 @@ const poster = await getImage({ src: videoCover, width: 800, format: 'webp' });
 				/>
 			</div>
 			<div>
-				<h1 class="mb-6 font-display text-h2 font-h2 uppercase tracking-h2 text-brand">{title}</h1>
+				<h1 class="mb-6 font-display text-h1 font-h1 uppercase tracking-h1 text-brand text-balance">{title}</h1>
 				<p class="mb-6 text-base leading-relaxed text-text">{intro}</p>
 				<div class="flex flex-wrap gap-3">
 					<Button href={hubspot.discoveryCall} external>Book Discovery Call</Button>

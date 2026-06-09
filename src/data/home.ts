@@ -8,9 +8,9 @@ import videoCover from '@/assets/content/home2/Relationship-Matters-video-cover.
 export const homeVideoId = 'J0flKmjl8Qw';
 
 export const homeHero = {
-	title: 'Empowering All Your Relationships',
+	title: 'Build Stronger Relationships',
 	intro:
-		"Relationships are in crisis, that's why I love to empower people in developing healthy relationships. I do this through transformational Courses and creating content that gives you the tools needed to succeed.",
+		'Relationships are under pressure at home and at work. I teach practical skills through courses, coaching, and content you can put to use starting today.',
 };
 
 export const homeQuote = {
@@ -18,7 +18,7 @@ export const homeQuote = {
 	body: 'Today is filled with damaged relationships both personally and professionally, this epidemic continues to destroy families and erode the personal value people need to experience a flourishing life. For healthy relationships to happen, people need to heal from the inside out.',
 	emphasis: "That's where I come in!",
 	mission:
-		'I am committed to empowering all your relationships through a coaching process and teaching principles with the tools that provide skills needed for success. Simply stated, my mission is to "empower people in developing healthy relationships."',
+		'I coach individuals, couples, and teams through a process that teaches the principles and tools needed for lasting change. My mission is simple: help people develop healthy relationships.',
 };
 
 export const homeResults = [
@@ -45,6 +45,7 @@ export const featuredCourses = [
 		description:
 			'This course has been life changing for the people who have taken it in person and now for the first time it is available in video so you can take your family, small group or organization on the journey to healthy relationships together.',
 		href: '/online-courses/',
+		ctaLabel: 'Explore Relationship Matters',
 	},
 	{
 		title: 'Godfidence',
@@ -60,6 +61,7 @@ export const featuredCourses = [
 		description:
 			'In this course, I take you on that journey of discovery. We will explore where your value comes from, and who determines it. We will also look at how shame affects your identity and ultimately your confidence negatively. I will provide you with tools to build confidence that lasts forever.',
 		href: '/online-courses/',
+		ctaLabel: 'Explore Godfidence',
 	},
 ];
 
@@ -85,18 +87,18 @@ export const homeFeatures = [
 		description:
 			'Are you at a loss to understand how your marriage has become so miserable, or do you wonder why your children are completely out of control? Relationship Matters is designed to help you and your family figure out what went wrong and to help create a healthy relational culture at home.',
 		image: bookImg,
-		imageBg: '#0047ab',
+		containedImage: true,
 		ctas: [{ label: 'Get The Book', href: '/relationship-matters/' }],
 	},
 	{
 		title: 'Keynote Speaker',
-		subtitle: 'Empowering Content Delivered with Passion and Practical Application',
+		subtitle: 'Practical Talks Delivered with Passion',
 		description:
-			'Whether speaking in the faith community or a business, recovery agency or a non-profit or a leadership team, my goal is to be engaging and to always leave people with inspiration and practical life applications. My topics are relevant and empowering concerning relationships or the subjects that hurt or enhance them.',
+			'Whether speaking in the faith community or a business, recovery agency or a non-profit or a leadership team, my goal is to be engaging and to always leave people with inspiration and practical life applications. My topics are relevant and grounded in real relationship challenges.',
 		image: keynoteImg,
 		ctas: [
-			{ label: 'Book Discovery Call', href: 'https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting', external: true },
-			{ label: 'Learn More', href: '/keynote-speaker/' },
+			{ label: 'Book a Keynote Call', href: 'https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting', external: true },
+			{ label: 'View Keynote Topics', href: '/keynote-speaker/' },
 		],
 	},
 	{
@@ -105,8 +107,8 @@ export const homeFeatures = [
 			'If you find your family or organization in a relational crisis, I will help you get to the root of the issue so healing can begin. Then I will walk with you in the journey to wholeness in your relationship. I encourage you to invest in learning the skills to improve your personal or professional relationships.',
 		image: coachingImg,
 		ctas: [
-			{ label: 'Book Discovery Call', href: 'https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting', external: true },
-			{ label: 'Learn More', href: '/relationship-leadership-coaching/' },
+			{ label: 'Book a Coaching Call', href: 'https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting', external: true },
+			{ label: 'View Coaching Services', href: '/relationship-leadership-coaching/' },
 		],
 	},
 ];

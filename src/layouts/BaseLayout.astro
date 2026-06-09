@@ -40,16 +40,11 @@ const {
 			publishedTime={publishedTime}
 			noindex={noindex}
 		/>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;900&family=Open+Sans:wght@400;600&display=swap"
-			rel="stylesheet"
-		/>
 	</head>
 	<body class="flex min-h-screen flex-col">
+		<a href="#main-content" class="skip-link">Skip to content</a>
 		<Header />
-		<main class="flex-1">
+		<main id="main-content" class="flex-1">
 			<slot />
 		</main>
 		<Footer />

@@ -11,6 +11,9 @@
 	--text-body--line-height: 1.8;
 	--text-nav: 0.9375rem;
 	--text-button: 1rem;
+	--text-h1: clamp(1.875rem, 1.4rem + 1.75vw, 2.75rem);
+	--text-h1--line-height: 1.15;
+	--tracking-h1: 0.15rem;
 	--text-h2: 1.75rem;
 	--text-h3: 1.5rem;
 	--text-h4: 1.125rem;
@@ -21,6 +24,7 @@
 	--font-weight-button: 500;
 	--font-weight-h3: 600;
 	--font-weight-h2: 900;
+	--font-weight-h1: 900;
 
 	--tracking-h2: 0.29375rem;
 
@@ -32,7 +36,10 @@
 	--color-text-muted: #617175;
 	--color-text-subtle: #69727d;
 	--color-text-inverse: #ffffff;
-	--color-quote: #5dade2;
+	--color-quote: #2563a8;
+
+	--color-card-header: #2d2d2d;
+	--color-card-dark: #1e1e1e;
 
 	--color-surface: #ffffff;
 	--color-surface-muted: #f0f3f6;

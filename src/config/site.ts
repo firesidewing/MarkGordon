@@ -11,7 +11,7 @@ export type NavItem = NavLink & {
 export const site = {
 	name: 'Mark Gordon',
 	email: 'mark@markgordon.ca',
-	tagline: 'Empowering people in developing healthy relationships.',
+	tagline: 'Helping people develop healthy relationships.',
 	copyright: `Copyright ${new Date().getFullYear()} - Mark Gordon`,
 } as const;
 

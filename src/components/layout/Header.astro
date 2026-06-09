@@ -32,7 +32,7 @@ const currentPath = Astro.url.pathname;
 							<div class="group relative">
 								<a
 									href={item.href}
-									class="flex items-center gap-1 px-3 py-2 font-display text-nav font-nav text-text-heading transition-colors hover:text-brand"
+									class="inline-flex min-h-11 items-center gap-1 px-3 py-2 font-display text-nav font-nav text-text-heading transition-colors hover:text-brand motion-reduce:transition-none"
 									aria-haspopup="true"
 								>
 									{item.label}
@@ -41,7 +41,7 @@ const currentPath = Astro.url.pathname;
 									</svg>
 								</a>
 								<ul
-									class="invisible absolute right-0 top-full z-50 min-w-[16rem] translate-y-1 rounded-sm border border-surface-muted bg-surface py-2 opacity-0 shadow-lg transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
+									class="invisible absolute right-0 top-full z-50 min-w-[16rem] translate-y-1 rounded-sm border border-surface-muted bg-surface py-2 opacity-0 shadow-lg transition-all motion-reduce:transition-none group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100"
 									role="list"
 								>
 									{
@@ -62,7 +62,7 @@ const currentPath = Astro.url.pathname;
 						) : (
 							<a
 								href={item.href}
-								class:list={['px-3 py-2 font-display text-nav font-nav text-text-heading transition-colors hover:text-brand', currentPath === item.href && 'text-brand']}
+								class:list={['inline-flex min-h-11 items-center px-3 py-2 font-display text-nav font-nav text-text-heading transition-colors hover:text-brand motion-reduce:transition-none', currentPath === item.href && 'text-brand']}
 							>
 								{item.label}
 							</a>

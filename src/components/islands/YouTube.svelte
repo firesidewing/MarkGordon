@@ -13,13 +13,13 @@
 		posterHeight?: number;
 	} = $props();
 
-	let playing = $state(!posterSrc);
+	let playing = $state(false);
 </script>
 
 <div class="relative aspect-video w-full overflow-hidden rounded-sm bg-surface-alt">
-	{#if playing}
+	{#if playing || !posterSrc}
 		<iframe
-			src="https://www.youtube.com/embed/{videoId}?autoplay=1"
+			src="https://www.youtube.com/embed/{videoId}{playing ? '?autoplay=1' : ''}"
 			{title}
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 			allowfullscreen
@@ -41,11 +41,11 @@
 				class="h-full w-full object-cover"
 			/>
 			<span
-				class="absolute inset-0 bg-black/25 transition-colors group-hover:bg-black/40"
+				class="absolute inset-0 bg-black/25 transition-colors group-hover:bg-black/40 motion-reduce:transition-none"
 				aria-hidden="true"
 			></span>
 			<span
-				class="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-brand shadow-lg transition-transform group-hover:scale-110"
+				class="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-brand shadow-lg transition-transform group-hover:scale-110 motion-reduce:transform-none motion-reduce:group-hover:scale-100"
 				aria-hidden="true"
 			>
 				<svg class="ml-1 h-7 w-7 text-text-inverse" viewBox="0 0 24 24" fill="currentColor">

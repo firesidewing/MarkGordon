@@ -34,7 +34,7 @@ import { footerQuickLinks, site, socialLinks } from '@/config/site';
 							<li>
 								<a
 									href={link.href}
-									class="text-sm font-semibold uppercase tracking-wide text-footer-text transition-colors hover:text-text-inverse"
+									class="inline-flex min-h-11 items-center text-sm font-semibold uppercase tracking-wide text-footer-text transition-colors hover:text-text-inverse motion-reduce:transition-none"
 								>
 									{link.label}
 								</a>
@@ -54,7 +54,7 @@ import { footerQuickLinks, site, socialLinks } from '@/config/site';
 							<li>
 								<a
 									href={link.href}
-									class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-footer-text transition-colors hover:bg-brand hover:text-text-inverse"
+									class="flex min-h-11 min-w-11 items-center justify-center rounded-full bg-white/10 text-footer-text transition-colors hover:bg-brand hover:text-text-inverse motion-reduce:transition-none"
 									target="_blank"
 									rel="noopener noreferrer"
 									aria-label={link.label}
@@ -84,7 +84,7 @@ import { footerQuickLinks, site, socialLinks } from '@/config/site';
 	<div class="border-t border-white/10">
 		<div class="mx-auto flex w-full max-w-content flex-col items-center justify-between gap-3 px-4 py-5 text-xs sm:flex-row sm:px-6 lg:px-8">
 			<p>{site.copyright}</p>
-			<a href={`mailto:${site.email}`} class="transition-colors hover:text-text-inverse">
+			<a href={`mailto:${site.email}`} class="inline-flex min-h-11 items-center transition-colors hover:text-text-inverse">
 				{site.email}
 			</a>
 		</div>

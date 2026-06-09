@@ -53,7 +53,7 @@
 <div class="lg:hidden">
 	<button
 		type="button"
-		class="flex h-10 w-10 items-center justify-center rounded-md text-text-heading hover:bg-surface-muted"
+		class="flex h-11 w-11 items-center justify-center rounded-md text-text-heading hover:bg-surface-muted"
 		aria-expanded={open}
 		aria-controls="mobile-nav-panel"
 		aria-label={open ? 'Close menu' : 'Open menu'}
@@ -80,14 +80,14 @@
 
 		<nav
 			id="mobile-nav-panel"
-			class="fixed inset-y-0 right-0 z-50 flex w-[min(20rem,85vw)] animate-[slideIn_0.2s_ease-out] flex-col overflow-y-auto bg-surface shadow-xl"
+			class="fixed inset-y-0 right-0 z-50 flex w-[min(20rem,85vw)] animate-[slideIn_0.2s_ease-out] motion-reduce:animate-none flex-col overflow-y-auto bg-surface shadow-xl"
 			aria-label="Mobile navigation"
 		>
 			<div class="flex items-center justify-between border-b border-surface-muted px-4 py-3">
 				<span class="font-display text-sm font-medium uppercase tracking-wide text-text-heading">Menu</span>
 				<button
 					type="button"
-					class="flex h-8 w-8 items-center justify-center rounded-md hover:bg-surface-muted"
+					class="flex h-11 w-11 items-center justify-center rounded-md hover:bg-surface-muted"
 					aria-label="Close menu"
 					onclick={closeMenu}
 				>
