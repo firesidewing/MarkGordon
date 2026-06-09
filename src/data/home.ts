@@ -8,9 +8,28 @@ import videoCover from "@/assets/content/home2/Relationship-Matters-video-cover.
 export const homeVideoId = "J0flKmjl8Qw";
 
 export const homeHero = {
-    title: "Build Stronger Relationships",
-    intro: "Relationships are under pressure at home and at work. I teach practical skills through courses, coaching, and content you can put to use starting today.",
+    title: "Build stronger relationships",
+    intro: "Relationships are under pressure at home and at work. I teach practical skills you can put to use starting today.",
 };
+
+export const homeAudiencePaths = [
+    {
+        kicker: "Couples & families",
+        title: "Learn at your own pace",
+        description:
+            "Online courses, the Relationship Matters book, and coaching for home.",
+        href: "/online-courses/",
+        cta: "Start learning",
+    },
+    {
+        kicker: "Organizations & leaders",
+        title: "Book Mark for your group",
+        description:
+            "Keynotes, workshops, and faith-community programs for your audience.",
+        href: "/keynote-speaker/",
+        cta: "View speaking",
+    },
+] as const;
 
 export const homeQuote = {
     text: "I am passionate about you enjoying healthy and trusting relationships.",

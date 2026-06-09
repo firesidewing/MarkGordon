@@ -1,24 +1,28 @@
 ---
 interface Props {
-	class?: string;
+    class?: string;
 }
 
 const { class: className } = Astro.props;
 ---
 
-<section class:list={['bg-brand py-8 text-text-inverse sm:py-10', className]}>
-	<div class="mx-auto flex w-full max-w-content flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:items-center sm:px-6 lg:px-8">
-		<div class="text-center sm:text-left">
-			<p class="font-display text-lg font-medium sm:text-xl">Would you like stronger relationships?</p>
-			<p class="mt-1 text-sm text-text-inverse/90">
-				Discover how in three minutes by knowing your blindspots
-			</p>
-		</div>
-		<a
-			href="/blind-spot-assessment/"
-			class="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap font-display text-button font-button uppercase text-text-inverse underline-offset-4 hover:underline"
-		>
-			Take the Free Test Now →
-		</a>
-	</div>
+<section class:list={["bg-brand py-8 text-text-inverse sm:py-10", className]}>
+    <div
+        class="mx-auto flex w-full max-w-content flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:items-center sm:px-6 lg:px-8"
+    >
+        <div class="text-center sm:text-left">
+            <p class="font-display text-lg font-medium sm:text-xl">
+                Would you like stronger relationships?
+            </p>
+            <p class="mt-1 text-sm text-text-inverse/90">
+                Discover how in three minutes by knowing your blindspots
+            </p>
+        </div>
+        <a
+            href="https://blindspots.me/hcWAIr"
+            class="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap font-display text-button font-button uppercase text-text-inverse underline-offset-4 hover:underline"
+        >
+            Take the Free Test Now →
+        </a>
+    </div>
 </section>
