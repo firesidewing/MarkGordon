@@ -171,9 +171,68 @@ Top bar: email + social icons (FB, Twitter/X, LinkedIn, Instagram, YouTube).
 - [x] Course URLs → coming-soon stubs (`/online-courses/`, `/courses/*`, auth routes)
 
 ### 1.8 Deploy
-- [ ] Vercel project + preview deploys on PR
-- [ ] Point staging subdomain; visual QA against live site
-- [ ] Cutover checklist (DNS, redirects, search console)
+
+**Vercel project:** `short-matter` · team `firesidewings-projects` · GitHub `firesidewing/MarkGordon`  
+**Preview URL:** https://short-matter.vercel.app
+
+- [x] Vercel project linked + GitHub connected → preview deploys on every PR
+- [x] Initial production deploy live at `short-matter.vercel.app`
+- [ ] Push latest to `origin` so Vercel builds from Git (not just CLI)
+- [x] Staging subdomain `staging.markgordon.ca` added in Vercel — **DNS pending:** `A staging.markgordon.ca 76.76.21.21`
+- [ ] Visual QA on staging vs live site
+- [ ] Production cutover (DNS, redirects, Search Console)
+
+#### Vercel settings (confirm in dashboard)
+
+| Setting | Value |
+|---------|-------|
+| Framework | Astro |
+| Install | `bun install` |
+| Build | `bun run build` |
+| Output | `.vercel/output` (adapter handles this) |
+| Node | ≥ 22.12 (`package.json` engines) |
+| Lockfile | `bun.lockb` |
+
+Preview deployments are automatic on PRs once GitHub is connected. Each PR gets a unique `*.vercel.app` URL in the PR checks.
+
+#### Staging subdomain
+
+1. Vercel → Project → Settings → Domains → add `staging.markgordon.ca`
+2. DNS (at registrar): `CNAME staging → cname.vercel-dns.com`
+3. Optional: assign staging to a `staging` branch (Settings → Git → Production Branch stays `master`/`main`)
+4. Run visual QA on staging before touching production DNS
+
+#### Visual QA checklist (staging vs https://www.markgordon.ca)
+
+| Page | Routes | Check |
+|------|--------|-------|
+| Home | `/` | Hero, course cards, testimonials carousel, newsletter CTA |
+| About | `/about-mark/` | Hero overlay, prose, discovery CTA |
+| Blog index | `/blog/` | Pagination, category links |
+| Blog post | `/the-hidden-jewel/` | Prose, sidebar categories, related posts |
+| Keynote | `/keynote-speaker/` | Hero, bullet grids, testimonial |
+| Contact | `/contact/` | HubSpot discovery link, email |
+| Blind spot | `/blind-spot-assessment/` | Riddle embed loads |
+| Newsletter | `/newsletter-signup/` | HubSpot form submits |
+| Mobile | any | Hamburger nav, dropdowns, top bar |
+| Course stubs | `/online-courses/`, `/courses/*` | Coming-soon page (not 404) |
+| Redirect | `/home2` | 301 → `/` |
+
+#### Production cutover checklist
+
+- [ ] Final visual QA on staging passes
+- [ ] `bun run build` clean locally
+- [ ] Vercel production deploy green
+- [ ] DNS: `www.markgordon.ca` CNAME → `cname.vercel-dns.com` (or A records per Vercel docs)
+- [ ] DNS: apex `markgordon.ca` → Vercel (A record or redirect to www)
+- [ ] SSL certificates issued (automatic on Vercel)
+- [ ] Spot-check 10+ legacy post URLs (slug-only, no `/blog/` prefix)
+- [ ] `vercel.json` redirect `/home2` → `/` works
+- [ ] `robots.txt` + `/sitemap-index.xml` reachable
+- [ ] Google Search Console: add property, submit sitemap, request indexing for `/`
+- [ ] HubSpot forms + Riddle embed work on production domain
+- [ ] Social/OG previews (share a blog post link)
+- [ ] Keep WordPress live 1–2 weeks as rollback; then decommission
 
 ---
 
@@ -239,6 +298,6 @@ Issues spotted in export — handle in migration script or templates:
 - `export.xml` available for slug/URL mapping
 - Live reference: https://www.markgordon.ca/
 
-**Next action:** Phase 1.8 deploy (Vercel project, staging QA, cutover checklist).
+**Next action:** Push to GitHub → confirm Vercel preview build → add `staging.markgordon.ca` → visual QA → production DNS cutover.
 
-**Completed:** Phase 1.0–1.7. 57 routes + sitemap. Run `bun run build` / `bun run dev` to preview.
+**Completed:** Phase 1.0–1.7 + Vercel project linked. 57 routes + sitemap. Run `bun run build` / `bun run dev` to preview.

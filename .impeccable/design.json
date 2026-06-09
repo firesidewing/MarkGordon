@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-08T00:00:00.000Z",
+  "title": "Design System: Mark Gordon",
+  "extensions": {
+    "colorMeta": {
+      "brand": {
+        "role": "primary",
+        "displayName": "Cobalt Conviction",
+        "canonical": "oklch(42% 0.18 264)",
+        "tonalRamp": [
+          "oklch(18% 0.08 264)",
+          "oklch(25% 0.12 264)",
+          "oklch(32% 0.15 264)",
+          "oklch(38% 0.17 264)",
+          "oklch(42% 0.18 264)",
+          "oklch(52% 0.16 264)",
+          "oklch(65% 0.12 264)",
+          "oklch(82% 0.06 264)",
+          "oklch(94% 0.02 264)"
+        ]
+      },
+      "brand-dark": {
+        "role": "primary",
+        "displayName": "Cobalt Deep",
+        "canonical": "oklch(34% 0.16 264)",
+        "tonalRamp": [
+          "oklch(15% 0.06 264)",
+          "oklch(22% 0.10 264)",
+          "oklch(28% 0.13 264)",
+          "oklch(34% 0.16 264)",
+          "oklch(40% 0.17 264)",
+          "oklch(50% 0.14 264)",
+          "oklch(62% 0.10 264)",
+          "oklch(78% 0.05 264)",
+          "oklch(92% 0.02 264)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Ink Body",
+        "canonical": "oklch(38% 0.01 240)",
+        "tonalRamp": [
+          "oklch(15% 0.01 240)",
+          "oklch(22% 0.01 240)",
+          "oklch(30% 0.01 240)",
+          "oklch(38% 0.01 240)",
+          "oklch(48% 0.01 240)",
+          "oklch(58% 0.01 240)",
+          "oklch(72% 0.01 240)",
+          "oklch(86% 0.005 240)",
+          "oklch(96% 0.003 240)"
+        ]
+      },
+      "text-heading": {
+        "role": "neutral",
+        "displayName": "Ink Heading",
+        "canonical": "oklch(22% 0.01 240)",
+        "tonalRamp": [
+          "oklch(12% 0.01 240)",
+          "oklch(16% 0.01 240)",
+          "oklch(20% 0.01 240)",
+          "oklch(22% 0.01 240)",
+          "oklch(32% 0.01 240)",
+          "oklch(45% 0.01 240)",
+          "oklch(60% 0.01 240)",
+          "oklch(78% 0.005 240)",
+          "oklch(94% 0.003 240)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Clean Surface",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0.005 250)",
+          "oklch(25% 0.005 250)",
+          "oklch(35% 0.005 250)",
+          "oklch(45% 0.005 250)",
+          "oklch(55% 0.005 250)",
+          "oklch(70% 0.005 250)",
+          "oklch(85% 0.005 250)",
+          "oklch(94% 0.005 250)",
+          "oklch(100% 0 0)"
+        ]
+      },
+      "surface-muted": {
+        "role": "neutral",
+        "displayName": "Cool Band",
+        "canonical": "oklch(95% 0.008 250)",
+        "tonalRamp": [
+          "oklch(20% 0.01 250)",
+          "oklch(30% 0.01 250)",
+          "oklch(40% 0.01 250)",
+          "oklch(50% 0.01 250)",
+          "oklch(60% 0.01 250)",
+          "oklch(72% 0.008 250)",
+          "oklch(85% 0.008 250)",
+          "oklch(95% 0.008 250)",
+          "oklch(99% 0.003 250)"
+        ]
+      },
+      "footer": {
+        "role": "neutral",
+        "displayName": "Footer Charcoal",
+        "canonical": "oklch(18% 0.01 280)",
+        "tonalRamp": [
+          "oklch(10% 0.01 280)",
+          "oklch(14% 0.01 280)",
+          "oklch(18% 0.01 280)",
+          "oklch(24% 0.01 280)",
+          "oklch(32% 0.01 280)",
+          "oklch(42% 0.01 280)",
+          "oklch(55% 0.01 280)",
+          "oklch(72% 0.008 280)",
+          "oklch(88% 0.005 280)"
+        ]
+      },
+      "quote": {
+        "role": "tertiary",
+        "displayName": "Sky Quote",
+        "canonical": "oklch(72% 0.12 230)",
+        "tonalRamp": [
+          "oklch(25% 0.08 230)",
+          "oklch(35% 0.10 230)",
+          "oklch(45% 0.11 230)",
+          "oklch(55% 0.12 230)",
+          "oklch(65% 0.12 230)",
+          "oklch(72% 0.12 230)",
+          "oklch(80% 0.09 230)",
+          "oklch(90% 0.05 230)",
+          "oklch(97% 0.02 230)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Section h2 anchors in uppercase Montserrat 900. Blue on light, white on brand bands."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Card titles and inner-page subheads on dark or light surfaces."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All long-form prose and descriptions. Open Sans at 14px, 1.8 line-height."
+      },
+      "nav": {
+        "displayName": "Nav",
+        "purpose": "Main navigation links and top-bar utility text."
+      },
+      "label": {
+        "displayName": "Label / Button",
+        "purpose": "Uppercase CTA buttons and short action labels."
+      }
+    },
+    "shadows": [
+      {
+        "name": "resting-lift",
+        "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+        "purpose": "Sticky header and course cards at rest."
+      },
+      {
+        "name": "dropdown-float",
+        "value": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        "purpose": "Navigation dropdown menus on hover and focus."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-colors",
+        "value": "color 150ms ease, background-color 150ms ease",
+        "purpose": "Default button and link hover transitions."
+      },
+      {
+        "name": "ease-dropdown",
+        "value": "opacity 200ms ease, transform 200ms ease, visibility 200ms",
+        "purpose": "Nav dropdown reveal on hover and focus-within."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main conversion CTA. Pill shape, uppercase Montserrat, cobalt background.",
+      "html": "<a href=\"#\" class=\"ds-btn-primary\">Book Discovery Call</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; background-color: #0047ab; color: #ffffff; font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; font-size: 1rem; font-weight: 500; text-transform: uppercase; text-decoration: none; padding: 15px 45px; border-radius: 1.25rem; border: none; transition: background-color 150ms ease, color 150ms ease; cursor: pointer; } .ds-btn-primary:hover { background-color: #003580; } .ds-btn-primary:focus-visible { outline: 2px solid #0047ab; outline-offset: 2px; }"
+    },
+    {
+      "name": "Text CTA Link",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Text link CTA on brand-blue bands. Underline on hover, optional arrow.",
+      "html": "<a href=\"#\" class=\"ds-btn-text\">Take the Free Test Now →</a>",
+      "css": ".ds-btn-text { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; font-size: 1rem; font-weight: 500; text-transform: uppercase; color: #ffffff; text-decoration: none; text-underline-offset: 4px; white-space: nowrap; transition: text-decoration 150ms ease; cursor: pointer; } .ds-btn-text:hover { text-decoration: underline; } .ds-btn-text:focus-visible { outline: 2px solid #ffffff; outline-offset: 2px; }"
+    },
+    {
+      "name": "Top Utility Bar",
+      "kind": "nav",
+      "refersTo": "button-text",
+      "description": "Full-width cobalt strip with email, social icons, and Login.",
+      "html": "<div class=\"ds-topbar\"><a href=\"mailto:mark@markgordon.ca\" class=\"ds-topbar-email\">mark@markgordon.ca</a><a href=\"#\" class=\"ds-topbar-login\">Login</a></div>",
+      "css": ".ds-topbar { display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 2rem; background-color: #0047ab; color: #ffffff; font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; } .ds-topbar-email { font-size: 0.75rem; color: #ffffff; text-decoration: none; opacity: 1; transition: opacity 150ms ease; } .ds-topbar-email:hover { opacity: 0.9; } .ds-topbar-login { font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: #ffffff; text-decoration: none; transition: opacity 150ms ease; } .ds-topbar-login:hover { opacity: 0.9; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "button-text",
+      "description": "Main navigation link. Montserrat 500, cobalt on hover and active.",
+      "html": "<a href=\"#\" class=\"ds-nav-link\">What I Offer</a>",
+      "css": ".ds-nav-link { display: inline-block; padding: 0.5rem 0.75rem; font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; color: #262a2b; text-decoration: none; transition: color 150ms ease; } .ds-nav-link:hover { color: #0047ab; } .ds-nav-link:focus-visible { outline: 2px solid #0047ab; outline-offset: 2px; }"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "Uppercase Montserrat 900 section h2 in cobalt on light surfaces.",
+      "html": "<h2 class=\"ds-section-heading\">Courses with Impact</h2>",
+      "css": ".ds-section-heading { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; font-size: 1.75rem; font-weight: 900; line-height: 1.2; letter-spacing: 0.29375rem; text-transform: uppercase; color: #0047ab; margin: 0; }"
+    },
+    {
+      "name": "CTA Band",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "Full-width cobalt strip between content sections with value prop and text CTA.",
+      "html": "<section class=\"ds-cta-band\"><div class=\"ds-cta-band-copy\"><p class=\"ds-cta-band-title\">Would you like stronger relationships?</p><p class=\"ds-cta-band-sub\">Discover how in three minutes by knowing your blindspots</p></div><a href=\"#\" class=\"ds-btn-text\">Take the Free Test Now →</a></section>",
+      "css": ".ds-cta-band { display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 2rem 2rem; background-color: #0047ab; color: #ffffff; } @media (min-width: 640px) { .ds-cta-band { flex-direction: row; align-items: center; } } .ds-cta-band-title { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; font-size: 1.125rem; font-weight: 500; margin: 0; color: #ffffff; } .ds-cta-band-sub { margin: 0.25rem 0 0; font-family: Open Sans, ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; color: rgba(255, 255, 255, 0.9); }"
+    },
+    {
+      "name": "Course Card",
+      "kind": "card",
+      "refersTo": "button-primary",
+      "description": "Featured course offering with dark header, price, bullet list, and CTA.",
+      "html": "<article class=\"ds-course-card\"><div class=\"ds-course-card-header\"><h3 class=\"ds-course-card-title\">Relationship Matters</h3><p class=\"ds-course-card-subtitle\">Build stronger connections</p></div><div class=\"ds-course-card-body\"><p class=\"ds-course-card-price\">$97</p><a href=\"#\" class=\"ds-btn-primary ds-course-card-btn\">Learn More</a></div></article>",
+      "css": ".ds-course-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid #f0f3f6; background-color: #ffffff; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); } .ds-course-card-header { background-color: #2d2d2d; color: #ffffff; padding: 1.25rem 1.5rem; } .ds-course-card-title { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; font-size: 1.5rem; font-weight: 600; margin: 0; color: #ffffff; } .ds-course-card-subtitle { margin: 0.5rem 0 0; font-family: Open Sans, ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; color: rgba(255, 255, 255, 0.85); } .ds-course-card-body { padding: 2rem 1.5rem; text-align: center; } .ds-course-card-price { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; font-size: 1.875rem; font-weight: 600; color: #262a2b; margin: 0; } .ds-course-card-btn { margin-top: 2rem; }"
+    },
+    {
+      "name": "Footer Quick Link",
+      "kind": "nav",
+      "refersTo": "button-text",
+      "description": "Uppercase footer navigation link on charcoal background.",
+      "html": "<a href=\"#\" class=\"ds-footer-link\">Keynote Speaker</a>",
+      "css": ".ds-footer-link { font-family: Montserrat, ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #bfbfbf; text-decoration: none; transition: color 150ms ease; } .ds-footer-link:hover { color: #ffffff; } .ds-footer-link:focus-visible { outline: 2px solid #ffffff; outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Open Door",
+    "overview": "Mark Gordon's site should feel like walking into a coach's office where the door is already open: welcoming, credible, and direct. Visitors (couples at home and org leaders booking events) should immediately sense expert warmth, not a sales funnel. The visual system preserves the established cobalt-blue identity while elevating spacing, hierarchy, and polish beyond the WordPress-era baseline.\n\nThis is a Committed color strategy: Cobalt Conviction blue carries meaningful surface area (utility bar, CTA bands, section headings, buttons) while white and cool gray bands provide breathing room. Typography does the authority work: Montserrat in heavy uppercase for section anchors, Open Sans at generous line-height for readable prose.\n\nThe system explicitly rejects generic SaaS templates, cold corporate consulting aesthetics, and trendy AI-slop scaffolding.",
+    "keyCharacteristics": [
+      "Cobalt Conviction blue as the structural accent, not decoration",
+      "Montserrat display + Open Sans body pairing (elevated, not replaced)",
+      "Tonal section rhythm with subtle lift on interactive surfaces",
+      "Pill buttons and uppercase CTAs with plain-spoken copy underneath",
+      "Content-forward layouts: video, testimonials, course previews over abstract claims"
+    ],
+    "rules": [
+      {
+        "name": "The Committed Blue Rule",
+        "body": "Cobalt Conviction may occupy 30–60% of visible surface on marketing pages (utility bar, one CTA band, heading accents, buttons). It is never diluted into gradient text or decorative stripes.",
+        "section": "colors"
+      },
+      {
+        "name": "The Cool Neutral Rule",
+        "body": "Background neutrals stay cool-tinted (blue-gray family), not warm cream or sand. Warmth comes from copy, photography, and Mark's voice, not from a beige body background.",
+        "section": "colors"
+      },
+      {
+        "name": "The Weight-Contrast Rule",
+        "body": "Hierarchy comes from scale + weight jumps (≥1.25 ratio between steps), not from adding more font families. Two families only: Montserrat and Open Sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The Uppercase Anchor Rule",
+        "body": "Uppercase Montserrat is reserved for section h2s, buttons, and short labels (≤4 words). Body copy and paragraphs are always sentence case in Open Sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The Subtle Lift Rule",
+        "body": "Surfaces are flat at rest. shadow-sm appears only on contained elements (cards, sticky header) and shadow-lg only on floating overlays (dropdowns). Never stack shadows on nested containers.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Band Rhythm Rule",
+        "body": "Section depth alternates through background color (Clean Surface / Cool Band / Cobalt Conviction), not through nested cards. Cards are for discrete offerings (courses), not generic content wrapping.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use Cobalt Conviction (#0047AB) for buttons, top bar, CTA bands, and section h2 accents.",
+      "Do pair Montserrat display headings with Open Sans body copy at 1.8 line-height.",
+      "Do alternate Clean Surface and Cool Band (#F0F3F6) for section rhythm.",
+      "Do use pill buttons (1.25rem radius) with verb + object labels (\"Book Discovery Call\", \"Learn More\").",
+      "Do lead with real content (video embeds, testimonials, course details) over abstract marketing claims.",
+      "Do apply shadow-sm only to cards and the sticky header; shadow-lg only to dropdown overlays."
+    ],
+    "donts": [
+      "Don't use generic SaaS / startup templates: cream backgrounds, gradient text, hero-metric blocks, or buzzword copy.",
+      "Don't adopt cold corporate consulting aesthetics: stock-photo grids, impersonal tone, identical feature-card rows.",
+      "Don't use trendy minimal / AI-slop patterns: tracked uppercase eyebrows on every section, numbered section markers (01 / 02 / 03) as default scaffolding, or identical icon + heading + text card grids.",
+      "Don't use border-left or border-right greater than 1px as a colored accent stripe on cards, callouts, or alerts.",
+      "Don't use gradient text (background-clip: text) for headings or CTAs.",
+      "Don't nest cards inside cards.",
+      "Don't lighten body text (#4A4A4A) toward gray for \"elegance\"; bump toward Ink Heading if contrast is borderline."
+    ]
+  }
+}
