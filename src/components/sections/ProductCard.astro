@@ -1,68 +1,101 @@
 ---
-import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
-import Button from '@/components/ui/Button.astro';
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Button from "@/components/ui/Button.astro";
 
 type Cta = { label: string; href: string; external?: boolean };
 
 interface Props {
-	title: string;
-	subtitle?: string;
-	description: string;
-	image: ImageMetadata;
-	ctas: Cta[];
-	containedImage?: boolean;
-	layout?: 'vertical' | 'horizontal';
+    title: string;
+    subtitle?: string;
+    description: string;
+    image: ImageMetadata;
+    ctas: Cta[];
+    containedImage?: boolean;
+    layout?: "vertical" | "horizontal";
 }
 
-const { title, subtitle, description, image, ctas, containedImage = false, layout = 'vertical' } = Astro.props;
-const horizontal = layout === 'horizontal';
+const {
+    title,
+    subtitle,
+    description,
+    image,
+    ctas,
+    containedImage = false,
+    layout = "vertical",
+} = Astro.props;
+const horizontal = layout === "horizontal";
 ---
 
 <article
-	class:list={[
-		'overflow-hidden shadow-sm',
-		horizontal ? 'grid lg:grid-cols-2' : 'flex h-full flex-col',
-	]}
+    class:list={[
+        "overflow-hidden shadow-sm",
+        horizontal ? "grid lg:grid-cols-2" : "flex h-full flex-col",
+    ]}
 >
-	<div
-		class:list={[
-			'overflow-hidden',
-			horizontal ? 'aspect-[4/3] lg:aspect-auto lg:min-h-[18rem]' : 'aspect-[4/3]',
-			containedImage && 'flex items-center justify-center bg-brand',
-		]}
-	>
-		<Image
-			src={image}
-			alt={title}
-			width={image.width}
-			height={image.height}
-			class:list={['h-full w-full', containedImage ? 'object-contain p-4' : 'object-cover']}
-			loading="lazy"
-		/>
-	</div>
-	<div
-		class:list={[
-			'flex flex-col items-center bg-card-dark px-6 py-8 text-center text-text-inverse',
-			horizontal ? 'justify-center' : 'flex-1',
-		]}
-	>
-		<h3 class="font-display text-h4 font-semibold uppercase tracking-wide">{title}</h3>
-		<div class="my-4 h-1 w-10 bg-brand" aria-hidden="true" />
-		{subtitle && (
-			<p class="text-sm font-medium uppercase leading-relaxed tracking-wide text-text-inverse/90">{subtitle}</p>
-		)}
-		<p class:list={['max-w-prose text-sm leading-relaxed text-text-inverse/80', subtitle ? 'mt-4' : 'mt-2']}>
-			{description}
-		</p>
-		<div class:list={['mt-8 flex w-full flex-col gap-3', horizontal ? 'max-w-xs' : 'max-w-[16rem]']}>
-			{
-				ctas.map((cta) => (
-					<Button href={cta.href} external={cta.external} class="w-full justify-center">
-						{cta.label}
-					</Button>
-				))
-			}
-		</div>
-	</div>
+    <div
+        class:list={[
+            "overflow-hidden",
+            horizontal ? "aspect-4/3 lg:aspect-auto lg:min-h-72" : "aspect-4/3",
+            containedImage && "flex items-center justify-center bg-brand",
+        ]}
+    >
+        <Image
+            src={image}
+            alt={title}
+            width={image.width}
+            height={image.height}
+            class:list={[
+                "h-full w-full",
+                containedImage ? "object-contain p-4" : "object-cover",
+            ]}
+            loading="lazy"
+        />
+    </div>
+    <div
+        class:list={[
+            "flex flex-col items-center bg-card-dark px-6 py-8 text-center text-text-inverse",
+            horizontal ? "justify-center" : "flex-1",
+        ]}
+    >
+        <h3
+            class="font-display text-white text-h4 font-semibold uppercase tracking-wide"
+        >
+            {title}
+        </h3>
+        <div class="my-4 h-1 w-10 bg-brand" aria-hidden="true"></div>
+        {
+            subtitle && (
+                <p class="text-sm font-medium uppercase leading-relaxed tracking-wide text-text-inverse/90">
+                    {subtitle}
+                </p>
+            )
+        }
+        <p
+            class:list={[
+                "max-w-prose text-sm leading-relaxed text-text-inverse/80",
+                subtitle ? "mt-4" : "mt-2",
+            ]}
+        >
+            {description}
+        </p>
+        <div
+            class:list={[
+                "mt-8 flex w-full flex-col gap-3",
+                horizontal ? "max-w-xs" : "max-w-[16rem]",
+            ]}
+        >
+            {
+                ctas.map((cta) => (
+                    <Button
+                        href={cta.href}
+                        external={cta.external}
+                        class="w-full justify-center"
+                    >
+                        {cta.label}
+                    </Button>
+                ))
+            }
+        </div>
+    </div>
 </article>

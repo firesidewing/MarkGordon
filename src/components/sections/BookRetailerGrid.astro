@@ -1,48 +1,43 @@
 ---
-import type { BookRetailer } from '@/data/relationship-matters';
+import type { BookRetailer } from "@/data/relationship-matters";
 
 interface Props {
-	retailers: BookRetailer[][];
+    retailers: BookRetailer[][];
 }
 
 const { retailers } = Astro.props;
 ---
 
 <section class="bg-brand">
-	<div class="mx-auto w-full max-w-content">
-		{
-			retailers.map((row, rowIndex) => (
-				<div class="grid sm:grid-cols-3">
-					{row.map((retailer, colIndex) => (
-						<div
-							class:list={[
-								'flex flex-col items-center px-6 py-10 text-center sm:py-12',
-								colIndex < row.length - 1 && 'sm:border-r sm:border-white/90',
-							]}
-						>
-							<a
-								href={retailer.href}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="font-display text-xl font-semibold uppercase leading-snug text-text-inverse transition-opacity hover:opacity-90 sm:text-2xl lg:text-[1.875rem]"
-							>
-								{retailer.lines.map((line) => (
-									<>
-										{line}
-										<br />
-									</>
-								))}
-							</a>
-							{rowIndex === 0 && (
-								<div
-									class="mt-6 h-1 w-[30%] bg-white/95"
-									aria-hidden="true"
-								/>
-							)}
-						</div>
-					))}
-				</div>
-			))
-		}
-	</div>
+    <div class="mx-auto w-full max-w-content">
+        {
+            retailers.map((row, rowIndex) => (
+                <div class="grid sm:grid-cols-3 gap-4">
+                    {row.map((retailer, colIndex) => (
+                        <div
+                            class:list={[
+                                "flex flex-col items-center px-6 text-center sm:py-12",
+                                colIndex < row.length - 1 &&
+                                    "sm:border-r sm:border-white/90",
+                            ]}
+                        >
+                            <a
+                                href={retailer.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="font-display text-xl font-semibold uppercase leading-snug text-text-inverse transition-opacity hover:opacity-90 sm:text-2xl lg:text-[1.875rem]"
+                            >
+                                {retailer.lines.map((line) => (
+                                    <>
+                                        {line}
+                                        <br />
+                                    </>
+                                ))}
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            ))
+        }
+    </div>
 </section>

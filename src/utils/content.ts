@@ -26,6 +26,7 @@ export const RESERVED_PAGE_SLUGS = new Set([
 	'book-now',
 	'relationship-matters',
 	'faith-community-packages',
+	'keynote-speaker',
 ]);
 
 export async function getPublishedPosts(): Promise<CollectionEntry<'blog'>[]> {
