@@ -8,6 +8,8 @@ import CourseStickyBar from '@/components/courses/CourseStickyBar.astro';
 import CourseLayout from '@/layouts/CourseLayout.astro';
 import { getAllCourses } from '@/lib/courses';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
 	const courses = await getAllCourses();
 	return courses.map((course) => ({
@@ -89,14 +91,14 @@ const cover = coverKey ? coverImages[coverKey].default : undefined;
 			</div>
 
 			<aside class="hidden lg:block">
-				<CoursePurchaseCta title={title} price={price} class="sticky top-28" />
+				<CoursePurchaseCta title={title} price={price} courseSlug={course.id} class="sticky top-28" />
 			</aside>
 		</div>
 
 		<div class="mt-10 lg:hidden">
-			<CoursePurchaseCta title={title} price={price} />
+			<CoursePurchaseCta title={title} price={price} courseSlug={course.id} />
 		</div>
 	</div>
 
-	<CourseStickyBar title={title} price={price} />
+	<CourseStickyBar title={title} price={price} courseSlug={course.id} />
 </CourseLayout>

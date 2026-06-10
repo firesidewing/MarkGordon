@@ -1,0 +1,26 @@
+---
+import { UserProfile } from '@clerk/astro/components';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { clerkAppearance } from '@/config/clerk-appearance';
+
+export const prerender = false;
+
+const { userId } = Astro.locals.auth();
+if (!userId) {
+	return Astro.redirect('/sign-in/');
+}
+---
+
+<BaseLayout title="Account" description="Manage your Mark Gordon account." noindex>
+	<div class="mx-auto w-full max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+		<h1 class="font-display text-h2 font-h2 uppercase tracking-h2 text-brand">Account</h1>
+		<p class="mt-2 text-sm text-text-muted">
+			<a href="/account/courses/" class="text-brand hover:underline">My courses</a>
+			<span aria-hidden="true"> · </span>
+			<a href="/online-courses/" class="text-brand hover:underline">Browse courses</a>
+		</p>
+		<div class="mt-8">
+			<UserProfile appearance={clerkAppearance} routing="hash" />
+		</div>
+	</div>
+</BaseLayout>

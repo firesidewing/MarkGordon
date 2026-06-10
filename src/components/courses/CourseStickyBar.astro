@@ -1,13 +1,14 @@
 ---
-import Button from '@/components/ui/Button.astro';
+import CourseCheckout from '@/components/courses/CourseCheckout.astro';
 import { formatPrice } from '@/lib/courses';
 
 interface Props {
 	title: string;
 	price: number;
+	courseSlug: string;
 }
 
-const { title, price } = Astro.props;
+const { title, price, courseSlug } = Astro.props;
 ---
 
 <div class="fixed inset-x-0 bottom-0 z-40 border-t border-surface-muted bg-surface/95 px-4 py-3 shadow-lg backdrop-blur-sm md:hidden">
@@ -16,6 +17,6 @@ const { title, price } = Astro.props;
 			<p class="truncate font-display text-sm font-semibold text-text-heading">{title}</p>
 			<p class="text-xs text-text-muted">{formatPrice(price)} · 365-day access</p>
 		</div>
-		<Button href="/registration/" class="shrink-0 px-4 py-2 text-xs">Buy now</Button>
+		<CourseCheckout courseSlug={courseSlug} price={price} compact />
 	</div>
 </div>

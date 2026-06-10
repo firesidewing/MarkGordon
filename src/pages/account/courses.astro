@@ -1,0 +1,117 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/ui/Button.astro';
+import { getAllCourses } from '@/lib/courses';
+import { listEnrollments, isEnrollmentActive } from '@/lib/enrollments';
+import { isDbConfigured } from '@/lib/db';
+
+export const prerender = false;
+
+const { userId } = Astro.locals.auth();
+if (!userId) {
+	return Astro.redirect('/sign-in/');
+}
+
+const courses = await getAllCourses();
+const courseBySlug = new Map(courses.map((course) => [course.id, course]));
+
+let enrollments: Awaited<ReturnType<typeof listEnrollments>> = [];
+let dbError = false;
+
+if (isDbConfigured()) {
+	try {
+		enrollments = await listEnrollments(userId);
+	} catch (error) {
+		console.error('Failed to load enrollments:', error);
+		dbError = true;
+	}
+}
+
+const activeEnrollments = enrollments.filter((enrollment) => isEnrollmentActive(enrollment));
+const expiredEnrollments = enrollments.filter((enrollment) => !isEnrollmentActive(enrollment));
+
+function formatExpiry(date: Date): string {
+	return date.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+---
+
+<BaseLayout title="My courses" description="Your enrolled Mark Gordon courses." noindex>
+	<div class="mx-auto w-full max-w-content px-4 py-12 sm:px-6 lg:px-8">
+		<h1 class="font-display text-h2 font-h2 uppercase tracking-h2 text-brand">My courses</h1>
+		<p class="mt-2 max-w-prose text-sm leading-relaxed text-text-muted">
+			Your learning hub. Pick up where you left off, or explore something new.
+		</p>
+
+		{
+			dbError && (
+				<p class="mt-8 rounded-sm border border-surface-muted bg-surface-muted/50 p-4 text-sm text-text-muted">
+					We could not load your enrollments right now. Please try again shortly.
+				</p>
+			)
+		}
+
+		{
+			!dbError && activeEnrollments.length === 0 && (
+				<div class="mt-10 rounded-sm border border-surface-muted bg-surface-muted/30 p-8 text-center">
+					<p class="font-display text-lg font-semibold text-text-heading">No active courses yet</p>
+					<p class="mt-2 text-sm text-text-muted">
+						When you enroll, your courses will appear here with access dates and a link to continue.
+					</p>
+					<div class="mt-6">
+						<Button href="/online-courses/">Browse courses</Button>
+					</div>
+				</div>
+			)
+		}
+
+		{
+			activeEnrollments.length > 0 && (
+				<ul class="mt-10 space-y-4" role="list">
+					{activeEnrollments.map((enrollment) => {
+						const course = courseBySlug.get(enrollment.courseSlug);
+						const firstLesson = course?.data.lessons[0];
+						const continueHref = firstLesson
+							? `/courses/${enrollment.courseSlug}/${firstLesson.slug}/`
+							: `/courses/${enrollment.courseSlug}/`;
+
+						return (
+							<li class="flex flex-col gap-4 rounded-sm border border-surface-muted bg-surface p-5 sm:flex-row sm:items-center sm:justify-between">
+								<div class="min-w-0">
+									<p class="font-display text-lg font-semibold text-text-heading">
+										{course?.data.title ?? enrollment.courseSlug}
+									</p>
+									<p class="mt-1 text-sm text-text-muted">
+										Access until {formatExpiry(enrollment.expiresAt)}
+									</p>
+								</div>
+								<Button href={continueHref} class="shrink-0 self-start sm:self-center">
+									Continue →
+								</Button>
+							</li>
+						);
+					})}
+				</ul>
+			)
+		}
+
+		{
+			expiredEnrollments.length > 0 && (
+				<section class="mt-12" aria-labelledby="expired-heading">
+					<h2 id="expired-heading" class="font-display text-sm font-semibold uppercase tracking-wide text-text-muted">
+						Expired access
+					</h2>
+					<ul class="mt-4 space-y-3" role="list">
+						{expiredEnrollments.map((enrollment) => {
+							const course = courseBySlug.get(enrollment.courseSlug);
+							return (
+								<li class="text-sm text-text-muted">
+									{course?.data.title ?? enrollment.courseSlug} — expired {formatExpiry(enrollment.expiresAt)}
+								</li>
+							);
+						})}
+					</ul>
+				</section>
+			)
+		}
+	</div>
+</BaseLayout>

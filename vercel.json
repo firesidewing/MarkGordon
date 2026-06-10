@@ -23,6 +23,36 @@
 			"source": "/courses/",
 			"destination": "/online-courses/",
 			"permanent": true
+		},
+		{
+			"source": "/registration",
+			"destination": "/sign-up/",
+			"permanent": false
+		},
+		{
+			"source": "/registration/",
+			"destination": "/sign-up/",
+			"permanent": false
+		},
+		{
+			"source": "/profile",
+			"destination": "/account/",
+			"permanent": false
+		},
+		{
+			"source": "/profile/",
+			"destination": "/account/",
+			"permanent": false
+		},
+		{
+			"source": "/reset-password",
+			"destination": "/sign-in/",
+			"permanent": false
+		},
+		{
+			"source": "/reset-password/",
+			"destination": "/sign-in/",
+			"permanent": false
 		}
 	]
 }

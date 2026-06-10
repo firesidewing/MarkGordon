@@ -1,9 +1,24 @@
 ---
-import ComingSoon from '@/components/sections/ComingSoon.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/ui/Button.astro';
+
+export const prerender = false;
+
+const { userId } = Astro.locals.auth();
+if (!userId) {
+	return Astro.redirect('/sign-up/');
+}
 ---
 
-<ComingSoon
-	title="Registration Success"
-	description="Thank you for registering. Our new account system is coming soon."
-	noindex={true}
-/>
+<BaseLayout title="Welcome" description="Your account is ready." noindex>
+	<div class="mx-auto w-full max-w-content px-4 py-16 text-center sm:px-6 lg:px-8">
+		<h1 class="font-display text-h2 font-h2 uppercase tracking-h2 text-brand">You're all set</h1>
+		<p class="mx-auto mt-4 max-w-prose text-sm leading-relaxed text-text-muted">
+			Your account is ready. Head to your courses to start learning, or browse the catalog for your next step.
+		</p>
+		<div class="mt-8 flex flex-wrap justify-center gap-4">
+			<Button href="/account/courses/">My courses</Button>
+			<Button href="/online-courses/" variant="text" class="!text-brand">Browse courses</Button>
+		</div>
+	</div>
+</BaseLayout>

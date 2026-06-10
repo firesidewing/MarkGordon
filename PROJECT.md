@@ -457,11 +457,11 @@ Extend `scripts/migrate-content.ts` to parse `export.xml` for lesson order, pric
 
 #### Phase 2B — Platform foundation
 
-- [ ] `@astrojs/react` integration
-- [ ] Clerk auth (sign-in, sign-up, profile, `UserButton` in top bar)
-- [ ] Clerk Billing — 4 one-time products; checkout; purchase webhooks
-- [ ] Turso schema: enrollments (`purchased_at`, `expires_at`), lesson progress, completions
-- [ ] Access gate: Clerk purchase **and** `now < expires_at`
+- [x] `@astrojs/react` integration
+- [x] Clerk auth (sign-in, sign-up, profile, `UserButton` in top bar)
+- [x] Clerk Billing — 4 one-time products; checkout; purchase webhooks
+- [x] Turso schema: enrollments (`purchased_at`, `expires_at`), lesson progress, completions
+- [x] Access gate: Clerk purchase **and** `now < expires_at`
 
 #### Phase 2C — Learning experience
 
@@ -475,15 +475,15 @@ Extend `scripts/migrate-content.ts` to parse `export.xml` for lesson order, pric
 
 ### Phase 2 checklist (rollup)
 
-- [ ] React integration in Astro (`@astrojs/react`)
-- [ ] Clerk auth + billing
-- [ ] Turso: progress + **365-day expiry enforcement**
+- [x] React integration in Astro (`@astrojs/react`)
+- [x] Clerk auth + billing
+- [x] Turso: progress + **365-day expiry enforcement**
 - [ ] Course catalog + sales pages (premium UI)
 - [ ] Lesson player + progress tracking
 - [ ] Migrate `sfwd-courses` + `sfwd-lessons` content
 - [ ] PDFs in `public/course-materials/`
-- [ ] Replace WP registration/profile/reset-password (Clerk)
-- [ ] Header Login → Clerk
+- [x] Replace WP registration/profile/reset-password (Clerk)
+- [x] Header Login → Clerk
 - [ ] Content audit (Shame lesson count, multi-video lessons)
 
 ---
@@ -542,11 +542,12 @@ Issues spotted in export — handle in migration script or templates:
 
 - **Phase 1 marketing site:** built (homepage, blog, service pages, layout shell). Course/auth routes are Coming Soon stubs.
 - **Phase 2A (content + marketing):** done — 4 courses migrated, `/online-courses/` catalog, `/courses/[slug]/` sales pages, PDFs in `public/course-materials/`.
-- **Phase 2B/2C:** Clerk, Turso, lesson player — not started.
+- **Phase 2B (platform):** done — Clerk auth/billing, Turso enrollments + 365-day expiry gate, checkout on sales pages, `/account/courses`.
+- **Phase 2C:** lesson player, progress UI — not started.
 - WordPress export in `output/` + `export.xml` for course migration
 - Live reference: https://www.markgordon.ca/
 - Design tokens: `DESIGN.md`
 
 **Next action (Phase 1):** production DNS cutover when staging QA passes.
 
-**Next action (Phase 2):** Phase 2B — Clerk auth + billing, Turso enrollments with 365-day expiry.
+**Next action (Phase 2):** Phase 2C — lesson player at `/courses/[slug]/[lesson]/`, wire access gate, resume/progress UI.

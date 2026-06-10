@@ -1,0 +1,19 @@
+---
+import { SignIn } from '@clerk/astro/components';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { clerkAppearance } from '@/config/clerk-appearance';
+
+export const prerender = false;
+---
+
+<BaseLayout title="Sign in" description="Sign in to your Mark Gordon account." noindex>
+	<div class="mx-auto flex w-full max-w-md justify-center px-4 py-16">
+		<SignIn
+			appearance={clerkAppearance}
+			routing="path"
+			path="/sign-in"
+			signUpUrl="/sign-up/"
+			forceRedirectUrl="/account/courses/"
+		/>
+	</div>
+</BaseLayout>

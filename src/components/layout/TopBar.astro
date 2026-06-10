@@ -1,5 +1,7 @@
 ---
+import { Show, SignInButton, UserButton } from '@clerk/astro/components';
 import SocialIcon from '@/components/icons/SocialIcon.astro';
+import { clerkAppearance } from '@/config/clerk-appearance';
 import { site, socialLinks } from '@/config/site';
 ---
 
@@ -34,12 +36,23 @@ import { site, socialLinks } from '@/config/site';
 					))
 				}
 			</ul>
-			<a
-				href="/registration/"
-				class="inline-flex min-h-11 items-center font-display text-xs font-medium uppercase tracking-wide hover:opacity-90"
-			>
-				Login
-			</a>
+			<Show when="signed-out">
+				<SignInButton
+					mode="redirect"
+					forceRedirectUrl="/account/courses/"
+					appearance={clerkAppearance}
+					class="inline-flex min-h-11 items-center font-display text-xs font-medium uppercase tracking-wide hover:opacity-90"
+				>
+					Login
+				</SignInButton>
+			</Show>
+			<Show when="signed-in">
+				<UserButton
+					appearance={clerkAppearance}
+					userProfileUrl="/account/"
+					afterSignOutUrl="/"
+				/>
+			</Show>
 		</div>
 	</div>
 </div>

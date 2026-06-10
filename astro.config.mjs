@@ -1,6 +1,8 @@
 // @ts-check
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'astro/config';
+import clerk from '@clerk/astro';
+import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
@@ -9,6 +11,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.markgordon.ca',
+	output: 'server',
 	adapter: vercel(),
 	image: {
 		remotePatterns: [{ protocol: 'https', hostname: 'i.ytimg.com' }],
@@ -22,6 +25,8 @@ export default defineConfig({
 		},
 	},
 	integrations: [
+		clerk(),
+		react(),
 		svelte(),
 		sitemap({
 			filter: (page) => {
@@ -33,9 +38,13 @@ export default defineConfig({
 					'/registration-success/',
 					'/profile/',
 					'/reset-password/',
+					'/sign-in/',
+					'/sign-up/',
+					'/account/',
 				];
 				if (excluded.includes(path)) return false;
 				if (path.startsWith('/courses/')) return false;
+				if (path.startsWith('/account/')) return false;
 				return true;
 			},
 		}),
