@@ -1,0 +1,35 @@
+{
+  "slug": "understanding-anger",
+  "title": "Understanding Anger",
+  "subtitle": "and How it Affects Your Relationships.",
+  "date": "2023-05-02",
+  "price": 29,
+  "featured": false,
+  "accessDays": 365,
+  "coverImage": "Untitled-Facebook-Cover-Website-1.png",
+  "description": "Are you tired of being angry all the time? Anger can cause a lot of damage in your relationships, in fact many people who experience anger; face lost relationships, lost jobs and careers and at times, lost freedom because they even get in trouble with authorities. This short course has been an awakening for many people I have taught it too. Now it is available by video in the privacy of your own home. ",
+  "bullets": [],
+  "materials": [],
+  "lessons": [
+    {
+      "slug": "understanding-your-anger-part-one",
+      "title": "Understanding Your Anger - Part One",
+      "order": 1,
+      "body": "Welcome to Understanding Your Anger and how it affects your relationships. It is a powerful tool to help you understand and manage your anger. Thanks for Downloading. Hope it helps and if you would like some coaching for more personalized help book a discovery call with me.",
+      "videoUrls": [
+        "https://youtu.be/448Uv1NPebQ?list=PLOiSNn4coE_6GARjeDV5_nXr3craN05F6"
+      ],
+      "downloads": []
+    },
+    {
+      "slug": "understanding-your-anger-part-two",
+      "title": "Understanding Your Anger - Part Two",
+      "order": 2,
+      "body": "In the first video I laid a foundation of how Anger and the heart interact and where anger comes from emotionally. In this video I am going to teach on anger and the brain. I will examine the brain science behind anger and how it can be reshaped to help you overcome anger.",
+      "videoUrls": [
+        "https://youtu.be/Dwqe6N8nTWA?list=PLOiSNn4coE_6GARjeDV5_nXr3craN05F6"
+      ],
+      "downloads": []
+    }
+  ]
+}

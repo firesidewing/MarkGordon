@@ -13,6 +13,16 @@
 			"source": "/home2/",
 			"destination": "/",
 			"permanent": true
+		},
+		{
+			"source": "/courses",
+			"destination": "/online-courses/",
+			"permanent": true
+		},
+		{
+			"source": "/courses/",
+			"destination": "/online-courses/",
+			"permanent": true
 		}
 	]
 }

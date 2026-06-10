@@ -1,23 +1,102 @@
 ---
-import ComingSoon from '@/components/sections/ComingSoon.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import CourseCurriculum from '@/components/courses/CourseCurriculum.astro';
+import CourseMaterials from '@/components/courses/CourseMaterials.astro';
+import CoursePurchaseCta from '@/components/courses/CoursePurchaseCta.astro';
+import CourseStickyBar from '@/components/courses/CourseStickyBar.astro';
+import CourseLayout from '@/layouts/CourseLayout.astro';
+import { getAllCourses } from '@/lib/courses';
 
-export function getStaticPaths() {
-	const slugs = [
-		'relationship-matters',
-		'godfidence-building-confidence-that-lasts-forever',
-		'understanding-anger',
-		'punching-shame-in-the-face',
-	];
-	return slugs.map((slug) => ({ params: { slug } }));
+export async function getStaticPaths() {
+	const courses = await getAllCourses();
+	return courses.map((course) => ({
+		params: { slug: course.id },
+		props: { course },
+	}));
 }
 
-const { slug } = Astro.params;
-const title = slug!
-	.replace(/-/g, ' ')
-	.replace(/\b\w/g, (c) => c.toUpperCase());
+const { course } = Astro.props;
+const { title, subtitle, description, bullets, price, testimonial, materials, lessons, coverImage } = course.data;
+
+const coverImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/courses/**/*.{png,jpg,jpeg,webp}', {
+	eager: true,
+});
+const coverKey = Object.keys(coverImages).find(
+	(path) => path.includes(`/courses/${course.id}/`) && path.endsWith(`/${coverImage}`),
+);
+const cover = coverKey ? coverImages[coverKey].default : undefined;
 ---
 
-<ComingSoon
-	title={title}
-	description="This course is being migrated to our new learning platform. Book a discovery call to learn more in the meantime."
-/>
+<CourseLayout title={`${title} — Online Course`} description={description}>
+	<section slot="hero" class="bg-brand">
+		<div class="mx-auto grid w-full max-w-content items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-16">
+			<div>
+				<p class="font-display text-xs font-semibold uppercase tracking-widest text-text-inverse/80">Online course</p>
+				<h1 class="mt-2 font-display text-3xl font-h2 uppercase tracking-h2 text-text-inverse sm:text-4xl">{title}</h1>
+				<p class="mt-3 text-lg text-text-inverse/90">{subtitle}</p>
+				<p class="mt-4 max-w-prose text-sm leading-relaxed text-text-inverse/85">{description}</p>
+			</div>
+			{
+				cover && (
+					<div class="overflow-hidden rounded-sm shadow-lg">
+						<Image
+							src={cover}
+							alt={`${title} course cover`}
+							width={cover.width}
+							height={cover.height}
+							class="h-auto w-full object-cover"
+							loading="eager"
+						/>
+					</div>
+				)
+			}
+		</div>
+	</section>
+
+	<div class="mx-auto w-full max-w-content px-4 py-section pb-24 sm:px-6 md:pb-section lg:px-8">
+		<div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-16">
+			<div class="space-y-12">
+				{
+					bullets.length > 0 && (
+						<section aria-labelledby="learn-heading">
+							<h2 id="learn-heading" class="font-display text-h2 font-h2 uppercase tracking-h2 text-brand">
+								What you'll learn
+							</h2>
+							<ul class="mt-4 space-y-3 text-sm leading-relaxed text-text" role="list">
+								{bullets.map((bullet) => (
+									<li class="flex gap-3">
+										<span class="text-brand" aria-hidden="true">✓</span>
+										<span>{bullet.text}</span>
+									</li>
+								))}
+							</ul>
+						</section>
+					)
+				}
+
+				<CourseCurriculum lessons={lessons} />
+				<CourseMaterials materials={materials} />
+
+				{
+					testimonial && (
+						<blockquote class="border-l-4 border-brand pl-5">
+							<p class="text-sm italic leading-relaxed text-text-muted">"{testimonial.quote}"</p>
+							<cite class="mt-2 block text-sm font-semibold not-italic text-text-heading">— {testimonial.author}</cite>
+						</blockquote>
+					)
+				}
+			</div>
+
+			<aside class="hidden lg:block">
+				<CoursePurchaseCta title={title} price={price} class="sticky top-28" />
+			</aside>
+		</div>
+
+		<div class="mt-10 lg:hidden">
+			<CoursePurchaseCta title={title} price={price} />
+		</div>
+	</div>
+
+	<CourseStickyBar title={title} price={price} />
+</CourseLayout>

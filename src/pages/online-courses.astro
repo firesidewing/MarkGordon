@@ -1,8 +1,68 @@
 ---
-import ComingSoon from '@/components/sections/ComingSoon.astro';
+import type { ImageMetadata } from 'astro';
+import CourseCard from '@/components/sections/CourseCard.astro';
+import FeaturedCourse from '@/components/courses/FeaturedCourse.astro';
+import CourseTabs from '@/components/islands/CourseTabs.svelte';
+import Section from '@/components/ui/Section.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { courseCardFromCourse, getAllCourses, miniCourseFromCourse } from '@/lib/courses';
+
+const courses = await getAllCourses();
+const featured = courses.find((course) => course.data.featured) ?? courses[0];
+const secondary = courses.filter((course) => course.id !== featured?.id && course.data.price >= 29 && course.data.lessons.length > 2);
+const mini = courses.filter((course) => !secondary.includes(course) && course.id !== featured?.id);
+
+const coverImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/courses/**/*.{png,jpg,jpeg,webp}', {
+	eager: true,
+});
+
+function getCover(slug: string, filename: string): ImageMetadata | undefined {
+	const key = Object.keys(coverImages).find((path) => path.includes(`/courses/${slug}/`) && path.endsWith(`/${filename}`));
+	return key ? coverImages[key].default : undefined;
+}
+
+const featuredCover = featured ? getCover(featured.id, featured.data.coverImage) : undefined;
 ---
 
-<ComingSoon
+<BaseLayout
 	title="Online Courses"
-	description="Our transformational video courses are migrating to the new platform. Relationship Matters, Godfidence, Understanding Anger, and more will be available here soon."
-/>
+	description="Video courses on relationships, confidence, anger, and shame — taught by Mark Gordon. Relationship Matters, Godfidence, and more."
+>
+	<section class="bg-brand py-12 text-center sm:py-16">
+		<div class="mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8">
+			<h1 class="font-display text-2xl font-h2 uppercase tracking-h2 text-text-inverse sm:text-3xl lg:text-4xl">
+				Online Courses
+			</h1>
+			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text-inverse/90">
+				Practical video teaching you can work through at home — on trust, communication, confidence, anger, and
+				shame.
+			</p>
+		</div>
+	</section>
+
+	<Section variant="muted">
+		{featured && <FeaturedCourse course={featured} cover={featuredCover} />}
+	</Section>
+
+	{
+		secondary.length > 0 && (
+			<Section>
+				<h2 class="mb-6 font-display text-h2 font-h2 uppercase tracking-h2 text-brand">Go deeper</h2>
+				<div class="grid gap-6 lg:grid-cols-2">
+					{secondary.map((course) => (
+						<CourseCard {...courseCardFromCourse(course)} />
+					))}
+				</div>
+			</Section>
+		)
+	}
+
+	{
+		mini.length > 0 && (
+			<Section variant="muted">
+				<h2 class="mb-6 font-display text-h2 font-h2 text-brand">Focused mini-courses</h2>
+				<CourseTabs client:visible tabs={mini.map(miniCourseFromCourse)} />
+			</Section>
+		)
+	}
+</BaseLayout>

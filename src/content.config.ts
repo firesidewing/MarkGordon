@@ -33,4 +33,48 @@ const blog = defineCollection({
 	}),
 });
 
-export const collections = { blog, pages };
+const courseBullet = z.object({
+	text: z.string(),
+	highlight: z.string().optional(),
+});
+
+const courseDownload = z.object({
+	label: z.string(),
+	url: z.string(),
+});
+
+const courseLesson = z.object({
+	slug: z.string(),
+	title: z.string(),
+	order: z.number(),
+	body: z.string(),
+	videoUrls: z.array(z.string()),
+	downloads: z.array(courseDownload),
+});
+
+const courses = defineCollection({
+	loader: glob({ base: './src/content/courses', pattern: '**/*.json' }),
+	schema: z.object({
+		slug: z.string(),
+		title: z.string(),
+		subtitle: z.string(),
+		date: z.coerce.date(),
+		price: z.number(),
+		featured: z.boolean().default(false),
+		badge: z.string().optional(),
+		accessDays: z.number().default(365),
+		coverImage: z.string(),
+		description: z.string(),
+		bullets: z.array(courseBullet).default([]),
+		testimonial: z
+			.object({
+				quote: z.string(),
+				author: z.string(),
+			})
+			.optional(),
+		materials: z.array(courseDownload).default([]),
+		lessons: z.array(courseLesson).default([]),
+	}),
+});
+
+export const collections = { blog, pages, courses };

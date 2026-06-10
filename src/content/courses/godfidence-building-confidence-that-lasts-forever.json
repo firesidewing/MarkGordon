@@ -1,0 +1,98 @@
+{
+  "slug": "godfidence-building-confidence-that-lasts-forever",
+  "title": "Godfidence",
+  "subtitle": "In this 4 session faith-based video series you will learn;",
+  "date": "2023-05-23",
+  "price": 29,
+  "featured": false,
+  "badge": "Mini-Series",
+  "accessDays": 365,
+  "coverImage": "2.png",
+  "description": "Have you ever wished you had more confidence? Life can be a hard task master at times and toxic relationships can really wear you down, including your self-esteem and confidence. We will explore where your value comes from, and who determines it. We will also look at how shame affects your identity and ultimately your confidence negatively. I will provide you with tools to build confidence that lasts forever. ",
+  "bullets": [
+    {
+      "text": "Where confidence comes from",
+      "highlight": "confidence"
+    },
+    {
+      "text": "How faith can change the way you see yourself",
+      "highlight": "faith"
+    },
+    {
+      "text": "How shame destroys identity and erodes confidence",
+      "highlight": "shame"
+    }
+  ],
+  "testimonial": {
+    "quote": "I highly recommend and endorse the teachings and the books by Mark. You too can be empowered for greatness by applying the principles of Mark’s teachings. Experience TRUE LIFE CHANGE",
+    "author": "Rory Franks"
+  },
+  "materials": [
+    {
+      "label": "Download PDF",
+      "url": "/course-materials/Godfidence_Participant_Workbook-revised-1.pdf"
+    }
+  ],
+  "lessons": [
+    {
+      "slug": "building-godfidence-part-1",
+      "title": "Building Godfidence Part 1",
+      "order": 1,
+      "body": "Welcome to Godfidence, building confidence that lasts forever! This 4 video series is a faith based life changing course. Regardless of background the principles taught are a practical process for building confidence and help you discover your value. To be clear they are biblical based principals but taught in a way you never have heard before. It is not your typical religious approach but a very practical and life applied one! Thank you for downloading this course. Remember to download your notes to follow along.",
+      "videoUrls": [
+        "https://youtu.be/f4UHK2K6UpA"
+      ],
+      "downloads": [
+        {
+          "label": "Download PDF",
+          "url": "/course-materials/Godfidence_Participant_Workbook-revised-1.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "building-godfidence-part-2",
+      "title": "Building Godfidence Part 2",
+      "order": 2,
+      "body": "Welcome to part 2 of Godfidence I hope you enjoyed the first video. In this video and the next I am going to share about how to break shame off your life and give your very practical ways to overcome it. Fasten your seatbelts this is a powerful section. Remember to download your notes!",
+      "videoUrls": [
+        "https://youtu.be/1A3jUElc6KM"
+      ],
+      "downloads": [
+        {
+          "label": "Download PDF",
+          "url": "/course-materials/Godfidence_Participant_Workbook-revised-1.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "building-godfidence-part-3",
+      "title": "Building Godfidence Part 3",
+      "order": 3,
+      "body": "Welcome to part 3 of Godfidence! In this video I continue the second part of overcoming shame. This is a powerful video and I encourage you to open your heart and mind to healing and forgiveness. Remember to download your notes page.",
+      "videoUrls": [
+        "https://youtu.be/kShx3deLoG8"
+      ],
+      "downloads": [
+        {
+          "label": "Download PDF",
+          "url": "/course-materials/Godfidence_Participant_Workbook-revised-1.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "building-godfidence-part-4",
+      "title": "Building Godfidence Part 4",
+      "order": 4,
+      "body": "Welcome to the final installment of Godfidence, building confidence that lasts forever! I hope this has been life changing for you so far. In this last video I use scripture to lay a clear understanding of how to live with confidence. The results of living this out is an abundant life and healthy relationships.",
+      "videoUrls": [
+        "https://youtu.be/xhJgm0IJ7Ro"
+      ],
+      "downloads": [
+        {
+          "label": "Download PDF",
+          "url": "/course-materials/Godfidence_Participant_Workbook-revised-1.pdf"
+        }
+      ]
+    }
+  ]
+}

@@ -15,25 +15,39 @@ Two loosely coupled surfaces, split by Astro islands:
 | **Marketing site** | `/`, `/about-mark`, `/blog`, `/keynote-speaker`, … | Astro + Svelte islands + Tailwind | **Now** |
 | **Course platform** | `/courses/*`, `/account/*`, auth flows | React islands + Clerk (auth + billing) + Turso | **Later** |
 
-**Clerk owns auth and billing** — no separate Stripe integration. Clerk Billing handles products, checkout, and entitlements; Turso holds course-specific state (lesson progress, completions). Stripe may sit behind Clerk as the payment processor, but you never wire it up directly.
+**Clerk owns auth and billing** — no separate Stripe integration. Clerk Billing handles products, checkout, and purchase records; Turso holds course-specific state (lesson progress, completions, **365-day access expiry**). Stripe may sit behind Clerk as the payment processor, but you never wire it up directly.
 
 ```
 src/
   content/
     blog/          ← 25 posts
     pages/         ← ~15 marketing pages
+    courses/       ← Phase 2: course + lesson content
   components/
     layout/        ← Header, Footer, Nav (Astro)
     ui/            ← Buttons, cards, prose (Astro + Tailwind)
-    islands/       ← Svelte: mobile nav, newsletter, testimonials carousel
+    sections/      ← CourseCard, etc.
+    courses/       ← Phase 2: catalog, sales, player shells
+    islands/       ← Svelte: mobile nav, newsletter, testimonials, CourseTabs
   layouts/
     BaseLayout.astro
     BlogPost.astro
     MarketingPage.astro
+    CourseLayout.astro   ← Phase 2
   pages/
     index.astro
     blog/[...slug].astro
+    online-courses.astro
+    courses/
+      index.astro
+      [slug]/
+        index.astro      ← sales page
+        [lesson].astro   ← gated player (Phase 2C)
+    account/
+      courses.astro      ← my courses (Phase 2C)
     [slug].astro   ← catch-all for static pages OR explicit routes
+public/
+  course-materials/    ← Phase 2: PDF workbooks
 scripts/
   migrate-content.ts   ← output/ → src/content/, slug injection, image moves
 output/                ← keep as migration source; do not serve directly
@@ -238,15 +252,239 @@ Preview deployments are automatic on PRs once GitHub is connected. Each PR gets 
 
 ## Phase 2 — Course platform *(do not start until Phase 1 ships)*
 
+WordPress ran **LearnDash** (`sfwd-courses`, `sfwd-lessons`) with **Stripe checkout** (via LearnDash), **WP user accounts**, and **365-day course access**. We replace that with **Clerk** (auth + billing) and **Turso** (progress + access expiry). See `DESIGN.md` for tokens; course UI has its own register below.
+
+### What existed on WordPress
+
+**User flow:**
+
+```
+Browse catalog → Buy Now on course → /registration/ (WP account)
+  → Stripe payment (LearnDash pay-now)
+  → /registration-success/ (set password, ld-course-list)
+  → /courses/[slug]/ → gated lessons
+```
+
+**Routes:**
+
+| Route | Purpose |
+|-------|---------|
+| `/online-courses/` | Marketing catalog (primary) |
+| `/courses/` | Alternate catalog (similar content; had lorem ipsum) |
+| `/courses/[slug]/` | Course landing + enrollment |
+| `/courses/[slug]/[lesson-slug]/` | Gated lesson player |
+| `/registration/` | LearnDash registration (`ld-registration`) |
+| `/registration-success/` | Login + my courses (`ld-login`, `ld-course-list`) |
+| `/profile/` | LearnDash profile |
+| `/reset-password/` | LearnDash password reset |
+
+**Top bar:** Login → `/registration/` (replace with Clerk in Phase 2).
+
+### Course inventory
+
+| Course | Slug | Price | Lessons | Access |
+|--------|------|-------|---------|--------|
+| Relationship Matters | `relationship-matters` | $79 | 6 (intro + 5 pillars) | 365 days |
+| Godfidence | `godfidence-building-confidence-that-lasts-forever` | $29 | 4 | 365 days |
+| Understanding Anger | `understanding-anger` | $29 | 2 | 365 days |
+| Punching Shame in the Face | `punching-shame-in-the-face` | $29 | 1 in export *(marketing says 2 videos)* | 365 days |
+
+**Lesson content shape:** short intro prose, **YouTube URL**, optional **PDF workbook** link. Relationship Matters also had a **course-level materials list** (all 5 pillar PDFs on the course page).
+
+**Relationship Matters lesson order:**
+
+1. `introduction-to-relationship-matters`
+2. `relationship-matters-pillar-one` … `pillar-five`
+
+**Not used on WP (skip):** 0 quizzes, 0 topics, 0 groups. Certificate Elementor template exists but **none assigned** to courses. No prerequisites, drip dates, or seat limits. Lesson progression was enabled in LD but without quizzes it was weak; free navigation at launch is fine.
+
+**Coupon in export:** `Loyal15` — 15% off all courses, expired ~Jun 2024. Map to Clerk promo if still needed.
+
+**Content source files:**
+
+- `output/custom/sfwd-courses/` — 4 course markdown files
+- `output/custom/sfwd-lessons/` — 14 lesson markdown files
+- `export.xml` — pricing, lesson order (`ld_course_steps`), PDF URLs, Stripe product IDs
+
+**Content audit before launch:**
+
+- [ ] Confirm Punching Shame second lesson on live WP (export has only `shadow-boxing-punching-shame-in-the-face`)
+- [ ] Support **multiple videos per lesson** (Pillar Two has 2 YouTube URLs in export)
+- [ ] Reconcile 13 `sfwd-lessons` posts in XML vs 14 markdown files in `output/`
+
+### Current Astro state (Phase 1)
+
+- Homepage previews: `CourseCard.astro`, `CourseTabs.svelte`, data in `src/data/home.ts` → links to `/online-courses/`
+- `/online-courses/`, `/courses/`, `/courses/[slug]/` → `ComingSoon` stubs
+- `/registration/`, `/profile/`, `/registration-success/`, `/reset-password/` → stubs
+- No Clerk, React, Turso, or lesson player yet
+
+### Target content model
+
+Migrate export → `src/content/courses/` (collection or structured data):
+
+```ts
+Course {
+  slug, title, subtitle, price, badge?,
+  description, bullets[], coverImage,
+  accessDays: 365,
+  lessons: Lesson[]
+}
+Lesson {
+  slug, title, order, body,
+  videoUrls: string[],      // support multiple per lesson
+  downloads?: { label, url }[]
+}
+```
+
+Extend `scripts/migrate-content.ts` to parse `export.xml` for lesson order, pricing, and PDF URLs (markdown alone is incomplete).
+
+### Feature parity
+
+| Feature | WP (LearnDash) | Our plan | Status |
+|---------|----------------|----------|--------|
+| 4 paid courses ($79 / $29) | ✓ | Clerk Billing one-time products | Planned |
+| 365-day access | ✓ | Turso `purchased_at` + `expires_at` | **Must implement** — Clerk entitlements alone are typically permanent |
+| Course catalog | `/online-courses/`, `/courses/` | Rebuild catalog; canonical URL TBD | Planned |
+| Course sales pages | `/courses/[slug]/` | Same | Planned |
+| Gated video lessons | YouTube | Player + entitlement check | Planned |
+| PDF workbooks | Per-lesson + RM course materials | `public/course-materials/`; links on gated pages | Planned |
+| Register / login | `/registration/`, header Login | Clerk + `UserButton` in top bar | Planned |
+| My courses | `ld-course-list` | `/account/courses` | Planned |
+| Lesson progress | LD completion | Turso | Planned |
+| Coupons | `Loyal15` (expired) | Clerk promo codes | Optional |
+| Quizzes, certificates, groups | Not used | Skip | N/A |
+
+**Gaps to explicitly build (not optional for parity):**
+
+1. **365-day expiry** — store `purchased_at` / `expires_at` in Turso; gate on `now < expires_at` in addition to Clerk purchase record
+2. **Lesson URL redirects** — preserve `/courses/[course]/[lesson]/` permalinks
+3. **`/courses/` vs `/online-courses/`** — pick canonical catalog; 301 the other
+4. **Header Login** — `TopBar.astro` → Clerk sign-in / user menu
+5. **RM course materials block** — aggregate PDF list on course page, not only per-lesson
+6. **Legacy WP enrollments** — migration path or clean break (decision still open)
+
+### Infrastructure decisions
+
+| Decision | Choice | Notes |
+|----------|--------|-------|
+| Access duration | **365 days** | Matches LearnDash; enforce in Turso, not Clerk alone |
+| PDF hosting | **`public/course-materials/`** for v1 | ~6 small static PDFs; WP used direct `wp-content/uploads` URLs anyway. Link only on gated lesson pages = practical parity. Vercel Blob later if signed/expiring URLs or admin uploads needed |
+| Payments | **Clerk Billing** | No direct Stripe integration; Stripe may sit behind Clerk |
+| Progress / expiry | **Turso** | Lesson completions + enrollment expiry dates |
+| Auth | **Clerk** | Replaces WP registration, profile, reset-password |
+
+### Course UI — design direction
+
+**North star: "The Studio, not the syllabus."** Premium = editorial confidence, calm layout, one focal point at a time, real copy and video. Same tokens as `DESIGN.md` (cobalt, Montserrat + Open Sans, cool neutrals, pill CTAs). **Not** a generic LMS skin.
+
+**Avoid (LMS template tells):** identical course card grids, purple/gradient heroes, "Start your journey" copy, progress rings/badges/streaks, numbered chapter scaffolding (01/02/03), nested cards in the player, stock thumbnails, dashboard sidebar clichés.
+
+#### Register split
+
+| Surface | Register | Tone |
+|---------|----------|------|
+| Catalog + sales pages | **Brand** (see `DESIGN.md`) | Editorial, persuasive, cobalt bands |
+| Lesson player + account | **Product** (warm, not cold) | Cinema-first, minimal chrome, sentence-case prose |
+
+#### Catalog (`/online-courses/`)
+
+- Featured course (Relationship Matters): large asymmetric layout — copy + cover/still, price as quiet detail
+- Secondary courses: evolve `CourseCard` DNA (dark header, cobalt checks); max 2 columns, not a 4-up grid
+- Mini-courses: keep `CourseTabs` pattern; refine styling only
+
+#### Course sales page (`/courses/[slug]/`)
+
+- Long-form persuasion: display title, subtitle, single primary CTA (price secondary)
+- 1–2 testimonials, typographic curriculum list (not locked-module icons)
+- Workbook links as simple text + icon, not a "Resources" card grid
+- Sticky purchase bar on mobile only
+
+#### Lesson player
+
+- **Video ~70% of viewport** on desktop; no nested cards around player
+- Slim sidebar: lesson list only; cobalt indicator for current lesson; no progress % gamification
+- Lesson intro prose (max ~65ch), download link, "Next lesson →"
+- Mobile: full-width video; lesson list as bottom sheet or horizontal chips
+- Multi-video lessons: stacked players or Part 1 / Part 2 tabs
+
+```
+┌─────────────────────────────────────────────────────┐
+│  [logo]                         Relationship Matters ▾│
+├──────────────────────────────┬──────────────────────┤
+│      VIDEO (16:9, large)     │  Lesson 3 of 6       │
+│                              │  ○ Intro  ● Pillar 2 │
+├──────────────────────────────┴──────────────────────┤
+│  Lesson intro · [Download workbook] · [Next lesson →]│
+└─────────────────────────────────────────────────────┘
+```
+
+**Evolve `CourseCard` for catalog/sales; do not reuse in the player** (dark header + centered price reads "pricing table," wrong for enrolled experience).
+
+#### My courses (`/account/courses`)
+
+- Wide horizontal rows: thumb, title, "Continue →" (resume last lesson)
+- Quiet expiry line: "Access until Mar 12, 2027"
+- Empty state in Mark's voice + link to catalog
+
+#### Auth / checkout
+
+- Clerk components styled to match: cobalt primary, pill buttons, Open Sans forms
+- Checkout should feel like booking a session, not SaaS subscription
+
+#### Token usage in learning app
+
+| Token | Catalog / sales | Player / account |
+|-------|-----------------|------------------|
+| Montserrat 900 uppercase | Section anchors, hero titles | Page titles only |
+| Montserrat 600 | Card headers | Lesson titles, nav |
+| Open Sans 14px / 1.8 | Body, bullets | Lesson prose |
+| `#0047AB` | CTAs, accents | Current lesson accent only |
+| `#2d2d2d` card headers | Course cards | Skip in player |
+| `shadow-sm` | Catalog cards | None in player — flat, tonal |
+| Cool Band `#F0F3F6` | Section alternation | Sidebar background |
+
+### Phase 2 build order
+
+#### Phase 2A — Content + marketing (no auth)
+
+- [x] Migration script: `sfwd-*` + `export.xml` → `src/content/courses/`
+- [x] Copy course cover images + PDFs → `public/course-materials/` (or `src/assets/`)
+- [x] Real `/online-courses/` page (editorial catalog)
+- [x] Public `/courses/[slug]/` sales pages (buy → coming soon or Clerk when ready)
+- [x] Canonical catalog URL + redirect for the duplicate
+- [x] Replace lorem on `/courses/` or redirect to canonical
+
+#### Phase 2B — Platform foundation
+
+- [ ] `@astrojs/react` integration
+- [ ] Clerk auth (sign-in, sign-up, profile, `UserButton` in top bar)
+- [ ] Clerk Billing — 4 one-time products; checkout; purchase webhooks
+- [ ] Turso schema: enrollments (`purchased_at`, `expires_at`), lesson progress, completions
+- [ ] Access gate: Clerk purchase **and** `now < expires_at`
+
+#### Phase 2C — Learning experience
+
+- [ ] Lesson player at `/courses/[slug]/[lesson-slug]/` (premium layout above)
+- [ ] My courses at `/account/courses` (+ continue / resume)
+- [ ] Post-checkout success page (replaces `/registration-success/`)
+- [ ] Redirects: `/registration/` → Clerk sign-up; `/profile/` → account
+- [ ] Lesson permalink redirects from legacy URLs
+- [ ] Clerk promo codes (optional; `Loyal15` if still needed)
+- [ ] Legacy WP enrollment migration (if decided)
+
+### Phase 2 checklist (rollup)
+
 - [ ] React integration in Astro (`@astrojs/react`)
-- [ ] Clerk auth (sign-in, sign-up, profile, session on course routes)
-- [ ] Clerk Billing — define course products/plans, checkout, entitlements (gate lesson access by Clerk feature/plan)
-- [ ] Turso schema: lesson progress, completions, course metadata *(not payments — Clerk owns that)*
-- [ ] Course catalog UI at `/courses/` with Clerk `<PricingTable>` or custom buy buttons
-- [ ] Lesson player + progress tracking (sync progress to Turso; check entitlement via Clerk)
+- [ ] Clerk auth + billing
+- [ ] Turso: progress + **365-day expiry enforcement**
+- [ ] Course catalog + sales pages (premium UI)
+- [ ] Lesson player + progress tracking
 - [ ] Migrate `sfwd-courses` + `sfwd-lessons` content
-- [ ] Replace WP registration/profile/reset-password flows (all via Clerk)
-- [ ] Coupons — map `ld-coupon` to Clerk promo codes or Billing discounts *(confirm Clerk supports your coupon model)*
+- [ ] PDFs in `public/course-materials/`
+- [ ] Replace WP registration/profile/reset-password (Clerk)
+- [ ] Header Login → Clerk
+- [ ] Content audit (Shame lesson count, multi-video lessons)
 
 ---
 
@@ -277,27 +515,38 @@ Issues spotted in export — handle in migration script or templates:
 
 **Blog:** "Do PROJECT.md Phase 1.5 blog — collection, index, post template, all 25 posts."
 
+**Courses (content):** "Do PROJECT.md Phase 2A — migrate sfwd content from output/ + export.xml; build /online-courses/ and /courses/[slug]/ sales pages."
+
+**Courses (platform):** "Do PROJECT.md Phase 2B — Clerk + Turso with 365-day expiry; then Phase 2C lesson player per premium UI spec."
+
 ---
 
 ## Open decisions
 
 - [x] Newsletter provider — HubSpot forms (same as live WP site)
 - [x] Blind spot assessment — Riddle embed on `/blind-spot-assessment/`, nav links to blindspots.me
+- [x] Course URLs during Phase 1 — coming-soon stubs on `/online-courses/`, `/courses/*`, auth routes
+- [x] Course access duration — **365 days** (match LearnDash; enforce via Turso)
+- [x] PDF hosting — **`public/course-materials/`** for v1; Blob only if signed URLs needed later
+- [x] Course UI direction — premium editorial / studio feel; see Phase 2 design section
 - [ ] Contact form — static mailto vs form service?
-- [ ] Course URLs during Phase 1 — redirect to live WP or placeholder page?
 - [ ] `/products/` and `/event-payments/` — still needed?
+- [x] Canonical catalog URL — `/online-courses/` (301 `/courses/` → `/online-courses/`)
 - [ ] Clerk Billing plan structure — one product per course vs bundles (e.g. Faith Community Packages)
-- [ ] Clerk promo codes vs custom coupon logic for legacy `ld-coupon` codes
+- [ ] Clerk promo codes — honor legacy `Loyal15` or issue new codes only?
+- [ ] Legacy WP enrollments — migrate active students or fresh start on Clerk?
 
 ---
 
 ## Current state
 
-- Astro 6 minimal starter (`src/pages/index.astro` placeholder)
-- WordPress export in `output/` (clean markdown, no Elementor CSS)
-- `export.xml` available for slug/URL mapping
+- **Phase 1 marketing site:** built (homepage, blog, service pages, layout shell). Course/auth routes are Coming Soon stubs.
+- **Phase 2A (content + marketing):** done — 4 courses migrated, `/online-courses/` catalog, `/courses/[slug]/` sales pages, PDFs in `public/course-materials/`.
+- **Phase 2B/2C:** Clerk, Turso, lesson player — not started.
+- WordPress export in `output/` + `export.xml` for course migration
 - Live reference: https://www.markgordon.ca/
+- Design tokens: `DESIGN.md`
 
-**Next action:** Push to GitHub → confirm Vercel preview build → add `staging.markgordon.ca` → visual QA → production DNS cutover.
+**Next action (Phase 1):** production DNS cutover when staging QA passes.
 
-**Completed:** Phase 1.0–1.7 + Vercel project linked. 57 routes + sitemap. Run `bun run build` / `bun run dev` to preview.
+**Next action (Phase 2):** Phase 2B — Clerk auth + billing, Turso enrollments with 365-day expiry.

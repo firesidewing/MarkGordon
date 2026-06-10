@@ -1,0 +1,144 @@
+{
+  "slug": "relationship-matters",
+  "title": "Relationship Matters",
+  "subtitle": "5 Pillars for a Healthy Foundation in ALL Your Relationships",
+  "date": "2023-04-29",
+  "price": 79,
+  "featured": true,
+  "badge": "Popular",
+  "accessDays": 365,
+  "coverImage": "1.png",
+  "description": "Based on my groundbreaking book Relationship Matters, this course is a powerful journey to relational healing. Relationships can bring the greatest joy in your life, however they can also bring the most pain. Many people don’t put a lot of thought into what it takes to build a healthy relationship. To build a healthy relationship you need a healthy relational culture in your home, extended family or any organizations you may be involved with. The best investment you can make is to work on the 5 pillars of your relational foundation; Trust, Communication, Authenticity, Honesty and Honour. This video series takes you on a journey to build those pillars into the fabric of how you relate to yourself and others. The process in the worksheets and the daily work uniquely sets you up for success!",
+  "bullets": [
+    {
+      "text": "How to build trust equity",
+      "highlight": "trust"
+    },
+    {
+      "text": "How to have healthy communication",
+      "highlight": "communication"
+    },
+    {
+      "text": "How to live authentically",
+      "highlight": "authentically"
+    },
+    {
+      "text": "How honesty is a superpower",
+      "highlight": "honesty"
+    },
+    {
+      "text": "How to reclaim the lost art of honour",
+      "highlight": "honour"
+    }
+  ],
+  "materials": [
+    {
+      "label": "Download Workbook",
+      "url": "/course-materials/Relationship_Matters_lesson1.pdf"
+    },
+    {
+      "label": "Download Workbook",
+      "url": "/course-materials/Relationship_Matters_lesson2.pdf"
+    },
+    {
+      "label": "Download Workbook",
+      "url": "/course-materials/Relationship_Matters_lesson3.pdf"
+    },
+    {
+      "label": "Download Workbook",
+      "url": "/course-materials/Relationship_Matters_lesson4.pdf"
+    },
+    {
+      "label": "Download Workbook",
+      "url": "/course-materials/Relationship_Matters_lesson5.pdf"
+    }
+  ],
+  "lessons": [
+    {
+      "slug": "introduction-to-relationship-matters",
+      "title": "Introduction to Relationship Matters",
+      "order": 1,
+      "body": "Welcome to Relationship Matters training course called 5 Pillars of a Healthy Foundation for all your relationships. In this introduction to the course I take you through the foundational teaching that every course I teach is built on. In my experience the more you apply and practice the principles I teach the better the results you will have.",
+      "videoUrls": [
+        "https://youtu.be/NU01pWtprtM?list=PLOiSNn4coE_6GARjeDV5_nXr3craN05F6"
+      ],
+      "downloads": []
+    },
+    {
+      "slug": "relationship-matters-pillar-one",
+      "title": "Relationship Matters - Pillar One",
+      "order": 2,
+      "body": "Welcome to Pillar 1 - Trust - 5 Pillars of a Healthy Foundation for all your relationships. In Pillar one I teach on the principles of building Trust in your relationships. Trust is the cornerstone of the 5 pillars because relationships will break under the weight of broken trust. Remember to download your workbooks and make lots of notes. There is a relationship challenge at the end of each lesson!",
+      "videoUrls": [
+        "https://youtu.be/ajTwDo2jZKU?list=PLOiSNn4coE_6GARjeDV5_nXr3craN05F6"
+      ],
+      "downloads": [
+        {
+          "label": "Download Workbook",
+          "url": "/course-materials/Relationship_Matters_lesson1.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "relationship-matters-pillar-two",
+      "title": "Relationship Matters - Pillar Two",
+      "order": 3,
+      "body": "Welcome to Pillar 2 of Relationship Matters 5 Pillars of a Healthy Foundation for all your relationships. Now that you learned how to build trust one of the best tools for you to live it out is healthy communication! Remember to download your workbook and practice practice practice!!\n\nWelcome to part 2 of Pillar 2 - Communication - 5 Pillars of a Healthy Foundation for all your relationships. In this video we dig a little deeper into communicating in a way that your relational needs can be met. Use the same workbook as the last video.",
+      "videoUrls": [
+        "https://youtu.be/1cY5Dm8OgEc?list=PLOiSNn4coE_6GARjeDV5_nXr3craN05F6",
+        "https://youtu.be/q4cAFXzT0v4?list=PLOiSNn4coE_6GARjeDV5_nXr3craN05F6"
+      ],
+      "downloads": [
+        {
+          "label": "Download Workbook",
+          "url": "/course-materials/Relationship_Matters_lesson2.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "relationship-matters-pillar-three",
+      "title": "Relationship Matters – Pillar Three",
+      "order": 4,
+      "body": "Welcome to Pillar 3 Authenticity - Relationship Matters, 5 Pillars of a Healthy Foundation for all your relationships. Now that your building trust and communicating well it's time to look inward. You can't really have a healthy relationship with someone else until you build one with yourself. You may have been told in your life to just be yourself, but how can you do that until you know and believe in yourself. Remember to download your workbook.",
+      "videoUrls": [
+        "https://youtu.be/75K8b4_p9nU?list=PLOiSNn4coE_6GARjeDV5_nXr3craN05F6"
+      ],
+      "downloads": [
+        {
+          "label": "Download Workbook",
+          "url": "/course-materials/Relationship_Matters_lesson3.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "relationship-matters-pillar-four",
+      "title": "Relationship Matters – Pillar Four",
+      "order": 5,
+      "body": "Welcome to Pillar 4 - Honesty - of the Relationship Matters 4 Pillars of a Healthy Foundation for all your relationships. Honesty is a lost art in today's world, and dishonesty is a relationship killer because it breaks the trust pillar and undermines healthy communications. Enjoy and remember to download your workbook!",
+      "videoUrls": [
+        "https://youtu.be/Y9JOH-SoUT0"
+      ],
+      "downloads": [
+        {
+          "label": "Download Workbook",
+          "url": "/course-materials/Relationship_Matters_lesson4.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "relationship-matters-pillar-five",
+      "title": "Relationship Matters – Pillar Five",
+      "order": 6,
+      "body": "Welcome to our last pillar 5 - Honour - Relationship Matters 5 Pillars of a Healthy Foundation for all your relationships. Honour is a lost art and often misunderstood but the power of living a life of honour has a massive impact on your life and relationships! Remember to download your last workbook.",
+      "videoUrls": [
+        "https://youtu.be/p1vfJYLaoHg?list=PLOiSNn4coE_6GARjeDV5_nXr3craN05F6"
+      ],
+      "downloads": [
+        {
+          "label": "Download Workbook",
+          "url": "/course-materials/Relationship_Matters_lesson5.pdf"
+        }
+      ]
+    }
+  ]
+}

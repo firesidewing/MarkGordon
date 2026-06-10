@@ -69,7 +69,7 @@ export const featuredCourses = [
         ],
         description:
             "This course has been life changing for the people who have taken it in person and now for the first time it is available in video so you can take your family, small group or organization on the journey to healthy relationships together.",
-        href: "/online-courses/",
+        href: "/courses/relationship-matters/",
         ctaLabel: "Explore Relationship Matters",
     },
     {
@@ -94,7 +94,7 @@ export const featuredCourses = [
         ],
         description:
             "In this course, I take you on that journey of discovery. We will explore where your value comes from, and who determines it. We will also look at how shame affects your identity and ultimately your confidence negatively. I will provide you with tools to build confidence that lasts forever.",
-        href: "/online-courses/",
+        href: "/courses/godfidence-building-confidence-that-lasts-forever/",
         ctaLabel: "Explore Godfidence",
     },
 ];
@@ -104,13 +104,13 @@ export const miniCourses = [
         title: "Understanding Anger",
         question: "Are you tired of being angry all the time?",
         body: "Anger can cause a lot of damage in your relationships, in fact many people who experience anger; face lost relationships, lost jobs and careers and at times, lost freedom because they even get in trouble with authorities. There is nothing wrong with anger itself, in fact it is an early warning system that lets you know trouble is ahead or that your needs are not being met. It is what you do with anger that makes it good or bad. When anger manages you rather than you managing it, it becomes destructive. In this two part video series, about 3 hours of training, I take you through the cause and effect of anger. Why you struggle with it and how to manage it and even turn it into an advantage for you. This short course has been an awakening for many people I have taught it too. Now it is available by video in the privacy of your own home.",
-        href: "/online-courses/",
+        href: "/courses/understanding-anger/",
     },
     {
         title: "Punching Shame in the Face",
         question: "Has shame kept you from being content in life?",
         body: "For many people shame is a pervasive force that destroys self-worth and overrides or overshadows happiness and contentment. It sabotages relationships and undermines your ability to believe in yourself or others. Shame starts from a very young age and sets out to destroy your identity and confidence. Like any bully it needs to be stood up too. In this two video series (About 3 hours of training) I go deep into the cause of shame and how to overcome it and keep it out of your life forever. There are practical tools to give you the skills to punch it right in the face. This is an emotional journey for those who have taken this course but I have been told over and over it is life changing. It is now available in video format so you can watch it in the privacy of your own home.",
-        href: "/online-courses/",
+        href: "/courses/punching-shame-in-the-face/",
     },
 ];
 
