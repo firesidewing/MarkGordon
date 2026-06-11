@@ -1,5 +1,4 @@
-import type { AuthObject } from '@clerk/backend';
-import { COURSE_PLAN_SLUGS } from '@/config/billing';
+import { getActiveBillableCourseSlugs } from '@/lib/clerk-billing';
 import { getCourse } from '@/lib/courses';
 import { getDb } from '@/lib/db';
 
@@ -110,14 +109,31 @@ export async function grantEnrollmentForCourse(
 	return getEnrollment(userId, courseSlug);
 }
 
-/** Backfill Turso rows when Clerk has an active plan but the webhook never wrote enrollment. */
-export async function syncPurchasedEnrollments(auth: AuthObject, userId: string): Promise<void> {
-	for (const courseSlug of COURSE_PLAN_SLUGS) {
-		if (!auth.has({ plan: courseSlug })) continue;
+/** Sync Turso enrollments from Clerk active subscriptions (matched by plan ID). */
+export async function syncPurchasedEnrollments(userId: string): Promise<void> {
+	const activeCourseSlugs = await getActiveBillableCourseSlugs(userId);
 
+	for (const courseSlug of activeCourseSlugs) {
 		const existing = await getEnrollment(userId, courseSlug);
 		if (existing) continue;
 
 		await grantEnrollmentForCourse(userId, courseSlug);
+	}
+}
+
+const SYNC_RETRY_MS = 750;
+const SYNC_MAX_ATTEMPTS = 5;
+
+/** Retry sync after checkout while Clerk activates the subscription. */
+export async function syncPurchasedEnrollmentsWithRetry(userId: string): Promise<void> {
+	for (let attempt = 0; attempt < SYNC_MAX_ATTEMPTS; attempt++) {
+		await syncPurchasedEnrollments(userId);
+
+		const enrollments = await listEnrollments(userId);
+		if (enrollments.some(isEnrollmentActive)) return;
+
+		if (attempt < SYNC_MAX_ATTEMPTS - 1) {
+			await new Promise((resolve) => setTimeout(resolve, SYNC_RETRY_MS));
+		}
 	}
 }

@@ -9,6 +9,8 @@ const BILLING_EVENTS = new Set([
 	'subscription.active',
 	'subscriptionItem.active',
 	'subscriptionItem.updated',
+	'paymentAttempt.created',
+	'paymentAttempt.updated',
 ]);
 
 export const prerender = false;
