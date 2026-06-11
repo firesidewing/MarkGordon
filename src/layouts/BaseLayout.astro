@@ -1,8 +1,10 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import Footer from '@/components/layout/Footer.astro';
 import Header from '@/components/layout/Header.astro';
 import SEO from '@/components/seo/SEO.astro';
 import { site } from '@/config/site';
+import { pageTransition } from '@/utils/page-transition';
 import '@/styles/global.css';
 
 interface Props {
@@ -40,13 +42,22 @@ const {
 			publishedTime={publishedTime}
 			noindex={noindex}
 		/>
+		<ClientRouter />
 	</head>
 	<body class="flex min-h-screen flex-col">
+		<div id="nav-progress" class="nav-progress" aria-hidden="true" transition:persist="nav-progress">
+			<div class="nav-progress__bar"></div>
+		</div>
 		<a href="#main-content" class="skip-link">Skip to content</a>
-		<Header />
-		<main id="main-content" class="flex-1">
+		<Header transition:persist="site-header" />
+		<main id="main-content" class="flex-1" transition:animate={pageTransition}>
 			<slot />
 		</main>
-		<Footer />
+		<Footer transition:persist="site-footer" />
 	</body>
 </html>
+
+<script>
+	import { initNavigationProgress } from '@/scripts/navigation-progress';
+	initNavigationProgress();
+</script>

@@ -19,8 +19,8 @@ interface Props {
 const { courseSlug, price, class: className, compact = false } = Astro.props;
 const planId = getClerkPlanId(courseSlug);
 const buttonClass = compact
-	? 'inline-flex shrink-0 items-center justify-center rounded bg-brand px-4 py-2 font-display text-xs font-medium uppercase tracking-wide text-text-inverse transition-colors hover:bg-brand-dark'
-	: 'inline-flex w-full items-center justify-center rounded bg-brand px-6 py-2 font-display text-button font-button uppercase text-text-inverse transition-colors hover:bg-brand-dark';
+	? 'btn-interactive inline-flex shrink-0 items-center justify-center rounded bg-brand px-4 py-2 font-display text-xs font-medium uppercase tracking-wide text-text-inverse hover:bg-brand-dark'
+	: 'btn-interactive inline-flex w-full items-center justify-center rounded bg-brand px-6 py-2 font-display text-button font-button uppercase text-text-inverse hover:bg-brand-dark';
 ---
 
 <div class:list={[className]}>
@@ -47,7 +47,7 @@ const buttonClass = compact
 								mode="redirect"
 								forceRedirectUrl={`/courses/${courseSlug}/`}
 								appearance={clerkAppearance}
-								class="inline-flex items-center justify-center rounded border border-brand px-6 py-2 font-display text-button font-button uppercase text-brand transition-colors hover:bg-brand/5"
+								class="btn-interactive inline-flex items-center justify-center rounded border border-brand px-6 py-2 font-display text-button font-button uppercase text-brand hover:bg-brand/5"
 							>
 								Create account
 							</SignUpButton>

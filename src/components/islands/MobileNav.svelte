@@ -123,7 +123,7 @@
 										<li>
 											<a
 												href={child.href}
-												class="block px-6 py-2.5 text-sm text-text-heading hover:text-brand {isActive(child.href) ? 'text-brand' : ''}"
+												class="link-interactive block px-6 py-2.5 text-sm text-text-heading hover:text-brand {isActive(child.href) ? 'text-brand' : ''}"
 												target={child.external ? '_blank' : undefined}
 												rel={child.external ? 'noopener noreferrer' : undefined}
 												onclick={closeMenu}
@@ -137,7 +137,7 @@
 						{:else}
 							<a
 								href={item.href}
-								class="block px-4 py-3 font-display text-nav font-medium text-text-heading hover:text-brand {isActive(item.href) ? 'text-brand' : ''}"
+								class="link-interactive block px-4 py-3 font-display text-nav font-medium text-text-heading hover:text-brand {isActive(item.href) ? 'text-brand' : ''}"
 								onclick={closeMenu}
 							>
 								{item.label}

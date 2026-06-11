@@ -1,0 +1,147 @@
+@layer components {
+	/* Top-of-page navigation progress */
+	.nav-progress {
+		position: fixed;
+		inset: 0 0 auto;
+		z-index: 60;
+		height: 2px;
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.15s ease-out;
+	}
+
+	.nav-progress.is-active {
+		opacity: 1;
+	}
+
+	.nav-progress__bar {
+		height: 100%;
+		width: 0;
+		background: var(--color-brand);
+		box-shadow: 0 0 10px color-mix(in srgb, var(--color-brand) 35%, transparent);
+		transition: width 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+		transform-origin: left center;
+	}
+
+	/* Primary buttons and CTAs */
+	.btn-interactive {
+		transition:
+			color 0.2s ease-out,
+			background-color 0.2s ease-out,
+			border-color 0.2s ease-out,
+			transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+			box-shadow 0.2s ease-out;
+	}
+
+	.btn-interactive:hover {
+		box-shadow: 0 2px 8px color-mix(in srgb, var(--color-brand) 18%, transparent);
+	}
+
+	.btn-interactive:active {
+		transform: scale(0.98);
+	}
+
+	.btn-interactive.nav-link-pending,
+	.btn-interactive.is-processing {
+		cursor: wait;
+		opacity: 0.85;
+		pointer-events: none;
+	}
+
+	/* Text and nav links */
+	.link-interactive {
+		transition: color 0.2s ease-out;
+	}
+
+	.link-interactive.nav-link-pending {
+		opacity: 0.65;
+	}
+
+	/* Clickable cards */
+	.card-interactive {
+		transition:
+			box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+			transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.card-interactive:hover {
+		transform: translateY(-2px);
+		box-shadow:
+			0 4px 12px color-mix(in srgb, var(--color-text-heading) 8%, transparent),
+			0 1px 3px color-mix(in srgb, var(--color-text-heading) 4%, transparent);
+	}
+
+	/* Nav underline reveal on hover */
+	.nav-underline {
+		position: relative;
+	}
+
+	.nav-underline::after {
+		content: "";
+		position: absolute;
+		left: 0.75rem;
+		right: 0.75rem;
+		bottom: 0.35rem;
+		height: 2px;
+		background: currentColor;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+		opacity: 0.7;
+	}
+
+	.nav-underline:hover::after,
+	.nav-underline:focus-visible::after {
+		transform: scaleX(1);
+	}
+
+	/* Processing spinner for buttons */
+	.is-processing {
+		position: relative;
+	}
+
+	.is-processing::after {
+		content: "";
+		position: absolute;
+		right: 0.75rem;
+		top: 50%;
+		width: 0.875rem;
+		height: 0.875rem;
+		margin-top: -0.4375rem;
+		border: 2px solid currentColor;
+		border-right-color: transparent;
+		border-radius: 50%;
+		animation: spin 0.6s linear infinite;
+		opacity: 0.85;
+	}
+
+	@keyframes spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.nav-progress__bar {
+		transition: none;
+	}
+
+	.btn-interactive:active {
+		transform: none;
+	}
+
+	.card-interactive:hover {
+		transform: none;
+	}
+
+	.nav-underline::after {
+		display: none;
+	}
+
+	.is-processing::after {
+		animation: none;
+		border-right-color: currentColor;
+		opacity: 0.5;
+	}
+}
