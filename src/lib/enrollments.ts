@@ -1,4 +1,3 @@
-import { getCourseSlugForPlanId } from '@/config/billing';
 import { getActiveBillableCourseSlugs } from '@/lib/clerk-billing';
 import { getCourse } from '@/lib/courses';
 import { getDb } from '@/lib/db';
