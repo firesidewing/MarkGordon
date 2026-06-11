@@ -1,0 +1,203 @@
+---
+import LessonAccessDenied from '@/components/courses/LessonAccessDenied.astro';
+import LessonSidebar from '@/components/courses/LessonSidebar.astro';
+import YouTube from '@/components/islands/YouTube.svelte';
+import Button from '@/components/ui/Button.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { checkCourseAccess } from '@/lib/access';
+import { getAdjacentLessons, getCourse, getLesson, getSortedLessons, lessonHref } from '@/lib/courses';
+import { listCompletedLessons, markLessonComplete, recordLessonView } from '@/lib/progress';
+import { parseYouTubeVideoId, youTubeThumbnailUrl } from '@/utils/youtube';
+
+export const prerender = false;
+
+const { slug, lesson: lessonSlug } = Astro.params;
+const course = await getCourse(slug!);
+if (!course) {
+	return Astro.redirect('/online-courses/');
+}
+
+const lesson = getLesson(course, lessonSlug!);
+if (!lesson) {
+	return Astro.redirect(`/courses/${course.id}/`);
+}
+
+const auth = Astro.locals.auth();
+const access = await checkCourseAccess(auth, auth.userId, course.id);
+
+if (!access.allowed) {
+	if (access.reason === 'not_signed_in') {
+		return Astro.redirect(`/sign-in/?redirect_url=${encodeURIComponent(Astro.url.pathname)}`);
+	}
+}
+
+let completedSlugs: string[] = [];
+if (access.allowed && auth.userId) {
+	try {
+		await recordLessonView(auth.userId, course.id, lesson.slug);
+		await markLessonComplete(auth.userId, course.id, lesson.slug);
+		completedSlugs = await listCompletedLessons(auth.userId, course.id);
+	} catch (error) {
+		console.error('Failed to record lesson progress:', error);
+	}
+}
+
+const { prev, next, index, total } = getAdjacentLessons(course, lesson.slug);
+const sortedLessons = getSortedLessons(course);
+---
+
+<BaseLayout
+	title={`${lesson.title} — ${course.data.title}`}
+	description={lesson.body.slice(0, 160)}
+	noindex
+>
+	{
+		!access.allowed && access.reason ? (
+			<LessonAccessDenied
+				reason={access.reason}
+				courseTitle={course.data.title}
+				courseSlug={course.id}
+				expiresAt={access.enrollment?.expiresAt}
+			/>
+		) : (
+			<div class="mx-auto w-full max-w-content px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+				<header class="mb-6 flex flex-wrap items-baseline justify-between gap-3 border-b border-surface-muted pb-4">
+					<div class="min-w-0">
+						<a
+							href={`/courses/${course.id}/`}
+							class="text-xs font-medium uppercase tracking-wide text-text-muted hover:text-brand"
+						>
+							{course.data.title}
+						</a>
+						<h1 class="mt-1 font-display text-xl font-semibold text-text-heading sm:text-2xl">
+							{lesson.title}
+						</h1>
+						<p class="mt-1 text-xs text-text-muted">
+							Lesson {index + 1} of {total}
+						</p>
+					</div>
+					<a
+						href="/account/courses/"
+						class="shrink-0 text-xs font-medium uppercase tracking-wide text-brand hover:underline"
+					>
+						My courses
+					</a>
+				</header>
+
+				<div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_16rem] lg:gap-10">
+					<article class="min-w-0 space-y-8">
+						<div class="space-y-6">
+							{
+								lesson.videoUrls.map((url, videoIndex) => {
+									const videoId = parseYouTubeVideoId(url);
+									if (!videoId) return null;
+
+									const partLabel =
+										lesson.videoUrls.length > 1 ? `Part ${videoIndex + 1}` : undefined;
+
+									return (
+										<div class="space-y-2">
+											{partLabel && (
+												<p class="font-display text-xs font-semibold uppercase tracking-wide text-text-muted">
+													{partLabel}
+												</p>
+											)}
+											<YouTube
+												client:visible
+												videoId={videoId}
+												title={partLabel ? `${lesson.title} — ${partLabel}` : lesson.title}
+												posterSrc={youTubeThumbnailUrl(videoId)}
+												layout="default"
+											/>
+										</div>
+									);
+								})
+							}
+						</div>
+
+						<div class="max-w-prose space-y-4">
+							<p class="text-sm leading-relaxed text-text">{lesson.body}</p>
+
+							{
+								lesson.downloads.length > 0 && (
+									<ul class="space-y-2" role="list">
+										{lesson.downloads.map((download) => (
+											<li>
+												<a
+													href={download.url}
+													class="inline-flex items-center gap-2 text-sm font-medium text-brand hover:underline"
+													download
+												>
+													<svg
+														class="h-4 w-4"
+														viewBox="0 0 24 24"
+														fill="none"
+														stroke="currentColor"
+														stroke-width="2"
+														aria-hidden="true"
+													>
+														<path d="M12 3v12m0 0l4-4m-4 4l-4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
+													</svg>
+													{download.label}
+												</a>
+											</li>
+										))}
+									</ul>
+								)
+							}
+						</div>
+
+						<nav class="flex flex-wrap items-center justify-between gap-4 border-t border-surface-muted pt-6">
+							{
+								prev ? (
+									<a
+										href={lessonHref(course.id, prev.slug)}
+										class="text-sm font-medium text-text-muted hover:text-brand"
+									>
+										← {prev.title}
+									</a>
+								) : (
+									<span />
+								)
+							}
+							{
+								next ? (
+									<Button href={lessonHref(course.id, next.slug)}>Next lesson →</Button>
+								) : (
+									<Button href="/account/courses/" variant="text" class="!text-brand">
+										Back to my courses
+									</Button>
+								)
+							}
+						</nav>
+					</article>
+
+					<aside class="hidden lg:block">
+						<div class="sticky top-28 rounded-sm bg-surface-muted/50 p-4">
+							<LessonSidebar
+								courseSlug={course.id}
+								lessons={sortedLessons}
+								currentLessonSlug={lesson.slug}
+								completedSlugs={completedSlugs}
+							/>
+						</div>
+					</aside>
+				</div>
+
+				<details class="mt-8 border-t border-surface-muted pt-6 lg:hidden">
+					<summary class="cursor-pointer font-display text-sm font-semibold text-text-heading">
+						All lessons ({total})
+					</summary>
+					<div class="mt-4 rounded-sm bg-surface-muted/50 p-4">
+						<LessonSidebar
+							courseSlug={course.id}
+							lessons={sortedLessons}
+							currentLessonSlug={lesson.slug}
+							completedSlugs={completedSlugs}
+						/>
+					</div>
+				</details>
+			</div>
+		)
+	}
+</BaseLayout>
