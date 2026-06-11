@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onDestroy } from 'svelte';
+
 	type NavLink = {
 		label: string;
 		href: string;
@@ -20,7 +22,21 @@
 	let expanded = $state<Record<string, boolean>>({});
 
 	function setBodyScroll(locked: boolean) {
+		if (typeof document === 'undefined') return;
 		document.body.style.overflow = locked ? 'hidden' : '';
+	}
+
+	function portal(node: HTMLElement) {
+		if (typeof document === 'undefined') {
+			return { destroy() {} };
+		}
+
+		document.body.appendChild(node);
+		return {
+			destroy() {
+				node.remove();
+			},
+		};
 	}
 
 	function toggleMenu() {
@@ -42,6 +58,10 @@
 	function isActive(href: string) {
 		return href !== '#' && currentPath === href;
 	}
+
+	onDestroy(() => {
+		setBodyScroll(false);
+	});
 </script>
 
 <svelte:window
@@ -73,14 +93,16 @@
 	{#if open}
 		<button
 			type="button"
-			class="fixed inset-0 z-40 bg-black/40"
+			use:portal
+			class="fixed inset-0 z-[60] bg-black/40 lg:hidden"
 			aria-label="Close menu overlay"
 			onclick={closeMenu}
 		></button>
 
 		<nav
 			id="mobile-nav-panel"
-			class="fixed inset-y-0 right-0 z-50 flex w-[min(20rem,85vw)] animate-[slideIn_0.2s_ease-out] motion-reduce:animate-none flex-col overflow-y-auto bg-surface shadow-xl"
+			use:portal
+			class="fixed inset-y-0 right-0 z-[70] flex w-[min(20rem,85vw)] animate-[slideIn_0.2s_ease-out] motion-reduce:animate-none flex-col overflow-y-auto bg-surface shadow-xl lg:hidden"
 			aria-label="Mobile navigation"
 		>
 			<div class="flex items-center justify-between border-b border-surface-muted px-4 py-3">
