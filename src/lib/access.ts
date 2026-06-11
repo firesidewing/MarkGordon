@@ -1,5 +1,5 @@
-import type { AuthObject } from '@clerk/backend';
-import { isCoursePlanSlug } from '@/config/billing';
+import { isBillableCourse } from '@/config/billing';
+import { userHasActivePlanForCourse } from '@/lib/clerk-billing';
 import { isDbConfigured } from '@/lib/db';
 import {
 	getEnrollment,
@@ -17,7 +17,6 @@ export interface CourseAccessResult {
 }
 
 export async function checkCourseAccess(
-	auth: AuthObject,
 	userId: string | null | undefined,
 	courseSlug: string,
 ): Promise<CourseAccessResult> {
@@ -25,19 +24,16 @@ export async function checkCourseAccess(
 		return { allowed: false, reason: 'not_signed_in' };
 	}
 
-	if (!isCoursePlanSlug(courseSlug)) {
-		return { allowed: false, reason: 'no_purchase' };
-	}
-
-	if (!auth.has({ plan: courseSlug })) {
+	if (!isBillableCourse(courseSlug)) {
 		return { allowed: false, reason: 'no_purchase' };
 	}
 
 	if (!isDbConfigured()) {
-		return { allowed: true };
+		const hasPlan = await userHasActivePlanForCourse(userId, courseSlug);
+		return hasPlan ? { allowed: true } : { allowed: false, reason: 'no_purchase' };
 	}
 
-	await syncPurchasedEnrollments(auth, userId);
+	await syncPurchasedEnrollments(userId);
 
 	const enrollment = await getEnrollment(userId, courseSlug);
 	if (!enrollment) {

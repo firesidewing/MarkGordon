@@ -21,7 +21,7 @@ let dbError = false;
 
 if (isDbConfigured()) {
 	try {
-		await syncPurchasedEnrollments(auth, userId);
+		await syncPurchasedEnrollments(userId);
 		enrollments = await listEnrollments(userId);
 	} catch (error) {
 		console.error('Failed to load enrollments:', error);

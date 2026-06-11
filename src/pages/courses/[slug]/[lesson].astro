@@ -23,7 +23,7 @@ if (!lesson) {
 }
 
 const auth = Astro.locals.auth();
-const access = await checkCourseAccess(auth, auth.userId, course.id);
+const access = await checkCourseAccess(auth.userId, course.id);
 
 if (!access.allowed) {
 	if (access.reason === 'not_signed_in') {
