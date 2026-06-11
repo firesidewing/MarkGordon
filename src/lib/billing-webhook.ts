@@ -1,5 +1,4 @@
-import { getCourse } from '@/lib/courses';
-import { upsertEnrollment } from '@/lib/enrollments';
+import { grantEnrollmentForCourse } from '@/lib/enrollments';
 import { isCoursePlanSlug } from '@/config/billing';
 
 interface BillingPayer {
@@ -26,28 +25,9 @@ interface SubscriptionItemEventData {
 	plan?: BillingPlan | null;
 }
 
-function addDays(date: Date, days: number): Date {
-	const result = new Date(date);
-	result.setUTCDate(result.getUTCDate() + days);
-	return result;
-}
-
 async function grantAccessForPlan(userId: string, planSlug: string, subscriptionId: string): Promise<void> {
 	if (!isCoursePlanSlug(planSlug)) return;
-
-	const course = await getCourse(planSlug);
-	if (!course) return;
-
-	const purchasedAt = new Date();
-	const accessDays = course.data.accessDays ?? 365;
-
-	await upsertEnrollment({
-		userId,
-		courseSlug: planSlug,
-		purchasedAt,
-		expiresAt: addDays(purchasedAt, accessDays),
-		clerkSubscriptionId: subscriptionId,
-	});
+	await grantEnrollmentForCourse(userId, planSlug, subscriptionId);
 }
 
 export async function handleBillingWebhookEvent(type: string, data: unknown): Promise<void> {

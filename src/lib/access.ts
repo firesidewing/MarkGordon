@@ -1,6 +1,11 @@
 import type { AuthObject } from '@clerk/backend';
 import { isCoursePlanSlug } from '@/config/billing';
-import { getEnrollment, isEnrollmentActive, type Enrollment } from '@/lib/enrollments';
+import {
+	getEnrollment,
+	isEnrollmentActive,
+	syncPurchasedEnrollments,
+	type Enrollment,
+} from '@/lib/enrollments';
 
 export type AccessDenialReason = 'not_signed_in' | 'no_purchase' | 'no_enrollment' | 'expired';
 
@@ -26,6 +31,8 @@ export async function checkCourseAccess(
 	if (!auth.has({ plan: courseSlug })) {
 		return { allowed: false, reason: 'no_purchase' };
 	}
+
+	await syncPurchasedEnrollments(auth, userId);
 
 	const enrollment = await getEnrollment(userId, courseSlug);
 	if (!enrollment) {

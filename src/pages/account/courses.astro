@@ -2,12 +2,13 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
 import { getAllCourses } from '@/lib/courses';
-import { listEnrollments, isEnrollmentActive } from '@/lib/enrollments';
+import { listEnrollments, isEnrollmentActive, syncPurchasedEnrollments } from '@/lib/enrollments';
 import { isDbConfigured } from '@/lib/db';
 
 export const prerender = false;
 
-const { userId } = Astro.locals.auth();
+const auth = Astro.locals.auth();
+const { userId } = auth;
 if (!userId) {
 	return Astro.redirect('/sign-in/');
 }
@@ -20,6 +21,7 @@ let dbError = false;
 
 if (isDbConfigured()) {
 	try {
+		await syncPurchasedEnrollments(auth, userId);
 		enrollments = await listEnrollments(userId);
 	} catch (error) {
 		console.error('Failed to load enrollments:', error);

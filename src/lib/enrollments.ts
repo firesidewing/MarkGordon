@@ -1,4 +1,13 @@
+import type { AuthObject } from '@clerk/backend';
+import { COURSE_PLAN_SLUGS } from '@/config/billing';
+import { getCourse } from '@/lib/courses';
 import { getDb } from '@/lib/db';
+
+function addDays(date: Date, days: number): Date {
+	const result = new Date(date);
+	result.setUTCDate(result.getUTCDate() + days);
+	return result;
+}
 
 export interface Enrollment {
 	userId: string;
@@ -76,4 +85,39 @@ export async function upsertEnrollment(input: {
 
 export function isEnrollmentActive(enrollment: Enrollment, now = new Date()): boolean {
 	return enrollment.expiresAt > now;
+}
+
+/** Create or refresh enrollment after a Clerk Billing purchase (webhook or backfill). */
+export async function grantEnrollmentForCourse(
+	userId: string,
+	courseSlug: string,
+	clerkSubscriptionId?: string | null,
+): Promise<Enrollment | null> {
+	const course = await getCourse(courseSlug);
+	if (!course) return null;
+
+	const purchasedAt = new Date();
+	const accessDays = course.data.accessDays ?? 365;
+
+	await upsertEnrollment({
+		userId,
+		courseSlug,
+		purchasedAt,
+		expiresAt: addDays(purchasedAt, accessDays),
+		clerkSubscriptionId: clerkSubscriptionId ?? null,
+	});
+
+	return getEnrollment(userId, courseSlug);
+}
+
+/** Backfill Turso rows when Clerk has an active plan but the webhook never wrote enrollment. */
+export async function syncPurchasedEnrollments(auth: AuthObject, userId: string): Promise<void> {
+	for (const courseSlug of COURSE_PLAN_SLUGS) {
+		if (!auth.has({ plan: courseSlug })) continue;
+
+		const existing = await getEnrollment(userId, courseSlug);
+		if (existing) continue;
+
+		await grantEnrollmentForCourse(userId, courseSlug);
+	}
 }

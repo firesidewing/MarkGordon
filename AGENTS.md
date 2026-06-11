@@ -28,6 +28,7 @@ Node **≥ 22.12.0** is required (`.node-version` pins 22.12.0).
 | Production build | `bun run build` |
 | Preview build | `bun run preview` |
 | WP content migration | `bun run migrate` (needs `export.xml` + `output/`) |
+| Turso schema | `bun --env-file=.env run db:migrate` (once per database; creates `enrollments` etc.) |
 
 See `PROJECT.md` for migration architecture and content inventory.
 
