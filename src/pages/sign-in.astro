@@ -4,6 +4,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { clerkAppearance } from '@/config/clerk-appearance';
 
 export const prerender = false;
+
+const redirectUrl = Astro.url.searchParams.get('redirect_url') ?? '/account/courses/';
 ---
 
 <BaseLayout title="Sign in" description="Sign in to your Mark Gordon account." noindex>
@@ -13,7 +15,7 @@ export const prerender = false;
 			routing="path"
 			path="/sign-in"
 			signUpUrl="/sign-up/"
-			forceRedirectUrl="/account/courses/"
+			forceRedirectUrl={redirectUrl}
 		/>
 	</div>
 </BaseLayout>

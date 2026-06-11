@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { getLastViewedLesson } from '@/lib/progress';
 
 export type Course = CollectionEntry<'courses'>;
 
@@ -44,4 +45,39 @@ export function miniCourseFromCourse(course: Course) {
 		body: course.data.description,
 		href: courseHref(course.id),
 	};
+}
+
+export function getSortedLessons(course: Course) {
+	return [...course.data.lessons].sort((a, b) => a.order - b.order);
+}
+
+export function getLesson(course: Course, lessonSlug: string) {
+	return course.data.lessons.find((lesson) => lesson.slug === lessonSlug);
+}
+
+export function lessonHref(courseSlug: string, lessonSlug: string): string {
+	return `/courses/${courseSlug}/${lessonSlug}/`;
+}
+
+export function getAdjacentLessons(course: Course, lessonSlug: string) {
+	const sorted = getSortedLessons(course);
+	const index = sorted.findIndex((lesson) => lesson.slug === lessonSlug);
+	return {
+		prev: index > 0 ? sorted[index - 1] : undefined,
+		next: index >= 0 && index < sorted.length - 1 ? sorted[index + 1] : undefined,
+		index,
+		total: sorted.length,
+	};
+}
+
+export async function getContinueLessonHref(userId: string, course: Course): Promise<string> {
+	const lastViewed = await getLastViewedLesson(userId, course.id);
+	const sorted = getSortedLessons(course);
+
+	if (lastViewed && sorted.some((lesson) => lesson.slug === lastViewed)) {
+		return lessonHref(course.id, lastViewed);
+	}
+
+	const first = sorted[0];
+	return first ? lessonHref(course.id, first.slug) : courseHref(course.id);
 }

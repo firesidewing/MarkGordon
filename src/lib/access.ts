@@ -1,5 +1,6 @@
 import type { AuthObject } from '@clerk/backend';
 import { isCoursePlanSlug } from '@/config/billing';
+import { isDbConfigured } from '@/lib/db';
 import {
 	getEnrollment,
 	isEnrollmentActive,
@@ -30,6 +31,10 @@ export async function checkCourseAccess(
 
 	if (!auth.has({ plan: courseSlug })) {
 		return { allowed: false, reason: 'no_purchase' };
+	}
+
+	if (!isDbConfigured()) {
+		return { allowed: true };
 	}
 
 	await syncPurchasedEnrollments(auth, userId);

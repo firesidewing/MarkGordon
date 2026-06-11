@@ -1,0 +1,54 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { lessonHref } from '@/lib/courses';
+
+interface Props {
+	courseSlug: string;
+	lessons: CollectionEntry<'courses'>['data']['lessons'];
+	currentLessonSlug: string;
+	completedSlugs?: string[];
+}
+
+const { courseSlug, lessons, currentLessonSlug, completedSlugs = [] } = Astro.props;
+const sorted = [...lessons].sort((a, b) => a.order - b.order);
+const completed = new Set(completedSlugs);
+---
+
+<nav aria-label="Course lessons">
+	<p class="font-display text-xs font-semibold uppercase tracking-wide text-text-muted">
+		Lessons
+	</p>
+	<ol class="mt-3 space-y-1" role="list">
+		{
+			sorted.map((lesson) => {
+				const isCurrent = lesson.slug === currentLessonSlug;
+				const isComplete = completed.has(lesson.slug);
+				const href = lessonHref(courseSlug, lesson.slug);
+
+				return (
+					<li>
+						<a
+							href={href}
+							aria-current={isCurrent ? 'page' : undefined}
+							class:list={[
+								'flex items-start gap-2 rounded-sm px-2 py-2 text-sm transition-colors',
+								isCurrent
+									? 'bg-brand/10 font-semibold text-brand'
+									: 'text-text-muted hover:bg-surface-muted/60 hover:text-text-heading',
+							]}
+						>
+							<span
+								class:list={[
+									'mt-1.5 h-2 w-2 shrink-0 rounded-full',
+									isCurrent ? 'bg-brand' : isComplete ? 'bg-text-muted/40' : 'border border-text-muted/30',
+								]}
+								aria-hidden="true"
+							/>
+							<span class="min-w-0 leading-snug">{lesson.title}</span>
+						</a>
+					</li>
+				);
+			})
+		}
+	</ol>
+</nav>
