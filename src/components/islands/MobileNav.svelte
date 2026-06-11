@@ -20,33 +20,19 @@
 
 	let open = $state(false);
 	let expanded = $state<Record<string, boolean>>({});
+	let detailsEl = $state<HTMLDetailsElement | undefined>();
+	let shellEl = $state<HTMLDivElement | undefined>();
 
 	function setBodyScroll(locked: boolean) {
 		if (typeof document === 'undefined') return;
 		document.body.style.overflow = locked ? 'hidden' : '';
 	}
 
-	function portal(node: HTMLElement) {
-		if (typeof document === 'undefined') {
-			return { destroy() {} };
-		}
-
-		document.body.appendChild(node);
-		return {
-			destroy() {
-				node.remove();
-			},
-		};
-	}
-
-	function toggleMenu() {
-		open = !open;
+	function handleToggle(event: Event) {
+		const details = event.currentTarget as HTMLDetailsElement;
+		open = details.open;
 		setBodyScroll(open);
 		if (!open) expanded = {};
-	}
-
-	function toggleSubmenu(label: string) {
-		expanded = { ...expanded, [label]: !expanded[label] };
 	}
 
 	function closeMenu() {
@@ -55,12 +41,32 @@
 		expanded = {};
 	}
 
+	function toggleSubmenu(label: string) {
+		expanded = { ...expanded, [label]: !expanded[label] };
+	}
+
 	function isActive(href: string) {
 		return href !== '#' && currentPath === href;
 	}
 
+	$effect(() => {
+		if (typeof document === 'undefined' || !shellEl || !detailsEl) return;
+
+		if (open) {
+			if (shellEl.parentNode !== document.body) {
+				document.body.appendChild(shellEl);
+			}
+			return;
+		}
+
+		if (shellEl.parentNode === document.body) {
+			detailsEl.appendChild(shellEl);
+		}
+	});
+
 	onDestroy(() => {
 		setBodyScroll(false);
+		shellEl?.remove();
 	});
 </script>
 
@@ -70,14 +76,15 @@
 	}}
 />
 
-<div class="lg:hidden">
-	<button
-		type="button"
-		class="flex h-11 w-11 items-center justify-center rounded-md text-text-heading hover:bg-surface-muted"
-		aria-expanded={open}
-		aria-controls="mobile-nav-panel"
+<details
+	bind:this={detailsEl}
+	bind:open={open}
+	class="mobile-nav relative z-20 lg:hidden"
+	ontoggle={handleToggle}
+>
+	<summary
+		class="flex h-11 w-11 cursor-pointer touch-manipulation list-none items-center justify-center rounded-md text-text-heading hover:bg-surface-muted [&::-webkit-details-marker]:hidden"
 		aria-label={open ? 'Close menu' : 'Open menu'}
-		onclick={toggleMenu}
 	>
 		{#if open}
 			<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -88,28 +95,26 @@
 				<path d="M4 7h16M4 12h16M4 17h16" />
 			</svg>
 		{/if}
-	</button>
+	</summary>
 
-	{#if open}
+	<div bind:this={shellEl} class="mobile-nav-shell">
 		<button
 			type="button"
-			use:portal
-			class="fixed inset-0 z-[60] bg-black/40 lg:hidden"
+			class="fixed inset-0 z-[60] bg-black/40"
 			aria-label="Close menu overlay"
 			onclick={closeMenu}
 		></button>
 
 		<nav
 			id="mobile-nav-panel"
-			use:portal
-			class="fixed inset-y-0 right-0 z-[70] flex w-[min(20rem,85vw)] animate-[slideIn_0.2s_ease-out] motion-reduce:animate-none flex-col overflow-y-auto bg-surface shadow-xl lg:hidden"
+			class="fixed inset-y-0 right-0 z-[70] flex w-[min(20rem,85vw)] animate-[slideIn_0.2s_ease-out] motion-reduce:animate-none flex-col overflow-y-auto bg-surface shadow-xl"
 			aria-label="Mobile navigation"
 		>
 			<div class="flex items-center justify-between border-b border-surface-muted px-4 py-3">
 				<span class="font-display text-sm font-medium uppercase tracking-wide text-text-heading">Menu</span>
 				<button
 					type="button"
-					class="flex h-11 w-11 items-center justify-center rounded-md hover:bg-surface-muted"
+					class="flex h-11 w-11 touch-manipulation items-center justify-center rounded-md hover:bg-surface-muted"
 					aria-label="Close menu"
 					onclick={closeMenu}
 				>
@@ -125,7 +130,7 @@
 						{#if item.children}
 							<button
 								type="button"
-								class="flex w-full items-center justify-between px-4 py-3 text-left font-display text-nav font-medium text-text-heading"
+								class="flex w-full touch-manipulation items-center justify-between px-4 py-3 text-left font-display text-nav font-medium text-text-heading"
 								aria-expanded={expanded[item.label] ?? false}
 								onclick={() => toggleSubmenu(item.label)}
 							>
@@ -169,10 +174,14 @@
 				{/each}
 			</ul>
 		</nav>
-	{/if}
-</div>
+	</div>
+</details>
 
 <style>
+	.mobile-nav-shell {
+		display: contents;
+	}
+
 	@keyframes slideIn {
 		from {
 			transform: translateX(100%);

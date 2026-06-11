@@ -88,8 +88,8 @@ const currentPath = Astro.url.pathname;
 					afterSignOutUrl="/"
 				/>
 			</Show>
-		</div>
 
-		<MobileNav client:media="(max-width: 1023px)" nav={mainNav} currentPath={currentPath} />
+			<MobileNav client:load nav={mainNav} currentPath={currentPath} />
+		</div>
 	</div>
 </header>
