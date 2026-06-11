@@ -146,16 +146,6 @@
 					</li>
 				{/each}
 			</ul>
-
-			<div class="border-t border-surface-muted px-4 py-4">
-				<a
-					href="/registration/"
-					class="inline-flex w-full items-center justify-center rounded-button bg-brand px-11 py-3.5 text-center font-display text-sm text-button font-button uppercase text-text-inverse transition-colors hover:bg-brand-dark"
-					onclick={closeMenu}
-				>
-					Login
-				</a>
-			</div>
 		</nav>
 	{/if}
 </div>
