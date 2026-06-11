@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
-import { getAllCourses } from '@/lib/courses';
+import { getAllCourses, getContinueLessonHref } from '@/lib/courses';
 import { listEnrollments, isEnrollmentActive } from '@/lib/enrollments';
 import { isDbConfigured } from '@/lib/db';
 
@@ -29,6 +29,17 @@ if (isDbConfigured()) {
 
 const activeEnrollments = enrollments.filter((enrollment) => isEnrollmentActive(enrollment));
 const expiredEnrollments = enrollments.filter((enrollment) => !isEnrollmentActive(enrollment));
+
+const continueHrefs = new Map<string, string>();
+for (const enrollment of activeEnrollments) {
+	const course = courseBySlug.get(enrollment.courseSlug);
+	if (!course) continue;
+	try {
+		continueHrefs.set(enrollment.courseSlug, await getContinueLessonHref(userId, course));
+	} catch (error) {
+		console.error(`Failed to resolve continue link for ${enrollment.courseSlug}:`, error);
+	}
+}
 
 function formatExpiry(date: Date): string {
 	return date.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' });
@@ -69,10 +80,9 @@ function formatExpiry(date: Date): string {
 				<ul class="mt-10 space-y-4" role="list">
 					{activeEnrollments.map((enrollment) => {
 						const course = courseBySlug.get(enrollment.courseSlug);
-						const firstLesson = course?.data.lessons[0];
-						const continueHref = firstLesson
-							? `/courses/${enrollment.courseSlug}/${firstLesson.slug}/`
-							: `/courses/${enrollment.courseSlug}/`;
+						const continueHref =
+							continueHrefs.get(enrollment.courseSlug) ??
+							`/courses/${enrollment.courseSlug}/`;
 
 						return (
 							<li class="flex flex-col gap-4 rounded-sm border border-surface-muted bg-surface p-5 sm:flex-row sm:items-center sm:justify-between">

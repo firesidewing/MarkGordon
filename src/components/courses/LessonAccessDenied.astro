@@ -1,0 +1,63 @@
+---
+import Button from '@/components/ui/Button.astro';
+import type { AccessDenialReason } from '@/lib/access';
+
+interface Props {
+	reason: AccessDenialReason;
+	courseTitle: string;
+	courseSlug: string;
+	expiresAt?: Date;
+}
+
+const { reason, courseTitle, courseSlug, expiresAt } = Astro.props;
+
+const salesHref = `/courses/${courseSlug}/`;
+
+const copy: Record<AccessDenialReason, { title: string; body: string }> = {
+	not_signed_in: {
+		title: 'Sign in to continue',
+		body: `Sign in to access lessons for ${courseTitle}.`,
+	},
+	no_purchase: {
+		title: 'Enrollment required',
+		body: `Purchase ${courseTitle} to unlock the lesson player and workbooks.`,
+	},
+	no_enrollment: {
+		title: 'Setting up your access',
+		body: 'Your purchase is being processed. Refresh in a moment, or contact support if this persists.',
+	},
+	expired: {
+		title: 'Access expired',
+		body: expiresAt
+			? `Your access to ${courseTitle} ended on ${expiresAt.toLocaleDateString('en-CA', { year: 'numeric', month: 'short', day: 'numeric' })}.`
+			: `Your access to ${courseTitle} has expired.`,
+	},
+};
+
+const { title, body } = copy[reason];
+---
+
+<div class="mx-auto w-full max-w-content px-4 py-16 text-center sm:px-6 lg:px-8">
+	<h1 class="font-display text-h2 font-h2 uppercase tracking-h2 text-brand">{title}</h1>
+	<p class="mx-auto mt-4 max-w-prose text-sm leading-relaxed text-text-muted">{body}</p>
+	<div class="mt-8 flex flex-wrap justify-center gap-4">
+		{
+			reason === 'not_signed_in' ? (
+				<Button href={`/sign-in/?redirect_url=${encodeURIComponent(Astro.url.pathname)}`}>
+					Sign in
+				</Button>
+			) : reason === 'no_enrollment' ? (
+				<Button href="/account/courses/">My courses</Button>
+			) : (
+				<Button href={salesHref}>View course</Button>
+			)
+		}
+		{
+			reason !== 'not_signed_in' && (
+				<Button href="/online-courses/" variant="text" class="!text-brand">
+					Browse courses
+				</Button>
+			)
+		}
+	</div>
+</div>

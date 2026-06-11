@@ -11,7 +11,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "migrate": "bun run scripts/migrate-content.ts"
+    "migrate": "bun run scripts/migrate-content.ts",
+    "db:schema": "echo 'Run: turso db shell <your-db> < scripts/turso-schema.sql'"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",
