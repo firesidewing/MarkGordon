@@ -69,8 +69,7 @@ export async function upsertEnrollment(input: {
 		sql: `INSERT INTO enrollments (user_id, course_slug, purchased_at, expires_at, clerk_subscription_id)
 		      VALUES (?, ?, ?, ?, ?)
 		      ON CONFLICT(user_id, course_slug) DO UPDATE SET
-		        purchased_at = excluded.purchased_at,
-		        expires_at = excluded.expires_at,
+		        expires_at = MAX(enrollments.expires_at, excluded.expires_at),
 		        clerk_subscription_id = COALESCE(excluded.clerk_subscription_id, enrollments.clerk_subscription_id)`,
 		args: [
 			input.userId,

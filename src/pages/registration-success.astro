@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
-import { syncPurchasedEnrollmentsWithRetry } from '@/lib/enrollments';
+import { isBillableCourse } from '@/config/billing';
+import { grantEnrollmentForCourse, syncPurchasedEnrollmentsWithRetry } from '@/lib/enrollments';
 import { isDbConfigured } from '@/lib/db';
 
 export const prerender = false;
@@ -11,8 +12,13 @@ if (!userId) {
 	return Astro.redirect('/sign-up/');
 }
 
+const purchasedCourseSlug = Astro.url.searchParams.get('course');
+
 if (isDbConfigured()) {
 	try {
+		if (purchasedCourseSlug && isBillableCourse(purchasedCourseSlug)) {
+			await grantEnrollmentForCourse(userId, purchasedCourseSlug);
+		}
 		await syncPurchasedEnrollmentsWithRetry(userId);
 	} catch (error) {
 		console.error('Failed to sync enrollments after checkout:', error);

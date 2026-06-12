@@ -60,7 +60,7 @@ const buttonClass = compact
 						planId={planId}
 						planPeriod="annual"
 						for="user"
-						newSubscriptionRedirectUrl="/registration-success/"
+						newSubscriptionRedirectUrl={`/registration-success/?course=${courseSlug}`}
 						appearance={clerkAppearance}
 						class={buttonClass}
 					>
