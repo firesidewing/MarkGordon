@@ -29,7 +29,7 @@ const link = href ?? (slug ? postUrl(slug) : undefined);
 
 <article
 	class:list={[
-		'flex h-full flex-col overflow-hidden rounded-sm border border-surface-muted bg-surface shadow-sm transition-shadow hover:shadow-md',
+		'card-interactive flex h-full flex-col overflow-hidden rounded-sm border border-surface-muted bg-surface shadow-sm',
 		className,
 	]}
 >
@@ -51,7 +51,7 @@ const link = href ?? (slug ? postUrl(slug) : undefined);
 		<h3 class="font-display text-h4 font-h3 text-text-heading">
 			{
 				link ? (
-					<a href={link} class="transition-colors hover:text-brand">
+					<a href={link} class="link-interactive hover:text-brand">
 						{title}
 					</a>
 				) : (

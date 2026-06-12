@@ -31,7 +31,7 @@ const currentPath = Astro.url.pathname;
 						<div class="group relative">
 							<a
 								href={item.href}
-								class="inline-flex min-h-11 items-center gap-1 px-3 py-2 font-display text-nav font-nav text-text-heading transition-colors hover:text-brand motion-reduce:transition-none"
+								class="link-interactive nav-underline inline-flex min-h-11 items-center gap-1 px-3 py-2 font-display text-nav font-nav text-text-heading hover:text-brand"
 								aria-haspopup="true"
 							>
 								{item.label}
@@ -48,7 +48,7 @@ const currentPath = Astro.url.pathname;
 										<li>
 											<a
 												href={child.href}
-												class="block px-4 py-2 text-sm text-text-heading transition-colors hover:bg-surface-muted hover:text-brand"
+												class="link-interactive block px-4 py-2 text-sm text-text-heading hover:bg-surface-muted hover:text-brand"
 												{...(child.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
 											>
 												{child.label}
@@ -61,7 +61,7 @@ const currentPath = Astro.url.pathname;
 					) : (
 						<a
 							href={item.href}
-							class:list={['inline-flex min-h-11 items-center px-3 py-2 font-display text-nav font-nav text-text-heading transition-colors hover:text-brand motion-reduce:transition-none', currentPath === item.href && 'text-brand']}
+							class:list={['link-interactive nav-underline inline-flex min-h-11 items-center px-3 py-2 font-display text-nav font-nav text-text-heading hover:text-brand', currentPath === item.href && 'text-brand']}
 						>
 							{item.label}
 						</a>
@@ -76,7 +76,7 @@ const currentPath = Astro.url.pathname;
 					mode="redirect"
 					forceRedirectUrl="/account/courses/"
 					appearance={clerkAppearance}
-					class="inline-flex min-h-11 items-center rounded-button bg-brand px-4 py-2 font-display text-xs font-medium uppercase tracking-wide text-text-inverse transition-colors hover:bg-brand-dark sm:px-6 sm:text-sm"
+					class="btn-interactive inline-flex min-h-11 items-center rounded-button bg-brand px-4 py-2 font-display text-xs font-medium uppercase tracking-wide text-text-inverse hover:bg-brand-dark sm:px-6 sm:text-sm"
 				>
 					Login
 				</SignInButton>

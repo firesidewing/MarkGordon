@@ -49,8 +49,9 @@ async function grantAccessForItem(
 	userId: string,
 	item: BillingSubscriptionItem | SubscriptionItemEventData,
 	subscriptionId: string,
+	options?: { requireActive?: boolean },
 ): Promise<void> {
-	if (!isActiveItem(item.status)) return;
+	if (options?.requireActive !== false && !isActiveItem(item.status)) return;
 
 	const courseSlug = getCourseSlugForPlan(item.plan, item.plan_id);
 	if (!courseSlug) {
@@ -106,7 +107,9 @@ export async function handleBillingWebhookEvent(type: string, data: unknown): Pr
 
 		const subscriptionId = payload.id ? `payment_${payload.id}` : 'payment_unknown';
 		for (const item of payload.subscription_items ?? []) {
-			await grantAccessForItem(userId, item, subscriptionId);
+			// Grant on successful payment even if Clerk later ends the subscription item
+			// when the user purchases another course plan.
+			await grantAccessForItem(userId, item, subscriptionId, { requireActive: false });
 		}
 	}
 }

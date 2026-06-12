@@ -50,7 +50,7 @@
 				aria-selected={active === index}
 				aria-controls="course-panel-{index}"
 				class={[
-					'min-h-11 border border-b-0 border-surface-muted px-5 py-3 font-display text-sm font-medium transition-colors motion-reduce:transition-none',
+					'btn-interactive min-h-11 border border-b-0 border-surface-muted px-5 py-3 font-display text-sm font-medium',
 					active === index
 						? 'border-t-brand border-x-brand bg-surface text-text-heading'
 						: 'bg-surface-alt text-text-muted hover:text-text-heading',
@@ -76,7 +76,7 @@
 			<p class="mt-4 text-sm leading-relaxed text-text-muted">{tab.body}</p>
 			<a
 				href={tab.href}
-				class="mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-brand hover:underline"
+				class="link-interactive mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-brand hover:underline"
 			>
 				Start {tab.title}
 			</a>
