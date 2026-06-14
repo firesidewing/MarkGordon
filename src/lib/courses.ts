@@ -23,6 +23,11 @@ export function courseHref(slug: string): string {
 	return `/courses/${slug}/`;
 }
 
+export function getLowestCoursePrice(courses: Course[]): number {
+	if (courses.length === 0) return 0;
+	return Math.min(...courses.map((course) => course.data.price));
+}
+
 export function courseCardFromCourse(course: Course) {
 	return {
 		title: course.data.title,

@@ -1,0 +1,23 @@
+---
+interface Props {
+	results: string[];
+}
+
+const { results } = Astro.props;
+---
+
+<section aria-labelledby="results-heading">
+	<h2 id="results-heading" class="font-display text-h2 font-h2 uppercase tracking-h2 text-brand">
+		What changes
+	</h2>
+	<ul class="mt-4 space-y-3" role="list">
+		{
+			results.map((result) => (
+				<li class="flex gap-3 text-sm leading-relaxed text-text">
+					<span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand" aria-hidden="true" />
+					{result}
+				</li>
+			))
+		}
+	</ul>
+</section>

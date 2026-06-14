@@ -2,17 +2,21 @@
 export const prerender = true;
 
 import type { ImageMetadata } from 'astro';
-import CourseCard from '@/components/sections/CourseCard.astro';
+import CourseCatalogCard from '@/components/courses/CourseCatalogCard.astro';
+import CourseCatalogHero from '@/components/courses/CourseCatalogHero.astro';
+import CourseCatalogValueProps from '@/components/courses/CourseCatalogValueProps.astro';
 import FeaturedCourse from '@/components/courses/FeaturedCourse.astro';
-import CourseTabs from '@/components/islands/CourseTabs.svelte';
+import CtaBand from '@/components/sections/CtaBand.astro';
+import NewsletterCta from '@/components/sections/NewsletterCta.astro';
 import Section from '@/components/ui/Section.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { courseCardFromCourse, getAllCourses, miniCourseFromCourse } from '@/lib/courses';
+import { catalogHero, catalogValueProps } from '@/data/online-courses';
+import { getAllCourses, getLowestCoursePrice } from '@/lib/courses';
 
 const courses = await getAllCourses();
 const featured = courses.find((course) => course.data.featured) ?? courses[0];
-const secondary = courses.filter((course) => course.id !== featured?.id && course.data.price >= 29 && course.data.lessons.length > 2);
-const mini = courses.filter((course) => !secondary.includes(course) && course.id !== featured?.id);
+const others = courses.filter((course) => course.id !== featured?.id);
+const accessDays = featured?.data.accessDays ?? 365;
 
 const coverImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/courses/**/*.{png,jpg,jpeg,webp}', {
 	eager: true,
@@ -24,47 +28,47 @@ function getCover(slug: string, filename: string): ImageMetadata | undefined {
 }
 
 const featuredCover = featured ? getCover(featured.id, featured.data.coverImage) : undefined;
+const otherCourses = others.map((course) => ({
+	course,
+	cover: getCover(course.id, course.data.coverImage),
+}));
 ---
 
 <BaseLayout
 	title="Online Courses"
 	description="Video courses on relationships, confidence, anger, and shame — taught by Mark Gordon. Relationship Matters, Godfidence, and more."
 >
-	<section class="bg-brand py-12 text-center sm:py-16">
-		<div class="mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8">
-			<h1 class="font-display text-2xl font-h2 uppercase tracking-h2 text-text-inverse sm:text-3xl lg:text-4xl">
-				Online Courses
-			</h1>
-			<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text-inverse/90">
-				Practical video teaching you can work through at home — on trust, communication, confidence, anger, and
-				shame.
-			</p>
-		</div>
-	</section>
+	<CourseCatalogHero
+		title={catalogHero.title}
+		subtitle={catalogHero.subtitle}
+		hook={catalogHero.hook}
+		courseCount={courses.length}
+		lowestPrice={getLowestCoursePrice(courses)}
+		accessDays={accessDays}
+	/>
 
-	<Section variant="muted">
+	<CourseCatalogValueProps items={catalogValueProps} />
+
+	<Section>
 		{featured && <FeaturedCourse course={featured} cover={featuredCover} />}
 	</Section>
 
 	{
-		secondary.length > 0 && (
-			<Section>
-				<h2 class="mb-6 font-display text-h2 font-h2 uppercase tracking-h2 text-brand">Go deeper</h2>
-				<div class="grid gap-6 lg:grid-cols-2">
-					{secondary.map((course) => (
-						<CourseCard {...courseCardFromCourse(course)} />
+		otherCourses.length > 0 && (
+			<Section variant="muted">
+				<h2 class="mb-2 font-display text-h2 font-h2 uppercase tracking-h2 text-brand">More courses</h2>
+				<p class="mb-8 max-w-2xl text-sm leading-relaxed text-text-muted">
+					Focused video series on confidence, anger, and shame — each with a full year of access.
+				</p>
+				<div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
+					{otherCourses.map(({ course, cover }) => (
+						<CourseCatalogCard {course} {cover} compact />
 					))}
 				</div>
 			</Section>
 		)
 	}
 
-	{
-		mini.length > 0 && (
-			<Section variant="muted">
-				<h2 class="mb-6 font-display text-h2 font-h2 text-brand">Focused mini-courses</h2>
-				<CourseTabs client:visible tabs={mini.map(miniCourseFromCourse)} />
-			</Section>
-		)
-	}
+	<CtaBand />
+	<NewsletterCta />
 </BaseLayout>

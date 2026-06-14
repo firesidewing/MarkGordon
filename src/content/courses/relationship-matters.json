@@ -8,7 +8,48 @@
   "badge": "Popular",
   "accessDays": 365,
   "coverImage": "1.png",
-  "description": "Based on my groundbreaking book Relationship Matters, this course is a powerful journey to relational healing. Relationships can bring the greatest joy in your life, however they can also bring the most pain. Many people don’t put a lot of thought into what it takes to build a healthy relationship. To build a healthy relationship you need a healthy relational culture in your home, extended family or any organizations you may be involved with. The best investment you can make is to work on the 5 pillars of your relational foundation; Trust, Communication, Authenticity, Honesty and Honour. This video series takes you on a journey to build those pillars into the fabric of how you relate to yourself and others. The process in the worksheets and the daily work uniquely sets you up for success!",
+  "hook": "Relationships can bring the greatest joy — and the deepest pain. This course walks you through the five pillars that hold a healthy relational foundation together.",
+  "audienceNote": "Built for couples, families, and small groups who want to work through the material together at home.",
+  "introVideoId": "NU01pWtprtM",
+  "bookHref": "/relationship-matters/",
+  "description": "Based on my book Relationship Matters, this video series takes you through the five pillars of a healthy relational foundation: Trust, Communication, Authenticity, Honesty, and Honour. Each lesson includes a workbook and a practical challenge so you can build these habits into how you relate to yourself and others.",
+  "pillars": [
+    {
+      "title": "Trust",
+      "description": "The cornerstone pillar. Relationships break under the weight of broken trust — learn how to build trust equity that lasts."
+    },
+    {
+      "title": "Communication",
+      "description": "Healthy communication is how you live out trust day to day and get your relational needs met."
+    },
+    {
+      "title": "Authenticity",
+      "description": "You cannot have a healthy relationship with others until you build one with yourself first."
+    },
+    {
+      "title": "Honesty",
+      "description": "A lost art in today's world. Dishonesty breaks trust and undermines every other pillar."
+    },
+    {
+      "title": "Honour",
+      "description": "Often misunderstood, living with honour has a massive impact on your life and relationships."
+    }
+  ],
+  "results": [
+    "Build trust equity in your home and relationships",
+    "Communicate in ways your needs can be met",
+    "Live authentically — starting with yourself",
+    "Use honesty as a relationship superpower",
+    "Reclaim the lost art of honour"
+  ],
+  "testimonial": {
+    "quote": "Relationship Matters is a timely invitation and inspiring guide for living with purpose in relationship with others. In an insightful and practical way, Mark has outlined 5 critical pillars that provide a roadmap for individuals wanting to create a family environment that supports its members to become healthy, content, competent and flourishing adults.",
+    "author": "Dr. Wayne Hammond",
+    "credentials": [
+      "Founding Partner and CSO, Flourishing Life",
+      "Adjunct Professor at Ambrose University"
+    ]
+  },
   "bullets": [
     {
       "text": "How to build trust equity",

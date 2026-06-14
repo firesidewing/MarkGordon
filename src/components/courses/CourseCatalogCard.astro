@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Button from '@/components/ui/Button.astro';
+import type { CollectionEntry } from 'astro:content';
+import { courseHref, formatPrice } from '@/lib/courses';
+
+interface Props {
+	course: CollectionEntry<'courses'>;
+	cover?: ImageMetadata;
+	compact?: boolean;
+}
+
+const { course, cover, compact = false } = Astro.props;
+const { title, subtitle, hook, description, price, badge, lessons, accessDays } = course.data;
+const summary = hook ?? description;
+const lessonLabel = `${lessons.length} video lesson${lessons.length === 1 ? '' : 's'}`;
+---
+
+<article
+	class:list={[
+		'card-interactive flex h-full flex-col overflow-hidden border border-surface-muted bg-surface shadow-sm',
+		compact ? '' : 'lg:flex-row',
+	]}
+>
+	<div
+		class:list={[
+			'relative shrink-0 overflow-hidden bg-card-header',
+			compact ? 'aspect-video w-full' : 'aspect-video w-full lg:aspect-auto lg:w-2/5 lg:min-h-56',
+		]}
+	>
+		{
+			cover ? (
+				<Image
+					src={cover}
+					alt={`${title} course cover`}
+					width={cover.width}
+					height={cover.height}
+					class="h-full w-full object-cover"
+					loading="lazy"
+				/>
+			) : (
+				<div class="flex h-full min-h-40 items-center justify-center px-6 text-center">
+					<p class="font-display text-lg font-semibold text-text-inverse">{title}</p>
+				</div>
+			)
+		}
+	</div>
+
+	<div class="flex flex-1 flex-col px-5 py-6 sm:px-6">
+		{
+			badge && (
+				<p class="font-display text-xs font-semibold uppercase tracking-widest text-brand">{badge}</p>
+			)
+		}
+		<h3 class:list={['font-display font-semibold text-text-heading', compact ? 'mt-2 text-xl' : 'mt-2 text-2xl']}>
+			{title}
+		</h3>
+		<p class="mt-1 text-sm font-medium text-text-heading">{subtitle}</p>
+		<p class="mt-3 text-sm text-text-muted">
+			<span class="font-display font-semibold text-text-heading">{formatPrice(price)}</span>
+			<span aria-hidden="true"> · </span>
+			{lessonLabel}
+			<span aria-hidden="true"> · </span>
+			{accessDays}-day access
+		</p>
+		<p class="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-text-muted">{summary}</p>
+		<div class="mt-5">
+			<Button href={courseHref(course.id)}>Explore {title}</Button>
+		</div>
+	</div>
+</article>
