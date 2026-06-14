@@ -1,0 +1,45 @@
+---
+interface Props {
+	title: string;
+	subtitle: string;
+	hook: string;
+	courseCount: number;
+	lowestPrice: number;
+	accessDays: number;
+}
+
+const { title, subtitle, hook, courseCount, lowestPrice, accessDays } = Astro.props;
+---
+
+<section class="bg-brand">
+	<div class="mx-auto w-full max-w-content px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+		<div class="mx-auto max-w-3xl text-center lg:text-left">
+			<p class="font-display text-xs font-semibold uppercase tracking-widest text-text-inverse/70">Learn at home</p>
+			<h1 class="mt-3 font-display text-[clamp(2rem,4.5vw,3rem)] font-bold leading-tight text-text-inverse">
+				{title}
+			</h1>
+			<p class="mt-3 text-lg font-medium text-text-inverse/95">{subtitle}</p>
+			<p class="mt-4 text-sm leading-relaxed text-text-inverse/85">{hook}</p>
+			<dl class="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-text-inverse/85 lg:justify-start">
+				<div>
+					<dt class="sr-only">Courses</dt>
+					<dd>
+						<span class="font-display text-lg font-semibold text-text-inverse">{courseCount}</span> courses
+					</dd>
+				</div>
+				<div>
+					<dt class="sr-only">Starting price</dt>
+					<dd>
+						From <span class="font-display text-lg font-semibold text-text-inverse">${lowestPrice}</span>
+					</dd>
+				</div>
+				<div>
+					<dt class="sr-only">Access</dt>
+					<dd>
+						<span class="font-display text-lg font-semibold text-text-inverse">{accessDays}</span>-day access each
+					</dd>
+				</div>
+			</dl>
+		</div>
+	</div>
+</section>
