@@ -52,6 +52,11 @@ const courseLesson = z.object({
 	downloads: z.array(courseDownload),
 });
 
+const coursePillar = z.object({
+	title: z.string(),
+	description: z.string(),
+});
+
 const courses = defineCollection({
 	loader: glob({ base: './src/content/courses', pattern: '**/*.json' }),
 	schema: z.object({
@@ -65,11 +70,18 @@ const courses = defineCollection({
 		accessDays: z.number().default(365),
 		coverImage: z.string(),
 		description: z.string(),
+		hook: z.string().optional(),
+		audienceNote: z.string().optional(),
+		introVideoId: z.string().optional(),
+		pillars: z.array(coursePillar).optional(),
+		results: z.array(z.string()).optional(),
+		bookHref: z.string().optional(),
 		bullets: z.array(courseBullet).default([]),
 		testimonial: z
 			.object({
 				quote: z.string(),
 				author: z.string(),
+				credentials: z.array(z.string()).optional(),
 			})
 			.optional(),
 		materials: z.array(courseDownload).default([]),

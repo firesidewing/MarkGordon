@@ -1,10 +1,16 @@
 ---
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import CourseBookPromo from '@/components/courses/CourseBookPromo.astro';
 import CourseCurriculum from '@/components/courses/CourseCurriculum.astro';
+import CourseMarketingHero from '@/components/courses/CourseMarketingHero.astro';
 import CourseMaterials from '@/components/courses/CourseMaterials.astro';
+import CoursePillars from '@/components/courses/CoursePillars.astro';
 import CoursePurchaseCta from '@/components/courses/CoursePurchaseCta.astro';
+import CourseResults from '@/components/courses/CourseResults.astro';
 import CourseStickyBar from '@/components/courses/CourseStickyBar.astro';
+import CourseTestimonialBand from '@/components/courses/CourseTestimonialBand.astro';
+import CtaBand from '@/components/sections/CtaBand.astro';
 import CourseLayout from '@/layouts/CourseLayout.astro';
 import { getAllCourses } from '@/lib/courses';
 
@@ -19,7 +25,25 @@ export async function getStaticPaths() {
 }
 
 const { course } = Astro.props;
-const { title, subtitle, description, bullets, price, testimonial, materials, lessons, coverImage } = course.data;
+const {
+	title,
+	subtitle,
+	description,
+	hook,
+	audienceNote,
+	introVideoId,
+	pillars,
+	results,
+	bookHref,
+	bullets,
+	price,
+	testimonial,
+	materials,
+	lessons,
+	coverImage,
+	badge,
+	accessDays,
+} = course.data;
 
 const coverImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/courses/**/*.{png,jpg,jpeg,webp}', {
 	eager: true,
@@ -28,33 +52,58 @@ const coverKey = Object.keys(coverImages).find(
 	(path) => path.includes(`/courses/${course.id}/`) && path.endsWith(`/${coverImage}`),
 );
 const cover = coverKey ? coverImages[coverKey].default : undefined;
+
+const workbookCount = materials.length;
+const isEnhanced = Boolean(pillars?.length || introVideoId || hook);
 ---
 
 <CourseLayout title={`${title} — Online Course`} description={description}>
-	<section slot="hero" class="bg-brand">
-		<div class="mx-auto grid w-full max-w-content items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-16">
-			<div>
-				<p class="font-display text-xs font-semibold uppercase tracking-widest text-text-inverse/80">Online course</p>
-				<h1 class="mt-2 font-display text-3xl font-h2 uppercase tracking-h2 text-text-inverse sm:text-4xl">{title}</h1>
-				<p class="mt-3 text-lg text-text-inverse/90">{subtitle}</p>
-				<p class="mt-4 max-w-prose text-sm leading-relaxed text-text-inverse/85">{description}</p>
-			</div>
-			{
-				cover && (
-					<div class="overflow-hidden rounded-sm shadow-lg">
-						<Image
-							src={cover}
-							alt={`${title} course cover`}
-							width={cover.width}
-							height={cover.height}
-							class="h-auto w-full object-cover"
-							loading="eager"
-						/>
+	{
+		isEnhanced ? (
+			<>
+				<CourseMarketingHero
+					slot="hero"
+					{title}
+					{subtitle}
+					{hook}
+					{audienceNote}
+					{price}
+					lessonCount={lessons.length}
+					workbookCount={workbookCount}
+					accessDays={accessDays}
+					{badge}
+					{cover}
+					{introVideoId}
+				/>
+				{pillars && pillars.length > 0 && <CoursePillars {pillars} />}
+			</>
+		) : (
+			<section slot="hero" class="bg-brand">
+				<div class="mx-auto grid w-full max-w-content items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-16">
+					<div>
+						<p class="font-display text-xs font-semibold uppercase tracking-widest text-text-inverse/80">Online course</p>
+						<h1 class="mt-2 font-display text-3xl font-h2 uppercase tracking-h2 text-text-inverse sm:text-4xl">{title}</h1>
+						<p class="mt-3 text-lg text-text-inverse/90">{subtitle}</p>
+						<p class="mt-4 max-w-prose text-sm leading-relaxed text-text-inverse/85">{description}</p>
 					</div>
-				)
-			}
-		</div>
-	</section>
+					{
+						cover && (
+							<div class="overflow-hidden rounded-sm shadow-lg">
+								<Image
+									src={cover}
+									alt={`${title} course cover`}
+									width={cover.width}
+									height={cover.height}
+									class="h-auto w-full object-cover"
+									loading="eager"
+								/>
+							</div>
+						)
+					}
+				</div>
+			</section>
+		)
+	}
 
 	<div class="mx-auto w-full max-w-content px-4 py-section pb-24 sm:px-6 md:pb-section lg:px-8">
 		<div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-16">
@@ -68,8 +117,20 @@ const cover = coverKey ? coverImages[coverKey].default : undefined;
 							<ul class="mt-4 space-y-3 text-sm leading-relaxed text-text" role="list">
 								{bullets.map((bullet) => (
 									<li class="flex gap-3">
-										<span class="text-brand" aria-hidden="true">✓</span>
-										<span>{bullet.text}</span>
+										<span class="mt-0.5 text-brand" aria-hidden="true">✓</span>
+										<span>
+											{bullet.highlight ? (
+												<>
+													{bullet.text.slice(0, bullet.text.toLowerCase().indexOf(bullet.highlight.toLowerCase()))}
+													<strong>{bullet.highlight}</strong>
+													{bullet.text.slice(
+														bullet.text.toLowerCase().indexOf(bullet.highlight.toLowerCase()) + bullet.highlight.length,
+													)}
+												</>
+											) : (
+												bullet.text
+											)}
+										</span>
 									</li>
 								))}
 							</ul>
@@ -77,11 +138,15 @@ const cover = coverKey ? coverImages[coverKey].default : undefined;
 					)
 				}
 
+				{results && results.length > 0 && <CourseResults {results} />}
+
 				<CourseCurriculum lessons={lessons} />
 				<CourseMaterials materials={materials} />
 
+				{bookHref && <CourseBookPromo href={bookHref} />}
+
 				{
-					testimonial && (
+					testimonial && !isEnhanced && (
 						<blockquote class="border-l-4 border-brand pl-5">
 							<p class="text-sm italic leading-relaxed text-text-muted">"{testimonial.quote}"</p>
 							<cite class="mt-2 block text-sm font-semibold not-italic text-text-heading">— {testimonial.author}</cite>
@@ -99,6 +164,18 @@ const cover = coverKey ? coverImages[coverKey].default : undefined;
 			<CoursePurchaseCta title={title} price={price} courseSlug={course.id} />
 		</div>
 	</div>
+
+	{
+		testimonial && isEnhanced && (
+			<CourseTestimonialBand
+				quote={testimonial.quote}
+				author={testimonial.author}
+				credentials={testimonial.credentials}
+			/>
+		)
+	}
+
+	{isEnhanced && <CtaBand />}
 
 	<CourseStickyBar title={title} price={price} courseSlug={course.id} />
 </CourseLayout>
