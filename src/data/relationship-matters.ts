@@ -34,29 +34,58 @@ export const bookRetailers: BookRetailer[][] = [
 	],
 ];
 
+export const bookHero = {
+	subtitle: 'The essential blueprint for building strong families and fostering healthy relationships',
+	hook:
+		'When home feels strained — marriage distant, kids out of control, conversations going nowhere — you need more than tips. You need a foundation you can build on together.',
+};
+
+export const bookIntro = {
+	lead:
+		'Are you at a loss to understand how your marriage has become so miserable, or do you wonder why your children are completely out of control?',
+	body:
+		'Relationship Matters is designed to help you and your family figure out what went wrong and create a healthy relational culture at home. Using the metaphor of constructing a strong house, the book walks you through three sections — foundation, framework, and roof.',
+};
+
 export const bookPillars = [
 	{
 		title: 'Building a Healthy Foundation',
-		description: 'discusses the five fundamental pillars of a healthy relationship.',
+		description:
+			'The five fundamental pillars every healthy relationship rests on — trust, communication, authenticity, honesty, and honour.',
 	},
 	{
 		title: 'Building a Strong Framework',
 		description:
-			'teaches how to motivate family members, so they each flow in a common or shared direction.',
+			'How to motivate family members so everyone moves in a shared direction instead of pulling apart.',
 	},
 	{
 		title: 'Building a Sturdy Roof',
 		description:
-			'introduces relational protection through fostering an understanding of authority and family roles.',
+			'Relational protection through a clear understanding of authority, roles, and boundaries at home.',
 	},
 ];
 
+export const bookOutcomes = [
+	'Understand what went wrong in your family dynamics',
+	'Build trust equity with the people who matter most',
+	'Create authentic connection — starting with yourself',
+	'Establish a healthy family culture that lasts',
+];
+
+export const bookCoursePromo = {
+	title: 'Ready to go deeper?',
+	body:
+		'The Relationship Matters online course walks you through all five pillars with video lessons, workbooks, and practical challenges you can do as a couple, family, or small group.',
+	href: '/courses/relationship-matters/',
+	price: 79,
+};
+
 export const bookTestimonial = {
 	quote:
-		'Relationship Matters is a timely invitation and inspiring guide for what it means to live an empowered and purposeful life in relationship with others. In an insightful and practical way, Mark has outlined 5 critical pillars that provide a roadmap and strategic action plan for individuals wanting to create a family environment that is transformational in the way it supports its members to become healthy, content, competent and flourishing adults.',
+		'Relationship Matters is a timely invitation and inspiring guide for living with purpose in relationship with others. In an insightful and practical way, Mark has outlined 5 critical pillars that provide a roadmap for individuals wanting to create a family environment that supports its members to become healthy, content, competent and flourishing adults.',
 	author: 'Dr. Wayne Hammond',
 	credentials: [
-		'Founding Partner and CSO Flourishing Life',
+		'Founding Partner and CSO, Flourishing Life',
 		'Adjunct Professor at Ambrose University',
 	],
 };

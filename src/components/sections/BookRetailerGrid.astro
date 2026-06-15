@@ -3,12 +3,13 @@ import type { BookRetailer } from "@/data/relationship-matters";
 
 interface Props {
     retailers: BookRetailer[][];
+    id?: string;
 }
 
-const { retailers } = Astro.props;
+const { retailers, id } = Astro.props;
 ---
 
-<section class="bg-brand">
+<section class="bg-brand" id={id}>
     <div class="mx-auto w-full max-w-content divide-y divide-white/90">
         {
             retailers.map((row) => (
