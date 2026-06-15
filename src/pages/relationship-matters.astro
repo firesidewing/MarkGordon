@@ -1,165 +1,110 @@
 ---
 export const prerender = true;
 
-import { Image } from "astro:assets";
-import BookRetailerGrid from "@/components/sections/BookRetailerGrid.astro";
-import Button from "@/components/ui/Button.astro";
-import heroImage from "@/assets/content/relationship-matters/Untitled-design-1024x577.png";
-import bookCover from "@/assets/content/relationship-matters/New-bok-cover.jpg";
-import { hubspot } from "@/config/site";
+import BookCoursePromo from '@/components/sections/BookCoursePromo.astro';
+import BookMarketingHero from '@/components/sections/BookMarketingHero.astro';
+import BookRetailerGrid from '@/components/sections/BookRetailerGrid.astro';
+import CtaBand from '@/components/sections/CtaBand.astro';
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import Button from '@/components/ui/Button.astro';
+import CourseTestimonialBand from '@/components/courses/CourseTestimonialBand.astro';
+import bookCover from '@/assets/content/relationship-matters/book-cover.png';
+import { hubspot } from '@/config/site';
 import {
-    bookPillars,
-    bookRetailers,
-    bookTestimonial,
-} from "@/data/relationship-matters";
-import BaseLayout from "@/layouts/BaseLayout.astro";
+	bookCoursePromo,
+	bookHero,
+	bookIntro,
+	bookOutcomes,
+	bookPillars,
+	bookRetailers,
+	bookTestimonial,
+} from '@/data/relationship-matters';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 
-const description =
-    "The Essential Blueprint to Building Strong Families & Fostering Healthy Relationships";
+const description = bookHero.subtitle;
 ---
 
 <BaseLayout title="Relationship Matters" description={description}>
-    <section
-        class="mx-auto w-full max-w-content px-4 py-12 sm:px-6 lg:px-8 lg:py-16"
-    >
-        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
-            <div class="text-center lg:text-left">
-                <h1
-                    class="font-display text-[2.5rem] font-bold leading-none text-brand sm:text-5xl lg:text-[3.9375rem]"
-                >
-                    Relationship Matters
-                </h1>
-                <h2
-                    class="mt-4 font-display text-xl font-light leading-snug text-brand sm:text-2xl lg:text-[1.5625rem]"
-                >
-                    The Essential Blueprint to<br />
-                    <strong class="font-bold">
-                        Building Strong Families<br />
-                        &amp; Fostering Healthy<br />
-                        Relationships
-                    </strong>
-                </h2>
-                <p
-                    class="mt-6 font-display text-2xl font-light uppercase text-text-subtle sm:text-[1.75rem]"
-                >
-                    BUY NOW!
-                </p>
-                <p class="mt-4 text-base text-text">
-                    Available at all of your favourite booksellers by clicking
-                    on the links below:
-                </p>
-            </div>
-            <div class="overflow-hidden">
-                <Image
-                    src={heroImage}
-                    alt="Relationship Matters book"
-                    width={heroImage.width}
-                    height={heroImage.height}
-                    class="h-auto w-full"
-                    loading="eager"
-                />
-            </div>
-        </div>
-    </section>
+	<BookMarketingHero
+		title="Relationship Matters"
+		subtitle={bookHero.subtitle}
+		hook={bookHero.hook}
+		cover={bookCover}
+	/>
 
-    <BookRetailerGrid retailers={bookRetailers} />
+	<BookRetailerGrid retailers={bookRetailers} id="retailers" />
 
-    <section
-        class="mx-auto w-full max-w-250 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-32"
-    >
-        <div
-            class="grid items-center gap-12 lg:grid-cols-[1.35fr_1fr] lg:gap-16"
-        >
-            <div class="text-center lg:text-left">
-                <h2
-                    class="font-display text-xl font-semibold leading-snug text-[#3b4656] sm:text-2xl"
-                >
-                    Are you at a loss to understand how your marriage has become
-                    so miserable, or do you wonder why your children are
-                    completely out of control?
-                </h2>
-                <p
-                    class="mt-6 text-nav font-light leading-relaxed text-[#3b4656] sm:text-[1.0625rem]"
-                >
-                    Relationship Matters is designed to help you and your family
-                    figure out what went wrong and to help create a healthy
-                    relational culture at home. Based on the metaphor of
-                    constructing a strong house, the content is presented in
-                    three sections.
-                </p>
-                <ul class="mt-6 space-y-4 text-left" role="list">
-                    {
-                        bookPillars.map((pillar) => (
-                            <li class="flex gap-3 text-nav font-light leading-relaxed text-[#3b4656] sm:text-[1.0625rem]">
-                                <svg
-                                    class="mt-0.5 h-5 w-5 shrink-0 text-brand"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                    aria-hidden="true"
-                                >
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                                </svg>
-                                <span>
-                                    <strong class="font-semibold">
-                                        {pillar.title}
-                                    </strong>{" "}
-                                    {pillar.description}
-                                </span>
-                            </li>
-                        ))
-                    }
-                </ul>
-                <p
-                    class="mt-6 text-nav font-light leading-relaxed text-[#3b4656] sm:text-[1.0625rem]"
-                >
-                    Relationship Matters offers insight into your family
-                    dynamics and ways to improve them. Learn how to build trust
-                    equity. Build authentic relationships. Create a healthy
-                    family culture.
-                </p>
-                <div class="mt-8 flex justify-center lg:justify-start">
-                    <Button href={hubspot.discoveryCall} external>
-                        Book Discovery Call
-                    </Button>
-                </div>
-            </div>
-            <div
-                class="hidden min-h-80 overflow-hidden bg-cover bg-top bg-no-repeat lg:block lg:min-h-112"
-                style={`background-image: url(${bookCover.src})`}
-                role="img"
-                aria-label="Relationship Matters book cover"
-            >
-            </div>
-        </div>
-    </section>
+	<section class="mx-auto w-full max-w-content px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+		<div class="mx-auto max-w-3xl text-center">
+			<p class="text-lg font-medium leading-relaxed text-text-heading sm:text-xl">
+				{bookIntro.lead}
+			</p>
+			<p class="mt-4 text-base leading-relaxed text-text">{bookIntro.body}</p>
+		</div>
+	</section>
 
-    <section
-        class="bg-[#8a9399] px-4 py-16 text-text-inverse sm:px-6 sm:py-20 lg:px-8"
-    >
-        <div class="mx-auto max-w-[48rem] text-center">
-            <p
-                class="font-serif text-[5rem] leading-none text-text-inverse sm:text-[7.5rem]"
-                aria-hidden="true"
-            >
-                &ldquo;
-            </p>
-            <p
-                class="text-base leading-relaxed sm:text-lg lg:text-[1.1875rem] lg:leading-[1.7]"
-            >
-                {bookTestimonial.quote}
-            </p>
-            <h3
-                class="mt-8 font-display text-2xl font-semibold sm:text-[2.5rem]"
-            >
-                {bookTestimonial.author}
-            </h3>
-            {
-                bookTestimonial.credentials.map((line) => (
-                    <p class="mt-2 font-display text-base font-semibold sm:text-[1.5625rem]">
-                        {line}
-                    </p>
-                ))
-            }
-        </div>
-    </section>
+	<section class="bg-surface-muted" aria-labelledby="book-sections-heading">
+		<div class="mx-auto w-full max-w-content px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+			<SectionHeading
+				title="Three sections, one strong house"
+				subtitle="The book is organized around building a home that can weather real life — not just look good from the outside."
+				centered
+			/>
+			<ol class="mt-10 grid gap-6 lg:grid-cols-3 lg:gap-8" role="list">
+				{
+					bookPillars.map((pillar, index) => (
+						<li class="bg-surface p-6 shadow-sm">
+							<p class="font-display text-xs font-semibold uppercase tracking-widest text-brand">
+								Section {index + 1}
+							</p>
+							<h3 class="mt-2 font-display text-lg font-semibold text-text-heading">
+								{pillar.title}
+							</h3>
+							<p class="mt-2 text-sm leading-relaxed text-text-muted">{pillar.description}</p>
+						</li>
+					))
+				}
+			</ol>
+		</div>
+	</section>
+
+	<section class="mx-auto w-full max-w-content px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+		<div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+			<div>
+				<h2 class="font-display text-h2 font-h2 uppercase tracking-h2 text-brand">
+					What you will gain
+				</h2>
+				<ul class="mt-6 space-y-3" role="list">
+					{
+						bookOutcomes.map((outcome) => (
+							<li class="flex gap-3 text-sm leading-relaxed text-text">
+								<span
+									class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand"
+									aria-hidden="true"
+								/>
+								{outcome}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+			<div class="flex flex-col justify-center">
+				<p class="text-base leading-relaxed text-text">
+					Whether you are rebuilding after a hard season or trying to get ahead of problems before
+					they grow, this book gives you language, structure, and practical steps — not vague advice.
+				</p>
+				<div class="mt-8">
+					<Button href={hubspot.discoveryCall} external>
+						Book a discovery call
+					</Button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<BookCoursePromo {...bookCoursePromo} />
+
+	<CourseTestimonialBand {...bookTestimonial} />
+
+	<CtaBand />
 </BaseLayout>

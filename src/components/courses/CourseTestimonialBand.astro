@@ -8,18 +8,17 @@ interface Props {
 const { quote, author, credentials = [] } = Astro.props;
 ---
 
-<section class="bg-[#8a9399] px-4 py-16 text-text-inverse sm:px-6 sm:py-20 lg:px-8">
-	<div class="mx-auto max-w-[48rem] text-center">
-		<p class="font-serif text-[5rem] leading-none text-text-inverse sm:text-[7.5rem]" aria-hidden="true">
-			&ldquo;
-		</p>
+<section class="bg-brand px-4 py-16 text-text-inverse sm:px-6 sm:py-20 lg:px-8">
+	<div class="mx-auto max-w-narrow text-center">
 		<blockquote>
-			<p class="text-base leading-relaxed sm:text-lg lg:text-[1.1875rem] lg:leading-[1.7]">{quote}</p>
+			<p class="text-lg font-medium italic leading-relaxed sm:text-xl text-balance">
+				&ldquo;{quote}&rdquo;
+			</p>
 			<footer class="mt-8">
-				<cite class="font-display text-2xl font-semibold not-italic sm:text-[2.5rem]">{author}</cite>
+				<cite class="font-display text-xl font-semibold not-italic sm:text-2xl">{author}</cite>
 				{
 					credentials.map((line) => (
-						<p class="mt-2 font-display text-base font-semibold sm:text-[1.5625rem]">{line}</p>
+						<p class="mt-2 text-sm font-medium text-text-inverse/85 sm:text-base">{line}</p>
 					))
 				}
 			</footer>

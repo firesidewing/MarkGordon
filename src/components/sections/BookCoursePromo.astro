@@ -1,0 +1,33 @@
+---
+import Button from '@/components/ui/Button.astro';
+import { formatPrice } from '@/lib/courses';
+
+interface Props {
+	title: string;
+	body: string;
+	href: string;
+	price: number;
+}
+
+const { title, body, href, price } = Astro.props;
+---
+
+<section class="bg-surface-muted" aria-labelledby="course-promo-heading">
+	<div class="mx-auto w-full max-w-content px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+		<div class="mx-auto max-w-2xl text-center">
+			<h2
+				id="course-promo-heading"
+				class="font-display text-h2 font-h2 uppercase tracking-h2 text-brand"
+			>
+				{title}
+			</h2>
+			<p class="mt-4 text-base leading-relaxed text-text">{body}</p>
+			<p class="mt-3 font-display text-xl font-semibold text-text-heading">
+				{formatPrice(price)} · 365-day access
+			</p>
+			<div class="mt-6">
+				<Button href={href}>Explore the course</Button>
+			</div>
+		</div>
+	</div>
+</section>
