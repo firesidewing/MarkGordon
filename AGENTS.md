@@ -4,7 +4,7 @@
 
 ### Product overview
 
-Static marketing site for Mark Gordon (markgordon.ca) built with **Astro 6**, **Svelte 5 islands**, **React islands** (course platform), and **Tailwind CSS 4**. Phase 2B adds **Clerk** (auth + billing) and **Turso** (enrollments, 365-day expiry). Copy `.env.example` → `.env` for local auth/checkout; Turso optional until testing enrollments.
+Static marketing site for Mark Gordon (markgordon.ca) built with **Astro 7**, **Svelte 5 islands**, **React islands** (course platform), and **Tailwind CSS 4**. Phase 2B adds **Clerk** (auth + billing) and **Turso** (enrollments, 365-day expiry). Copy `.env.example` → `.env` for local auth/checkout; Turso optional until testing enrollments.
 
 ### Package manager
 
