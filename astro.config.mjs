@@ -6,6 +6,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
 import vercel from '@astrojs/vercel';
+import { cacheVercel } from '@astrojs/vercel/cache';
 import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
@@ -13,6 +14,9 @@ export default defineConfig({
 	site: 'https://www.markgordon.ca',
 	output: 'server',
 	adapter: vercel(),
+	cache: {
+		provider: cacheVercel(),
+	},
 	image: {
 		remotePatterns: [{ protocol: 'https', hostname: 'i.ytimg.com' }],
 	},
