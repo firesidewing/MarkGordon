@@ -16,6 +16,11 @@ export interface CourseAccessResult {
 	enrollment?: Enrollment;
 }
 
+/**
+ * Lesson access: Turso enrollment is the hot-path source of truth.
+ * Clerk billing sync runs only when Turso has no row (missed webhook recovery).
+ * When Turso is unset, fall back to Clerk Billing plan check.
+ */
 export async function checkCourseAccess(
 	userId: string | null | undefined,
 	courseSlug: string,
@@ -33,9 +38,14 @@ export async function checkCourseAccess(
 		return hasPlan ? { allowed: true } : { allowed: false, reason: 'no_purchase' };
 	}
 
-	await syncPurchasedEnrollments(userId);
+	let enrollment = await getEnrollment(userId, courseSlug);
 
-	const enrollment = await getEnrollment(userId, courseSlug);
+	// Miss path only — avoid Clerk Billing on every lesson view.
+	if (!enrollment) {
+		await syncPurchasedEnrollments(userId);
+		enrollment = await getEnrollment(userId, courseSlug);
+	}
+
 	if (!enrollment) {
 		return { allowed: false, reason: 'no_enrollment' };
 	}
