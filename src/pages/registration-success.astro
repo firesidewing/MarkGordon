@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
 import { isBillableCourse } from '@/config/billing';
-import { grantEnrollmentForCourse, syncPurchasedEnrollmentsWithRetry } from '@/lib/enrollments';
+import { grantEnrollmentForCourse, syncPurchasedEnrollments } from '@/lib/enrollments';
 import { isDbConfigured } from '@/lib/db';
 
 export const prerender = false;
@@ -19,7 +19,8 @@ if (isDbConfigured()) {
 		if (purchasedCourseSlug && isBillableCourse(purchasedCourseSlug)) {
 			await grantEnrollmentForCourse(userId, purchasedCourseSlug);
 		}
-		await syncPurchasedEnrollmentsWithRetry(userId);
+		// Single backfill — webhook is primary; avoid multi-second retry sleeps.
+		await syncPurchasedEnrollments(userId);
 	} catch (error) {
 		console.error('Failed to sync enrollments after checkout:', error);
 	}

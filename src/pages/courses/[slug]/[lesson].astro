@@ -31,19 +31,26 @@ if (!access.allowed) {
 	}
 }
 
+const { prev, next, index, total } = getAdjacentLessons(course, lesson.slug);
+const sortedLessons = getSortedLessons(course);
+
 let completedSlugs: string[] = [];
 if (access.allowed && auth.userId) {
 	try {
 		await recordLessonView(auth.userId, course.id, lesson.slug);
-		await markLessonComplete(auth.userId, course.id, lesson.slug);
+		// Completing the previous lesson on advance (not every page view).
+		if (prev) {
+			await markLessonComplete(auth.userId, course.id, prev.slug);
+		}
+		// Last lesson: mark current complete when opened with nowhere left to go.
+		if (!next) {
+			await markLessonComplete(auth.userId, course.id, lesson.slug);
+		}
 		completedSlugs = await listCompletedLessons(auth.userId, course.id);
 	} catch (error) {
 		console.error('Failed to record lesson progress:', error);
 	}
 }
-
-const { prev, next, index, total } = getAdjacentLessons(course, lesson.slug);
-const sortedLessons = getSortedLessons(course);
 ---
 
 <BaseLayout

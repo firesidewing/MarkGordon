@@ -1,5 +1,6 @@
 output/
 docs/
+export.xml
 .claude/
 .cursor/
 .agent-transcripts/

@@ -119,20 +119,3 @@ export async function syncPurchasedEnrollments(userId: string): Promise<void> {
 		await grantEnrollmentForCourse(userId, courseSlug);
 	}
 }
-
-const SYNC_RETRY_MS = 750;
-const SYNC_MAX_ATTEMPTS = 5;
-
-/** Retry sync after checkout while Clerk activates the subscription. */
-export async function syncPurchasedEnrollmentsWithRetry(userId: string): Promise<void> {
-	for (let attempt = 0; attempt < SYNC_MAX_ATTEMPTS; attempt++) {
-		await syncPurchasedEnrollments(userId);
-
-		const enrollments = await listEnrollments(userId);
-		if (enrollments.some(isEnrollmentActive)) return;
-
-		if (attempt < SYNC_MAX_ATTEMPTS - 1) {
-			await new Promise((resolve) => setTimeout(resolve, SYNC_RETRY_MS));
-		}
-	}
-}
