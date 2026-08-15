@@ -1,36 +1,79 @@
-import bookImg from "@/assets/content/home2/Untitled-design-2.png";
 import coachingImg from "@/assets/content/home2/Mark-47.jpg";
 import coursesBanner from "@/assets/content/home2/Untitled-design-2.png";
 import keynoteImg from "@/assets/content/home2/tsg-9.jpg";
 import podcastImg from "@/assets/content/home2/Podcast-1-1024x731.png";
 import videoCover from "@/assets/content/home2/Relationship-Matters-video-cover.png";
-
-export const homeVideoId = "J0flKmjl8Qw";
+import bookImg from "@/assets/content/home2/Untitled-design-2.png";
 
 export const homeHero = {
-    title: "Build stronger relationships",
-    intro: "Relationships are under pressure at home and at work. I teach practical skills you can put to use starting today.",
-};
+    title: "Healthy Leaders Build Healthy Cultures.",
+    intro:
+        "Mark Gordon equips leaders and organizations to build trust, strengthen relationships, and create cultures where people can thrive.",
+    experience:
+        "With more than 35 years of leadership experience, Mark brings practical insight, engaging storytelling, and immediately usable tools to conferences, organizations, leadership teams, nonprofits, and faith communities.",
+    credibility:
+        "Keynote Speaker · Leadership Facilitator · Executive Coach · Author",
+    primaryCta: "Book Mark to Speak",
+    secondaryCta: "Explore Speaking Topics",
+} as const;
 
-export const homeAudiencePaths = [
-    {
-        kicker: "Couples & families",
-        title: "Learn at your own pace",
-        description:
-            "Online courses, the Relationship Matters book, and coaching for home.",
-        href: "/online-courses/",
-        cta: "Start learning",
-    },
-    {
-        kicker: "Organizations & leaders",
-        title: "Book Mark for your group",
-        description:
-            "Keynotes, workshops, and faith-community programs for your audience.",
-        href: "/keynote-speaker/",
-        cta: "View speaking",
-    },
-] as const;
+export const homeChallenge = {
+    title: "Leadership Isn't Just About Strategy. It's About People.",
+    tensions: [
+        "Communication breaks down.",
+        "Trust gets damaged.",
+        "Conflict goes unresolved.",
+        "Leaders become overwhelmed.",
+        "Teams lose connection.",
+    ],
+    body: "And what began as a people problem becomes a performance problem. The healthiest organizations develop leaders who know how to address what is happening beneath the surface.",
+    payoff:
+        "Mark helps leaders understand what is happening beneath the surface—then gives them practical tools to lead with greater clarity, confidence, trust, and connection.",
+    cta: "Bring Mark to Your Team",
+} as const;
 
+export const homeOfferings = {
+    title: "Practical Leadership. Real Relationships. Lasting Impact.",
+    intro:
+        "Mark doesn't believe leadership development should stay in the classroom. His approach is practical, relational, and immediately applicable.",
+    items: [
+        {
+            id: "keynotes",
+            title: "Keynotes",
+            tagline: "Ideas That Challenge. Stories That Connect. Tools People Can Use.",
+            description:
+                "Mark's keynote talks combine engaging storytelling, leadership insight, and practical application. Designed for conferences, organizations, leadership teams, nonprofits, and faith communities.",
+            cta: "View Speaking Topics",
+            href: "/keynote-speaker/",
+        },
+        {
+            id: "workshops",
+            title: "Workshops & Leadership Development",
+            tagline: "Move From Inspiration to Transformation.",
+            description:
+                "Mark's workshops take important leadership and relational issues deeper. Participants don't just hear ideas—they work with practical tools they can begin using immediately.",
+            highlights: [
+                "Hands-on frameworks leaders can apply the same week",
+                "Facilitation for teams navigating culture and conflict",
+                "Sessions built for lasting change, not applause",
+            ],
+            cta: "Explore Workshops",
+            href: "/workshop-facilitator/",
+        },
+        {
+            id: "coaching",
+            title: "Executive Coaching",
+            tagline: "When Leaders Need a Deeper Conversation.",
+            description:
+                "Sometimes a keynote creates the awareness. A workshop creates the tools. Coaching creates the space to apply them. Mark works with leaders who want to grow personally, lead more effectively, and build healthier relationships within their organizations.",
+            cta: "Explore Coaching",
+            href: "/relationship-leadership-coaching/",
+            image: coachingImg,
+        },
+    ],
+} as const;
+
+// Legacy exports — used by inner pages and Phase 2+ homepage sections
 export const homeQuote = {
     text: "I am passionate about you enjoying healthy and trusting relationships.",
     body: "Today is filled with damaged relationships both personally and professionally, this epidemic continues to destroy families and erode the personal value people need to experience a flourishing life. For healthy relationships to happen, people need to heal from the inside out.",

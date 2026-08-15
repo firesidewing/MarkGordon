@@ -1,58 +1,19 @@
 ---
 export const prerender = true;
 
-import CourseCard from "@/components/sections/CourseCard.astro";
-import CtaBand from "@/components/sections/CtaBand.astro";
 import HeroHome from "@/components/sections/HeroHome.astro";
+import LeadershipChallenge from "@/components/sections/LeadershipChallenge.astro";
 import NewsletterCta from "@/components/sections/NewsletterCta.astro";
-import ProductCard from "@/components/sections/ProductCard.astro";
-import QuoteBlock from "@/components/sections/QuoteBlock.astro";
 import TestimonialsSection from "@/components/sections/TestimonialsSection.astro";
-import Section from "@/components/ui/Section.astro";
-import CourseTabs from "@/components/islands/CourseTabs.svelte";
-import { featuredCourses, homeFeatures, miniCourses } from "@/data/home";
+import WhatMarkDoes from "@/components/sections/WhatMarkDoes.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { site } from "@/config/site";
-
-const [featuredOffering, ...otherOfferings] = homeFeatures;
 ---
 
 <BaseLayout title={site.name} description={site.tagline}>
     <HeroHome />
-    <CtaBand />
-    <QuoteBlock />
-
-    <section class="bg-surface-muted">
-        <div class="bg-brand py-4 text-center">
-            <h2
-                class="font-display text-h2 font-h2 uppercase tracking-h2 text-text-inverse"
-            >
-                COURSES with IMpact
-            </h2>
-        </div>
-        <div class="mx-auto w-full max-w-content px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
-            <div class="grid gap-6 lg:grid-cols-2">
-                {featuredCourses.map((course) => <CourseCard {...course} />)}
-            </div>
-        </div>
-    </section>
-
-    <Section>
-        <h2
-            class="mb-6 font-display text-h2 font-h2 text-brand"
-        >
-            More Courses . . .
-        </h2>
-        <CourseTabs client:visible tabs={miniCourses} />
-    </Section>
-
-    <Section variant="default">
-        <ProductCard {...featuredOffering} layout="horizontal" containedImage />
-        <div class="mt-6 grid gap-6 md:grid-cols-2">
-            {otherOfferings.map((feature) => <ProductCard {...feature} />)}
-        </div>
-    </Section>
-
-    <NewsletterCta />
+    <LeadershipChallenge />
+    <WhatMarkDoes />
     <TestimonialsSection />
+    <NewsletterCta />
 </BaseLayout>
