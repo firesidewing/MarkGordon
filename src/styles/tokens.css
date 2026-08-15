@@ -61,6 +61,7 @@
 	--radius-button: 1.25rem;
 	--spacing-section: 4rem;
 	--spacing-section-tight: 3rem;
-	--spacing-hero-y: clamp(3rem, 8vw, 5.5rem);
+	--spacing-section-mobile: 2.5rem;
+	--spacing-hero-y: clamp(2.25rem, 6vw, 5.5rem);
 	--width-hero-copy: 42rem;
 }

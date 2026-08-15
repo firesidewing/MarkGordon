@@ -16,10 +16,10 @@ const { title, intro, topics, cta, href } = homeSpeakingTopics;
         <p class="mt-4 text-base leading-relaxed text-text-muted">{intro}</p>
     </div>
 
-    <div class="grid gap-4 lg:grid-cols-3 lg:gap-6">
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
         {
             topics.map((topic) => (
-                <article class="border-t-2 border-brand bg-surface px-6 py-6 shadow-sm">
+                <article class="border-t-2 border-brand bg-surface px-5 py-5 shadow-sm sm:px-6 sm:py-6">
                     <h3 class="font-display text-h4 font-semibold leading-snug text-text-heading">
                         {topic.title}
                     </h3>

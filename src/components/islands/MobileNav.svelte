@@ -40,7 +40,24 @@
 	}
 
 	function isActive(href: string) {
+		if (href.startsWith('/#')) {
+			if (typeof window === 'undefined') return false;
+			return window.location.pathname === '/' && window.location.hash === href.slice(1);
+		}
+		if (href === '/online-courses/' && currentPath.startsWith('/courses/')) return true;
 		return href !== '#' && currentPath === href;
+	}
+
+	function handleNavClick(href: string, external?: boolean) {
+		closeMenu();
+		if (href.startsWith('/#') && typeof window !== 'undefined') {
+			const id = href.slice(2);
+			const target = document.getElementById(id);
+			if (target) {
+				target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				history.replaceState(null, '', href);
+			}
+		}
 	}
 </script>
 
@@ -73,17 +90,17 @@
 	{#if open}
 		<button
 			type="button"
-			class="fixed inset-0 z-40 bg-black/40"
+			class="fixed inset-0 z-[60] bg-black/40"
 			aria-label="Close menu overlay"
 			onclick={closeMenu}
 		></button>
 
 		<nav
 			id="mobile-nav-panel"
-			class="fixed inset-y-0 right-0 z-50 flex w-[min(20rem,85vw)] animate-[slideIn_0.2s_ease-out] motion-reduce:animate-none flex-col overflow-y-auto bg-surface shadow-xl"
+			class="fixed inset-y-0 right-0 z-[70] flex w-[min(20rem,85vw)] animate-[slideIn_0.2s_ease-out] motion-reduce:animate-none flex-col overflow-y-auto bg-surface pb-[env(safe-area-inset-bottom)] shadow-xl"
 			aria-label="Mobile navigation"
 		>
-			<div class="flex items-center justify-between border-b border-surface-muted px-4 py-3">
+			<div class="flex items-center justify-between border-b border-surface-muted px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))]">
 				<span class="font-display text-sm font-medium uppercase tracking-wide text-text-heading">Menu</span>
 				<button
 					type="button"
@@ -101,22 +118,31 @@
 				{#each nav as item (item.label)}
 					<li class="border-b border-surface-muted/60 last:border-b-0">
 						{#if item.children}
-							<button
-								type="button"
-								class="flex w-full items-center justify-between px-4 py-3 text-left font-display text-nav font-medium text-text-heading"
-								aria-expanded={expanded[item.label] ?? false}
-								onclick={() => toggleSubmenu(item.label)}
-							>
-								{item.label}
-								<svg
-									class="h-4 w-4 transition-transform {expanded[item.label] ? 'rotate-180' : ''}"
-									viewBox="0 0 12 12"
-									fill="currentColor"
-									aria-hidden="true"
+							<div class="flex items-stretch">
+								<a
+									href={item.href}
+									class="link-interactive flex min-h-11 flex-1 items-center px-4 py-3 font-display text-nav font-medium text-text-heading hover:text-brand {isActive(item.href) ? 'text-brand' : ''}"
+									onclick={() => handleNavClick(item.href)}
 								>
-									<path d="M2.5 4.5L6 8l3.5-3.5" />
-								</svg>
-							</button>
+									{item.label}
+								</a>
+								<button
+									type="button"
+									class="flex min-h-11 min-w-11 items-center justify-center border-l border-surface-muted/60 text-text-heading hover:bg-surface-muted"
+									aria-expanded={expanded[item.label] ?? false}
+									aria-label="{expanded[item.label] ? 'Collapse' : 'Expand'} {item.label} submenu"
+									onclick={() => toggleSubmenu(item.label)}
+								>
+									<svg
+										class="h-4 w-4 transition-transform {expanded[item.label] ? 'rotate-180' : ''}"
+										viewBox="0 0 12 12"
+										fill="currentColor"
+										aria-hidden="true"
+									>
+										<path d="M2.5 4.5L6 8l3.5-3.5" />
+									</svg>
+								</button>
+							</div>
 							{#if expanded[item.label]}
 								<ul class="bg-surface-muted/50 pb-2" role="list">
 									{#each item.children as child (child.label)}
@@ -126,7 +152,7 @@
 												class="link-interactive block px-6 py-2.5 text-sm text-text-heading hover:text-brand {isActive(child.href) ? 'text-brand' : ''}"
 												target={child.external ? '_blank' : undefined}
 												rel={child.external ? 'noopener noreferrer' : undefined}
-												onclick={closeMenu}
+												onclick={() => (child.external ? closeMenu() : handleNavClick(child.href))}
 											>
 												{child.label}
 											</a>
@@ -138,7 +164,7 @@
 							<a
 								href={item.href}
 								class="link-interactive block px-4 py-3 font-display text-nav font-medium text-text-heading hover:text-brand {isActive(item.href) ? 'text-brand' : ''}"
-								onclick={closeMenu}
+								onclick={() => handleNavClick(item.href, item.external)}
 							>
 								{item.label}
 							</a>

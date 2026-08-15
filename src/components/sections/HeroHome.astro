@@ -9,7 +9,7 @@ const { title, intro, experience, credibility, primaryCta, secondaryCta } =
 
 <section class="bg-surface" aria-labelledby="hero-heading">
     <div
-        class="mx-auto w-full max-w-content px-4 py-[var(--spacing-hero-y)] sm:px-6 lg:px-8"
+        class="mx-auto w-full max-w-content px-4 py-[var(--spacing-hero-y)] pb-8 sm:px-6 sm:pb-[var(--spacing-hero-y)] lg:px-8"
     >
         <div class="max-w-[var(--width-hero-copy)]">
             <h1
@@ -29,11 +29,11 @@ const { title, intro, experience, credibility, primaryCta, secondaryCta } =
                 {experience}
             </p>
 
-            <div class="mt-8 flex flex-wrap gap-3 hero-enter hero-enter--3">
-                <Button href={hubspot.discoveryCall} external>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap hero-enter hero-enter--3">
+                <Button href={hubspot.discoveryCall} external class="w-full sm:w-auto">
                     {primaryCta}
                 </Button>
-                <Button href="/keynote-speaker/" variant="secondary">
+                <Button href="/keynote-speaker/" variant="secondary" class="w-full sm:w-auto">
                     {secondaryCta}
                 </Button>
             </div>

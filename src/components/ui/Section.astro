@@ -12,7 +12,7 @@ const { variant = 'default', narrow = false, id, class: className } = Astro.prop
 <section
 	id={id}
 	class:list={[
-		'py-section',
+		'py-section-mobile sm:py-section-tight lg:py-section',
 		variant === 'muted' && 'bg-surface-muted',
 		variant === 'brand' && 'bg-brand text-text-inverse',
 		className,
