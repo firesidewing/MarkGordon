@@ -4,9 +4,23 @@ import { Show, SignInButton, UserButton } from '@clerk/astro/components';
 import MobileNav from '@/components/islands/MobileNav.svelte';
 import logo from '@/assets/logo.png';
 import { clerkAppearance } from '@/config/clerk-appearance';
-import { mainNav } from '@/config/site';
+import { mainNav, type NavItem } from '@/config/site';
 
 const currentPath = Astro.url.pathname;
+
+function isNavActive(item: NavItem, path: string): boolean {
+	if (item.href.startsWith('/#')) return false;
+	if (path === item.href) return true;
+	if (item.children) {
+		return item.children.some((child) => {
+			if (child.external) return false;
+			if (path === child.href) return true;
+			if (child.href === '/online-courses/' && path.startsWith('/courses/')) return true;
+			return child.href !== '/' && path.startsWith(child.href);
+		});
+	}
+	return item.href !== '/' && path.startsWith(item.href);
+}
 ---
 
 <header class="sticky top-0 z-50 border-b border-surface-muted bg-surface shadow-sm">
@@ -24,14 +38,17 @@ const currentPath = Astro.url.pathname;
 			/>
 		</a>
 
-		<nav class="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+		<nav class="hidden items-center gap-0.5 xl:gap-1 lg:flex" aria-label="Main navigation">
 			{
 				mainNav.map((item) =>
 					item.children ? (
 						<div class="group relative">
 							<a
 								href={item.href}
-								class="link-interactive nav-underline inline-flex min-h-11 items-center gap-1 px-3 py-2 font-display text-nav font-nav text-text-heading hover:text-brand"
+								class:list={[
+									'link-interactive nav-underline inline-flex min-h-11 items-center gap-1 px-2 py-2 font-display text-nav font-nav text-text-heading hover:text-brand xl:px-3',
+									isNavActive(item, currentPath) && 'text-brand',
+								]}
 								aria-haspopup="true"
 							>
 								{item.label}
@@ -61,7 +78,10 @@ const currentPath = Astro.url.pathname;
 					) : (
 						<a
 							href={item.href}
-							class:list={['link-interactive nav-underline inline-flex min-h-11 items-center px-3 py-2 font-display text-nav font-nav text-text-heading hover:text-brand', currentPath === item.href && 'text-brand']}
+							class:list={[
+								'link-interactive nav-underline inline-flex min-h-11 items-center px-2 py-2 font-display text-nav font-nav text-text-heading hover:text-brand xl:px-3',
+								isNavActive(item, currentPath) && 'text-brand',
+							]}
 						>
 							{item.label}
 						</a>

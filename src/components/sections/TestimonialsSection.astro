@@ -5,7 +5,7 @@ import Section from '@/components/ui/Section.astro';
 import { homeTestimonialExcerpts } from '@/data/testimonials';
 ---
 
-<Section variant="muted">
+<Section variant="muted" id="testimonials">
 	<SectionHeading title="Leaders Experience the Difference." centered class="mb-10" />
 	<TestimonialsCarousel client:load testimonials={homeTestimonialExcerpts} />
 	<p class="mt-8 text-center">

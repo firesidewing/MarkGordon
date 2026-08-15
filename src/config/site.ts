@@ -12,6 +12,7 @@ export const site = {
 	name: 'Mark Gordon',
 	email: 'mark@markgordon.ca',
 	tagline: 'Healthy leaders build healthy cultures — leadership speaking, workshops, and coaching.',
+	footerTagline: 'Healthy leaders build healthy cultures.',
 	copyright: `Copyright ${new Date().getFullYear()} - Mark Gordon`,
 } as const;
 
@@ -37,36 +38,38 @@ export const socialLinks = [
 	{ label: 'YouTube', href: 'https://www.youtube.com/@rmarkgordon', icon: 'youtube' },
 ] as const;
 
-/** Main nav from export.xml → main_navi */
+/** Speaking-first navigation */
 export const mainNav: NavItem[] = [
-	{ label: 'Online Courses', href: '/online-courses/' },
-	{ label: 'Videos', href: '/vlogs/' },
-	{ label: 'Relationship Matters Book', href: '/relationship-matters/' },
+	{ label: 'Speaking', href: '/keynote-speaker/' },
+	{ label: 'Workshops', href: '/workshop-facilitator/' },
+	{ label: 'Coaching', href: '/relationship-leadership-coaching/' },
+	{ label: 'About', href: '/about-mark/' },
+	{ label: 'Testimonials', href: '/#testimonials' },
+	{ label: 'Relationship Matters', href: '/relationship-matters/' },
 	{
-		label: 'What I Offer',
-		href: '#',
+		label: 'Resources',
+		href: '/online-courses/',
 		children: [
 			{ label: 'Online Courses', href: '/online-courses/' },
+			{ label: 'Videos', href: '/vlogs/' },
+			{ label: 'Blog', href: '/blog/' },
 			{ label: 'Faith Community Packages', href: '/faith-community-packages/' },
-			{ label: 'The Blind Spot Assessment', href: 'https://blindspots.me/hcWAIr', external: true },
-			{ label: 'Keynote Speaker', href: '/keynote-speaker/' },
-			{ label: 'Workshop Facilitator', href: '/workshop-facilitator/' },
-			{ label: 'Relationship & Leadership Coaching', href: '/relationship-leadership-coaching/' },
+			{ label: 'Blind Spot Assessment', href: blindSpot.directUrl, external: true },
 		],
 	},
-	{
-		label: 'Contact',
-		href: '/contact/',
-		children: [
-			{ label: 'About Mark', href: '/about-mark/' },
-			{ label: 'Contact', href: '/contact/' },
-		],
-	},
+	{ label: 'Contact', href: '/contact/' },
 ];
 
-export const footerQuickLinks = [
-	{ label: 'KEYNOTE SPEAKER', href: '/keynote-speaker/' },
-	{ label: 'WORKSHOPS', href: '/workshop-facilitator/' },
-	{ label: 'COACHING', href: '/relationship-leadership-coaching/' },
-	{ label: 'BUY THE BOOK', href: '/relationship-matters/' },
+export const footerNavLinks = [
+	{ label: 'Speaking', href: '/keynote-speaker/' },
+	{ label: 'Workshops', href: '/workshop-facilitator/' },
+	{ label: 'Coaching', href: '/relationship-leadership-coaching/' },
+	{ label: 'About Mark', href: '/about-mark/' },
+	{ label: 'Testimonials', href: '/#testimonials' },
+	{ label: 'Relationship Matters', href: '/relationship-matters/' },
+	{ label: 'Resources', href: '/online-courses/' },
+	{ label: 'Contact', href: '/contact/' },
 ] as const;
+
+/** @deprecated Use footerNavLinks */
+export const footerQuickLinks = footerNavLinks;

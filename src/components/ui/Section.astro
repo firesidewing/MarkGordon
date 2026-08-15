@@ -2,13 +2,15 @@
 interface Props {
 	variant?: 'default' | 'muted' | 'brand';
 	narrow?: boolean;
+	id?: string;
 	class?: string;
 }
 
-const { variant = 'default', narrow = false, class: className } = Astro.props;
+const { variant = 'default', narrow = false, id, class: className } = Astro.props;
 ---
 
 <section
+	id={id}
 	class:list={[
 		'py-section',
 		variant === 'muted' && 'bg-surface-muted',
