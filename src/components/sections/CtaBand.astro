@@ -1,9 +1,21 @@
 ---
 interface Props {
+    title?: string;
+    subtitle?: string;
+    description?: string;
+    ctaLabel?: string;
+    href?: string;
     class?: string;
 }
 
-const { class: className } = Astro.props;
+const {
+    title = "Would you like stronger relationships?",
+    subtitle = "Discover how in three minutes by knowing your blind spots",
+    description,
+    ctaLabel = "Take the Free Test Now",
+    href = "https://blindspots.me/hcWAIr",
+    class: className,
+} = Astro.props;
 ---
 
 <section class:list={["bg-brand py-8 text-text-inverse sm:py-10", className]}>
@@ -11,18 +23,25 @@ const { class: className } = Astro.props;
         class="mx-auto flex w-full max-w-content flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:items-center sm:px-6 lg:px-8"
     >
         <div class="text-center sm:text-left">
-            <p class="font-display text-lg font-medium sm:text-xl">
-                Would you like stronger relationships?
+            <p class="font-display text-lg font-semibold sm:text-xl">
+                {title}
             </p>
             <p class="mt-1 text-sm text-text-inverse/90">
-                Discover how in three minutes by knowing your blindspots
+                {subtitle}
             </p>
+            {
+                description && (
+                    <p class="mt-2 max-w-xl text-sm leading-relaxed text-text-inverse/85">
+                        {description}
+                    </p>
+                )
+            }
         </div>
         <a
-            href="https://blindspots.me/hcWAIr"
-            class="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap font-display text-button font-button uppercase text-text-inverse underline-offset-4 hover:underline"
+            href={href}
+            class="link-interactive inline-flex min-h-11 shrink-0 items-center whitespace-nowrap font-display text-button font-button uppercase text-text-inverse underline-offset-4 hover:underline"
         >
-            Take the Free Test Now →
+            {ctaLabel} →
         </a>
     </div>
 </section>

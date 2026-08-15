@@ -1,15 +1,20 @@
 ---
 export const prerender = true;
 
+import CtaBand from "@/components/sections/CtaBand.astro";
+import GoDeeper from "@/components/sections/GoDeeper.astro";
 import HeroHome from "@/components/sections/HeroHome.astro";
+import HomepageClose from "@/components/sections/HomepageClose.astro";
 import LeadershipChallenge from "@/components/sections/LeadershipChallenge.astro";
-import NewsletterCta from "@/components/sections/NewsletterCta.astro";
 import SpeakingTopicsTeaser from "@/components/sections/SpeakingTopicsTeaser.astro";
 import TestimonialsSection from "@/components/sections/TestimonialsSection.astro";
 import WhatMarkDoes from "@/components/sections/WhatMarkDoes.astro";
 import WhyMark from "@/components/sections/WhyMark.astro";
+import { homeBlindSpot } from "@/data/home";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { site } from "@/config/site";
+
+const { title, subtitle, description, cta, href } = homeBlindSpot;
 ---
 
 <BaseLayout title={site.name} description={site.tagline}>
@@ -19,5 +24,13 @@ import { site } from "@/config/site";
     <SpeakingTopicsTeaser />
     <WhyMark />
     <TestimonialsSection />
-    <NewsletterCta />
+    <GoDeeper />
+    <CtaBand
+        title={title}
+        subtitle={subtitle}
+        description={description}
+        ctaLabel={cta}
+        href={href}
+    />
+    <HomepageClose />
 </BaseLayout>

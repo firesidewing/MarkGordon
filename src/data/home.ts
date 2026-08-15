@@ -110,7 +110,53 @@ export const homeWhyMark = {
     href: "/about-mark/",
 } as const;
 
-// Legacy exports — used by inner pages and Phase 3+ homepage sections
+export const homeGoDeeper = {
+    coaching: {
+        title: "Sometimes the Keynote Starts the Conversation.",
+        subtitle: "Coaching Helps Continue It.",
+        description:
+            "For leaders who want to go deeper, Mark provides executive and leadership coaching focused on the real issues leaders face—relationships, communication, confidence, conflict, decision-making, identity, and culture.",
+        cta: "Explore Leadership Coaching",
+        href: "/relationship-leadership-coaching/",
+    },
+    relationshipMatters: {
+        title: "Relationship Matters.",
+        subtitle: "Because Leadership Is Always Relational.",
+        description:
+            "Mark's book and signature framework explores five foundational principles for building healthy relationships. These principles continue to influence Mark's speaking, workshops, leadership development, and coaching.",
+        pillars: ["Trust", "Communication", "Authenticity", "Honesty", "Honour"],
+        cta: "Explore Relationship Matters",
+        href: "/relationship-matters/",
+        image: bookImg,
+    },
+} as const;
+
+export const homeBlindSpot = {
+    title: "Every Leader Has Blind Spots.",
+    subtitle: "The question is whether yours are costing you.",
+    description:
+        "Take the free Blind Spot Assessment and discover areas that may be affecting your leadership, relationships, and effectiveness.",
+    cta: "Take the Free Assessment",
+    href: "https://blindspots.me/hcWAIr",
+} as const;
+
+export const homeNewsletter = {
+    title: "Get Practical Leadership Insights.",
+    description:
+        "Short, useful insights from Mark Gordon on leadership, relationships, culture, and personal growth.",
+    cta: "Join the Leadership Conversation",
+} as const;
+
+export const homeFinalCta = {
+    title: "Ready to Invest in Your Leaders?",
+    description:
+        "Whether you're planning a conference, developing your leadership team, or looking for a speaker who can bring practical insight to difficult leadership issues, let's talk.",
+    primaryCta: "Book Mark to Speak",
+    secondaryCta: "Start a Conversation",
+    secondaryHref: "/contact/",
+} as const;
+
+// Legacy exports — used by inner pages
 export const homeQuote = {
     text: "I am passionate about you enjoying healthy and trusting relationships.",
     body: "Today is filled with damaged relationships both personally and professionally, this epidemic continues to destroy families and erode the personal value people need to experience a flourishing life. For healthy relationships to happen, people need to heal from the inside out.",
