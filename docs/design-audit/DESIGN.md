@@ -1,5 +1,7 @@
 # Design Audit — markgordon.ca
 
+> **Source of truth:** [`DESIGN.md`](../DESIGN.md) at the repo root (Impeccable-managed). This file is a historical WordPress audit reference from Jun 2026. For the homepage refresh, follow the updated design system and `.impeccable/surfaces/` brief.
+
 Reference for visual parity during rebuild. Screenshots captured Jun 2026 from live WordPress site.
 
 ## Screenshots

@@ -1,6 +1,6 @@
 ---
 name: Mark Gordon
-description: Empowering people in developing healthy relationships.
+description: Healthy leaders build healthy cultures — leadership speaking, workshops, and coaching.
 colors:
   brand: "#0047ab"
   brand-dark: "#003580"
@@ -16,6 +16,12 @@ colors:
   footer: "#222329"
   footer-text: "#bfbfbf"
 typography:
+  hero:
+    fontFamily: "Montserrat, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(2rem, 1.25rem + 2.5vw, 3.25rem)"
+    fontWeight: 700
+    lineHeight: 1.12
+    letterSpacing: "-0.01em"
   display:
     fontFamily: "Montserrat, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.75rem"
@@ -42,13 +48,21 @@ typography:
     fontSize: "1rem"
     fontWeight: 500
     letterSpacing: "normal"
+  eyebrow:
+    fontFamily: "Montserrat, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.75rem"
+    fontWeight: 600
+    lineHeight: 1.4
+    letterSpacing: "0.08em"
 rounded:
   button: "1.25rem"
   sm: "0.125rem"
 spacing:
   section: "4rem"
+  section-tight: "3rem"
   content: "75rem"
   narrow: "48rem"
+  hero-y: "clamp(3rem, 8vw, 5.5rem)"
 components:
   button-primary:
     backgroundColor: "{colors.brand}"
@@ -62,6 +76,12 @@ components:
     rounded: "{rounded.button}"
     padding: "15px 45px"
     typography: "{typography.label}"
+  button-secondary:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.brand}"
+    rounded: "{rounded.button}"
+    padding: "15px 45px"
+    typography: "{typography.label}"
   button-text:
     textColor: "{colors.text-inverse}"
     typography: "{typography.label}"
@@ -69,151 +89,172 @@ components:
 
 # Design System: Mark Gordon
 
-## 1. Overview
+## Overview
 
-**Creative North Star: "The Open Door"**
+**Creative North Star: "The Center of the Room"**
 
-Mark Gordon's site should feel like walking into a coach's office where the door is already open: welcoming, credible, and direct. Visitors (couples at home and org leaders booking events) should immediately sense expert warmth, not a sales funnel. The visual system preserves the established cobalt-blue identity while elevating spacing, hierarchy, and polish beyond the WordPress-era baseline.
+The homepage puts Mark where he belongs: in front of leaders who need practical help with culture, trust, and relationships. The visitor should feel they have found a seasoned speaker and facilitator — not a course catalog, not a marriage blog, not a generic coach site.
 
-This is a **Committed** color strategy: Cobalt Conviction blue carries meaningful surface area (utility bar, CTA bands, section headings, buttons) while white and cool gray bands provide breathing room. Typography does the authority work: Montserrat in heavy uppercase for section anchors, Open Sans at generous line-height for readable prose.
+Visual identity stays **committed cobalt** with cool neutrals. What changes is hierarchy and composition: a **text-first hero** with typographic authority, a single dominant CTA (**Book Mark to Speak**), differentiated offering layouts, and fewer, stronger sections. Warmth comes from copy and photography elsewhere; the homepage sells the conversation.
 
-The system explicitly rejects generic SaaS templates, cold corporate consulting aesthetics, and trendy AI-slop scaffolding (tracked eyebrows on every section, numbered section markers, identical icon-card grids). It should feel like Mark Gordon, not a category template.
+**Key characteristics:**
 
-**Key Characteristics:**
+- Sentence-case hero headline at display scale; uppercase reserved for section anchors and buttons
+- One primary CTA repeated at hero, challenge, and closing — never four competing discovery calls
+- Band rhythm (white → cool gray → cobalt) instead of nested identical cards
+- Speaking, workshops, and coaching each get a distinct layout treatment
+- Courses and mini-offers live off the homepage (Resources), not above the fold
 
-- Cobalt Conviction blue as the structural accent, not decoration
-- Montserrat display + Open Sans body pairing (elevated, not replaced)
-- Tonal section rhythm with subtle lift on interactive surfaces
-- Pill buttons and uppercase CTAs with plain-spoken copy underneath
-- Content-forward layouts: video, testimonials, course previews over abstract claims
+## Colors
 
-## 2. Colors
-
-A committed coaching palette: authoritative blue, cool neutrals, and a light sky accent for quotes.
+Committed coaching palette: authoritative blue, cool neutrals, sky accent for quotes.
 
 ### Primary
 
-- **Cobalt Conviction** (#0047AB): Top utility bar, primary buttons, CTA bands, section h2 headings, bullet accents, hover states on nav. The brand's signature; use confidently but never as wallpaper on entire pages.
-- **Cobalt Deep** (#003580): Button hover, pressed states. One step darker on the same hue.
+- **Cobalt Conviction** (#0047AB): Buttons, CTA bands, section h2 accents, nav hover. Structural, not wallpaper.
+- **Cobalt Deep** (#003580): Button hover and pressed states.
 
 ### Neutral
 
-- **Ink Body** (#4A4A4A): Long-form prose, descriptions, list copy. Never lighten for "elegance"; readability wins.
-- **Ink Heading** (#262A2B): Nav links, card prices, dark headings on light surfaces.
-- **Slate Muted** (#617175): Secondary descriptions, supporting copy below CTAs.
-- **Slate Subtle** (#69727D): Meta text, captions, de-emphasized labels.
-- **Clean Surface** (#FFFFFF): Default page background, nav bar, card bodies.
-- **Cool Band** (#F0F3F6): Alternating section backgrounds, borders, dropdown hovers.
-- **Soft Panel** (#F9F9F9): Subtle panels where a whisper of separation is needed.
-- **Footer Charcoal** (#222329): Footer background; anchors the page with weight.
-- **Footer Mist** (#BFBFBF): Footer body copy and link default state.
+- **Ink Body** (#4A4A4A): Prose and descriptions.
+- **Ink Heading** (#262A2B): Nav, card titles on light surfaces.
+- **Slate Muted** (#617175): Supporting copy, credibility lines.
+- **Clean Surface** (#FFFFFF): Default background, hero base.
+- **Cool Band** (#F0F3F6): Alternating sections.
+- **Footer Charcoal** (#222329) / **Footer Mist** (#BFBFBF): Footer.
 
 ### Tertiary
 
-- **Sky Quote** (#5DADE2): Pull quotes, testimonial emphasis. A lighter accent; use sparingly for quoted voice.
+- **Sky Quote** (#5DADE2): Testimonial emphasis; use sparingly.
 
-### Named Rules
+### Named rules
 
-**The Committed Blue Rule.** Cobalt Conviction may occupy 30–60% of visible surface on marketing pages (utility bar, one CTA band, heading accents, buttons). It is never diluted into gradient text or decorative stripes.
+**The Committed Blue Rule.** Cobalt may occupy 30–60% of visible surface on marketing pages. Never gradient text or decorative stripes.
 
-**The Cool Neutral Rule.** Background neutrals stay cool-tinted (blue-gray family), not warm cream or sand. Warmth comes from copy, photography, and Mark's voice, not from a beige body background.
+**The Cool Neutral Rule.** Backgrounds stay cool-tinted; warmth comes from voice and photography, not cream or sand fills.
 
-## 3. Typography
+## Typography
 
-**Display Font:** Montserrat (ui-sans-serif, system-ui, sans-serif fallback)
-**Body Font:** Open Sans (ui-sans-serif, system-ui, sans-serif fallback)
+**Display:** Montserrat · **Body:** Open Sans
 
-**Character:** Montserrat delivers approachable authority through weight contrast (300 logo, 900 section headings, 500 buttons). Open Sans keeps long relationship guidance readable at 14px with generous 1.8 line-height.
+**Character:** Authority through scale and weight contrast — not through more font families or marketing buzzwords.
 
 ### Hierarchy
 
-- **Display** (900, 1.75rem / 28px, line-height 1.2, letter-spacing 0.29375rem, uppercase): Section h2 anchors ("COURSES with IMpact"). Blue on light surfaces, white on dark/brand bands.
-- **Headline** (600, 1.5rem / 24px, line-height 1.3): Card titles on dark headers, inner-page subheads.
-- **Title** (600, 1.125rem / 18px, uppercase tracking-wide): Supporting headings within sections ("The results are…").
-- **Body** (400, 0.875rem / 14px, line-height 1.8): All prose, lists, descriptions. Cap line length at 65–75ch in long-form content.
-- **Label / Nav** (500, 0.9375rem nav / 1rem button, uppercase on buttons): Navigation links, CTA buttons, footer quick links.
+- **Hero** (700, clamp 2rem–3.25rem, line-height 1.12, sentence case): Homepage h1 only. Must dominate the first viewport on mobile and desktop.
+- **Display** (900, 1.75rem, uppercase, tracked): Section h2 anchors on light or brand bands.
+- **Headline** (600, 1.5rem): Offering titles, topic card titles, inner-page subheads.
+- **Body** (400, 0.875rem, line-height 1.8): Prose; cap at ~65ch in long blocks.
+- **Eyebrow** (600, 0.75rem, uppercase, tracked): Credibility lines ("Keynote Speaker • Leadership Facilitator • …"), kicker labels.
+- **Label** (500, 1rem, uppercase on buttons): CTAs and nav actions.
 
-### Named Rules
+### Named rules
 
-**The Weight-Contrast Rule.** Hierarchy comes from scale + weight jumps (≥1.25 ratio between steps), not from adding more font families. Two families only: Montserrat and Open Sans.
+**The Hero Exception Rule.** Only the homepage h1 uses the hero scale and sentence case. Every other heading level follows display/headline rules.
 
-**The Uppercase Anchor Rule.** Uppercase Montserrat is reserved for section h2s, buttons, and short labels (≤4 words). Body copy and paragraphs are always sentence case in Open Sans.
+**The Uppercase Anchor Rule.** Uppercase Montserrat is for section h2s, buttons, and short labels (≤4 words). Body copy is always sentence case.
 
-## 4. Elevation
+## Layout
 
-This system uses **tonal layering with subtle lift**. Depth is primarily conveyed through alternating surface bands (white → Cool Band → brand blue CTA → white) rather than heavy shadows. Interactive and contained elements get a light touch.
+- **Content max-width:** 75rem; hero copy max ~42rem for readability.
+- **Section padding:** 4rem default; 3rem for tight stacks (teaser rows).
+- **Hero padding:** `clamp(3rem, 8vw, 5.5rem)` vertical on first viewport.
+- **Mobile priority:** Headline → one short intro → primary CTA visible without scrolling. No 3-up card grids on small screens.
+- **Homepage section count:** Target 7–8 bands, not 10+. Combine newsletter + final CTA when possible.
 
-### Shadow Vocabulary
+## Elevation & Depth
 
-- **Resting lift** (`box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05)`): Sticky header, course cards at rest. Barely there; prevents flatness without SaaS-card cliché.
-- **Dropdown float** (`box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)`): Nav dropdown menus on hover/focus.
+Tonal layering with subtle lift. Depth from alternating surface bands, not stacked shadows.
 
-### Named Rules
+### Shadow vocabulary
 
-**The Subtle Lift Rule.** Surfaces are flat at rest. `shadow-sm` appears only on contained elements (cards, sticky header) and `shadow-lg` only on floating overlays (dropdowns). Never stack shadows on nested containers.
+- **Resting lift:** `0 1px 2px 0 rgb(0 0 0 / 0.05)` — sticky header, contained cards.
+- **Dropdown float:** `0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)` — nav dropdowns only.
 
-**The Band Rhythm Rule.** Section depth alternates through background color (Clean Surface / Cool Band / Cobalt Conviction), not through nested cards. Cards are for discrete offerings (courses), not generic content wrapping.
+### Named rules
 
-## 5. Components
+**The Band Rhythm Rule.** Alternate Clean Surface / Cool Band / Cobalt Conviction. Cards are for discrete offerings, not wrapping every paragraph.
 
-Component feel: **approachable authority** — confident shapes, generous padding, no ornamental chrome.
+**The Subtle Lift Rule.** No nested cards. No shadow stacks.
+
+## Shapes
+
+- **Buttons:** Pill radius 1.25rem.
+- **Cards:** Square outer corners on offering panels; internal elements may use small radius (0.125rem).
+- **No** colored border-left accent stripes >1px.
+
+## Components
 
 ### Buttons
 
-- **Shape:** Generously rounded pills (1.25rem / 20px radius)
-- **Primary:** Cobalt Conviction background, white uppercase Montserrat 500, padding 15px 45px. Hover shifts to Cobalt Deep via color transition.
-- **Text / Link CTA:** White uppercase text on brand bands, underline on hover, optional arrow suffix (→). No fill background.
-- **Focus:** Rely on browser default focus-visible or underline shift; no custom glow rings unless added during a harden pass.
+- **Primary:** Cobalt fill, white uppercase label. Default label on homepage: **Book Mark to Speak**.
+- **Secondary:** White fill, cobalt text and border — pairs with primary in hero and final CTA.
+- **Text CTA:** On cobalt bands; underline on hover, optional arrow.
 
-### Cards / Containers
+### Text hero (homepage)
 
-- **Course Card:** Dark header band (#2d2d2d) with white Montserrat headline; white body with centered price, left-aligned bullet list with cobalt circle-check icons; primary button at bottom. Optional diagonal "NEW" ribbon in brand blue.
-- **Corner Style:** Square corners on cards (no radius on outer article); internal elements use circles for bullet markers.
-- **Background:** Clean Surface body, Cool Band border (`border-surface-muted`).
-- **Shadow Strategy:** Resting lift only.
-- **Internal Padding:** px-6 py-5 (header), px-6 py-8 (body).
+- Full-width **Clean Surface** or light band — no video, no split panel.
+- Composition: h1 → intro (max ~2 lines mobile) → button row → eyebrow credibility line.
+- Secondary action: **Explore Speaking Topics** (outline/secondary style).
+- No course cards, book promos, or audience-path forks in the hero.
 
-### Navigation
+### Offering panels (What Mark Does)
 
-- **Top Bar:** Full-width Cobalt Conviction, 44px height. Email left (hidden mobile), social icons + Login right. White text at text-xs.
-- **Main Nav:** White sticky header with bottom border, logo left, Montserrat nav links right. Hover/active: Cobalt Conviction text. Dropdown: white panel, Cool Band border, shadow-lg on hover.
-- **Mobile:** Hamburger flyout below lg breakpoint (1023px). Login remains visible in top bar.
-- **Footer:** Footer Charcoal background, inverted logo, uppercase quick links, social circles with brand hover.
+Three offerings — **Keynotes**, **Workshops**, **Coaching** — each with a **different layout**:
 
-### Section Shell
+| Offering | Layout cue |
+|----------|------------|
+| Keynotes | Text-forward, optional pull quote or topic hint |
+| Workshops | List or framework bullets, transformation angle |
+| Coaching | Portrait or intimate single-column, deeper-conversation tone |
 
-- **Section wrapper:** Vertical padding 4rem (`py-section`), max-width 75rem centered, responsive horizontal padding (px-4 → px-8).
-- **Variants:** default (white), muted (Cool Band), brand (Cobalt Conviction + inverse text).
+Never three identical dark-header ProductCards in a row.
 
-### CTA Band
+### Topic teaser
 
-- Full-width Cobalt Conviction strip between content sections. Two-column on desktop: value proposition left, text-link CTA right. Centers on mobile.
+- 2–3 featured speaking topics as compact cards or list blocks.
+- Link: **See All Speaking Topics** → `/keynote-speaker/`.
 
-### Quote Block
+### CTA band (blind spot)
 
-- Centered italic headline quote in Ink Heading, 2-column grid below with prose + cobalt bullet list. Primary button for discovery call.
+- Cobalt full-width strip.
+- Copy frames assessment as leadership blind spots, not generic "stronger relationships."
+- Text-link CTA: **Take the Free Assessment →**
 
-### Inputs / Fields
+### Testimonials
 
-- HubSpot-embedded forms for newsletter (external styling). When building native inputs: match body typography, Cool Band borders, Cobalt Conviction focus border. No native inputs styled yet in the token system.
+- Section title: **Leaders Experience the Difference.**
+- Short excerpts only on homepage; full quotes on dedicated page.
+- Carousel dots meet 44px touch targets on mobile.
 
-## 6. Do's and Don'ts
+### Section shell
 
-### Do:
+- `Section` variants: `default`, `muted`, `brand`.
+- `SectionHeading` for uppercase display h2s with optional subtitle.
 
-- **Do** use Cobalt Conviction (#0047AB) for buttons, top bar, CTA bands, and section h2 accents.
-- **Do** pair Montserrat display headings with Open Sans body copy at 1.8 line-height.
-- **Do** alternate Clean Surface and Cool Band (#F0F3F6) for section rhythm.
-- **Do** use pill buttons (1.25rem radius) with verb + object labels ("Book Discovery Call", "Learn More").
-- **Do** lead with real content (video embeds, testimonials, course details) over abstract marketing claims.
-- **Do** apply `shadow-sm` only to cards and the sticky header; `shadow-lg` only to dropdown overlays.
+### Navigation (target IA)
 
-### Don't:
+Speaking · Workshops · Coaching · About · Testimonials · Relationship Matters · Resources · Contact
 
-- **Don't** use generic SaaS / startup templates: cream backgrounds, gradient text, hero-metric blocks, or buzzword copy.
-- **Don't** adopt cold corporate consulting aesthetics: stock-photo grids, impersonal tone, identical feature-card rows.
-- **Don't** use trendy minimal / AI-slop patterns: tracked uppercase eyebrows on every section, numbered section markers (01 / 02 / 03) as default scaffolding, or identical icon + heading + text card grids.
-- **Don't** use `border-left` or `border-right` greater than 1px as a colored accent stripe on cards, callouts, or alerts.
-- **Don't** use gradient text (`background-clip: text`) for headings or CTAs.
-- **Don't** nest cards inside cards.
-- **Don't** lighten body text (#4A4A4A) toward gray for "elegance"; bump toward Ink Heading if contrast is borderline.
+Courses move under **Resources**, not top-level homepage prominence.
+
+## Do's and Don'ts
+
+### Do
+
+- **Do** lead the homepage with a text hero and **Book Mark to Speak** above the fold on mobile.
+- **Do** use cobalt for buttons, one CTA band, and section h2 accents.
+- **Do** differentiate keynote, workshop, and coaching layouts.
+- **Do** keep paragraphs to 2–4 lines on mobile; use lists for tension copy (challenge section).
+- **Do** repeat the primary CTA at hero, mid-page challenge, and final close.
+- **Do** frame Relationship Matters as leadership-relational IP, not marriage-only.
+
+### Don't
+
+- **Don't** put course grids, tabbed mini-courses, or price cards on the homepage.
+- **Don't** use dual audience path cards (couples vs organizations) in the hero.
+- **Don't** repeat "Book Discovery Call" four times with identical labels.
+- **Don't** use identical icon-bullet-card grids for every offering.
+- **Don't** rely on video in the homepage hero (inner pages and vlogs may still use video).
+- **Don't** use buzzwords: empower, transform, flourish, unlock, journey (unless in Mark's approved copy).
+- **Don't** add Leadership Accelerator to homepage until the offering page exists.
