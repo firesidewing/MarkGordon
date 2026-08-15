@@ -1,0 +1,33 @@
+---
+import Button from "@/components/ui/Button.astro";
+import Section from "@/components/ui/Section.astro";
+import { homeWhyMark } from "@/data/home";
+
+const { title, paragraphs, emphasis, cta, href } = homeWhyMark;
+---
+
+<Section>
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start lg:gap-16">
+        <div>
+            <h2
+                class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+            >
+                {title}
+            </h2>
+            <p class="mt-6 font-display text-lg font-semibold leading-snug text-brand">
+                {emphasis}
+            </p>
+            <div class="mt-8">
+                <Button href={href}>{cta}</Button>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            {
+                paragraphs.map((paragraph) => (
+                    <p class="text-base leading-relaxed text-text">{paragraph}</p>
+                ))
+            }
+        </div>
+    </div>
+</Section>

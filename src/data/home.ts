@@ -73,7 +73,44 @@ export const homeOfferings = {
     ],
 } as const;
 
-// Legacy exports — used by inner pages and Phase 2+ homepage sections
+export const homeSpeakingTopics = {
+    title: "Mark Doesn't Just Speak About Leadership. He Speaks Into It.",
+    intro:
+        "The hardest leadership issues are often the ones people don't know how to talk about. Mark brings those conversations into the room. His sessions address the places where leadership, relationships, identity, communication, and culture intersect.",
+    topics: [
+        {
+            title: "Healthy Leadership Starts With Healthy Relationships",
+            description:
+                "Leadership is ultimately about people. Learn how trust, communication, authenticity, honesty, and honour shape the culture you lead.",
+        },
+        {
+            title: "The Leadership Blind Spot",
+            description:
+                "Every leader has blind spots. The question isn't whether you have them—it's whether you're willing to see them.",
+        },
+        {
+            title: "Living From Identity",
+            description:
+                "Confident leadership begins with knowing who you are. Explore identity, shame, confidence, and the internal patterns that shape how leaders show up.",
+        },
+    ],
+    cta: "See All Speaking Topics",
+    href: "/keynote-speaker/",
+} as const;
+
+export const homeWhyMark = {
+    title: "Leadership Experience You Can Hear in the Message.",
+    paragraphs: [
+        "Mark Gordon has spent more than 35 years leading people, navigating difficult relationships, developing leaders, speaking to groups, and learning what happens when leadership gets personal.",
+        "After more than three decades in pastoral leadership, Mark transitioned into leadership coaching, training, and speaking—bringing together decades of real-world experience with practical tools leaders can use today.",
+        "He is the author of Relationship Matters and the creator of leadership and relational development programs designed to help leaders and organizations become healthier from the inside out.",
+    ],
+    emphasis: "Mark doesn't speak from theory alone. He speaks from experience.",
+    cta: "Meet Mark",
+    href: "/about-mark/",
+} as const;
+
+// Legacy exports — used by inner pages and Phase 3+ homepage sections
 export const homeQuote = {
     text: "I am passionate about you enjoying healthy and trusting relationships.",
     body: "Today is filled with damaged relationships both personally and professionally, this epidemic continues to destroy families and erode the personal value people need to experience a flourishing life. For healthy relationships to happen, people need to heal from the inside out.",

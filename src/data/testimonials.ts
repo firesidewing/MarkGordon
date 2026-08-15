@@ -4,6 +4,35 @@ export type Testimonial = {
 	role?: string;
 };
 
+/** Short excerpts for homepage carousel — leadership/speaking framing */
+export const homeTestimonialExcerpts: Testimonial[] = [
+	{
+		quote:
+			'He consistently receives the highest ratings in evaluations and feedback from participants.',
+		author: 'Ron Schlitt',
+		role: 'Lead Strengths Facilitator',
+	},
+	{
+		quote:
+			"He's funny, to the point, helpful, and engaging.",
+		author: 'Gary Chupik',
+		role: 'Owner, Gary Chupik Leadership LLC',
+	},
+	{
+		quote:
+			'Mark has the ability to communicate truth with passion and compassion.',
+		author: 'Wes Jonat',
+		role: 'Owner, Sun Valley Pools & Spas',
+	},
+	{
+		quote:
+			'Mark has the ability to take the difficult topics and issues people face and bring sensibility and solutions that can be acted on immediately.',
+		author: 'Ron Schlitt',
+		role: 'Lead Strengths Facilitator',
+	},
+];
+
+/** Full testimonials — inner pages and legacy use */
 export const homeTestimonials: Testimonial[] = [
 	{
 		quote:

@@ -4,8 +4,10 @@ export const prerender = true;
 import HeroHome from "@/components/sections/HeroHome.astro";
 import LeadershipChallenge from "@/components/sections/LeadershipChallenge.astro";
 import NewsletterCta from "@/components/sections/NewsletterCta.astro";
+import SpeakingTopicsTeaser from "@/components/sections/SpeakingTopicsTeaser.astro";
 import TestimonialsSection from "@/components/sections/TestimonialsSection.astro";
 import WhatMarkDoes from "@/components/sections/WhatMarkDoes.astro";
+import WhyMark from "@/components/sections/WhyMark.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { site } from "@/config/site";
 ---
@@ -14,6 +16,8 @@ import { site } from "@/config/site";
     <HeroHome />
     <LeadershipChallenge />
     <WhatMarkDoes />
+    <SpeakingTopicsTeaser />
+    <WhyMark />
     <TestimonialsSection />
     <NewsletterCta />
 </BaseLayout>
