@@ -1,0 +1,26 @@
+---
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import Section from '@/components/ui/Section.astro';
+import { speakingAudiences } from '@/data/keynote-speaker';
+
+const { title, audiences } = speakingAudiences;
+---
+
+<Section variant="muted">
+	<SectionHeading title={title} centered class="mb-10" />
+
+	<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+		{
+			audiences.map((audience) => (
+				<article class="border-t-2 border-brand bg-surface px-5 py-5 shadow-sm sm:px-6 sm:py-6">
+					<h3 class="font-display text-h4 font-semibold leading-snug text-text-heading">
+						{audience.title}
+					</h3>
+					<p class="mt-3 text-sm leading-relaxed text-text sm:text-base">
+						{audience.description}
+					</p>
+				</article>
+			))
+		}
+	</div>
+</Section>

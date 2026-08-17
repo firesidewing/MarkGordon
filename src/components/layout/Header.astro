@@ -11,9 +11,10 @@ const currentPath = Astro.url.pathname;
 function isNavActive(item: NavItem, path: string): boolean {
 	if (item.href.startsWith('/#')) return false;
 	if (path === item.href) return true;
-	if (item.children) {
+		if (item.children) {
 		return item.children.some((child) => {
 			if (child.external) return false;
+			if (child.href.startsWith('/#')) return false;
 			if (path === child.href) return true;
 			if (child.href === '/online-courses/' && path.startsWith('/courses/')) return true;
 			return child.href !== '/' && path.startsWith(child.href);

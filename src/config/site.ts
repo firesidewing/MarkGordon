@@ -38,22 +38,22 @@ export const socialLinks = [
 	{ label: 'YouTube', href: 'https://www.youtube.com/@rmarkgordon', icon: 'youtube' },
 ] as const;
 
-/** Speaking-first navigation */
+/** Speaking-first navigation — keep the top bar sparse; fuller links live in Resources + footer */
 export const mainNav: NavItem[] = [
 	{ label: 'Speaking', href: '/keynote-speaker/' },
 	{ label: 'Workshops', href: '/workshop-facilitator/' },
 	{ label: 'Coaching', href: '/relationship-leadership-coaching/' },
 	{ label: 'About', href: '/about-mark/' },
-	{ label: 'Testimonials', href: '/#testimonials' },
-	{ label: 'Relationship Matters', href: '/relationship-matters/' },
 	{
 		label: 'Resources',
 		href: '/online-courses/',
 		children: [
 			{ label: 'Online Courses', href: '/online-courses/' },
-			{ label: 'Videos', href: '/vlogs/' },
+			{ label: 'Relationship Matters', href: '/relationship-matters/' },
 			{ label: 'Blog', href: '/blog/' },
+			{ label: 'Videos', href: '/vlogs/' },
 			{ label: 'Faith Community Packages', href: '/faith-community-packages/' },
+			{ label: 'Testimonials', href: '/#testimonials' },
 			{ label: 'Blind Spot Assessment', href: blindSpot.directUrl, external: true },
 		],
 	},
