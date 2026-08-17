@@ -1,10 +1,19 @@
 ---
 import TestimonialsCarousel from '@/components/islands/TestimonialsCarousel.svelte';
 import SectionHeading from '@/components/sections/SectionHeading.astro';
-import { homeTestimonials } from '@/data/testimonials';
+import Section from '@/components/ui/Section.astro';
+import { homeTestimonialExcerpts } from '@/data/testimonials';
 ---
 
-<section class="mx-auto w-full max-w-content px-4 py-section sm:px-6 lg:px-8">
-	<SectionHeading title="What People Say?" centered class="mb-10" />
-	<TestimonialsCarousel client:visible testimonials={homeTestimonials} />
-</section>
+<Section variant="muted" id="testimonials" class="scroll-mt-20">
+	<SectionHeading title="Leaders Experience the Difference." centered class="mb-10" />
+	<TestimonialsCarousel client:load testimonials={homeTestimonialExcerpts} />
+	<p class="mt-8 text-center">
+		<a
+			href="/keynote-speaker/"
+			class="link-interactive font-display text-sm font-semibold uppercase tracking-wide text-brand hover:underline"
+		>
+			Read more testimonials →
+		</a>
+	</p>
+</Section>

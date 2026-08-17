@@ -11,9 +11,15 @@
 	--text-body--line-height: 1.8;
 	--text-nav: 0.9375rem;
 	--text-button: 1rem;
+	--text-hero: clamp(2rem, 1.25rem + 2.5vw, 3.25rem);
+	--text-hero--line-height: 1.12;
+	--tracking-hero: -0.01em;
+	--font-weight-hero: 700;
 	--text-h1: clamp(1.875rem, 1.4rem + 1.75vw, 2.75rem);
 	--text-h1--line-height: 1.15;
 	--tracking-h1: 0.15rem;
+	--text-eyebrow: 0.75rem;
+	--tracking-eyebrow: 0.08em;
 	--text-h2: 1.75rem;
 	--text-h3: 1.5rem;
 	--text-h4: 1.125rem;
@@ -54,4 +60,8 @@
 	/* Components */
 	--radius-button: 1.25rem;
 	--spacing-section: 4rem;
+	--spacing-section-tight: 3rem;
+	--spacing-section-mobile: 2.5rem;
+	--spacing-hero-y: clamp(2.25rem, 6vw, 5.5rem);
+	--width-hero-copy: 42rem;
 }

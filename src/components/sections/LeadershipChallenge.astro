@@ -1,0 +1,45 @@
+---
+import Button from "@/components/ui/Button.astro";
+import Section from "@/components/ui/Section.astro";
+import { hubspot } from "@/config/site";
+import { homeChallenge } from "@/data/home";
+
+const { title, tensions, body, payoff, cta } = homeChallenge;
+---
+
+<Section variant="muted" class="py-section-tight sm:py-section">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16">
+        <div>
+            <h2
+                class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+            >
+                {title}
+            </h2>
+        </div>
+
+        <div>
+            <ul class="space-y-2" role="list">
+                {
+                    tensions.map((line) => (
+                        <li class="flex gap-3 text-base leading-relaxed text-text">
+                            <span
+                                class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
+                                aria-hidden="true"
+                            />
+                            {line}
+                        </li>
+                    ))
+                }
+            </ul>
+
+            <p class="mt-6 text-base leading-relaxed text-text">{body}</p>
+            <p class="mt-4 text-base leading-relaxed text-text">{payoff}</p>
+
+            <div class="mt-8">
+                <Button href={hubspot.discoveryCall} external>
+                    {cta}
+                </Button>
+            </div>
+        </div>
+    </div>
+</Section>

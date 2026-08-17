@@ -52,7 +52,7 @@
 						onclick={() => goTo(i)}
 					>
 						<span
-							class="h-2.5 w-2.5 rounded-full {i === index ? 'bg-brand' : 'bg-surface-muted hover:bg-brand/40'}"
+							class="h-2.5 w-2.5 rounded-full {i === index ? 'bg-brand' : 'bg-brand/25 hover:bg-brand/40'}"
 							aria-hidden="true"
 						></span>
 					</button>

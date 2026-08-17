@@ -1,0 +1,97 @@
+---
+import { Image } from "astro:assets";
+import Button from "@/components/ui/Button.astro";
+import SectionHeading from "@/components/sections/SectionHeading.astro";
+import Section from "@/components/ui/Section.astro";
+import { homeOfferings } from "@/data/home";
+
+const { title, intro, items } = homeOfferings;
+const [keynotes, workshops, coaching] = items;
+---
+
+<Section>
+    <SectionHeading title={title} subtitle={intro} centered class="mb-12" />
+
+    <div class="space-y-6">
+        <!-- Keynotes: text-forward band -->
+        <article class="bg-brand px-5 py-8 text-text-inverse sm:px-10 sm:py-12">
+            <p class="font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-text-inverse/80">
+                {keynotes.title}
+            </p>
+            <h3 class="mt-3 max-w-2xl font-display text-h3 font-semibold leading-snug text-text-inverse">
+                {keynotes.tagline}
+            </h3>
+            <p class="mt-4 max-w-prose text-base leading-relaxed text-text-inverse/90">
+                {keynotes.description}
+            </p>
+            <div class="mt-8">
+                <Button href={keynotes.href} variant="text">
+                    {keynotes.cta} →
+                </Button>
+            </div>
+        </article>
+
+        <!-- Workshops: list-forward split -->
+        <article class="grid gap-8 border border-surface-muted bg-surface p-6 shadow-sm sm:p-10 lg:grid-cols-2 lg:items-center">
+            <div>
+                <p class="font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-brand">
+                    {workshops.title}
+                </p>
+                <h3 class="mt-3 font-display text-h3 font-semibold leading-snug text-text-heading">
+                    {workshops.tagline}
+                </h3>
+                <p class="mt-4 text-base leading-relaxed text-text">
+                    {workshops.description}
+                </p>
+                <div class="mt-8">
+                    <Button href={workshops.href}>{workshops.cta}</Button>
+                </div>
+            </div>
+            <ul class="space-y-4" role="list">
+                {
+                    workshops.highlights.map((highlight) => (
+                        <li class="flex gap-4 border-t border-surface-muted pt-4 first:border-t-0 first:pt-0">
+                            <span
+                                class="font-display text-sm font-semibold text-brand"
+                                aria-hidden="true"
+                            >
+                                →
+                            </span>
+                            <span class="text-base leading-relaxed text-text">
+                                {highlight}
+                            </span>
+                        </li>
+                    ))
+                }
+            </ul>
+        </article>
+
+        <!-- Coaching: portrait-forward -->
+        <article class="grid overflow-hidden bg-surface-muted lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+            <div class="relative min-h-64 bg-card-dark lg:min-h-full">
+                <Image
+                    src={coaching.image}
+                    alt="Mark Gordon, executive coach"
+                    width={coaching.image.width}
+                    height={coaching.image.height}
+                    class="h-full w-full object-cover object-[center_20%]"
+                    loading="lazy"
+                />
+            </div>
+            <div class="flex flex-col justify-center px-6 py-10 sm:px-10">
+                <p class="font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-brand">
+                    {coaching.title}
+                </p>
+                <h3 class="mt-3 font-display text-h3 font-semibold leading-snug text-text-heading">
+                    {coaching.tagline}
+                </h3>
+                <p class="mt-4 text-base leading-relaxed text-text">
+                    {coaching.description}
+                </p>
+                <div class="mt-8">
+                    <Button href={coaching.href}>{coaching.cta}</Button>
+                </div>
+            </div>
+        </article>
+    </div>
+</Section>
