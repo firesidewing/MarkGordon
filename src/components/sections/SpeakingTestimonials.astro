@@ -1,0 +1,24 @@
+---
+import TestimonialsCarousel from '@/components/islands/TestimonialsCarousel.svelte';
+import Button from '@/components/ui/Button.astro';
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import Section from '@/components/ui/Section.astro';
+import { hubspot } from '@/config/site';
+import { speakingHero, speakingTestimonialExcerpts } from '@/data/keynote-speaker';
+---
+
+<Section id="speaking-testimonials" class="scroll-mt-20">
+	<SectionHeading title="What Audiences Say" centered class="mb-10" />
+	<TestimonialsCarousel client:load testimonials={speakingTestimonialExcerpts} />
+	<div class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6">
+		<Button href={hubspot.discoveryCall} external>
+			{speakingHero.primaryCta}
+		</Button>
+		<a
+			href="/#testimonials"
+			class="link-interactive font-display text-sm font-semibold uppercase tracking-wide text-brand hover:underline"
+		>
+			Read More Testimonials →
+		</a>
+	</div>
+</Section>

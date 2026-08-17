@@ -1,0 +1,18 @@
+---
+import FaqAccordion from '@/components/islands/FaqAccordion.svelte';
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import Section from '@/components/ui/Section.astro';
+import { eventOrganizerFaq } from '@/data/keynote-speaker';
+---
+
+<Section variant="muted" id="event-organizer-faq" class="scroll-mt-20">
+	<div class="mx-auto max-w-3xl">
+		<SectionHeading
+			title="Frequently Asked Questions"
+			subtitle="Answers for conference organizers and event planners."
+			centered
+			class="mb-10"
+		/>
+		<FaqAccordion client:load items={eventOrganizerFaq} />
+	</div>
+</Section>

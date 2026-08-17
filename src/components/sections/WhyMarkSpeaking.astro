@@ -1,0 +1,39 @@
+---
+import Section from '@/components/ui/Section.astro';
+import { speakingWhyMark } from '@/data/keynote-speaker';
+
+const { title, lead, body, outcomes, close } = speakingWhyMark;
+---
+
+<Section variant="muted" class="order-2 py-section-tight sm:py-section lg:order-none">
+	<div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16">
+		<div>
+			<h2
+				class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+			>
+				{title}
+			</h2>
+			<p class="mt-6 text-base leading-relaxed text-text">{lead}</p>
+			<p class="mt-4 text-base leading-relaxed text-text-muted">{body}</p>
+		</div>
+
+		<div>
+			<ul class="space-y-2" role="list">
+				{
+					outcomes.map((outcome) => (
+						<li class="flex gap-3 text-base leading-relaxed text-text">
+							<span
+								class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
+								aria-hidden="true"
+							/>
+							{outcome}
+						</li>
+					))
+				}
+			</ul>
+			<p class="mt-6 font-display text-lg font-semibold leading-snug text-brand">
+				{close}
+			</p>
+		</div>
+	</div>
+</Section>

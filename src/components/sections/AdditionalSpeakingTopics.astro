@@ -1,0 +1,43 @@
+---
+import Section from '@/components/ui/Section.astro';
+import { additionalSpeakingTopics } from '@/data/keynote-speaker';
+---
+
+<Section class="!py-section-tight sm:!py-section">
+	<div class="mx-auto max-w-3xl">
+		<details class="group border border-surface-muted bg-surface-muted">
+			<summary
+				class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-display text-h4 font-semibold text-text-heading sm:px-6 sm:py-5 [&::-webkit-details-marker]:hidden"
+			>
+				<span>Additional Speaking Topics</span>
+				<span
+					class="text-brand transition-transform group-open:rotate-180 motion-reduce:transition-none"
+					aria-hidden="true"
+				>
+					<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+						<path
+							fill-rule="evenodd"
+							d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+							clip-rule="evenodd"
+						/>
+					</svg>
+				</span>
+			</summary>
+			<div class="border-t border-surface-muted px-5 py-5 sm:px-6 sm:py-6">
+				<ul class="grid gap-3 sm:grid-cols-2" role="list">
+					{
+						additionalSpeakingTopics.map((topic) => (
+							<li class="flex gap-2.5 text-base leading-relaxed text-text">
+								<span
+									class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
+									aria-hidden="true"
+								/>
+								{topic}
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</details>
+	</div>
+</Section>
