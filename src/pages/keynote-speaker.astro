@@ -6,26 +6,28 @@ import AudiencesMarkServes from '@/components/sections/AudiencesMarkServes.astro
 import EventOrganizerFaq from '@/components/sections/EventOrganizerFaq.astro';
 import SignatureKeynotes from '@/components/sections/SignatureKeynotes.astro';
 import SpeakingBookingClose from '@/components/sections/SpeakingBookingClose.astro';
+import SpeakingFollowUp from '@/components/sections/SpeakingFollowUp.astro';
 import SpeakingHero from '@/components/sections/SpeakingHero.astro';
-import SpeakingPhilosophy from '@/components/sections/SpeakingPhilosophy.astro';
+import SpeakingStickyBar from '@/components/sections/SpeakingStickyBar.astro';
 import SpeakingTestimonials from '@/components/sections/SpeakingTestimonials.astro';
+import WhatMakesMarkDifferent from '@/components/sections/WhatMakesMarkDifferent.astro';
 import WhyMarkSpeaking from '@/components/sections/WhyMarkSpeaking.astro';
-import WorkshopsTeaser from '@/components/sections/WorkshopsTeaser.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { speakingSeo } from '@/data/keynote-speaker';
 ---
 
 <BaseLayout title={speakingSeo.title} description={speakingSeo.description}>
+	<div class="pb-20 md:pb-0">
 	<SpeakingHero />
-	<div class="flex flex-col">
-		<WhyMarkSpeaking />
-		<SpeakingPhilosophy />
-		<SignatureKeynotes />
-	</div>
-	<AdditionalSpeakingTopics />
-	<WorkshopsTeaser />
+	<WhyMarkSpeaking />
 	<AudiencesMarkServes />
+	<SignatureKeynotes />
+	<AdditionalSpeakingTopics />
+	<WhatMakesMarkDifferent />
 	<SpeakingTestimonials />
+	<SpeakingFollowUp />
 	<EventOrganizerFaq />
 	<SpeakingBookingClose />
+	<SpeakingStickyBar />
+	</div>
 </BaseLayout>
