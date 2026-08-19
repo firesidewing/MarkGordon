@@ -3,10 +3,9 @@ import { Image } from 'astro:assets';
 import Button from '@/components/ui/Button.astro';
 import { hubspot } from '@/config/site';
 import { speakingHero } from '@/data/keynote-speaker';
-import speakingImage from '@/assets/content/keynote-speaker/tsg-9.jpg';
+import speakingImage from '@/assets/content/keynote-speaker/Mark-32-1.jpg';
 
-const { title, intro, experience, credibility, primaryCta, secondaryCta } =
-	speakingHero;
+const { title, subhead, credibility, primaryCta, secondaryCta } = speakingHero;
 ---
 
 <section class="bg-surface" aria-labelledby="speaking-hero-heading">
@@ -22,14 +21,21 @@ const { title, intro, experience, credibility, primaryCta, secondaryCta } =
 					{title}
 				</h1>
 
-				<p class="mt-4 max-w-[42ch] text-base leading-relaxed text-text hero-enter hero-enter--1">
-					{intro}
+				<p class="mt-4 max-w-[44ch] text-base leading-relaxed text-text hero-enter hero-enter--1">
+					{subhead.lead}
+					<strong class="font-semibold text-text-heading">{subhead.emphasis}</strong>
 				</p>
 
-				<p
-					class="mt-4 hidden max-w-[44ch] text-base leading-relaxed text-text-muted sm:block hero-enter hero-enter--2"
-				>
-					{experience}
+				<ul class="mt-4 max-w-[44ch] space-y-1 hero-enter hero-enter--2" role="list">
+					{
+						subhead.tensions.map((line) => (
+							<li class="text-base leading-relaxed text-text-muted">{line}</li>
+						))
+					}
+				</ul>
+
+				<p class="mt-4 max-w-[44ch] text-base leading-relaxed text-text hero-enter hero-enter--2">
+					{subhead.close}
 				</p>
 
 				<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap hero-enter hero-enter--3">
@@ -42,21 +48,16 @@ const { title, intro, experience, credibility, primaryCta, secondaryCta } =
 				</div>
 
 				<p
-					class="mt-5 hidden font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-text-muted sm:block hero-enter hero-enter--4"
+					class="mt-5 font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-text-muted hero-enter hero-enter--4"
 				>
 					{credibility.join(' · ')}
-				</p>
-				<p
-					class="mt-5 font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-text-muted sm:hidden hero-enter hero-enter--4"
-				>
-					35+ Years · Speaker · Coach · Author
 				</p>
 			</div>
 
 			<div class="order-2 overflow-hidden lg:order-none">
 				<Image
 					src={speakingImage}
-					alt="Mark Gordon speaking to a leadership audience"
+					alt="Mark Gordon delivering a keynote presentation"
 					width={speakingImage.width}
 					height={speakingImage.height}
 					class="h-auto w-full object-cover"

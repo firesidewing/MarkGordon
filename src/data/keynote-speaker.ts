@@ -2,52 +2,69 @@ import type { Testimonial } from '@/data/testimonials';
 
 export const speakingHero = {
 	title: 'Healthy Leaders Build Healthy Cultures.',
-	intro:
-		'Mark Gordon helps organizations strengthen leadership, build trust, improve communication, and create cultures where people thrive.',
-	experience:
-		'Through engaging keynotes, practical leadership insights, and powerful storytelling, Mark equips leaders with tools they can use immediately.',
+	subhead: {
+		lead: 'Leadership challenges are rarely just strategy problems.',
+		emphasis: "They're people problems.",
+		tensions: [
+			'Communication breaks down.',
+			'Trust gets damaged.',
+			'Conflict goes unresolved.',
+			'Leaders become overwhelmed.',
+		],
+		close:
+			'Mark Gordon helps organizations address what is happening beneath the surface so leaders, teams, and cultures can thrive.',
+	},
 	credibility: [
-		'35+ Years Leadership Experience',
+		'35+ Years of Leadership Experience',
 		'Speaker',
 		'Leadership Facilitator',
 		'Executive Coach',
-		'Author of Relationship Matters',
+		'Author',
 	],
 	primaryCta: 'Book Mark to Speak',
-	secondaryCta: 'Schedule a Conversation',
+	secondaryCta: 'Start a Conversation',
 } as const;
 
 export const speakingWhyMark = {
 	title: 'More Than Inspiration. Practical Transformation.',
-	lead: 'The best keynote presentations do more than motivate people for a day. They change the conversations people have when they return to work.',
-	body:
-		'Mark Gordon combines more than 35 years of leadership experience with practical tools leaders can apply immediately. His presentations help audiences:',
-	outcomes: [
-		'Build healthier relationships',
-		'Strengthen trust',
-		'Improve communication',
-		'Navigate conflict effectively',
-		'Increase self-awareness',
-		'Develop stronger leadership habits',
-		'Create healthier organizational cultures',
+	paragraphs: [
+		"The best keynote presentations don't end when the audience leaves the room.",
+		'They continue in conversations, decisions, relationships, and leadership practices long after the event is over.',
+		'Mark combines practical leadership insight, engaging storytelling, humor, and real-life experience to help audiences think differently about leadership, relationships, communication, trust, identity, and culture.',
+		'Participants leave with more than inspiration.',
+		'They leave with practical tools they can begin using immediately.',
 	],
-	close: 'People leave encouraged. But more importantly, they leave equipped.',
 } as const;
 
-export const speakingPhilosophy = {
-	title: 'Leadership Gets Better When Relationships Get Better.',
-	lead: 'Most leadership challenges are not strategy problems. They are people problems.',
-	tensions: [
-		'Communication breaks down.',
-		'Trust erodes.',
-		'Conflict remains unresolved.',
-		'Leaders become overwhelmed.',
-		'Teams become disconnected.',
+export const speakingAudiences = {
+	title: 'Audiences Mark Serves',
+	audiences: [
+		{
+			title: 'Organizations & Businesses',
+			description:
+				'Helping leaders strengthen communication, trust, culture, and team effectiveness.',
+		},
+		{
+			title: 'Non-Profit Organizations',
+			description:
+				'Equipping leaders to navigate people challenges while staying focused on mission.',
+		},
+		{
+			title: 'Leadership Teams',
+			description:
+				'Providing practical tools that strengthen relationships and improve leadership effectiveness.',
+		},
+		{
+			title: 'Conferences & Leadership Events',
+			description:
+				'Delivering engaging keynote presentations that challenge, inspire, and equip audiences.',
+		},
+		{
+			title: 'Churches & Faith Communities',
+			description:
+				'Helping leaders develop healthier cultures, stronger relationships, and more effective leadership practices.',
+		},
 	],
-	body:
-		'Mark helps audiences understand what is happening beneath the surface and provides practical tools for creating healthier relationships, stronger teams, and more effective leadership.',
-	close:
-		'His presentations are engaging, relatable, practical, and filled with immediately usable takeaways.',
 } as const;
 
 export type SignatureKeynote = {
@@ -56,131 +73,136 @@ export type SignatureKeynote = {
 	takeaways: string[];
 };
 
+export const signatureKeynotesSection = {
+	title: 'Conversations That Change the Way Leaders Lead',
+} as const;
+
 export const signatureKeynotes: SignatureKeynote[] = [
 	{
 		title: 'Healthy Leadership Starts With Healthy Relationships',
 		overview:
-			'Leadership is ultimately relational. Whether you\'re leading a business, nonprofit, church, or team, your effectiveness is directly connected to your ability to build trust, communicate clearly, and create healthy relationships. This keynote explores the foundational principles that create healthy leaders and healthy cultures.',
+			'Most leadership challenges are people challenges. Trust, communication, authenticity, honesty, and honour shape every team and every culture. This keynote helps leaders understand how healthy relationships create healthy organizations.',
 		takeaways: [
-			'How trust impacts leadership effectiveness',
-			'Practical communication principles',
-			'Common relationship traps leaders face',
-			'Building healthier teams and cultures',
+			'How relationships shape culture',
+			'Why trust is a leadership issue',
+			'Practical ways to strengthen communication',
+			'How healthy relationships improve performance',
 		],
 	},
 	{
 		title: 'The Leadership Blind Spot',
 		overview:
-			'Every leader has blind spots. The problem is not having them. The problem is leading as though they don\'t exist. This keynote helps leaders identify hidden patterns that influence decisions, communication, relationships, and organizational culture.',
+			"Every leader has blind spots. The question isn't whether they exist. The question is whether they're limiting effectiveness, damaging relationships, or undermining culture. This keynote helps leaders identify hidden patterns and develop greater self-awareness.",
 		takeaways: [
-			'Increased self-awareness',
-			'Understanding leadership blind spots',
-			'Recognizing hidden leadership barriers',
-			'Tools for growth and accountability',
+			'How blind spots develop',
+			'Why self-awareness matters',
+			'Common leadership blind spots',
+			'Practical strategies for growth',
 		],
 	},
 	{
 		title: 'Living From Identity',
 		overview:
-			'Many leaders spend their lives performing for approval rather than leading from confidence. This keynote explores how identity influences leadership, confidence, communication, relationships, and resilience.',
+			'The healthiest leaders know who they are. Confidence, clarity, and influence begin internally before they appear externally. This presentation helps leaders understand how identity impacts leadership effectiveness, decision-making, and relationships.',
 		takeaways: [
-			'Greater self-awareness',
-			'Increased confidence',
-			'Freedom from unhealthy performance pressures',
-			'Healthier leadership habits',
+			'How identity shapes leadership',
+			'Why insecurity affects teams',
+			'How confidence differs from arrogance',
+			'Practical tools for healthier leadership',
 		],
 	},
 	{
 		title: 'Relationship Matters',
 		overview:
-			'Healthy relationships do not happen by accident. They are built intentionally. Drawing from the principles in his book, Mark shares practical tools that strengthen relationships in leadership, teams, workplaces, and families.',
+			"Healthy relationships don't happen accidentally. They are built intentionally. Based on Mark's book Relationship Matters, this keynote provides practical principles that strengthen communication, trust, and connection.",
 		takeaways: [
-			'Trust-building principles',
-			'Communication strategies',
-			'Conflict navigation tools',
-			'Practical relationship skills',
+			'The five pillars of healthy relationships',
+			'How communication shapes outcomes',
+			'Why authenticity builds trust',
+			'Practical relationship tools for everyday life',
 		],
 	},
 ];
 
 export const additionalSpeakingTopics = [
-	'Understanding Anger',
 	'Strength-Based Leadership',
-	'Navigating Difficult Conversations',
-	'Leading Through Change',
+	'Understanding Anger',
 	'Building Trust',
-	'Emotional Intelligence for Leaders',
-	'Healthy Culture Development',
+	'Difficult Conversations',
+	'Leading Through Change',
+	'Navigating Crisis Decisions',
+	'Creating Healthy Organizational Cultures',
 ] as const;
 
-export const workshopsTeaser = {
-	title: 'Looking For More Than A Keynote?',
-	intro:
-		'Many organizations choose to extend the learning through workshops and leadership development experiences. These sessions provide opportunities for deeper discussion, practical application, team interaction, and skill development.',
-	topicsLabel: 'Popular workshop topics include:',
-	topics: [
-		'Relationship Matters',
-		'Living From Identity',
-		'Understanding Anger',
-		'Strength-Based Leadership',
-		'Leadership Blind Spots',
-		'Communication & Trust',
+export const whatMakesMarkDifferent = {
+	title: 'Experience You Can Hear.',
+	lead: 'Many speakers teach leadership.',
+	emphasis: 'Mark has spent more than three decades living it.',
+	credentials: [
+		'More than 35 years leading people',
+		'Extensive experience developing leaders',
+		'Coaching executives, pastors, business owners, and nonprofit leaders',
+		'Speaking to diverse audiences',
+		'Authoring Relationship Matters',
+		'Creating leadership development programs used by organizations and leaders across multiple sectors',
 	],
-	cta: 'Explore Workshops',
-	href: '/workshop-facilitator/',
-} as const;
-
-export const speakingAudiences = {
-	title: 'Audiences Mark Serves',
-	audiences: [
-		{
-			title: 'Businesses',
-			description:
-				'Helping leaders create healthier workplace cultures and stronger teams.',
-		},
-		{
-			title: 'Nonprofits',
-			description:
-				'Helping mission-driven organizations lead effectively while maintaining healthy relationships.',
-		},
-		{
-			title: 'Faith Communities',
-			description:
-				'Helping leaders strengthen teams, navigate challenges, and lead with authenticity and purpose.',
-		},
-		{
-			title: 'Leadership Teams',
-			description:
-				'Helping leaders improve communication, trust, accountability, and culture.',
-		},
-	],
+	close:
+		"Mark's presentations are grounded in real-world leadership experience—not simply theory.",
+	testimonial:
+		'His audiences consistently describe him as practical, authentic, engaging, and immediately applicable.',
 } as const;
 
 export const speakingTestimonialExcerpts: Testimonial[] = [
 	{
 		quote:
-			'Mark has the ability to take difficult topics and issues people face and bring sensibility and solutions that can be acted on immediately.',
+			'Mark has the ability to take the difficult topics and issues people face and bring sensibility and solutions that can be acted on immediately.',
 		author: 'Ron Schlitt',
 		role: 'Lead Strengths Facilitator',
 	},
 	{
 		quote:
-			'He consistently receives the highest ratings in evaluations and feedback from participants.',
-		author: 'Ron Schlitt',
-		role: 'Lead Strengths Facilitator',
-	},
-	{
-		quote:
-			'Mark has the ability to communicate truth with passion and compassion.',
-		author: 'Wes Jonat',
-		role: 'Owner, Sun Valley Pools & Spas',
-	},
-	{
-		quote: 'Funny, practical, engaging, and immediately applicable.',
+			'Mark is funny, engaging, practical, and communicates in a way that connects with people at every level.',
 		author: 'Gary Chupik',
 		role: 'Owner, Gary Chupik Leadership LLC',
 	},
+	{
+		quote: 'Mark communicates truth with both passion and compassion.',
+		author: 'Wes Jonat',
+		role: 'Owner, Sun Valley Pools & Spas',
+	},
 ];
+
+export const followUpOpportunities = {
+	title: 'Looking For More Than A One-Day Event?',
+	intro:
+		'Many organizations invite Mark to speak and then choose to continue the conversation through leadership development, workshops, assessments, or executive coaching.',
+	opportunities: [
+		{
+			title: 'Leadership Accelerator',
+			description:
+				'A cohort-based leadership development experience designed to create lasting growth.',
+			href: '/contact/',
+		},
+		{
+			title: 'Workshops',
+			description:
+				'Interactive sessions that take key leadership concepts deeper.',
+			href: '/workshop-facilitator/',
+		},
+		{
+			title: 'Blind Spot Assessment',
+			description:
+				'A practical assessment tool that helps leaders identify areas for growth.',
+			href: '/blind-spot-assessment/',
+		},
+		{
+			title: 'Executive Coaching',
+			description:
+				'Personalized coaching for leaders seeking greater clarity, effectiveness, and impact.',
+			href: '/relationship-leadership-coaching/',
+		},
+	],
+} as const;
 
 export type FaqItem = {
 	question: string;
@@ -189,35 +211,31 @@ export type FaqItem = {
 
 export const eventOrganizerFaq: FaqItem[] = [
 	{
-		question: 'Who is Mark best suited for?',
+		question: "How long are Mark's presentations?",
 		answer:
-			'Organizations, conferences, leadership teams, nonprofits, churches, and businesses seeking stronger leadership and healthier cultures.',
+			'Keynotes can be customized for conference sessions, leadership retreats, staff events, and leadership gatherings.',
 	},
 	{
-		question: 'Can Mark customize his presentation?',
+		question: 'Can Mark customize content?',
 		answer:
-			'Yes. Every presentation can be tailored to the audience, event theme, and organizational needs.',
+			'Yes. Every audience is unique. Mark works with event organizers to ensure presentations address the needs of the audience.',
 	},
 	{
-		question: 'Does Mark provide workshops as well?',
+		question: 'Does Mark speak to both faith-based and non-faith-based audiences?',
 		answer:
-			'Yes. Keynotes, workshops, leadership development, and coaching are available.',
+			'Yes. Mark regularly serves churches, nonprofits, businesses, and leadership organizations. Content can be adapted appropriately for the audience.',
 	},
 	{
-		question: 'Is Mark available for virtual events?',
-		answer: 'Yes.',
-	},
-	{
-		question: 'How do we inquire about availability?',
-		answer: 'Complete the contact form or schedule a conversation.',
+		question: 'Does Mark provide workshops in addition to keynote presentations?',
+		answer:
+			'Absolutely. Many organizations choose to pair a keynote presentation with a workshop or leadership development experience.',
 	},
 ];
 
 export const speakingBookingClose = {
-	title: "Let's Create An Experience Your Audience Will Remember.",
+	title: "Let's Create An Event That Makes A Difference.",
 	body:
-		"Whether you're planning a conference, leadership retreat, staff development event, nonprofit gathering, or church leadership event, Mark would love to explore how he can serve your audience.",
-	close: "Let's start with a conversation.",
+		"Whether you're planning a conference, leadership retreat, staff event, nonprofit gathering, or leadership development experience, Mark brings practical insight, engaging communication, and actionable tools that audiences can immediately apply.",
 	primaryCta: 'Book Mark to Speak',
 	secondaryCta: 'Schedule a Conversation',
 } as const;
@@ -225,5 +243,17 @@ export const speakingBookingClose = {
 export const speakingSeo = {
 	title: 'Leadership & Culture Keynote Speaker | Mark Gordon',
 	description:
-		'Mark Gordon speaks on leadership, relationships, trust, and culture — practical keynotes for conferences, organizations, leadership teams, nonprofits, and faith communities.',
+		'Book Mark Gordon to speak at your conference, retreat, or leadership event. Practical keynotes on leadership, relationships, trust, and culture for organizations, nonprofits, and faith communities.',
+} as const;
+
+/** @deprecated Use followUpOpportunities */
+export const workshopsTeaser = followUpOpportunities;
+
+/** @deprecated Removed from page — content moved to hero subhead */
+export const speakingPhilosophy = {
+	title: '',
+	lead: '',
+	tensions: [],
+	body: '',
+	close: '',
 } as const;

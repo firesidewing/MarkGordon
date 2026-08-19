@@ -3,20 +3,15 @@ import Button from '@/components/ui/Button.astro';
 import SectionHeading from '@/components/sections/SectionHeading.astro';
 import Section from '@/components/ui/Section.astro';
 import { hubspot } from '@/config/site';
-import { signatureKeynotes, speakingHero } from '@/data/keynote-speaker';
+import { signatureKeynotes, signatureKeynotesSection, speakingHero } from '@/data/keynote-speaker';
 ---
 
 <Section
 	variant="muted"
 	id="signature-keynotes"
-	class="order-1 scroll-mt-20 lg:order-none"
+	class="scroll-mt-20"
 >
-	<SectionHeading
-		title="Signature Keynotes"
-		subtitle="Practical leadership and culture talks designed for conferences, organizations, leadership teams, nonprofits, and faith communities."
-		centered
-		class="mb-10"
-	/>
+	<SectionHeading title={signatureKeynotesSection.title} centered class="mb-10" />
 
 	<div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
 		{
@@ -32,7 +27,7 @@ import { signatureKeynotes, speakingHero } from '@/data/keynote-speaker';
 						<p
 							class="font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-brand"
 						>
-							Audience Takeaways
+							Audience Will Learn
 						</p>
 						<ul class="mt-3 space-y-2" role="list">
 							{keynote.takeaways.map((takeaway) => (
