@@ -1,0 +1,36 @@
+---
+import Section from '@/components/ui/Section.astro';
+import { aboutMessage } from '@/data/about-mark';
+
+const { title, paragraphs, questionsIntro, questions } = aboutMessage;
+---
+
+<Section variant="brand">
+	<div class="mx-auto max-w-3xl text-center">
+		<h2
+			class="text-balance font-display text-h3 font-semibold leading-snug text-text-inverse sm:text-h2 sm:leading-tight"
+		>
+			{title}
+		</h2>
+
+		<div class="mt-6 space-y-3">
+			{
+				paragraphs.map((paragraph) => (
+					<p class="text-base leading-relaxed text-text-inverse/90">{paragraph}</p>
+				))
+			}
+		</div>
+
+		<p class="mt-8 text-base leading-relaxed text-text-inverse/90">{questionsIntro}</p>
+
+		<ul class="mt-4 space-y-2" role="list">
+			{
+				questions.map((question) => (
+					<li class="text-base font-display font-semibold leading-relaxed text-text-inverse">
+						{question}
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</Section>

@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
+import { aboutRelationalThread } from '@/data/about-mark';
+import bookCover from '@/assets/content/relationship-matters/book-cover.png';
+
+const { title, paragraphs, principlesIntro, principles, close, bookHref } = aboutRelationalThread;
+---
+
+<Section variant="muted">
+	<div class="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center lg:gap-16">
+		<div class="mx-auto max-w-xs overflow-hidden lg:max-w-sm">
+			<Image
+				src={bookCover}
+				alt="Relationship Matters book cover"
+				width={bookCover.width}
+				height={bookCover.height}
+				class="h-auto w-full object-cover shadow-md"
+				loading="lazy"
+			/>
+		</div>
+
+		<div>
+			<h2
+				class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+			>
+				{title}
+			</h2>
+
+			<div class="mt-6 space-y-4">
+				{
+					paragraphs.map((paragraph) => (
+						<p class="text-base leading-relaxed text-text">{paragraph}</p>
+					))
+				}
+			</div>
+
+			<p class="mt-4 text-base leading-relaxed text-text">{principlesIntro}</p>
+
+			<ul class="mt-4 flex flex-wrap gap-2" role="list">
+				{
+					principles.map((principle) => (
+						<li>
+							<span class="inline-block rounded-full border border-brand px-3 py-1 font-display text-sm font-semibold text-brand">
+								{principle}
+							</span>
+						</li>
+					))
+				}
+			</ul>
+
+			<p class="mt-6 text-base leading-relaxed text-text">{close}</p>
+
+			<div class="mt-8">
+				<Button href={bookHref} variant="secondary">
+					Explore Relationship Matters
+				</Button>
+			</div>
+		</div>
+	</div>
+</Section>

@@ -1,0 +1,35 @@
+---
+export const prerender = true;
+
+import AboutCredentials from '@/components/sections/about/AboutCredentials.astro';
+import AboutFinalCta from '@/components/sections/about/AboutFinalCta.astro';
+import AboutHero from '@/components/sections/about/AboutHero.astro';
+import AboutMessage from '@/components/sections/about/AboutMessage.astro';
+import AboutPersonal from '@/components/sections/about/AboutPersonal.astro';
+import AboutRelationalThread from '@/components/sections/about/AboutRelationalThread.astro';
+import AboutStory from '@/components/sections/about/AboutStory.astro';
+import AboutTestimonials from '@/components/sections/about/AboutTestimonials.astro';
+import AboutTransition from '@/components/sections/about/AboutTransition.astro';
+import AboutWhatIBring from '@/components/sections/about/AboutWhatIBring.astro';
+import AboutWhoIServe from '@/components/sections/about/AboutWhoIServe.astro';
+import SpeakingStickyBar from '@/components/sections/SpeakingStickyBar.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { aboutSeo } from '@/data/about-mark';
+---
+
+<BaseLayout title={aboutSeo.title} description={aboutSeo.description}>
+	<div class="pb-20 md:pb-0">
+		<AboutHero />
+		<AboutStory />
+		<AboutTransition />
+		<AboutMessage />
+		<AboutWhatIBring />
+		<AboutRelationalThread />
+		<AboutCredentials />
+		<AboutWhoIServe />
+		<AboutPersonal />
+		<AboutTestimonials />
+		<AboutFinalCta />
+		<SpeakingStickyBar />
+	</div>
+</BaseLayout>
