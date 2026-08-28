@@ -27,3 +27,6 @@ pnpm-debug.log*
 .claude/skills/impeccable/*
 .cursor/skills/impeccable/*
 .vercel
+
+# clerk configuration (can include secrets)
+/.clerk/
