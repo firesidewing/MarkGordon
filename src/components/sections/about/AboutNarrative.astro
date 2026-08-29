@@ -1,43 +1,28 @@
 ---
-import { Image } from 'astro:assets';
 import Section from '@/components/ui/Section.astro';
 import { aboutNarrative } from '@/data/about-mark';
-import storyImage from '@/assets/content/faith-community-packages/Mark-32-1-1024x1024.jpg';
 
 const { title, paragraphs, close } = aboutNarrative;
 ---
 
 <Section variant="muted">
-	<div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-16">
-		<div>
-			<h2
-				class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
-			>
-				{title}
-			</h2>
+	<div class="mx-auto max-w-3xl">
+		<h2
+			class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+		>
+			{title}
+		</h2>
 
-			<div class="mt-6 space-y-4">
-				{
-					paragraphs.map((paragraph) => (
-						<p class="text-base leading-relaxed text-text">{paragraph}</p>
-					))
-				}
-			</div>
-
-			<p class="mt-6 font-display text-base font-semibold leading-relaxed text-brand">
-				{close}
-			</p>
+		<div class="mt-6 space-y-4">
+			{
+				paragraphs.map((paragraph) => (
+					<p class="text-base leading-relaxed text-text">{paragraph}</p>
+				))
+			}
 		</div>
 
-		<div class="overflow-hidden">
-			<Image
-				src={storyImage}
-				alt="Mark Gordon facilitating a leadership session"
-				width={storyImage.width}
-				height={storyImage.height}
-				class="h-auto w-full object-cover"
-				loading="lazy"
-			/>
-		</div>
+		<p class="mt-6 font-display text-base font-semibold leading-relaxed text-brand">
+			{close}
+		</p>
 	</div>
 </Section>
