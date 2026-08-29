@@ -1,36 +1,27 @@
 ---
+import Button from '@/components/ui/Button.astro';
 import Section from '@/components/ui/Section.astro';
 import { aboutMessage } from '@/data/about-mark';
 
-const { title, paragraphs, questionsIntro, questions } = aboutMessage;
+const { title, body, cta, href } = aboutMessage;
 ---
 
 <Section variant="brand">
-	<div class="mx-auto max-w-3xl text-center">
+	<div class="mx-auto max-w-2xl text-center">
 		<h2
 			class="text-balance font-display text-h3 font-semibold leading-snug text-text-inverse sm:text-h2 sm:leading-tight"
 		>
 			{title}
 		</h2>
-
-		<div class="mt-6 space-y-3">
-			{
-				paragraphs.map((paragraph) => (
-					<p class="text-base leading-relaxed text-text-inverse/90">{paragraph}</p>
-				))
-			}
+		<p class="mt-4 text-base leading-relaxed text-text-inverse/90">{body}</p>
+		<div class="mt-8">
+			<Button
+				href={href}
+				variant="secondary"
+				class="!border-text-inverse !bg-transparent !text-text-inverse hover:!bg-white/10"
+			>
+				{cta}
+			</Button>
 		</div>
-
-		<p class="mt-8 text-base leading-relaxed text-text-inverse/90">{questionsIntro}</p>
-
-		<ul class="mt-4 space-y-2" role="list">
-			{
-				questions.map((question) => (
-					<li class="text-base font-display font-semibold leading-relaxed text-text-inverse">
-						{question}
-					</li>
-				))
-			}
-		</ul>
 	</div>
 </Section>
