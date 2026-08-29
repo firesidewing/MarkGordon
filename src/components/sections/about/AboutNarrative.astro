@@ -1,10 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import Section from '@/components/ui/Section.astro';
-import { aboutStory } from '@/data/about-mark';
+import { aboutNarrative } from '@/data/about-mark';
 import storyImage from '@/assets/content/faith-community-packages/Mark-32-1-1024x1024.jpg';
 
-const { title, paragraphs, insights, close } = aboutStory;
+const { title, paragraphs, close } = aboutNarrative;
 ---
 
 <Section variant="muted">
@@ -24,21 +24,9 @@ const { title, paragraphs, insights, close } = aboutStory;
 				}
 			</div>
 
-			<ul class="mt-4 space-y-2" role="list">
-				{
-					insights.map((line) => (
-						<li class="flex gap-3 text-base leading-relaxed text-text-heading">
-							<span
-								class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
-								aria-hidden="true"
-							/>
-							{line}
-						</li>
-					))
-				}
-			</ul>
-
-			<p class="mt-6 text-base leading-relaxed text-text">{close}</p>
+			<p class="mt-6 font-display text-base font-semibold leading-relaxed text-brand">
+				{close}
+			</p>
 		</div>
 
 		<div class="overflow-hidden">

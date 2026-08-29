@@ -4,10 +4,10 @@ import Section from '@/components/ui/Section.astro';
 import { aboutPersonal } from '@/data/about-mark';
 import portraitImage from '@/assets/content/about-mark/Mark-36-e1569198052878-750x1024.jpg';
 
-const { title, paragraphs, mobileShort, lessonsIntro, lessons } = aboutPersonal;
+const { title, paragraphs, lessonsIntro, lessons } = aboutPersonal;
 ---
 
-<Section>
+<Section variant="muted">
 	<div class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-16">
 		<div class="overflow-hidden">
 			<Image
@@ -27,9 +27,7 @@ const { title, paragraphs, mobileShort, lessonsIntro, lessons } = aboutPersonal;
 				{title}
 			</h2>
 
-			<p class="mt-6 text-base leading-relaxed text-text sm:hidden">{mobileShort}</p>
-
-			<div class="mt-6 hidden space-y-4 sm:block">
+			<div class="mt-6 space-y-4">
 				{
 					paragraphs.map((paragraph) => (
 						<p class="text-base leading-relaxed text-text">{paragraph}</p>
@@ -37,10 +35,7 @@ const { title, paragraphs, mobileShort, lessonsIntro, lessons } = aboutPersonal;
 				}
 			</div>
 
-			<p class="mt-6 hidden text-base leading-relaxed text-text sm:block">{lessonsIntro}</p>
-			<p class="mt-6 text-base leading-relaxed text-text sm:hidden">
-				{lessonsIntro}
-			</p>
+			<p class="mt-6 text-base leading-relaxed text-text">{lessonsIntro}</p>
 
 			<ul class="mt-4 space-y-2" role="list">
 				{
