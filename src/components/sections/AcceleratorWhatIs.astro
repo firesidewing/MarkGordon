@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import Section from '@/components/ui/Section.astro';
+import { acceleratorWhatIs } from '@/data/leadership-accelerator';
+import cohortImage from '@/assets/content/faith-community-packages/FG6A9662-scaled-e1610423538726-1024x806.jpg';
+
+const { title, intro, points, resultLabel, result } = acceleratorWhatIs;
+---
+
+<Section>
+	<div class="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
+		<div>
+			<h2
+				class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+			>
+				{title}
+			</h2>
+			<p class="mt-6 text-base leading-relaxed text-text">{intro}</p>
+
+			<ul class="mt-6 space-y-2" role="list">
+				{
+					points.map((point) => (
+						<li class="flex gap-3 text-base leading-relaxed text-text">
+							<span
+								class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
+								aria-hidden="true"
+							/>
+							{point}
+						</li>
+					))
+				}
+			</ul>
+
+			<div class="mt-8 border-t-2 border-brand pt-6">
+				<p class="font-display text-sm font-semibold uppercase tracking-wide text-brand">
+					{resultLabel}
+				</p>
+				<p class="mt-3 text-base leading-relaxed text-text-heading">{result}</p>
+			</div>
+		</div>
+
+		<div class="overflow-hidden">
+			<Image
+				src={cohortImage}
+				alt="Leaders learning together in a cohort discussion"
+				width={cohortImage.width}
+				height={cohortImage.height}
+				class="h-auto w-full object-cover"
+				loading="lazy"
+			/>
+		</div>
+	</div>
+</Section>

@@ -1,0 +1,39 @@
+---
+export const prerender = true;
+
+import AcceleratorCohort from '@/components/sections/AcceleratorCohort.astro';
+import AcceleratorDifferentiators from '@/components/sections/AcceleratorDifferentiators.astro';
+import AcceleratorExplore from '@/components/sections/AcceleratorExplore.astro';
+import AcceleratorFinalCta from '@/components/sections/AcceleratorFinalCta.astro';
+import AcceleratorFourElements from '@/components/sections/AcceleratorFourElements.astro';
+import AcceleratorGetStarted from '@/components/sections/AcceleratorGetStarted.astro';
+import AcceleratorHero from '@/components/sections/AcceleratorHero.astro';
+import AcceleratorOrganizations from '@/components/sections/AcceleratorOrganizations.astro';
+import AcceleratorProblem from '@/components/sections/AcceleratorProblem.astro';
+import AcceleratorRelationshipMatters from '@/components/sections/AcceleratorRelationshipMatters.astro';
+import AcceleratorTestimonials from '@/components/sections/AcceleratorTestimonials.astro';
+import AcceleratorTransformation from '@/components/sections/AcceleratorTransformation.astro';
+import AcceleratorWhatIs from '@/components/sections/AcceleratorWhatIs.astro';
+import AcceleratorWhoFor from '@/components/sections/AcceleratorWhoFor.astro';
+import AcceleratorWhyMark from '@/components/sections/AcceleratorWhyMark.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { acceleratorSeo } from '@/data/leadership-accelerator';
+---
+
+<BaseLayout title={acceleratorSeo.title} description={acceleratorSeo.description}>
+	<AcceleratorHero />
+	<AcceleratorProblem />
+	<AcceleratorWhatIs />
+	<AcceleratorFourElements />
+	<AcceleratorWhoFor />
+	<AcceleratorExplore />
+	<AcceleratorTransformation />
+	<AcceleratorCohort />
+	<AcceleratorWhyMark />
+	<AcceleratorRelationshipMatters />
+	<AcceleratorDifferentiators />
+	<AcceleratorOrganizations />
+	<AcceleratorTestimonials />
+	<AcceleratorGetStarted />
+	<AcceleratorFinalCta />
+</BaseLayout>

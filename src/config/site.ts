@@ -48,6 +48,7 @@ export const mainNav: NavItem[] = [
 		label: 'Resources',
 		href: '/online-courses/',
 		children: [
+			{ label: 'Leadership Accelerator', href: '/leadership-accelerator/' },
 			{ label: 'Online Courses', href: '/online-courses/' },
 			{ label: 'Relationship Matters', href: '/relationship-matters/' },
 			{ label: 'Blog', href: '/blog/' },
@@ -64,6 +65,7 @@ export const footerNavLinks = [
 	{ label: 'Speaking', href: '/keynote-speaker/' },
 	{ label: 'Workshops', href: '/workshop-facilitator/' },
 	{ label: 'Coaching', href: '/relationship-leadership-coaching/' },
+	{ label: 'Leadership Accelerator', href: '/leadership-accelerator/' },
 	{ label: 'About Mark', href: '/about-mark/' },
 	{ label: 'Testimonials', href: '/#testimonials' },
 	{ label: 'Relationship Matters', href: '/relationship-matters/' },

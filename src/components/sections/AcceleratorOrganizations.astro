@@ -1,0 +1,42 @@
+---
+import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
+import { hubspot } from '@/config/site';
+import { acceleratorOrganizations } from '@/data/leadership-accelerator';
+
+const { title, intro, body, outcomes, cta } = acceleratorOrganizations;
+---
+
+<Section variant="muted">
+	<div class="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-12">
+		<div>
+			<h2
+				class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+			>
+				{title}
+			</h2>
+			<p class="mt-6 text-base leading-relaxed text-text">{intro}</p>
+			<p class="mt-4 text-base leading-relaxed text-text">{body}</p>
+		</div>
+
+		<div>
+			<ul class="space-y-3" role="list">
+				{
+					outcomes.map((outcome) => (
+						<li class="flex gap-3 text-base leading-relaxed text-text">
+							<span
+								class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
+								aria-hidden="true"
+							/>
+							{outcome}
+						</li>
+					))
+				}
+			</ul>
+
+			<div class="mt-8">
+				<Button href={hubspot.discoveryCall} external>{cta}</Button>
+			</div>
+		</div>
+	</div>
+</Section>
