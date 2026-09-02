@@ -62,11 +62,11 @@ export const homeOfferings = {
         },
         {
             id: "coaching",
-            title: "Executive Coaching",
-            tagline: "When Leaders Need a Deeper Conversation.",
+            title: "Coaching",
+            tagline: "Leadership Gets Personal.",
             description:
-                "Sometimes a keynote creates the awareness. A workshop creates the tools. Coaching creates the space to apply them. Mark works with leaders who want to grow personally, lead more effectively, and build healthier relationships within their organizations.",
-            cta: "Explore Coaching",
+                "For leaders who want to go deeper, Mark provides practical, relational leadership coaching focused on the real issues leaders face.",
+            cta: "Explore Leadership Coaching",
             href: "/relationship-leadership-coaching/",
             image: coachingImg,
         },
@@ -115,7 +115,7 @@ export const homeGoDeeper = {
         title: "Sometimes the Keynote Starts the Conversation.",
         subtitle: "Coaching Helps Continue It.",
         description:
-            "For leaders who want to go deeper, Mark provides executive and leadership coaching focused on the real issues leaders face—relationships, communication, confidence, conflict, decision-making, identity, and culture.",
+            "For leaders who want to go deeper, Mark provides practical, relational leadership coaching focused on the real issues leaders face.",
         cta: "Explore Leadership Coaching",
         href: "/relationship-leadership-coaching/",
     },

@@ -1,0 +1,39 @@
+---
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import Section from '@/components/ui/Section.astro';
+import { coachingTestimonials } from '@/data/relationship-leadership-coaching';
+---
+
+<Section variant="brand" id="coaching-testimonials" class="scroll-mt-20">
+	<SectionHeading
+		title="What Leaders Say About Working With Mark"
+		centered
+		inverse
+		class="mb-10"
+	/>
+	<div class="grid gap-10 lg:grid-cols-3 lg:gap-8">
+		{
+			coachingTestimonials.map((testimonial) => (
+				<blockquote class="text-[0.9375rem] leading-relaxed text-text-inverse sm:text-base">
+					<svg
+						class="mb-4 h-8 w-8 text-text-inverse/80"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+						aria-hidden="true"
+					>
+						<path d="M7.17 6A5 5 0 0 0 2 11v7h7v-7H6.17A3.17 3.17 0 0 1 9.34 8 3.17 3.17 0 0 1 12.51 11H15.5A5.5 5.5 0 0 0 7.17 6zm10 0a5 5 0 0 0-5.17 5v7h7v-7h-2.83A3.17 3.17 0 0 1 17.17 8 3.17 3.17 0 0 1 20.34 11h2.99A5.5 5.5 0 0 0 17.17 6z" />
+					</svg>
+					<p>&ldquo;{testimonial.quote}&rdquo;</p>
+					<cite class="mt-6 block text-sm not-italic">
+						<span class="block">— {testimonial.author}</span>
+						{testimonial.role && (
+							<span class="mt-1 block text-xs font-semibold uppercase tracking-wide text-text-inverse/80">
+								{testimonial.role}
+							</span>
+						)}
+					</cite>
+				</blockquote>
+			))
+		}
+	</div>
+</Section>
