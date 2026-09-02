@@ -1,0 +1,18 @@
+---
+import Button from '@/components/ui/Button.astro';
+import { coachingHero } from '@/data/relationship-leadership-coaching';
+---
+
+<div
+	class="fixed inset-x-0 bottom-0 z-40 border-t border-surface-muted bg-surface/95 px-4 py-3 shadow-lg backdrop-blur-sm md:hidden"
+	aria-label="Start a coaching conversation"
+>
+	<div class="mx-auto flex max-w-content items-center justify-between gap-4">
+		<p class="min-w-0 truncate font-display text-sm font-semibold text-text-heading">
+			{coachingHero.primaryCta}
+		</p>
+		<Button href="/contact/" class="shrink-0 !px-5 !py-2.5 !text-sm">
+			Contact
+		</Button>
+	</div>
+</div>
