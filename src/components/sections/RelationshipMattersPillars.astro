@@ -1,0 +1,35 @@
+---
+import PillarsAccordion from '@/components/islands/PillarsAccordion.svelte';
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import Section from '@/components/ui/Section.astro';
+import { fivePillars } from '@/data/relationship-matters';
+
+const { title, intro, pillars } = fivePillars;
+---
+
+<Section id="five-pillars" class="scroll-mt-20">
+	<SectionHeading title={title} subtitle={intro} centered class="mb-10" />
+
+	<div class="md:hidden">
+		<PillarsAccordion client:load items={[...pillars]} />
+	</div>
+
+	<div class="hidden gap-6 md:grid md:grid-cols-2 lg:gap-8">
+		{
+			pillars.map((pillar) => (
+				<article class="border-t-2 border-brand bg-surface px-5 py-6 shadow-sm sm:px-6 sm:py-8">
+					<p
+						class="font-display text-sm font-semibold uppercase tracking-wide text-brand"
+						aria-hidden="true"
+					>
+						{pillar.number} — {pillar.title}
+					</p>
+					<h3 class="mt-2 font-display text-h4 font-semibold leading-snug text-text-heading">
+						{pillar.tagline}
+					</h3>
+					<p class="mt-4 text-sm leading-relaxed text-text sm:text-base">{pillar.body}</p>
+				</article>
+			))
+		}
+	</div>
+</Section>

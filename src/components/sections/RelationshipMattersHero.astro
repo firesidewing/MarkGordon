@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Button from '@/components/ui/Button.astro';
+import { bookHero } from '@/data/relationship-matters';
+
+interface Props {
+	cover: ImageMetadata;
+}
+
+const { cover } = Astro.props;
+const { title, subhead, paragraphs, primaryCta, secondaryCta } = bookHero;
+---
+
+<section class="bg-brand" aria-labelledby="rm-hero-heading">
+	<div
+		class="mx-auto grid w-full max-w-content items-center gap-8 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-16"
+	>
+		<div>
+			<p class="font-display text-xs font-semibold uppercase tracking-widest text-text-inverse/70">
+				Signature Framework
+			</p>
+			<h1
+				id="rm-hero-heading"
+				class="mt-3 font-display text-[clamp(2rem,4.5vw,3rem)] font-bold leading-tight text-text-inverse"
+			>
+				{title}
+			</h1>
+			<p class="mt-3 text-lg font-medium text-text-inverse/95">{subhead}</p>
+			<div class="mt-4 max-w-prose space-y-3 text-sm leading-relaxed text-text-inverse/85">
+				{
+					paragraphs.map((paragraph) => (
+						<p>{paragraph}</p>
+					))
+				}
+			</div>
+			<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+				<a
+					href="#retailers"
+					class="btn-interactive inline-flex min-h-11 w-full items-center justify-center rounded-button bg-surface px-8 py-3 font-display text-button font-button uppercase text-brand hover:bg-surface-muted sm:w-auto"
+				>
+					{primaryCta}
+				</a>
+				<a
+					href="#five-pillars"
+					class="btn-interactive inline-flex min-h-11 w-full items-center justify-center rounded-button border-2 border-text-inverse/40 bg-transparent px-8 py-3 font-display text-button font-button uppercase text-text-inverse hover:bg-text-inverse/10 sm:w-auto"
+				>
+					{secondaryCta}
+				</a>
+			</div>
+		</div>
+
+		<div class="flex justify-center lg:justify-end">
+			<div class="overflow-hidden rounded-sm shadow-lg">
+				<Image
+					src={cover}
+					alt="Relationship Matters book cover"
+					width={cover.width}
+					height={cover.height}
+					class="h-auto w-full max-w-sm object-cover"
+					loading="eager"
+				/>
+			</div>
+		</div>
+	</div>
+</section>

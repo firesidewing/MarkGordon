@@ -49,10 +49,10 @@ export const mainNav: NavItem[] = [
 		href: '/online-courses/',
 		children: [
 			{ label: 'Leadership Accelerator', href: '/leadership-accelerator/' },
-			{ label: 'Online Courses', href: '/online-courses/' },
 			{ label: 'Relationship Matters', href: '/relationship-matters/' },
-			{ label: 'Blog', href: '/blog/' },
+			{ label: 'Online Courses', href: '/online-courses/' },
 			{ label: 'Videos', href: '/vlogs/' },
+			{ label: 'Blog', href: '/blog/' },
 			{ label: 'Faith Community Packages', href: '/faith-community-packages/' },
 			{ label: 'Testimonials', href: '/#testimonials' },
 			{ label: 'Blind Spot Assessment', href: blindSpot.directUrl, external: true },
