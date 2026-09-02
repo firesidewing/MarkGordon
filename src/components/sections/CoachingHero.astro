@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import Button from '@/components/ui/Button.astro';
 import { hubspot } from '@/config/site';
 import { coachingHero } from '@/data/relationship-leadership-coaching';
-import heroImage from '@/assets/content/relationship-leadership-coaching/image-from-rawpixel-id-514201-jpeg.jpg';
+import heroImage from '@/assets/content/home2/Mark-47.jpg';
 
 const { eyebrow, title, subhead, body, primaryCta, secondaryCta } = coachingHero;
 ---
@@ -44,13 +44,13 @@ const { eyebrow, title, subhead, body, primaryCta, secondaryCta } = coachingHero
 				</div>
 			</div>
 
-			<div class="order-2 overflow-hidden lg:order-none">
+			<div class="order-2 hidden overflow-hidden md:block lg:order-none">
 				<Image
 					src={heroImage}
-					alt="Mark Gordon in a thoughtful coaching conversation"
+					alt="Mark Gordon in a one-on-one coaching conversation"
 					width={heroImage.width}
 					height={heroImage.height}
-					class="h-auto w-full object-cover"
+					class="aspect-[4/3] h-auto w-full object-cover object-[center_35%] lg:aspect-auto"
 					loading="eager"
 					fetchpriority="high"
 				/>
