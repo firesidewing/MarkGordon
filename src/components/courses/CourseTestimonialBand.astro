@@ -3,13 +3,21 @@ interface Props {
 	quote: string;
 	author: string;
 	credentials?: string[];
+	heading?: string;
 }
 
-const { quote, author, credentials = [] } = Astro.props;
+const { quote, author, credentials = [], heading } = Astro.props;
 ---
 
 <section class="bg-brand px-4 py-16 text-text-inverse sm:px-6 sm:py-20 lg:px-8">
 	<div class="mx-auto max-w-narrow text-center">
+		{
+			heading && (
+				<h2 class="mb-10 font-display text-h2 font-h2 uppercase tracking-h2 text-text-inverse">
+					{heading}
+				</h2>
+			)
+		}
 		<blockquote>
 			<p class="text-lg font-medium italic leading-relaxed sm:text-xl text-balance">
 				&ldquo;{quote}&rdquo;

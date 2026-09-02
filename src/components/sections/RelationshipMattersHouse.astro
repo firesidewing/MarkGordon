@@ -1,0 +1,52 @@
+---
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import Section from '@/components/ui/Section.astro';
+import { houseMetaphor } from '@/data/relationship-matters';
+
+const { title, levels } = houseMetaphor;
+---
+
+<Section variant="muted" id="house-metaphor">
+	<SectionHeading title={title} centered class="mb-10" />
+
+	<div class="mx-auto max-w-2xl">
+		{
+			levels.map((level, index) => (
+				<>
+					<article class="bg-surface px-6 py-8 text-center shadow-sm sm:px-8 sm:py-10">
+						<p class="font-display text-xs font-semibold uppercase tracking-widest text-brand">
+							{level.label}
+						</p>
+						<h3 class="mt-2 font-display text-h4 font-semibold text-text-heading">
+							{level.title}
+						</h3>
+						{'items' in level && level.items ? (
+							<ul class="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2" role="list">
+								{level.items.map((item) => (
+									<li class="font-display text-sm font-semibold text-text-heading sm:text-base">
+										{item}
+									</li>
+								))}
+							</ul>
+						) : (
+							<p class="mt-4 text-base leading-relaxed text-text">{level.description}</p>
+						)}
+					</article>
+					{index < levels.length - 1 && (
+						<div class="flex justify-center py-3" aria-hidden="true">
+							<svg
+								class="h-6 w-6 text-brand"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<path d="M12 5v14M5 12l7 7 7-7" />
+							</svg>
+						</div>
+					)}
+				</>
+			))
+		}
+	</div>
+</Section>
