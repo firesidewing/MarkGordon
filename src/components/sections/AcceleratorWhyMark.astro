@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import Section from '@/components/ui/Section.astro';
+import { acceleratorWhyMark } from '@/data/leadership-accelerator';
+import markImage from '@/assets/content/relationship-leadership-coaching/Mark-38sq-1024x1024.jpg';
+
+const { title, paragraphs } = acceleratorWhyMark;
+---
+
+<Section>
+	<div class="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-12">
+		<div class="overflow-hidden">
+			<Image
+				src={markImage}
+				alt="Mark Gordon leading a leadership development session"
+				width={markImage.width}
+				height={markImage.height}
+				class="h-auto w-full object-cover"
+				loading="lazy"
+			/>
+		</div>
+
+		<div>
+			<h2
+				class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+			>
+				{title}
+			</h2>
+
+			<div class="mt-6 space-y-4">
+				{
+					paragraphs.map((paragraph) => (
+						<p class="text-base leading-relaxed text-text">{paragraph}</p>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</Section>

@@ -1,0 +1,19 @@
+---
+import TestimonialsCarousel from '@/components/islands/TestimonialsCarousel.svelte';
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import Section from '@/components/ui/Section.astro';
+import { acceleratorTestimonials } from '@/data/leadership-accelerator';
+---
+
+<Section id="accelerator-testimonials" class="scroll-mt-20">
+	<SectionHeading title="What Leaders Are Saying" centered class="mb-10" />
+	<TestimonialsCarousel client:load testimonials={acceleratorTestimonials} />
+	<p class="mt-8 text-center">
+		<a
+			href="/#testimonials"
+			class="link-interactive font-display text-sm font-semibold uppercase tracking-wide text-brand hover:underline"
+		>
+			Read More Testimonials →
+		</a>
+	</p>
+</Section>

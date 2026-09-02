@@ -1,0 +1,28 @@
+---
+import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
+import { homeAcceleratorTeaser } from '@/data/leadership-accelerator';
+
+const { eyebrow, title, description, cta, href } = homeAcceleratorTeaser;
+---
+
+<Section>
+	<article class="border-t-4 border-brand bg-brand px-6 py-10 text-text-inverse sm:px-10 sm:py-12">
+		<p
+			class="font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-text-inverse/80"
+		>
+			{eyebrow}
+		</p>
+		<h2 class="mt-3 font-display text-h3 font-semibold leading-snug text-text-inverse">
+			{title}
+		</h2>
+		<p class="mt-4 max-w-prose text-base leading-relaxed text-text-inverse/90">
+			{description}
+		</p>
+		<div class="mt-8">
+			<Button href={href} external variant="secondary" class="!border-text-inverse !text-text-inverse hover:!bg-white/10">
+				{cta} →
+			</Button>
+		</div>
+	</article>
+</Section>

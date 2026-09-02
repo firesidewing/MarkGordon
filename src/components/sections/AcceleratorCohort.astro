@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import Section from '@/components/ui/Section.astro';
+import { acceleratorCohort } from '@/data/leadership-accelerator';
+import groupImage from '@/assets/content/faith-community-packages/tsg-8.jpg';
+
+const { title, paragraphs } = acceleratorCohort;
+---
+
+<Section variant="muted">
+	<div class="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
+		<div class="overflow-hidden">
+			<Image
+				src={groupImage}
+				alt="Small group of leaders in conversation"
+				width={groupImage.width}
+				height={groupImage.height}
+				class="h-auto w-full object-cover"
+				loading="lazy"
+			/>
+		</div>
+
+		<div>
+			<h2
+				class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+			>
+				{title}
+			</h2>
+
+			<div class="mt-6 space-y-4">
+				{
+					paragraphs.map((paragraph) => (
+						<p class="text-base leading-relaxed text-text">{paragraph}</p>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</Section>

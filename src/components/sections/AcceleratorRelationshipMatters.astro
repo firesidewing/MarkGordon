@@ -1,0 +1,26 @@
+---
+import Section from '@/components/ui/Section.astro';
+import { acceleratorRelationshipMatters } from '@/data/leadership-accelerator';
+
+const { title, intro, body, pillars } = acceleratorRelationshipMatters;
+---
+
+<Section variant="brand">
+	<div class="mx-auto max-w-3xl text-center">
+		<h2
+			class="text-balance font-display text-h3 font-semibold leading-snug text-text-inverse sm:text-h2 sm:leading-tight"
+		>
+			{title}
+		</h2>
+		<p class="mt-6 text-base leading-relaxed text-text-inverse/90">
+			{intro}
+		</p>
+		<p class="mt-4 text-base leading-relaxed text-text-inverse/90">{body}</p>
+
+		<p
+			class="mt-8 text-balance font-display text-sm font-semibold tracking-wide text-text-inverse sm:text-base"
+		>
+			{pillars.join(' · ')}
+		</p>
+	</div>
+</Section>

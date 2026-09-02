@@ -181,7 +181,7 @@ export const followUpOpportunities = {
 			title: 'Leadership Accelerator',
 			description:
 				'A cohort-based leadership development experience designed to create lasting growth.',
-			href: '/contact/',
+			href: '/leadership-accelerator/',
 		},
 		{
 			title: 'Workshops',
