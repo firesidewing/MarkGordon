@@ -1,20 +1,337 @@
 ---
 export const prerender = true;
 
-import BlindSpotEmbed from '@/components/islands/BlindSpotEmbed.svelte';
-import MarketingPage from '@/layouts/MarketingPage.astro';
+import BlindSpotHero from '@/components/sections/BlindSpotHero.astro';
+import BlindSpotStickyBar from '@/components/sections/BlindSpotStickyBar.astro';
+import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { blindSpot } from '@/config/site';
+import { hubspot } from '@/config/site';
+import {
+	blindSpotDebrief,
+	blindSpotDefinition,
+	blindSpotExplore,
+	blindSpotFinalCta,
+	blindSpotJourney,
+	blindSpotMidCta,
+	blindSpotPathways,
+	blindSpotSeo,
+	blindSpotSelfAwareness,
+} from '@/data/blind-spot-assessment';
 ---
 
-<MarketingPage
-	title="Blind Spot Assessment"
-	intro="Discover how in just 3 minutes."
-	showSidebar={false}
->
-	<div class="not-prose">
-		<h2 class="mb-4 text-center font-display text-h2 font-h2 uppercase tracking-h2 text-brand">Would you like stronger relationships?</h2>
-		<p class="mx-auto mb-8 max-w-xl text-center text-lg leading-relaxed text-text-muted">
-			Uncover hidden patterns that may be holding your relationships back.
-		</p>
-		<BlindSpotEmbed client:visible />
+<BaseLayout title={blindSpotSeo.title} description={blindSpotSeo.description}>
+	<div class="pb-20 md:pb-0">
+		<BlindSpotHero />
+
+		<Section>
+			<div class="mx-auto max-w-3xl">
+				<h2
+					class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+				>
+					{blindSpotSelfAwareness.title}
+				</h2>
+				<p class="mt-6 text-base leading-relaxed text-text">{blindSpotSelfAwareness.intro}</p>
+				<p class="mt-6 font-display text-sm font-semibold uppercase tracking-wide text-text-heading">
+					{blindSpotSelfAwareness.youMayBeLabel}
+				</p>
+				<ul class="mt-4 space-y-3" role="list">
+					{
+						blindSpotSelfAwareness.scenarios.map((scenario) => (
+							<li class="flex gap-3 text-base leading-relaxed text-text">
+								<span
+									class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
+									aria-hidden="true"
+								/>
+								{scenario}
+							</li>
+						))
+					}
+				</ul>
+				<div class="mt-8 space-y-2 text-base leading-relaxed text-text">
+					{
+						blindSpotSelfAwareness.closing.map((line) => (
+							<p>{line}</p>
+						))
+					}
+				</div>
+			</div>
+		</Section>
+
+		<Section variant="muted">
+			<div class="mx-auto max-w-3xl">
+				<h2
+					class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+				>
+					{blindSpotDefinition.title}
+				</h2>
+				<p class="mt-6 text-base leading-relaxed text-text">{blindSpotDefinition.definition}</p>
+				<p class="mt-8 font-display text-sm font-semibold uppercase tracking-wide text-text-heading">
+					{blindSpotDefinition.developLabel}
+				</p>
+				<div class="mt-6 grid gap-4 sm:grid-cols-2">
+					{
+						blindSpotDefinition.factors.map((factor) => (
+							<article class="border-t-2 border-brand bg-surface px-5 py-5 shadow-sm sm:px-6 sm:py-6">
+								<h3 class="font-display text-h4 font-semibold leading-snug text-text-heading">
+									{factor.title}
+								</h3>
+								<p class="mt-2 text-sm leading-relaxed text-text sm:text-base">
+									{factor.description}
+								</p>
+							</article>
+						))
+					}
+				</div>
+				<p class="mt-8 text-base font-semibold leading-relaxed text-text-heading">
+					{blindSpotDefinition.goal}
+				</p>
+				<div class="mt-8">
+					<Button href={blindSpot.directUrl} external>
+						{blindSpotDefinition.cta}
+					</Button>
+				</div>
+			</div>
+		</Section>
+
+		<Section>
+			<div class="mx-auto max-w-3xl">
+				<h2
+					class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+				>
+					{blindSpotExplore.title}
+				</h2>
+				<p class="mt-6 text-base leading-relaxed text-text">{blindSpotExplore.intro}</p>
+				<p class="mt-8 font-display text-sm font-semibold uppercase tracking-wide text-text-heading">
+					{blindSpotExplore.areasLabel}
+				</p>
+
+				<div class="mt-6 space-y-3 md:hidden">
+					{
+						blindSpotExplore.areas.map((area) => (
+							<details class="group border border-surface-muted bg-surface">
+								<summary
+									class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-display text-base font-semibold text-text-heading [&::-webkit-details-marker]:hidden"
+								>
+									<span>{area.title}</span>
+									<span
+										class="text-brand transition-transform group-open:rotate-180 motion-reduce:transition-none"
+										aria-hidden="true"
+									>
+										<svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+											<path
+												fill-rule="evenodd"
+												d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+												clip-rule="evenodd"
+											/>
+										</svg>
+									</span>
+								</summary>
+								<div class="border-t border-surface-muted px-5 py-4">
+									<p class="text-sm leading-relaxed text-text">{area.question}</p>
+								</div>
+							</details>
+						))
+					}
+				</div>
+
+				<div class="mt-6 hidden gap-4 sm:grid-cols-2 md:grid lg:grid-cols-3">
+					{
+						blindSpotExplore.areas.map((area) => (
+							<article class="border-t-2 border-brand bg-surface px-5 py-5 shadow-sm sm:px-6 sm:py-6">
+								<h3 class="font-display text-h4 font-semibold leading-snug text-text-heading">
+									{area.title}
+								</h3>
+								<p class="mt-3 text-sm leading-relaxed text-text sm:text-base">{area.question}</p>
+							</article>
+						))
+					}
+				</div>
+			</div>
+		</Section>
+
+		<Section variant="muted">
+			<div class="mx-auto max-w-3xl text-center">
+				<h2
+					class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+				>
+					{blindSpotJourney.title}
+				</h2>
+				<div class="mt-6 space-y-2 text-base leading-relaxed text-text">
+					{
+						blindSpotJourney.paragraphs.map((paragraph) => (
+							<p>{paragraph}</p>
+						))
+					}
+				</div>
+
+				<p class="sr-only">{blindSpotJourney.stepsLabel}</p>
+				<ol
+					class="mt-10 flex flex-col items-center gap-2 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-0"
+					aria-label="Growth journey"
+				>
+					{
+						blindSpotJourney.steps.map((step, index) => (
+							<li class="flex items-center">
+								<span
+									class="inline-flex items-center justify-center rounded-full border-2 border-brand bg-surface px-4 py-2 font-display text-sm font-semibold text-text-heading"
+								>
+									{step}
+								</span>
+								{index < blindSpotJourney.steps.length - 1 && (
+									<span
+										class="mx-2 hidden text-brand sm:inline"
+										aria-hidden="true"
+									>
+										→
+									</span>
+								)}
+							</li>
+						))
+					}
+				</ol>
+
+				<div class="mt-10 space-y-2 text-base leading-relaxed text-text">
+					{
+						blindSpotJourney.closing.map((paragraph) => (
+							<p>{paragraph}</p>
+						))
+					}
+				</div>
+			</div>
+		</Section>
+
+		<Section id="debrief">
+			<div class="mx-auto max-w-3xl">
+				<h2
+					class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+				>
+					{blindSpotDebrief.title}
+				</h2>
+				<p class="mt-4 text-lg font-semibold text-brand">{blindSpotDebrief.subtitle}</p>
+				<div class="mt-6 space-y-3 text-base leading-relaxed text-text">
+					{
+						blindSpotDebrief.paragraphs.map((paragraph) => (
+							<p>{paragraph}</p>
+						))
+					}
+				</div>
+				<p class="mt-8 font-display text-sm font-semibold uppercase tracking-wide text-text-heading">
+					{blindSpotDebrief.exploreLabel}
+				</p>
+				<ul class="mt-4 grid gap-2 sm:grid-cols-2" role="list">
+					{
+						blindSpotDebrief.exploreItems.map((item) => (
+							<li class="flex gap-2.5 text-base leading-relaxed text-text">
+								<span
+									class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand"
+									aria-hidden="true"
+								/>
+								{item}
+							</li>
+						))
+					}
+				</ul>
+				<div class="mt-8">
+					<Button href={hubspot.discoveryCall} external>
+						{blindSpotDebrief.cta}
+					</Button>
+				</div>
+				<p class="mt-6 text-base leading-relaxed text-text-muted">{blindSpotDebrief.closing}</p>
+			</div>
+		</Section>
+
+		<Section variant="brand" class="!py-12 sm:!py-16">
+			<div class="mx-auto max-w-3xl text-center">
+				<h2
+					class="text-balance font-display text-h3 font-semibold leading-snug text-text-inverse sm:text-h2 sm:leading-tight"
+				>
+					{blindSpotMidCta.title}
+				</h2>
+				<div class="mt-6 space-y-3 text-base leading-relaxed text-text-inverse/90">
+					{
+						blindSpotMidCta.paragraphs.map((paragraph) => (
+							<p>{paragraph}</p>
+						))
+					}
+				</div>
+				<div class="mt-8">
+					<Button
+						href={blindSpot.directUrl}
+						external
+						variant="secondary"
+						class="!border-text-inverse !bg-surface !text-brand hover:!bg-surface-muted"
+					>
+						{blindSpotMidCta.cta}
+					</Button>
+				</div>
+			</div>
+		</Section>
+
+		<Section>
+			<div class="mx-auto max-w-3xl text-center">
+				<h2
+					class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+				>
+					{blindSpotPathways.title}
+				</h2>
+				<p class="mt-4 text-base leading-relaxed text-text">{blindSpotPathways.intro}</p>
+			</div>
+			<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:gap-8">
+				{
+					blindSpotPathways.pathways.map((pathway) => (
+						<article class="flex flex-col border-t-2 border-brand bg-surface px-6 py-8 shadow-sm">
+							<h3 class="font-display text-h4 font-semibold leading-snug text-text-heading">
+								{pathway.title}
+							</h3>
+							<p class="mt-4 flex-1 text-base leading-relaxed text-text">{pathway.description}</p>
+							<div class="mt-8">
+								<a
+									href={pathway.href}
+									class="link-interactive font-display text-sm font-semibold uppercase tracking-wide text-brand hover:underline"
+								>
+									{pathway.cta} →
+								</a>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</Section>
+
+		<Section variant="muted">
+			<div class="mx-auto max-w-3xl text-center">
+				<h2
+					class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+				>
+					{blindSpotFinalCta.title}
+				</h2>
+				<p class="mt-6 text-lg font-semibold leading-relaxed text-brand">
+					{blindSpotFinalCta.question}
+				</p>
+				<div class="mt-6 space-y-2 text-base leading-relaxed text-text">
+					{
+						blindSpotFinalCta.paragraphs.map((paragraph) => (
+							<p>{paragraph}</p>
+						))
+					}
+				</div>
+				<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
+					<Button href={blindSpot.directUrl} external class="w-full sm:w-auto">
+						{blindSpotFinalCta.primaryCta}
+					</Button>
+					<Button
+						href={blindSpotFinalCta.secondaryHref}
+						variant="secondary"
+						class="w-full sm:w-auto"
+					>
+						{blindSpotFinalCta.secondaryCta}
+					</Button>
+				</div>
+			</div>
+		</Section>
+
+		<BlindSpotStickyBar />
 	</div>
-</MarketingPage>
+</BaseLayout>

@@ -1,0 +1,141 @@
+---
+import Button from '@/components/ui/Button.astro';
+import { blindSpotHero } from '@/data/blind-spot-assessment';
+
+const { eyebrow, title, subhead, paragraphs, primaryCta, secondaryCta, assessmentUrl } =
+	blindSpotHero;
+---
+
+<section class="bg-surface" aria-labelledby="blind-spot-hero-heading">
+	<div
+		class="mx-auto w-full max-w-content px-4 py-[var(--spacing-hero-y)] pb-8 sm:px-6 sm:pb-[var(--spacing-hero-y)] lg:px-8"
+	>
+		<div
+			class="grid items-center gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12"
+		>
+			<div class="order-1 max-w-[var(--width-hero-copy)]">
+				<p
+					class="font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-brand hero-enter"
+				>
+					{eyebrow}
+				</p>
+				<h1
+					id="blind-spot-hero-heading"
+					class="mt-2 text-balance font-display text-[length:var(--text-hero)] font-[number:var(--font-weight-hero)] leading-[var(--text-hero--line-height)] tracking-[var(--tracking-hero)] text-text-heading hero-enter hero-enter--1"
+				>
+					{title}
+				</h1>
+
+				<p
+					class="mt-4 max-w-[44ch] text-lg font-semibold leading-relaxed text-brand hero-enter hero-enter--2"
+				>
+					{subhead}
+				</p>
+
+				<div class="mt-4 max-w-[44ch] space-y-3 text-base leading-relaxed text-text hero-enter hero-enter--2">
+					{
+						paragraphs.map((paragraph) => (
+							<p>{paragraph}</p>
+						))
+					}
+				</div>
+
+				<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap hero-enter hero-enter--3">
+					<Button href={assessmentUrl} external class="w-full sm:w-auto">
+						{primaryCta}
+					</Button>
+					<Button href="#debrief" variant="secondary" class="w-full sm:w-auto">
+						{secondaryCta}
+					</Button>
+				</div>
+			</div>
+
+			<div
+				class="order-2 hidden items-center justify-center lg:order-none lg:flex"
+				aria-hidden="true"
+			>
+				<div class="focus-visual">
+					<div class="focus-visual__ring focus-visual__ring--outer"></div>
+					<div class="focus-visual__ring focus-visual__ring--middle"></div>
+					<div class="focus-visual__ring focus-visual__ring--inner"></div>
+					<div class="focus-visual__center"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero-enter {
+		animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+	}
+
+	.hero-enter--1 {
+		animation-delay: 0.08s;
+	}
+
+	.hero-enter--2 {
+		animation-delay: 0.16s;
+	}
+
+	.hero-enter--3 {
+		animation-delay: 0.24s;
+	}
+
+	@keyframes hero-rise {
+		from {
+			opacity: 0;
+			transform: translateY(1rem);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.focus-visual {
+		position: relative;
+		width: 18rem;
+		height: 18rem;
+	}
+
+	.focus-visual__ring {
+		position: absolute;
+		inset: 0;
+		border-radius: 50%;
+		border: 2px solid color-mix(in srgb, var(--color-brand) 25%, transparent);
+	}
+
+	.focus-visual__ring--outer {
+		inset: 0;
+		opacity: 0.35;
+		filter: blur(1px);
+	}
+
+	.focus-visual__ring--middle {
+		inset: 2.5rem;
+		opacity: 0.55;
+	}
+
+	.focus-visual__ring--inner {
+		inset: 5rem;
+		opacity: 0.75;
+		border-width: 3px;
+	}
+
+	.focus-visual__center {
+		position: absolute;
+		inset: 7.5rem;
+		border-radius: 50%;
+		background: color-mix(in srgb, var(--color-brand) 12%, var(--color-surface));
+		border: 3px solid var(--color-brand);
+		box-shadow: 0 0 0 8px color-mix(in srgb, var(--color-brand) 8%, transparent);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.hero-enter {
+			animation: none;
+		}
+	}
+</style>
