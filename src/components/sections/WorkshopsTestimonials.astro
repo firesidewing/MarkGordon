@@ -1,0 +1,19 @@
+---
+import TestimonialsCarousel from '@/components/islands/TestimonialsCarousel.svelte';
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import Section from '@/components/ui/Section.astro';
+import { workshopsTestimonialExcerpts } from '@/data/workshops';
+---
+
+<Section id="workshops-testimonials" class="scroll-mt-20">
+	<SectionHeading title="What Leaders Say" centered class="mb-10" />
+	<TestimonialsCarousel client:load testimonials={workshopsTestimonialExcerpts} />
+	<div class="mt-10 text-center">
+		<a
+			href="/#testimonials"
+			class="link-interactive font-display text-sm font-semibold uppercase tracking-wide text-brand hover:underline"
+		>
+			Read More Testimonials →
+		</a>
+	</div>
+</Section>

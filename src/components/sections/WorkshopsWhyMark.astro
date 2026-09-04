@@ -1,0 +1,31 @@
+---
+import Section from '@/components/ui/Section.astro';
+import { workshopsWhyMark } from '@/data/workshops';
+
+const { title, paragraphs } = workshopsWhyMark;
+---
+
+<Section variant="muted" class="py-section-tight sm:py-section">
+	<div class="mx-auto max-w-3xl text-center">
+		<h2
+			class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+		>
+			{title}
+		</h2>
+
+		<div class="mt-6 space-y-3 text-left sm:text-center">
+			{
+				paragraphs.map((paragraph, index) => (
+					<p
+						class:list={[
+							'text-base leading-relaxed text-text',
+							index === paragraphs.length - 1 && 'font-display font-semibold text-text-heading',
+						]}
+					>
+						{paragraph}
+					</p>
+				))
+			}
+		</div>
+	</div>
+</Section>

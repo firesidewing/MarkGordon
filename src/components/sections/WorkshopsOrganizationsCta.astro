@@ -1,0 +1,24 @@
+---
+import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
+import { hubspot } from '@/config/site';
+import { workshopsOrganizationsSection } from '@/data/workshops';
+
+const { title, body, cta } = workshopsOrganizationsSection;
+---
+
+<Section variant="brand">
+	<div class="mx-auto max-w-3xl text-center">
+		<h2
+			class="text-balance font-display text-h3 font-semibold leading-snug text-text-inverse sm:text-h2 sm:leading-tight"
+		>
+			{title}
+		</h2>
+		<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text-inverse/90">{body}</p>
+		<div class="mt-8">
+			<Button href={hubspot.discoveryCall} external>
+				{cta}
+			</Button>
+		</div>
+	</div>
+</Section>

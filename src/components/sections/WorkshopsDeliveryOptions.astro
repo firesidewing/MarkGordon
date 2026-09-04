@@ -1,0 +1,46 @@
+---
+import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
+import { hubspot } from '@/config/site';
+import { workshopsDeliverySection } from '@/data/workshops';
+
+const { title, subtitle, intro, formats } = workshopsDeliverySection;
+---
+
+<Section variant="muted">
+	<div class="mx-auto max-w-4xl">
+		<div class="mx-auto max-w-3xl text-center">
+			<h2
+				class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+			>
+				{title}
+			</h2>
+			<p class="mt-3 font-display text-lg font-semibold text-brand">{subtitle}</p>
+			<p class="mt-4 text-base leading-relaxed text-text">{intro}</p>
+			<p
+				class="mt-6 font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-brand"
+			>
+				Workshops can be delivered as:
+			</p>
+		</div>
+
+		<div class="mt-8 grid gap-4 sm:grid-cols-2">
+			{
+				formats.map((format) => (
+					<article class="border-t-2 border-brand bg-surface px-5 py-5 shadow-sm sm:px-6 sm:py-6">
+						<h3 class="font-display text-h4 font-semibold leading-snug text-text-heading">
+							{format.title}
+						</h3>
+						<p class="mt-3 text-sm leading-relaxed text-text sm:text-base">{format.description}</p>
+					</article>
+				))
+			}
+		</div>
+
+		<div class="mt-10 text-center">
+			<Button href={hubspot.discoveryCall} external>
+				Let's Talk About What Your Team Needs
+			</Button>
+		</div>
+	</div>
+</Section>

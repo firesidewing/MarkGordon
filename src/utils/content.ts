@@ -27,6 +27,7 @@ export const RESERVED_PAGE_SLUGS = new Set([
 	'relationship-matters',
 	'faith-community-packages',
 	'keynote-speaker',
+	'workshop-facilitator',
 	'relationship-leadership-coaching',
 	'about-mark',
 ]);

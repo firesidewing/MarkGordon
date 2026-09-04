@@ -1,0 +1,33 @@
+---
+export const prerender = true;
+
+import AdditionalWorkshopTopics from '@/components/sections/AdditionalWorkshopTopics.astro';
+import SignatureWorkshops from '@/components/sections/SignatureWorkshops.astro';
+import WorkshopsApplicationFramework from '@/components/sections/WorkshopsApplicationFramework.astro';
+import WorkshopsBookingClose from '@/components/sections/WorkshopsBookingClose.astro';
+import WorkshopsDeliveryOptions from '@/components/sections/WorkshopsDeliveryOptions.astro';
+import WorkshopsEcosystem from '@/components/sections/WorkshopsEcosystem.astro';
+import WorkshopsHero from '@/components/sections/WorkshopsHero.astro';
+import WorkshopsOrganizationsCta from '@/components/sections/WorkshopsOrganizationsCta.astro';
+import WorkshopsStickyBar from '@/components/sections/WorkshopsStickyBar.astro';
+import WorkshopsTestimonials from '@/components/sections/WorkshopsTestimonials.astro';
+import WorkshopsWhyMark from '@/components/sections/WorkshopsWhyMark.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { workshopsSeo } from '@/data/workshops';
+---
+
+<BaseLayout title={workshopsSeo.title} description={workshopsSeo.description}>
+	<div class="pb-20 md:pb-0">
+		<WorkshopsHero />
+		<WorkshopsWhyMark />
+		<SignatureWorkshops />
+		<AdditionalWorkshopTopics />
+		<WorkshopsDeliveryOptions />
+		<WorkshopsApplicationFramework />
+		<WorkshopsEcosystem />
+		<WorkshopsOrganizationsCta />
+		<WorkshopsTestimonials />
+		<WorkshopsBookingClose />
+		<WorkshopsStickyBar />
+	</div>
+</BaseLayout>

@@ -1,0 +1,96 @@
+---
+import { Image } from 'astro:assets';
+import Button from '@/components/ui/Button.astro';
+import { hubspot } from '@/config/site';
+import { workshopsHero } from '@/data/workshops';
+import heroImage from '@/assets/content/home2/tsg-9.jpg';
+
+const { eyebrow, title, lead, body, primaryCta, secondaryCta } = workshopsHero;
+---
+
+<section class="bg-surface" aria-labelledby="workshops-hero-heading">
+	<div
+		class="mx-auto w-full max-w-content px-4 py-[var(--spacing-hero-y)] pb-8 sm:px-6 sm:pb-[var(--spacing-hero-y)] lg:px-8"
+	>
+		<div class="grid items-center gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
+			<div class="order-1 max-w-[var(--width-hero-copy)]">
+				<p
+					class="font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-brand hero-enter"
+				>
+					{eyebrow}
+				</p>
+				<h1
+					id="workshops-hero-heading"
+					class="mt-2 text-balance font-display text-[length:var(--text-hero)] font-[number:var(--font-weight-hero)] leading-[var(--text-hero--line-height)] tracking-[var(--tracking-hero)] text-text-heading hero-enter hero-enter--1"
+				>
+					{title}
+				</h1>
+
+				<p class="mt-4 max-w-[44ch] text-base leading-relaxed text-text hero-enter hero-enter--2">
+					{lead}
+				</p>
+
+				<p class="mt-4 max-w-[44ch] text-base leading-relaxed text-text-muted hero-enter hero-enter--2">
+					{body}
+				</p>
+
+				<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap hero-enter hero-enter--3">
+					<Button href={hubspot.discoveryCall} external class="w-full sm:w-auto">
+						{primaryCta}
+					</Button>
+					<Button href="#signature-workshops" variant="secondary" class="w-full sm:w-auto">
+						{secondaryCta}
+					</Button>
+				</div>
+			</div>
+
+			<div class="order-2 overflow-hidden lg:order-none">
+				<Image
+					src={heroImage}
+					alt="Leadership team engaged in a workshop discussion"
+					width={heroImage.width}
+					height={heroImage.height}
+					class="h-auto w-full object-cover"
+					loading="eager"
+					fetchpriority="high"
+				/>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero-enter {
+		animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+	}
+
+	.hero-enter--1 {
+		animation-delay: 0.08s;
+	}
+
+	.hero-enter--2 {
+		animation-delay: 0.16s;
+	}
+
+	.hero-enter--3 {
+		animation-delay: 0.24s;
+	}
+
+	@keyframes hero-rise {
+		from {
+			opacity: 0;
+			transform: translateY(1rem);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.hero-enter {
+			animation: none;
+		}
+	}
+</style>
