@@ -5,6 +5,6 @@ date: 2020-06-06
 draft: false
 ---
 
-## WOULD YOU LIKE STRONGER RELATIONSHIPS?
+## Every Leader Has Blind Spots.
 
-## Discover how in just 3 minutes.
+The question is whether yours are costing you.

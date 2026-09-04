@@ -137,7 +137,7 @@ export const homeBlindSpot = {
     description:
         "Take the free Blind Spot Assessment and discover areas that may be affecting your leadership, relationships, and effectiveness.",
     cta: "Take the Free Assessment",
-    href: "https://blindspots.me/hcWAIr",
+    href: "/blind-spot-assessment/",
 } as const;
 
 export const homeNewsletter = {

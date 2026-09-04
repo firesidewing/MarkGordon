@@ -55,7 +55,7 @@ export const mainNav: NavItem[] = [
 			{ label: 'Blog', href: '/blog/' },
 			{ label: 'Faith Community Packages', href: '/faith-community-packages/' },
 			{ label: 'Testimonials', href: '/#testimonials' },
-			{ label: 'Blind Spot Assessment', href: blindSpot.directUrl, external: true },
+			{ label: 'Blind Spot Assessment', href: '/blind-spot-assessment/' },
 		],
 	},
 	{ label: 'Contact', href: '/contact/' },
