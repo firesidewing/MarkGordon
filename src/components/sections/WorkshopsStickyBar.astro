@@ -1,0 +1,19 @@
+---
+import Button from '@/components/ui/Button.astro';
+import { hubspot } from '@/config/site';
+import { workshopsHero } from '@/data/workshops';
+---
+
+<div
+	class="fixed inset-x-0 bottom-0 z-40 border-t border-surface-muted bg-surface/95 px-4 py-3 shadow-lg backdrop-blur-sm md:hidden"
+	aria-label="Talk with Mark about your team"
+>
+	<div class="mx-auto flex max-w-content items-center justify-between gap-4">
+		<p class="min-w-0 truncate font-display text-sm font-semibold text-text-heading">
+			{workshopsHero.primaryCta}
+		</p>
+		<Button href={hubspot.discoveryCall} external class="shrink-0 !px-5 !py-2.5 !text-sm">
+			Talk With Mark
+		</Button>
+	</div>
+</div>

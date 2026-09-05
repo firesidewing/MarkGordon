@@ -1,0 +1,27 @@
+---
+import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
+import { hubspot } from '@/config/site';
+import { workshopsBookingClose } from '@/data/workshops';
+
+const { title, question, primaryCta, secondaryCta } = workshopsBookingClose;
+---
+
+<Section variant="muted" class="!py-12 sm:!py-16">
+	<div class="mx-auto max-w-3xl text-center">
+		<h2
+			class="text-balance font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+		>
+			{title}
+		</h2>
+		<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text">{question}</p>
+		<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
+			<Button href={hubspot.discoveryCall} external class="w-full sm:w-auto">
+				{primaryCta}
+			</Button>
+			<Button href={hubspot.discoveryCall} external variant="secondary" class="w-full sm:w-auto">
+				{secondaryCta}
+			</Button>
+		</div>
+	</div>
+</Section>
