@@ -3,8 +3,9 @@ title: "Contact"
 slug: "contact"
 date: 2012-10-12
 draft: false
+intro: "Feel free to contact Mark by email or book a free 15-minute discovery call."
 contentLayout: "image-left"
-showHero: false
+showHero: true
 showSidebar: false
 ---
 

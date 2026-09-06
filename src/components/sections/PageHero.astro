@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+	title: string;
+	intro?: string;
+	eyebrow?: string;
+	image?: ImageMetadata;
+	imageAlt?: string;
+	centered?: boolean;
+}
+
+const {
+	title,
+	intro,
+	eyebrow,
+	image,
+	imageAlt = '',
+	centered = false,
+} = Astro.props;
+---
+
+<section class="bg-surface" aria-labelledby="page-hero-heading">
+	<div
+		class="mx-auto w-full max-w-content px-4 py-[var(--spacing-hero-y)] pb-8 sm:px-6 sm:pb-[var(--spacing-hero-y)] lg:px-8"
+	>
+		<div
+			class:list={[
+				image && !centered
+					? 'grid items-center gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12'
+					: 'mx-auto max-w-[var(--width-hero-copy)] text-center',
+			]}
+		>
+			<div class:list={[image && !centered && 'order-1 max-w-[var(--width-hero-copy)]']}>
+				{
+					eyebrow && (
+						<p
+							class="font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-brand hero-enter"
+						>
+							{eyebrow}
+						</p>
+					)
+				}
+				<h1
+					id="page-hero-heading"
+					class:list={[
+						'text-balance font-display text-[length:var(--text-hero)] font-[number:var(--font-weight-hero)] leading-[var(--text-hero--line-height)] tracking-[var(--tracking-hero)] text-text-heading hero-enter',
+						eyebrow ? 'mt-2 hero-enter--1' : 'hero-enter--1',
+					]}
+				>
+					{title}
+				</h1>
+				{
+					intro && (
+						<p
+							class:list={[
+								'mt-4 text-base leading-relaxed text-text-muted hero-enter hero-enter--2',
+								centered ? 'mx-auto max-w-[44ch]' : 'max-w-[44ch]',
+							]}
+						>
+							{intro}
+						</p>
+					)
+				}
+			</div>
+
+			{
+				image && (
+					<div class:list={[centered ? 'mt-8' : 'order-2 overflow-hidden lg:order-none']}>
+						<Image
+							src={image}
+							alt={imageAlt}
+							width={image.width}
+							height={image.height}
+							class="h-auto w-full object-cover"
+							loading="eager"
+							fetchpriority="high"
+						/>
+					</div>
+				)
+			}
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero-enter {
+		animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+	}
+
+	.hero-enter--1 {
+		animation-delay: 0.08s;
+	}
+
+	.hero-enter--2 {
+		animation-delay: 0.16s;
+	}
+
+	@keyframes hero-rise {
+		from {
+			opacity: 0;
+			transform: translateY(1rem);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.hero-enter {
+			animation: none;
+		}
+	}
+</style>
