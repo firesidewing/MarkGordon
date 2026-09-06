@@ -2,7 +2,9 @@
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/sections/PageHero.astro';
 import HubSpotCTA from '@/components/ui/HubSpotCTA.astro';
+import Section from '@/components/ui/Section.astro';
 
 interface Props {
 	title: string;
@@ -41,48 +43,17 @@ const {
 >
 	{
 		showHero && (
-			<section
-				class:list={[
-					'relative flex min-h-[220px] items-center bg-brand sm:min-h-[280px]',
-					heroImage && 'bg-cover bg-center',
-				]}
-				style={heroImage ? `background-image: url(${heroImage.src})` : undefined}
-			>
-				<div class="absolute inset-0 bg-brand/85" aria-hidden="true" />
-				<div
-					class:list={[
-						'mx-auto relative w-full max-w-content px-4 py-12 sm:px-6 sm:py-16 lg:px-8',
-						heroLayout === 'split'
-							? 'grid items-center gap-8 lg:grid-cols-2 lg:gap-12'
-							: 'text-center',
-					]}
-				>
-					<h1
-						class:list={[
-							'font-display text-2xl font-h2 uppercase tracking-h2 text-text-inverse sm:text-3xl lg:text-4xl',
-							heroLayout === 'split' && 'lg:text-3xl',
-						]}
-					>
-						{title}
-					</h1>
-					{
-						intro && (
-							<p
-								class:list={[
-									'text-base leading-relaxed text-text-inverse/90',
-									heroLayout === 'centered' && 'mx-auto mt-4 max-w-2xl',
-								]}
-							>
-								{intro}
-							</p>
-						)
-					}
-				</div>
-			</section>
+			<PageHero
+				title={title}
+				intro={intro}
+				image={heroImage}
+				imageAlt={title}
+				centered={heroLayout === 'centered' && !heroImage}
+			/>
 		)
 	}
 
-	<div class="mx-auto w-full max-w-content px-4 py-section sm:px-6 lg:px-8">
+	<Section>
 		<div
 			class:list={[
 				showSidebar &&
@@ -92,7 +63,7 @@ const {
 			{
 				contentLayout === 'image-left' && featuredImage ? (
 					<div class="grid items-start gap-10 lg:grid-cols-[minmax(0,280px)_1fr] lg:gap-12 xl:grid-cols-[minmax(0,320px)_1fr]">
-						<div class="overflow-hidden rounded-sm shadow-md">
+						<div class="overflow-hidden rounded-sm shadow-sm">
 							<Image
 								src={featuredImage}
 								alt={title}
@@ -102,12 +73,12 @@ const {
 								loading="eager"
 							/>
 						</div>
-						<article class="prose prose-neutral max-w-none min-w-0 prose-headings:font-display prose-a:text-brand prose-a:no-underline hover:prose-a:underline">
+						<article class="prose prose-neutral max-w-none min-w-0 prose-headings:font-display prose-headings:text-text-heading prose-a:text-brand prose-a:no-underline hover:prose-a:underline">
 							<slot />
 						</article>
 					</div>
 				) : (
-					<article class="prose prose-neutral max-w-none min-w-0 prose-headings:font-display prose-a:text-brand prose-a:no-underline hover:prose-a:underline">
+					<article class="prose prose-neutral max-w-none min-w-0 prose-headings:font-display prose-headings:text-text-heading prose-a:text-brand prose-a:no-underline hover:prose-a:underline">
 						<slot />
 					</article>
 				)
@@ -123,5 +94,5 @@ const {
 				)
 			}
 		</div>
-	</div>
+	</Section>
 </BaseLayout>

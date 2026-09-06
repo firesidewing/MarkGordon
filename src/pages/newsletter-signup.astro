@@ -3,36 +3,47 @@ export const prerender = true;
 
 import { Image } from 'astro:assets';
 import NewsletterForm from '@/components/islands/NewsletterForm.svelte';
-import MarketingPage from '@/layouts/MarketingPage.astro';
+import PageHero from '@/components/sections/PageHero.astro';
+import Section from '@/components/ui/Section.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 import { homeAssets } from '@/data/home';
 
 const { podcastImg } = homeAssets;
 ---
 
-<MarketingPage
+<BaseLayout
 	title="Newsletter Signup"
-	intro="Weekly relationship tips, upcoming events, and the latest courses."
-	showSidebar={false}
+	description="Weekly relationship tips, upcoming events, and the latest courses from Mark Gordon."
 >
-	<div class="not-prose">
-		<p class="mb-6 leading-relaxed text-text-muted">
-			Join Mark's newsletter for practical relationship wisdom delivered to your inbox each week.
-		</p>
-		<NewsletterForm client:visible />
-		<a
-			href="https://open.spotify.com/show/24p7utX5IUjVIAz3RrCiPh"
-			target="_blank"
-			rel="noopener noreferrer"
-			class="mt-10 block overflow-hidden rounded-sm shadow-md"
-		>
-			<Image
-				src={podcastImg}
-				alt="Mark Gordon podcast on Spotify"
-				width={podcastImg.width}
-				height={podcastImg.height}
-				class="h-auto w-full"
-				loading="lazy"
-			/>
-		</a>
-	</div>
-</MarketingPage>
+	<PageHero
+		title="Stay connected"
+		eyebrow="Newsletter"
+		intro="Weekly relationship tips, upcoming events, and the latest courses — delivered to your inbox."
+	/>
+
+	<Section variant="muted">
+		<div class="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
+			<div>
+				<p class="mb-6 text-base leading-relaxed text-text-muted">
+					Join Mark's newsletter for practical relationship wisdom delivered to your inbox each week.
+				</p>
+				<NewsletterForm client:visible />
+			</div>
+			<a
+				href="https://open.spotify.com/show/24p7utX5IUjVIAz3RrCiPh"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="block overflow-hidden rounded-sm shadow-sm transition-shadow hover:shadow-md"
+			>
+				<Image
+					src={podcastImg}
+					alt="Mark Gordon podcast on Spotify"
+					width={podcastImg.width}
+					height={podcastImg.height}
+					class="h-auto w-full"
+					loading="lazy"
+				/>
+			</a>
+		</div>
+	</Section>
+</BaseLayout>
