@@ -3,7 +3,7 @@ import type { ImageMetadata } from 'astro';
 import collageImg1 from '@/assets/content/faith-community-packages/tsg-8.jpg';
 import collageImg2 from '@/assets/content/faith-community-packages/image-from-rawpixel-id-107968-original-1024x1024.jpg';
 import collageImg3 from '@/assets/content/faith-community-packages/FG6A9662-scaled-e1610423538726-1024x806.jpg';
-import collageImg4 from '@/assets/content/faith-community-packages/mark-speaking-laughing-1024x1024.jpg';
+import collageImg4 from '@/assets/content/faith-community-packages/Mark-32-1-1024x1024.jpg';
 
 export type CollageImage = {
 	image: ImageMetadata;
