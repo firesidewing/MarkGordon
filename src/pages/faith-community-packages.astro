@@ -2,8 +2,10 @@
 export const prerender = true;
 
 import { Image } from 'astro:assets';
-import NewsletterForm from '@/components/islands/NewsletterForm.svelte';
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import NewsletterCta from '@/components/sections/NewsletterCta.astro';
 import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
 import {
 	faithCommunityCollage,
 	faithCommunityIntro,
@@ -18,7 +20,7 @@ const description = `Faith Community Packages — ${site.tagline}`;
 ---
 
 <BaseLayout title="Faith Community Packages" description={description}>
-	<section class="mx-auto w-full max-w-content px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+	<Section>
 		<div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
 			<div class="grid grid-cols-[0.85fr_1fr] gap-2 sm:gap-3">
 				{
@@ -47,35 +49,35 @@ const description = `Faith Community Packages — ${site.tagline}`;
 			</div>
 
 			<div>
-				<h1 class="font-display text-[1.875rem] font-semibold text-brand sm:text-[1.875rem]">
+				<p
+					class="font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-brand"
+				>
+					Faith communities
+				</p>
+				<h1
+					class="mt-2 text-balance font-display text-[length:var(--text-hero)] font-[number:var(--font-weight-hero)] leading-[var(--text-hero--line-height)] tracking-[var(--tracking-hero)] text-text-heading"
+				>
 					Faith Community Packages
 				</h1>
-				<h2 class="mt-4 font-display text-xl font-semibold text-brand sm:text-[1.25rem]">
+				<p class="mt-4 font-display text-h4 font-semibold leading-snug text-text-heading">
 					Choose the plan that's right for you.
-				</h2>
+				</p>
 				{
 					faithCommunityIntro.paragraphs.map((paragraph) => (
-						<p class="mt-4 text-[0.9375rem] leading-relaxed text-text sm:text-base">{paragraph}</p>
+						<p class="mt-4 text-base leading-relaxed text-text">{paragraph}</p>
 					))
 				}
 				<ul class="mt-4 space-y-2" role="list">
 					{
 						faithCommunityIntro.audienceAreas.map((item) => (
-							<li class="flex gap-2 text-[0.9375rem] leading-relaxed text-text sm:text-base">
-								<svg
-									class="mt-1 h-4 w-4 shrink-0 text-brand"
-									viewBox="0 0 24 24"
-									fill="currentColor"
-									aria-hidden="true"
-								>
-									<path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-								</svg>
+							<li class="flex gap-2.5 text-base leading-relaxed text-text">
+								<span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true" />
 								<span>{item}</span>
 							</li>
 						))
 					}
 				</ul>
-				<p class="mt-4 text-[0.9375rem] leading-relaxed text-text sm:text-base">
+				<p class="mt-4 text-base leading-relaxed text-text">
 					{faithCommunityIntro.closing}
 				</p>
 				<div class="mt-8">
@@ -85,179 +87,99 @@ const description = `Faith Community Packages — ${site.tagline}`;
 				</div>
 			</div>
 		</div>
-	</section>
+	</Section>
 
-	<section class="mx-auto w-full max-w-content px-4 pb-12 sm:px-6 lg:px-8 lg:pb-16">
+	<Section variant="muted">
+		<SectionHeading title="Packages" subtitle="Ongoing training and tools for healthy relational culture." class="mb-10" />
+
 		<div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
 			{
 				faithPackages.map((pkg) => (
-					<article class="flex flex-col">
-						<div
-							class:list={[
-								'px-4 py-4 text-center sm:px-6',
-								pkg.variant === 'brand' ? 'bg-brand' : 'bg-[#54595f]',
-							]}
-						>
-							<h2 class="font-display text-base font-semibold leading-snug text-text-inverse sm:text-xl">
-								{pkg.title}
-							</h2>
-						</div>
-						<div
-							class:list={[
-								'flex flex-1 flex-col border px-5 py-6 sm:px-6 sm:py-8',
-								pkg.variant === 'brand' ? 'border-brand' : 'border-[#d5d8dc]',
-							]}
-						>
-							<p class="text-[0.9375rem] leading-relaxed text-text sm:text-base">{pkg.description}</p>
-							<p class="mt-4 text-[0.9375rem] font-semibold text-text sm:text-base">
-								This package includes:
-							</p>
-							<ul class="mt-3 space-y-2" role="list">
-								{
-									pkg.includes.map((item) => (
-										<li class="flex gap-2 text-[0.9375rem] leading-relaxed text-text sm:text-base">
-											<svg
-												class="mt-1 h-4 w-4 shrink-0 text-brand"
-												viewBox="0 0 24 24"
-												fill="currentColor"
-												aria-hidden="true"
-											>
-												<path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-											</svg>
-											<span>{item}</span>
-										</li>
-									))
-								}
-							</ul>
-							<div class="mt-8">
-								<Button
-									href={hubspot.discoveryCall}
-									external
-									class:list={[
-										'w-full justify-center sm:w-auto',
-										pkg.variant === 'muted' && '!bg-[#54595f] hover:!bg-[#43484d]',
-									]}
-								>
-									{pkg.ctaLabel}
-								</Button>
-							</div>
+					<article
+						class:list={[
+							'border-t-2 bg-surface px-5 py-6 shadow-sm sm:px-6 sm:py-8',
+							pkg.variant === 'brand' ? 'border-brand' : 'border-text-heading/40',
+						]}
+					>
+						<h2 class="font-display text-h4 font-semibold leading-snug text-text-heading">
+							{pkg.title}
+						</h2>
+						<p class="mt-4 text-base leading-relaxed text-text">{pkg.description}</p>
+						<p class="mt-4 text-base font-semibold text-text-heading">This package includes:</p>
+						<ul class="mt-3 space-y-2" role="list">
 							{
-								pkg.footnotes && (
-									<div class="mt-4 space-y-1">
-										{pkg.footnotes.map((note) => (
-											<p class="text-sm italic text-text-muted">{note}</p>
-										))}
-									</div>
-								)
+								pkg.includes.map((item) => (
+									<li class="flex gap-2.5 text-base leading-relaxed text-text">
+										<span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true" />
+										<span>{item}</span>
+									</li>
+								))
 							}
+						</ul>
+						<div class="mt-8">
+							<Button href={hubspot.discoveryCall} external class="w-full justify-center sm:w-auto">
+								{pkg.ctaLabel}
+							</Button>
 						</div>
+						{
+							pkg.footnotes && (
+								<div class="mt-4 space-y-1">
+									{pkg.footnotes.map((note) => (
+										<p class="text-sm italic text-text-muted">{note}</p>
+									))}
+								</div>
+							)
+						}
 					</article>
 				))
 			}
 		</div>
-	</section>
+	</Section>
 
-	<section class="mx-auto w-full max-w-content px-4 pb-12 sm:px-6 lg:px-8 lg:pb-16">
-		<div class="bg-[#54595f] px-4 py-4 text-center sm:px-6">
-			<h2 class="font-display text-base font-semibold leading-snug text-text-inverse sm:text-xl">
+	<Section>
+		<article class="border-t-2 border-text-heading/40 bg-surface px-5 py-6 shadow-sm sm:px-8 sm:py-8">
+			<h2 class="font-display text-h4 font-semibold leading-snug text-text-heading">
 				{smallGroupPackage.title}
 			</h2>
-		</div>
-		<div class="border border-[#d5d8dc] px-5 py-6 sm:px-8 sm:py-8">
 			{
 				smallGroupPackage.paragraphs.map((paragraph, index) => (
-					<p
-						class:list={[
-							'text-[0.9375rem] leading-relaxed text-text sm:text-base',
-							index > 0 && 'mt-4',
-						]}
-					>
+					<p class:list={['text-base leading-relaxed text-text', index > 0 && 'mt-4']}>
 						{paragraph}
 					</p>
 				))
 			}
-			<p class="mt-4 text-[0.9375rem] font-semibold text-text sm:text-base">This package includes:</p>
+			<p class="mt-4 text-base font-semibold text-text-heading">This package includes:</p>
 			<ul class="mt-3 space-y-2" role="list">
 				{
 					smallGroupPackage.includes.map((item) => (
-						<li class="flex gap-2 text-[0.9375rem] leading-relaxed text-text sm:text-base">
-							<svg
-								class="mt-1 h-4 w-4 shrink-0 text-brand"
-								viewBox="0 0 24 24"
-								fill="currentColor"
-								aria-hidden="true"
-							>
-								<path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-							</svg>
+						<li class="flex gap-2.5 text-base leading-relaxed text-text">
+							<span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true" />
 							<span>{item}</span>
 						</li>
 					))
 				}
 			</ul>
 			<div class="mt-8">
-				<Button
-					href={hubspot.discoveryCall}
-					external
-					class="!bg-[#54595f] hover:!bg-[#43484d]"
-				>
+				<Button href={hubspot.discoveryCall} external>
 					{smallGroupPackage.ctaLabel}
 				</Button>
 			</div>
-		</div>
-	</section>
+		</article>
+	</Section>
 
-	<section
-		class="mx-auto w-full max-w-content px-4 pb-12 sm:px-6 lg:px-8 lg:pb-16"
-		aria-labelledby="faith-testimonials-heading"
-	>
-		<h2 id="faith-testimonials-heading" class="sr-only">Client Testimonials</h2>
-		<div class="grid min-w-0 gap-8 lg:grid-cols-[minmax(0,30rem)_1fr] lg:items-stretch lg:gap-10">
-			<div class="flex min-h-[12rem] items-center justify-center overflow-hidden bg-surface-muted px-6 py-10 lg:min-h-[16rem]">
-				<p class="max-w-full font-display text-[2.75rem] font-bold leading-[1.15] text-brand sm:text-5xl lg:text-[4.0625rem] lg:leading-[1.2]">
-					Testimonials
-				</p>
-			</div>
-			<div class="grid min-w-0 gap-8 sm:grid-cols-2">
-				{
-					faithCommunityTestimonials.map((testimonial) => (
-						<blockquote class="min-w-0 text-[0.9375rem] leading-relaxed text-text sm:text-base">
-							<p>{testimonial.quote}</p>
-							<cite class="mt-4 block text-sm not-italic text-text-muted">{testimonial.author}</cite>
-						</blockquote>
-					))
-				}
-			</div>
+	<Section variant="muted" aria-labelledby="faith-testimonials-heading">
+		<SectionHeading title="Testimonials" class="mb-10" />
+		<div class="grid gap-8 sm:grid-cols-2">
+			{
+				faithCommunityTestimonials.map((testimonial) => (
+					<blockquote class="min-w-0 text-base leading-relaxed text-text">
+						<p>{testimonial.quote}</p>
+						<cite class="mt-4 block text-sm not-italic text-text-muted">{testimonial.author}</cite>
+					</blockquote>
+				))
+			}
 		</div>
-	</section>
+	</Section>
 
-	<section class="bg-surface-muted">
-		<div class="mx-auto w-full max-w-content px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-			<div class="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
-				<div>
-					<svg
-						class="mb-4 h-10 w-10 text-brand"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="1.5"
-						aria-hidden="true"
-					>
-						<path
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
-						/>
-					</svg>
-					<h2 class="font-display text-2xl font-semibold text-text-heading sm:text-[1.75rem]">
-						Subscribe to our newsletter
-					</h2>
-					<p class="mt-3 text-[0.9375rem] leading-relaxed text-text-muted sm:text-base">
-						We send out weekly newsletters with relationship tips, news on upcoming events and the
-						latest courses.
-					</p>
-				</div>
-				<NewsletterForm client:visible />
-			</div>
-		</div>
-	</section>
+	<NewsletterCta />
 </BaseLayout>

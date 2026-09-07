@@ -3,32 +3,42 @@ export const prerender = true;
 
 import { Image } from 'astro:assets';
 import bookNowImg from '@/assets/content/book-now/Mark-36-e1569198052878-750x1024.jpg';
-import MarketingPage from '@/layouts/MarketingPage.astro';
+import PageHero from '@/components/sections/PageHero.astro';
 import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 import { hubspot } from '@/config/site';
 ---
 
-<MarketingPage title="Book Now" showSidebar={false}>
-	<div class="not-prose">
-		<Image
-			src={bookNowImg}
-			alt="Mark Gordon"
-			width={bookNowImg.width}
-			height={bookNowImg.height}
-			class="mb-8 h-auto max-w-sm rounded-sm shadow-md"
-			loading="lazy"
-		/>
-		<p class="mb-4 font-semibold text-brand">
-			Special pricing available for online coaching — book a discovery call to learn more.
-		</p>
-		<p class="mb-6 leading-relaxed text-text-muted">
-			Schedule a free 15-minute discovery call to discuss coaching options and find the right plan for you.
-		</p>
-		<Button href={hubspot.discoveryCall} external>
-			Book Discovery Call
-		</Button>
-		<p class="mt-4 text-sm text-text-subtle">
-			Online booking form integration coming soon.
-		</p>
-	</div>
-</MarketingPage>
+<BaseLayout
+	title="Book Now"
+	description="Schedule a free discovery call with Mark Gordon to discuss coaching, speaking, or workshops."
+>
+	<PageHero
+		title="Book a discovery call"
+		eyebrow="Coaching & consulting"
+		intro="Schedule a free 15-minute call to discuss coaching options and find the right plan for you."
+		image={bookNowImg}
+		imageAlt="Mark Gordon"
+	/>
+
+	<Section variant="muted">
+		<div class="mx-auto max-w-narrow">
+			<p class="font-semibold text-brand">
+				Special pricing available for online coaching — book a discovery call to learn more.
+			</p>
+			<p class="mt-4 text-base leading-relaxed text-text-muted">
+				Whether you're exploring one-on-one coaching, team facilitation, or a speaking engagement, a short
+				conversation is the best way to find the right fit.
+			</p>
+			<div class="mt-8">
+				<Button href={hubspot.discoveryCall} external>
+					Book Discovery Call
+				</Button>
+			</div>
+			<p class="mt-4 text-sm text-text-subtle">
+				Online booking form integration coming soon.
+			</p>
+		</div>
+	</Section>
+</BaseLayout>
