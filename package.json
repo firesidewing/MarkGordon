@@ -12,7 +12,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "migrate": "bun run scripts/migrate-content.ts",
-    "db:migrate": "bun run scripts/turso-migrate.ts"
+    "db:migrate": "bun run scripts/turso-migrate.ts",
+    "check:copy": "bun run scripts/check-speaking-copy.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

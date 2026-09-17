@@ -28,7 +28,7 @@ const recentPosts = allPosts.filter((entry) => entry.id !== post.id).slice(0, 5)
 
 <BaseLayout
 	title={title}
-	description={excerpt ?? `${title} — relationship insights from ${site.name}.`}
+	description={excerpt ?? `${title}. Relationship insights from ${site.name}.`}
 	type="article"
 	publishedTime={date.toISOString()}
 	image={videoId ? youtubeOgImage(videoId) : undefined}

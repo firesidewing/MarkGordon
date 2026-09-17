@@ -12,7 +12,7 @@ export const aboutHero = {
 export const aboutNarrative = {
 	title: "I've Learned Leadership From The Inside Out.",
 	paragraphs: [
-		'For over 35 years, I served as a pastor—leading people through seasons of growth, change, conflict, uncertainty, success, and disappointment.',
+		'For over 35 years, I served as a pastor, leading people through seasons of growth, change, conflict, uncertainty, success, and disappointment.',
 		"What became clear along the way: leadership is never just about getting the job done. It's about people, trust, communication, and the culture we create together.",
 		"In 2021, I stepped away from pastoral leadership to focus on coaching, training, and speaking. I didn't leave leadership behind. I brought the difficult conversations, the mistakes, the breakthroughs, and the conviction that healthier leaders build healthier cultures.",
 	],
@@ -56,7 +56,7 @@ export const aboutPersonal = {
 	title: 'Beyond Leadership',
 	paragraphs: [
 		"Leadership isn't my whole life. I'm a husband, father, grandfather, and lifelong student of people.",
-		"I'm married to my wife of more than four decades. Together we've watched our three children build families of their own—and we now have two grandchildren who remind me that some of life's most important lessons have nothing to do with leadership.",
+		"I'm married to my wife of more than four decades. Together we've watched our three children build families of their own, and we now have two grandchildren who remind me that some of life's most important lessons have nothing to do with leadership.",
 	],
 	lessonsIntro: 'Family has taught me many of the things I now talk about professionally:',
 	lessons: [

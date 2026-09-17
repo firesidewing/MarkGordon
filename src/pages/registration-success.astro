@@ -19,7 +19,7 @@ if (isDbConfigured()) {
 		if (purchasedCourseSlug && isBillableCourse(purchasedCourseSlug)) {
 			await grantEnrollmentForCourse(userId, purchasedCourseSlug);
 		}
-		// Single backfill — webhook is primary; avoid multi-second retry sleeps.
+		// Single backfill. Webhook is primary. Avoid multi-second retry sleeps.
 		await syncPurchasedEnrollments(userId);
 	} catch (error) {
 		console.error('Failed to sync enrollments after checkout:', error);
@@ -31,7 +31,7 @@ if (isDbConfigured()) {
 	<div class="mx-auto w-full max-w-content px-4 py-16 text-center sm:px-6 lg:px-8">
 		<h1 class="font-display text-h2 font-h2 uppercase tracking-h2 text-brand">You're all set</h1>
 		<p class="mx-auto mt-4 max-w-prose text-sm leading-relaxed text-text-muted">
-			Thank you for your purchase. Your course access is being activated — it may take a moment.
+			Thank you for your purchase. Your course access is being activated. It may take a moment.
 			Head to your courses to start learning, or browse the catalog for your next step.
 		</p>
 		<div class="mt-8 flex flex-wrap justify-center gap-4">

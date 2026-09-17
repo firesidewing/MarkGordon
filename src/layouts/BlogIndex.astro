@@ -16,12 +16,12 @@ interface Props {
 const { posts, page, activeCategory } = Astro.props;
 const categoryCounts = await getCategoryCounts();
 
-const pageTitle = activeCategory ? `${activeCategory} — Blog` : 'Blog';
-const description = 'Relationship insights, encouragement, and practical wisdom from Mark Gordon.';
+const pageTitle = activeCategory ? `${activeCategory} posts` : 'Blog';
+const description = 'Leadership, culture, and relationship insights from Mark Gordon.';
 const heroTitle = activeCategory ?? 'Blog';
 const heroIntro = activeCategory
 	? `Posts in the ${activeCategory} category.`
-	: 'Weekly insights on building stronger relationships at home, at work, and in community.';
+	: 'Practical notes on leadership, culture, and the relationships that shape both.';
 ---
 
 <BaseLayout title={pageTitle} description={description}>

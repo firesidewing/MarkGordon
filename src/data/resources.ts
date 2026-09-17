@@ -1,7 +1,7 @@
 export const resourcesSeo = {
 	title: 'Resources',
 	description:
-		'Practical leadership resources from Mark Gordon — Leadership Accelerator, Relationship Matters, Blind Spot Assessment, online courses, blog, videos, and faith community tools.',
+		'Practical leadership resources from Mark Gordon. Leadership Accelerator, Relationship Matters, Blind Spot Assessment, online courses, blog, videos, and faith community tools.',
 } as const;
 
 export const resourcesHero = {
@@ -54,7 +54,7 @@ export const goDeeperSection = {
 			mobileDescription:
 				'A free assessment to discover leadership and relationship blind spots in just a few minutes.',
 			description:
-				'Discover areas of your leadership, relationships, and behaviour that may be affecting your effectiveness—often in ways you don’t see yourself. The free assessment takes only a few minutes and can become the starting point for greater self-awareness and growth.',
+				'Discover areas of your leadership, relationships, and behaviour that may be affecting your effectiveness, often in ways you don’t see yourself. The free assessment takes only a few minutes and can become the starting point for greater self-awareness and growth.',
 			cta: 'Take the Free Assessment',
 			href: '/blind-spot-assessment/',
 		},

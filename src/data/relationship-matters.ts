@@ -6,7 +6,7 @@ export type BookRetailer = {
 export const relationshipMattersSeo = {
 	title: 'Relationship Matters',
 	description:
-		'A practical framework for building healthier relationships—and the cultures those relationships create. For leaders, teams, organizations, families, and couples.',
+		'A practical framework for building healthier relationships, and the cultures those relationships create. For leaders, teams, organizations, families, and couples.',
 } as const;
 
 export const bookRetailers: BookRetailer[][] = [

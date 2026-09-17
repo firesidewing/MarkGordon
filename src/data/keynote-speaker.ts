@@ -147,7 +147,7 @@ export const whatMakesMarkDifferent = {
 		'Creating leadership development programs used by organizations and leaders across multiple sectors',
 	],
 	close:
-		"Mark's presentations are grounded in real-world leadership experience—not simply theory.",
+		"Mark's presentations are grounded in real-world leadership experience, not theory.",
 	testimonial:
 		'His audiences consistently describe him as practical, authentic, engaging, and immediately applicable.',
 } as const;
@@ -249,7 +249,7 @@ export const speakingSeo = {
 /** @deprecated Use followUpOpportunities */
 export const workshopsTeaser = followUpOpportunities;
 
-/** @deprecated Removed from page — content moved to hero subhead */
+/** @deprecated Removed from page. Content moved to hero subhead. */
 export const speakingPhilosophy = {
 	title: '',
 	lead: '',

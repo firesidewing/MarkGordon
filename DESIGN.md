@@ -1,6 +1,6 @@
 ---
 name: Mark Gordon
-description: Healthy leaders build healthy cultures — leadership speaking, workshops, and coaching.
+description: Healthy leaders build healthy cultures. Leadership speaking, workshops, and coaching.
 colors:
   brand: "#0047ab"
   brand-dark: "#003580"

@@ -8,7 +8,7 @@ import collageImg4 from '@/assets/content/faith-community-packages/Mark-32-1-102
 export const faithCommunitySeo = {
 	title: 'Faith Community Packages | Mark Gordon',
 	description:
-		'Relational culture packages for churches and faith communities—ongoing training, Relationship Matters, and leadership support for congregations, teams, and pastors.',
+		'Relational culture packages for churches and faith communities. Ongoing training, Relationship Matters, and leadership support for congregations, teams, and pastors.',
 } as const;
 
 export const faithCommunityHero = {
@@ -105,7 +105,7 @@ export const faithPackages: FaithPackage[] = [
 export const smallGroupPackage = {
 	title: 'Small Group Facilitator Training',
 	paragraphs: [
-		'Use Relationship Matters as your next small-group series—and train facilitators so they can lead it with confidence.',
+		'Use Relationship Matters as your next small-group series, and train facilitators so they can lead it with confidence.',
 		'Each video runs 20–30 minutes. The group watches together, talks, and works through the workbook. Facilitators get a two-hour training session plus email Q&A.',
 	],
 	includes: [

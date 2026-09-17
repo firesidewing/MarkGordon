@@ -1,4 +1,4 @@
-/** Billable course slugs — must match Astro content collection ids. */
+/** Billable course slugs. Must match Astro content collection ids. */
 export const BILLABLE_COURSE_SLUGS = [
 	'relationship-matters',
 	'godfidence-building-confidence-that-lasts-forever',
@@ -10,7 +10,7 @@ export type BillableCourseSlug = (typeof BILLABLE_COURSE_SLUGS)[number];
 
 /**
  * Course slug → Clerk plan ID (cplan_…).
- * Clerk plan slugs are arbitrary (underscores, etc.) — integration uses IDs only.
+ * Clerk plan slugs are arbitrary (underscores, etc.). Integration uses IDs only.
  */
 const clerkPlanIds: Record<BillableCourseSlug, string | undefined> = {
 	'relationship-matters': import.meta.env.CLERK_PLAN_RELATIONSHIP_MATTERS,

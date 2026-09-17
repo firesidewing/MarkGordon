@@ -54,7 +54,7 @@ if (access.allowed && auth.userId) {
 ---
 
 <BaseLayout
-	title={`${lesson.title} — ${course.data.title}`}
+	title={`${lesson.title}: ${course.data.title}`}
 	description={lesson.body.slice(0, 160)}
 	noindex
 >
@@ -112,7 +112,7 @@ if (access.allowed && auth.userId) {
 											<YouTube
 												client:visible
 												videoId={videoId}
-												title={partLabel ? `${lesson.title} — ${partLabel}` : lesson.title}
+												title={partLabel ? `${lesson.title}: ${partLabel}` : lesson.title}
 												posterSrc={youTubeThumbnailUrl(videoId)}
 												layout="default"
 											/>

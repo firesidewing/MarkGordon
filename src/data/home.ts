@@ -28,7 +28,7 @@ export const homeChallenge = {
     ],
     body: "And what began as a people problem becomes a performance problem. The healthiest organizations develop leaders who know how to address what is happening beneath the surface.",
     payoff:
-        "Mark helps leaders understand what is happening beneath the surface—then gives them practical tools to lead with greater clarity, confidence, trust, and connection.",
+        "Mark helps leaders understand what is happening beneath the surface. Then he gives them practical tools to lead with greater clarity, confidence, trust, and connection.",
     cta: "Bring Mark to Your Team",
     quote:
         "Mark has the ability to take the difficult topics and issues people face and bring sensibility and solutions that can be acted on immediately.",
@@ -55,7 +55,7 @@ export const homeOfferings = {
             title: "Workshops & Leadership Development",
             tagline: "Move From Inspiration to Transformation.",
             description:
-                "Mark's workshops take important leadership and relational issues deeper. Participants don't just hear ideas—they work with practical tools they can begin using immediately.",
+                "Mark's workshops take important leadership and relational issues deeper. Participants hear ideas and then work with practical tools they can begin using immediately.",
             highlights: [
                 "Hands-on frameworks leaders can apply the same week",
                 "Facilitation for teams navigating culture and conflict",
@@ -90,7 +90,7 @@ export const homeSpeakingTopics = {
         {
             title: "The Leadership Blind Spot",
             description:
-                "Every leader has blind spots. The question isn't whether you have them—it's whether you're willing to see them.",
+                "Every leader has blind spots. The question is not whether you have them. It is whether you are willing to see them.",
         },
         {
             title: "Living From Identity",
@@ -106,7 +106,7 @@ export const homeWhyMark = {
     title: "Leadership Experience You Can Hear in the Message.",
     paragraphs: [
         "Mark Gordon has spent more than 35 years leading people, navigating difficult relationships, developing leaders, speaking to groups, and learning what happens when leadership gets personal.",
-        "After more than three decades in pastoral leadership, Mark transitioned into leadership coaching, training, and speaking—bringing together decades of real-world experience with practical tools leaders can use today.",
+        "After more than three decades in pastoral leadership, Mark moved into leadership coaching, training, and speaking. He brings decades of real-world experience with practical tools leaders can use today.",
         "He is the author of Relationship Matters and the creator of leadership and relational development programs designed to help leaders and organizations become healthier from the inside out.",
     ],
     emphasis: "Mark doesn't speak from theory alone. He speaks from experience.",

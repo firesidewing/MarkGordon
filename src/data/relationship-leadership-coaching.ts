@@ -114,7 +114,7 @@ export const coachingFocusAreas = {
 		},
 		{
 			title: 'Difficult Conversations',
-			question: "What conversation are you avoiding—and what is it costing you?",
+			question: "What conversation are you avoiding, and what is it costing you?",
 		},
 		{
 			title: 'Conflict',
@@ -126,7 +126,7 @@ export const coachingFocusAreas = {
 		},
 		{
 			title: 'Confidence & Identity',
-			question: 'Are you leading from who you are—or from who you think you need to be?',
+			question: 'Are you leading from who you are, or from who you think you need to be?',
 		},
 		{
 			title: 'Relationships',
@@ -177,7 +177,7 @@ export const coachingApproach = {
 		{
 			title: 'Honest',
 			description:
-				"Real growth requires the courage to look honestly at what's happening—including the things we may not want to see.",
+				"Real growth requires the courage to look honestly at what's happening, including the things we may not want to see.",
 		},
 		{
 			title: 'Relational',
@@ -214,7 +214,7 @@ export const coachingWhyMark = {
 	title: 'Experience You Can Bring Into the Conversation.',
 	paragraphs: [
 		'Mark has spent more than 35 years leading people, developing leaders, navigating difficult relationships, and walking with people through challenging seasons.',
-		'His coaching is shaped by lived leadership experience—not simply academic theory.',
+		'His coaching is shaped by lived leadership experience, not academic theory.',
 		'He understands what it means to make decisions when the stakes are high. To navigate conflict. To lead through change. To carry responsibility for other people. To discover your own blind spots. And to learn from mistakes.',
 		'Mark brings that experience into every coaching relationship.',
 	],
