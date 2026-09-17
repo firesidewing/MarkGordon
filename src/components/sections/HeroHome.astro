@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Button from "@/components/ui/Button.astro";
 import { hubspot } from "@/config/site";
 import { homeHero } from "@/data/home";
@@ -12,7 +11,6 @@ const {
     credibility,
     primaryCta,
     secondaryCta,
-    image,
 } = homeHero;
 ---
 
@@ -62,14 +60,15 @@ const {
             </div>
 
             <div class="order-2 overflow-hidden">
-                <Image
-                    src={image}
+                <img
+                    src="/hero-room.jpg"
                     alt="Mark Gordon facilitating a leadership session with people in the room"
-                    width={image.width}
-                    height={image.height}
+                    width="640"
+                    height="427"
                     class="h-56 w-full object-cover object-center sm:h-auto"
                     loading="eager"
                     fetchpriority="high"
+                    decoding="async"
                 />
             </div>
         </div>

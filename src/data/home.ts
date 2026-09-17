@@ -19,7 +19,6 @@ export const homeHero = {
         "Keynote Speaker · Leadership Facilitator · Executive Coach · Author",
     primaryCta: "Book Mark to Speak",
     secondaryCta: "Explore Speaking Topics",
-    image: keynoteImg,
 } as const;
 
 export const homeChallenge = {
