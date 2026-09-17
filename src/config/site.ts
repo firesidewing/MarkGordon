@@ -11,7 +11,7 @@ export type NavItem = NavLink & {
 export const site = {
 	name: 'Mark Gordon',
 	email: 'mark@markgordon.ca',
-	tagline: 'Healthy leaders build healthy cultures — leadership speaking, workshops, and coaching.',
+	tagline: 'Healthy leaders build healthy cultures. Leadership speaking, workshops, and coaching.',
 	footerTagline: 'Healthy leaders build healthy cultures.',
 	copyright: `Copyright ${new Date().getFullYear()} - Mark Gordon`,
 } as const;
@@ -43,7 +43,6 @@ export const socialLinks = [
 	{ label: 'YouTube', href: 'https://www.youtube.com/@rmarkgordon', icon: 'youtube' },
 ] as const;
 
-/** Speaking-first navigation — keep the top bar sparse; fuller links live in Resources + footer */
 export const mainNav: NavItem[] = [
 	{ label: 'Speaking', href: '/keynote-speaker/' },
 	{ label: 'Workshops', href: '/workshop-facilitator/' },

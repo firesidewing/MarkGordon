@@ -35,10 +35,10 @@ const { eyebrow, title, subhead, body, primaryCta, secondaryCta } = coachingHero
 				</p>
 
 				<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap hero-enter hero-enter--3">
-					<Button href="/contact/" class="w-full sm:w-auto">
+					<Button href={hubspot.discoveryCall} external class="w-full sm:w-auto">
 						{primaryCta}
 					</Button>
-					<Button href={hubspot.discoveryCall} external variant="secondary" class="w-full sm:w-auto">
+					<Button href="/contact/" variant="secondary" class="w-full sm:w-auto">
 						{secondaryCta}
 					</Button>
 				</div>

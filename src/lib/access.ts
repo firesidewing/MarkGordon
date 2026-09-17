@@ -40,7 +40,7 @@ export async function checkCourseAccess(
 
 	let enrollment = await getEnrollment(userId, courseSlug);
 
-	// Miss path only — avoid Clerk Billing on every lesson view.
+	// Miss path only. Avoid Clerk Billing on every lesson view.
 	if (!enrollment) {
 		await syncPurchasedEnrollments(userId);
 		enrollment = await getEnrollment(userId, courseSlug);

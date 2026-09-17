@@ -14,7 +14,7 @@ const { quote, author, role, class: className } = Astro.props;
 		<p>&ldquo;{quote}&rdquo;</p>
 	</blockquote>
 	<figcaption class="mt-4 text-sm font-semibold text-text-heading">
-		— {author}
+		{author}
 		{role && <span class="mt-1 block font-normal text-text-muted">{role}</span>}
 	</figcaption>
 </figure>

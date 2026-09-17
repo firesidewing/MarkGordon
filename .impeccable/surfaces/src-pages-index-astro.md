@@ -23,40 +23,39 @@ Event planners, org leaders, and faith-community buyers land on `/` evaluating a
 
 **Success test:** Stranger answers — who, what topics, for whom, why care, what next.
 
-## Section sequence (7 bands)
+## Section sequence
 
-1. **Text hero** — headline, intro, primary + secondary CTA, credibility eyebrow
-2. **Leadership challenge** — tension list, Bring Mark to Your Team
+1. **Hero** — headline, recognition hook, three tensions, close, dual CTAs, live-room photo
+2. **Leadership challenge** — payoff plus proof quote, Bring Mark to Your Team
 3. **What Mark does** — keynotes / workshops / coaching (differentiated layouts)
-4. **Speaking topics teaser** — 3 topics + See All
-5. **Why Mark** — credibility without full bio
-6. **Testimonials** — excerpts, "Leaders Experience the Difference"
-7. **Go deeper** — coaching + Relationship Matters (single band, two columns)
-8. **Blind spot CTA band** — leadership-framed assessment
-9. **Close** — newsletter + final CTA (combined band)
+4. **Leadership Accelerator teaser** — cool-band editorial, not a second cobalt clone
+5. **Speaking topics teaser** — featured first topic + two companions + See All
+6. **Why Mark** — credibility with speaking photograph
+7. **Testimonials** — excerpts, "Leaders Experience the Difference"
+8. **Go deeper** — coaching + Relationship Matters (single band, two columns)
+9. **Blind spot CTA band** — leadership-framed assessment
+10. **Close** — newsletter + final CTA (combined band)
 
-Leadership Accelerator: **deferred** — do not build until page exists.
+Leadership Accelerator: teaser on homepage; full story on `/leadership-accelerator/`.
 
 ## Scope and boundaries
 
 ### In scope
 
-- Text-only hero (no video, no audience-path cards)
-- Remove all course sections from homepage
+- Text-led hero with a live-room photograph (no video, no audience-path cards)
+- Course catalogs stay off the homepage
 - Reposition blind spot, newsletter, RM copy for leadership framing
-- Nav/footer IA update (separate phase, but design for it)
 
 ### Out of scope / anti-goals
 
 - No couple/family homepage forks
 - No course grids or tabbed mini-courses on homepage
-- No Leadership Accelerator section yet
 - No video in hero
-- No section bloat — resist adding a band without removing one
+- No second cobalt band stacked against keynotes
 
 ## Mobile
 
-First screen: headline → one intro paragraph → Book Mark to Speak. Primary CTA repeats at challenge and final close. No 3-up card grids. Paragraphs 2–4 lines max.
+First screen: headline → recognition hook → Book Mark to Speak. Photo after the buttons on small screens.
 
 ## CTAs
 

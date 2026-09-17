@@ -3,7 +3,7 @@ import type { Testimonial } from '@/data/testimonials';
 export const workshopsSeo = {
 	title: 'Leadership Workshops & Development | Mark Gordon',
 	description:
-		'Practical leadership workshops for teams and organizations. Signature sessions on relationships, blind spots, identity, and culture—designed to move leaders from insight to action.',
+		'Practical leadership workshops for teams and organizations. Signature sessions on relationships, blind spots, identity, and culture, designed to move leaders from insight to action.',
 } as const;
 
 export const workshopsHero = {
@@ -11,7 +11,7 @@ export const workshopsHero = {
 	title: 'Leadership Development You Can Put Into Practice.',
 	lead:
 		"Great leadership isn't developed by listening to information. It's developed when people gain new understanding, practice new skills, and begin leading differently.",
-	body: "Mark Gordon's workshops are designed to create that kind of movement—bringing practical leadership tools, relational insight, engaging conversation, and immediately applicable strategies to your team or organization.",
+	body: "Mark Gordon's workshops are designed to create that kind of movement, bringing practical leadership tools, relational insight, engaging conversation, and immediately applicable strategies to your team or organization.",
 	primaryCta: 'Talk With Mark About Your Team',
 	secondaryCta: 'Explore the Workshops',
 } as const;
@@ -83,7 +83,7 @@ export const signatureWorkshops: SignatureWorkshop[] = [
 	{
 		title: 'Living From Identity',
 		overview: [
-			'Lead from who you are—not from what you feel you have to prove.',
+			'Lead from who you are, not from what you feel you have to prove.',
 			"Many leadership struggles aren't really about ability. They're about identity.",
 			'When leaders lead from insecurity, shame, fear, comparison, or the need for approval, those internal patterns can eventually show up in communication, decision-making, relationships, and culture.',
 			'Living From Identity helps leaders understand the difference between leading from a secure sense of identity and leading from the need to prove themselves.',
@@ -103,7 +103,7 @@ export const signatureWorkshops: SignatureWorkshop[] = [
 		title: 'Relationship Matters',
 		subtitle: 'Because Leadership Is Always Relational.',
 		overview: [
-			"Based on Mark's book and five-pillar framework, Relationship Matters provides a practical foundation for understanding what creates healthy relationships—and what causes them to break down.",
+			"Based on Mark's book and five-pillar framework, Relationship Matters provides a practical foundation for understanding what creates healthy relationships, and what causes them to break down.",
 			'The five pillars are: Trust · Communication · Authenticity · Honesty · Honour',
 			'Participants discover how these principles influence everything from leadership and teamwork to family and community.',
 		],
@@ -144,7 +144,7 @@ export const additionalWorkshopTopics: AdditionalWorkshopTopic[] = [
 	{
 		title: 'Building Trust',
 		description:
-			'Understand how trust is built, lost, and rebuilt—and why trust is foundational to healthy teams.',
+			'Understand how trust is built, lost, and rebuilt, and why trust is foundational to healthy teams.',
 	},
 	{
 		title: "Navigating Life's Decisions",
@@ -248,7 +248,7 @@ export const workshopsTestimonialExcerpts: Testimonial[] = [
 	},
 	{
 		quote:
-			"Mark's approach is practical, insightful and relational. He doesn't just teach leadership—he helps people become better leaders.",
+			"Mark's approach is practical, insightful and relational. He teaches leadership in a way that helps people become better leaders.",
 		author: 'Wes Jonat',
 		role: 'Owner, Sun Valley Pools & Spas',
 	},

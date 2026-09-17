@@ -285,6 +285,7 @@ export const homeAcceleratorTeaser = {
 	title: 'Leadership Accelerator',
 	description:
 		'Leadership development happens when great ideas become everyday practices. A cohort-based experience combining expert guidance, practical frameworks, and peer learning.',
+	highlights: ['Expert guidance', 'Peer learning', 'Tools you use the same week'],
 	cta: 'Explore Leadership Accelerator',
 	href: leadershipAcceleratorSite,
 } as const;

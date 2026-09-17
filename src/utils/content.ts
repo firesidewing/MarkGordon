@@ -16,7 +16,6 @@ export function categoryUrl(name: string): string {
 	return `/blog/category/${encodeURIComponent(name)}/`;
 }
 
-/** Page slugs handled by dedicated routes, not [slug].astro */
 export const RESERVED_PAGE_SLUGS = new Set([
 	'home2',
 	'blog',

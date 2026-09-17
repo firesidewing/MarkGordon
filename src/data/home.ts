@@ -1,16 +1,20 @@
 import coachingImg from "@/assets/content/home2/Mark-47.jpg";
 import coursesBanner from "@/assets/content/home2/Untitled-design-2.png";
 import keynoteImg from "@/assets/content/home2/tsg-9.jpg";
+import speakingPortrait from "@/assets/content/keynote-speaker/Mark-32-1.jpg";
 import podcastImg from "@/assets/content/home2/Podcast-1-1024x731.png";
 import videoCover from "@/assets/content/home2/Relationship-Matters-video-cover.png";
 import bookImg from "@/assets/content/home2/Untitled-design-2.png";
 
 export const homeHero = {
     title: "Healthy Leaders Build Healthy Cultures.",
-    intro:
-        "Mark Gordon equips leaders and organizations to build trust, strengthen relationships, and create cultures where people can thrive.",
-    experience:
-        "With more than 35 years of leadership experience, Mark brings practical insight, engaging storytelling, and immediately usable tools to conferences, organizations, leadership teams, nonprofits, and faith communities.",
+    hook: "The room does not fail on strategy. It fails on trust, conflict, and the talk nobody starts.",
+    tensions: [
+        "Communication breaks down.",
+        "Trust gets damaged.",
+        "Conflict goes unresolved.",
+    ],
+    close: "Mark brings that conversation into the room. People leave with tools they can use the same week.",
     credibility:
         "Keynote Speaker · Leadership Facilitator · Executive Coach · Author",
     primaryCta: "Book Mark to Speak",
@@ -18,18 +22,15 @@ export const homeHero = {
 } as const;
 
 export const homeChallenge = {
-    title: "Leadership Isn't Just About Strategy. It's About People.",
-    tensions: [
-        "Communication breaks down.",
-        "Trust gets damaged.",
-        "Conflict goes unresolved.",
-        "Leaders become overwhelmed.",
-        "Teams lose connection.",
-    ],
-    body: "And what began as a people problem becomes a performance problem. The healthiest organizations develop leaders who know how to address what is happening beneath the surface.",
+    title: "What Began as a People Problem Becomes a Performance Problem.",
+    body: "The healthiest organizations develop leaders who can name what is happening beneath the surface, then do something about it.",
     payoff:
-        "Mark helps leaders understand what is happening beneath the surface—then gives them practical tools to lead with greater clarity, confidence, trust, and connection.",
+        "Mark helps those leaders lead with greater clarity, confidence, trust, and connection.",
     cta: "Bring Mark to Your Team",
+    quote:
+        "Mark has the ability to take the difficult topics and issues people face and bring sensibility and solutions that can be acted on immediately.",
+    quoteAuthor: "Ron Schlitt",
+    quoteRole: "Lead Strengths Facilitator",
 } as const;
 
 export const homeOfferings = {
@@ -51,7 +52,7 @@ export const homeOfferings = {
             title: "Workshops & Leadership Development",
             tagline: "Move From Inspiration to Transformation.",
             description:
-                "Mark's workshops take important leadership and relational issues deeper. Participants don't just hear ideas—they work with practical tools they can begin using immediately.",
+                "Mark's workshops take important leadership and relational issues deeper. Participants hear ideas and then work with practical tools they can begin using immediately.",
             highlights: [
                 "Hands-on frameworks leaders can apply the same week",
                 "Facilitation for teams navigating culture and conflict",
@@ -86,7 +87,7 @@ export const homeSpeakingTopics = {
         {
             title: "The Leadership Blind Spot",
             description:
-                "Every leader has blind spots. The question isn't whether you have them—it's whether you're willing to see them.",
+                "Every leader has blind spots. The question is not whether you have them. It is whether you are willing to see them.",
         },
         {
             title: "Living From Identity",
@@ -102,12 +103,13 @@ export const homeWhyMark = {
     title: "Leadership Experience You Can Hear in the Message.",
     paragraphs: [
         "Mark Gordon has spent more than 35 years leading people, navigating difficult relationships, developing leaders, speaking to groups, and learning what happens when leadership gets personal.",
-        "After more than three decades in pastoral leadership, Mark transitioned into leadership coaching, training, and speaking—bringing together decades of real-world experience with practical tools leaders can use today.",
+        "After more than three decades in pastoral leadership, Mark moved into leadership coaching, training, and speaking. He brings decades of real-world experience with practical tools leaders can use today.",
         "He is the author of Relationship Matters and the creator of leadership and relational development programs designed to help leaders and organizations become healthier from the inside out.",
     ],
     emphasis: "Mark doesn't speak from theory alone. He speaks from experience.",
     cta: "Meet Mark",
     href: "/about-mark/",
+    image: speakingPortrait,
 } as const;
 
 export const homeGoDeeper = {
@@ -156,7 +158,6 @@ export const homeFinalCta = {
     secondaryHref: "/contact/",
 } as const;
 
-// Legacy exports — used by inner pages
 export const homeQuote = {
     text: "I am passionate about you enjoying healthy and trusting relationships.",
     body: "Today is filled with damaged relationships both personally and professionally, this epidemic continues to destroy families and erode the personal value people need to experience a flourishing life. For healthy relationships to happen, people need to heal from the inside out.",

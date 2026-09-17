@@ -4,7 +4,7 @@ export type Testimonial = {
 	role?: string;
 };
 
-/** Short excerpts for homepage carousel — leadership/speaking framing */
+/** Short excerpts for homepage carousel. Leadership and speaking framing. */
 export const homeTestimonialExcerpts: Testimonial[] = [
 	{
 		quote:
@@ -32,7 +32,7 @@ export const homeTestimonialExcerpts: Testimonial[] = [
 	},
 ];
 
-/** Full testimonials — inner pages and legacy use */
+/** Full testimonials. Inner pages and legacy use. */
 export const homeTestimonials: Testimonial[] = [
 	{
 		quote:
@@ -42,7 +42,7 @@ export const homeTestimonials: Testimonial[] = [
 	},
 	{
 		quote:
-			'In a 2nd marriage with seven children between us, we wanted solid advice and tested principles we could use to transform our own relationship when it was on the brink of hopeless disaster! Highly recommend him and his book — it has improved our lives and love!',
+			'In a 2nd marriage with seven children between us, we wanted solid advice and tested principles we could use to transform our own relationship when it was on the brink of hopeless disaster! Highly recommend him and his book. It has improved our lives and love!',
 		author: 'Sue Styles',
 		role: 'Business Consultant, Speaker & Author',
 	},
@@ -50,7 +50,7 @@ export const homeTestimonials: Testimonial[] = [
 		quote:
 			'Mark is a valued life coach and mentor. His insights and applications come out of his personal experiences, not just words alone. He has lived what he speaks. I endorse Mark Gordon.',
 		author: 'Wes Jonat',
-		role: 'Owner — Sun Valley Pools & Spas',
+		role: 'Owner, Sun Valley Pools & Spas',
 	},
 	{
 		quote:

@@ -33,7 +33,7 @@
 			target="_blank"
 			rel="noopener noreferrer"
 		>
-			Take the Free Test Now
+			Take the Free Assessment
 		</a>
 	</div>
 {:else}
@@ -50,7 +50,7 @@
 	>
 		<noscript>
 			<a href={blindSpot.directUrl} class="inline-flex items-center justify-center rounded-button bg-brand px-11 py-3.5 font-display text-button font-button uppercase text-text-inverse transition-colors hover:bg-brand-dark" target="_blank" rel="noopener noreferrer">
-				Take the Free Test Now
+				Take the Free Assessment
 			</a>
 		</noscript>
 	</div>

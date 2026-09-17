@@ -1,7 +1,9 @@
+import { hubspot } from '@/config/site';
+
 export const contactSeo = {
 	title: 'Contact Mark Gordon | Start a Conversation',
 	description:
-		'Reach out about speaking, workshops, leadership coaching, Leadership Accelerator, or faith community packages. Low-pressure — tell Mark what you are working through.',
+		'Reach out about speaking, workshops, leadership coaching, Leadership Accelerator, or faith community packages. Low pressure. Tell Mark what you are working through.',
 } as const;
 
 export const contactHero = {
@@ -11,7 +13,7 @@ export const contactHero = {
 		"Whether you're looking for a speaker, developing your leaders, navigating a challenge, or simply wondering what the next step could look like, I'd love to hear what's happening.",
 	extendedIntro: [
 		"You don't need to have it all figured out before you reach out.",
-		"Tell me a little about what you're facing, what you're hoping to accomplish, or what you're looking for—and we'll start there.",
+		"Tell me a little about what you're facing, what you're hoping to accomplish, or what you're looking for. We'll start there.",
 	],
 	primaryCta: 'Start the Conversation',
 	formAnchor: '#contact-form',
@@ -29,7 +31,10 @@ export const contactHelp = {
 			title: 'Bring Mark In to Speak',
 			body:
 				'Looking for a keynote speaker or facilitator who can engage your people and leave them with practical tools they can use?',
-			links: [{ label: 'Book Mark to Speak', href: '/keynote-speaker/' }],
+			links: [
+				{ label: 'Book Mark to Speak', href: hubspot.discoveryCall, external: true },
+				{ label: 'Explore Speaking Topics', href: '/keynote-speaker/' },
+			],
 		},
 		{
 			title: 'Develop Your Leaders',

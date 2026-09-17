@@ -117,7 +117,7 @@ function formatExpiry(date: Date): string {
 							const course = courseBySlug.get(enrollment.courseSlug);
 							return (
 								<li class="text-sm text-text-muted">
-									{course?.data.title ?? enrollment.courseSlug} — expired {formatExpiry(enrollment.expiresAt)}
+									{course?.data.title ?? enrollment.courseSlug}, expired {formatExpiry(enrollment.expiresAt)}
 								</li>
 							);
 						})}

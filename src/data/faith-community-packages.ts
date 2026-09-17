@@ -8,17 +8,17 @@ import collageImg4 from '@/assets/content/faith-community-packages/Mark-32-1-102
 export const faithCommunitySeo = {
 	title: 'Faith Community Packages | Mark Gordon',
 	description:
-		'Relational culture packages for churches and faith communities—ongoing training, Relationship Matters, and leadership support for congregations, teams, and pastors.',
+		'Relational culture packages for churches and faith communities. Ongoing training, Relationship Matters, and leadership support for congregations, teams, and pastors.',
 } as const;
 
 export const faithCommunityHero = {
 	eyebrow: 'Faith communities',
-	title: 'Build a Healthier Relational Culture in Your Church.',
+	title: 'Healthy Churches Are Built by Healthy Leaders.',
 	subhead:
-		'Over more than 30 years, Mark has developed principle-based systems and practical blueprints that help faith communities close the relationship gap—at home, on leadership teams, and in pastoral care.',
+		'After more than 35 years in pastoral leadership, Mark helps churches strengthen the relationships that shape culture: the congregation, the leadership team, and the pastor.',
 	areasIntro:
-		'Church families flourish when relational health is intentional. These packages serve three areas at once:',
-	primaryCta: 'Book a Discovery Call',
+		'These packages are for churches that want more than a one-Sunday spark. They serve three areas at the same time:',
+	primaryCta: 'Talk With Mark',
 	secondaryCta: 'Explore the Packages',
 	packagesAnchor: '#faith-packages',
 } as const;
@@ -26,8 +26,8 @@ export const faithCommunityHero = {
 export const faithCommunityBookingClose = {
 	title: "Let's Talk About Your Faith Community.",
 	body:
-		"Whether you're exploring in-person training, an online cohort model, or small group facilitator support, Mark would love to hear what you're hoping to build.",
-	primaryCta: 'Book a Discovery Call',
+		'Whether you want in-person training, an online model, or small-group facilitator support, start with a conversation about what your church actually needs.',
+	primaryCta: 'Talk With Mark',
 	secondaryCta: 'Start a Conversation',
 } as const;
 
@@ -50,15 +50,15 @@ export const faithCommunityCollage: CollageImage[][] = [
 
 export const faithCommunityIntro = {
 	audienceAreas: [
-		"The congregation's family and personal relationships",
-		'The Leadership teams relationships',
-		'The Pastors relationships',
+		'Congregation and family relationships',
+		'Leadership-team relationships',
+		'Pastoral relationships',
 	],
 	paragraphs: [
-		'Plans are designed to move beyond a one-time event—combining training, tools, and ongoing support so transformation lasts.',
+		'Plans combine training, tools, and ongoing support so the work continues after the event.',
 	],
 	closing:
-		'Mark works across all three relationship areas at the same time to help you develop a healthy relational culture and a flourishing church.',
+		'Mark works across all three at once, so the church is not asking families, staff, and the pastor to grow in isolation.',
 };
 
 export type FaithPackage = {
@@ -74,47 +74,47 @@ export const faithPackages: FaithPackage[] = [
 	{
 		title: 'Relational Culture Transformation Package',
 		description:
-			'The goal of this model is to provide ongoing tools and empowerment for people to build healthy relationships at home, church and work. I have found over the years that one-time keynotes, workshops or conference events have the ability to inspire and provide insights; however to experience real lasting transformation it takes ongoing training, coaching and purpose-built tools.',
+			'A one-time keynote can open a conversation. Lasting culture change takes training, coaching, and tools people keep using. This in-person package gives your church that ongoing rhythm.',
 		includes: [
-			'In-person Relationship Matters course with Q.A., workbooks, and book signing',
-			'52 Weekly relationship reminders for Church Bulletins',
-			'Signed copy of the Relationship Matters book for the church leader',
-			'Leadership Training (via Zoom) for the church leadership team - Quarterly 1 hr meeting',
-			'Sunday Sermon included',
+			'In-person Relationship Matters course with Q&A, workbooks, and book signing',
+			'52 weekly relationship reminders for church bulletins',
+			'Signed copy of Relationship Matters for the church leader',
+			'Quarterly one-hour leadership training via Zoom',
+			'Sunday sermon included',
 		],
-		ctaLabel: 'Get Started Now!',
-		footnotes: ['*Payment Plan available upon request', '*Not including travel expenses'],
+		ctaLabel: 'Talk With Mark',
+		footnotes: ['*Payment plan available upon request', '*Travel expenses not included'],
 		variant: 'brand',
 	},
 	{
 		title: 'Online Relational Culture Transformation Package',
 		description:
-			'The goal of this model is to provide ongoing tools and empowerment for people to build healthy relationships at home, church and work. An online model provides the ability to get the course taught from where ever your faith community is located.',
+			'Same ongoing model, delivered where your people already are. A live webinar format so churches can train without bringing everyone to one room.',
 		includes: [
-			'Live Webinar Relationship Matters course with Q.A., and workbooks',
-			'52 Weekly relationship reminders for Church Bulletins',
-			'Signed copy of the Relationship Matters book for the church leader',
-			'Leadership Training (via Zoom) for the church leadership team - Quarterly 1 hr meeting',
+			'Live webinar Relationship Matters course with Q&A and workbooks',
+			'52 weekly relationship reminders for church bulletins',
+			'Signed copy of Relationship Matters for the church leader',
+			'Quarterly one-hour leadership training via Zoom',
 		],
-		ctaLabel: 'Get Started',
-		footnotes: ['*Payment Plan available upon request'],
+		ctaLabel: 'Talk With Mark',
+		footnotes: ['*Payment plan available upon request'],
 		variant: 'muted',
 	},
 ];
 
 export const smallGroupPackage = {
-	title: 'Small Group Facilitator Training for Healthy Relationship Course',
+	title: 'Small Group Facilitator Training',
 	paragraphs: [
-		'Looking for your next small group subject? Get the most impact for your congregation with the Relationship Matters video course by ensuring your small group facilitators are able to lead the course with confidence.',
-		'This is designed to be a great interactive small group training, each video is between 20-30 minutes that facilitator plays for the small group and then they have discussion and work through the workbook together. It is a tremendous way to empower your congregations family and personal relationships.',
+		'Use Relationship Matters as your next small-group series, and train facilitators so they can lead it with confidence.',
+		'Each video runs 20–30 minutes. The group watches together, talks, and works through the workbook. Facilitators get a two-hour training session plus email Q&A.',
 	],
 	includes: [
-		'Small group facilitator training for Relationship Matters course - 2hr session',
-		'Includes Q.A access via email',
-		'Includes five access passes to the Online Relationship Matters course',
-		'Each additional pass is available for $50 each ($29 off!)',
+		'Two-hour small group facilitator training for the Relationship Matters course',
+		'Q&A access via email',
+		'Five access passes to the online Relationship Matters course',
+		'Additional passes available for $50 each ($29 off)',
 	],
-	ctaLabel: 'Get Started',
+	ctaLabel: 'Talk With Mark',
 };
 
 export const faithCommunityTestimonials = [

@@ -22,7 +22,7 @@
 			<p>&ldquo;{current.quote}&rdquo;</p>
 		</blockquote>
 		<figcaption class="mt-6">
-			<cite class="not-italic font-semibold text-text-heading">— {current.author}</cite>
+			<cite class="not-italic font-semibold text-text-heading">{current.author}</cite>
 			{#if current.role}
 				<p class="mt-1 text-sm text-text-muted">{current.role}</p>
 			{/if}

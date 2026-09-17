@@ -13,7 +13,7 @@ export const blindSpotHero = {
 	paragraphs: [
 		'Great leaders are not leaders without blind spots.',
 		'They are leaders who are willing to discover them, understand them, and do something about them.',
-		'The Blind Spot Assessment is a simple, practical way to uncover patterns that may be affecting your leadership, relationships, communication, and effectiveness—often in ways you don\u2019t see yourself.',
+		'The Blind Spot Assessment is a simple, practical way to uncover patterns that may be affecting your leadership, relationships, communication, and effectiveness, often in ways you don\u2019t see yourself.',
 	],
 	primaryCta: 'Take the Free Assessment',
 	secondaryCta: 'Explore Your Results',
@@ -26,12 +26,12 @@ export const blindSpotSelfAwareness = {
 		'We all have areas of our leadership that are easier to see from the outside than from the inside.',
 	youMayBeLabel: 'You may be:',
 	scenarios: [
-		'Communicating clearly—but not being heard.',
-		'Working hard—but creating exhaustion around you.',
-		'Avoiding conflict—while calling it keeping the peace.',
-		'Taking responsibility for everything—while unintentionally preventing others from growing.',
-		'Believing you are approachable—while others experience you as intimidating.',
-		'Solving problems quickly—without realizing your team needs to be heard first.',
+		'Communicating clearly, but not being heard.',
+		'Working hard, but creating exhaustion around you.',
+		'Avoiding conflict while calling it keeping the peace.',
+		'Taking responsibility for everything while unintentionally preventing others from growing.',
+		'Believing you are approachable while others experience you as intimidating.',
+		'Solving problems quickly without realizing your team needs to be heard first.',
 	],
 	closing: [
 		'These aren\u2019t necessarily character flaws.',
@@ -43,7 +43,7 @@ export const blindSpotSelfAwareness = {
 export const blindSpotDefinition = {
 	title: 'What Is a Blind Spot?',
 	definition:
-		'A blind spot is an area of our leadership, behaviour, or relationships that is difficult for us to recognize in ourselves—but may be obvious to the people around us.',
+		'A blind spot is an area of our leadership, behaviour, or relationships that is difficult for us to recognize in ourselves, but may be obvious to the people around us.',
 	developLabel: 'Blind spots often develop because of:',
 	factors: [
 		{
@@ -88,7 +88,7 @@ export const blindSpotExplore = {
 		},
 		{
 			title: 'Communication',
-			question: 'How might your communication style be helping—or hindering—your team?',
+			question: 'How might your communication style be helping or hindering your team?',
 		},
 		{
 			title: 'Relationships',
@@ -146,7 +146,7 @@ export const blindSpotDebrief = {
 		'What practical steps could help you move forward',
 	],
 	cta: 'Book a Blind Spot Debrief',
-	closing: 'Let\u2019s talk about what you\u2019re seeing—and what you might not be seeing yet.',
+	closing: 'Let\u2019s talk about what you\u2019re seeing, and what you might not be seeing yet.',
 } as const;
 
 export const blindSpotMidCta = {

@@ -57,7 +57,7 @@ const workbookCount = materials.length;
 const isEnhanced = Boolean(pillars?.length || introVideoId || hook);
 ---
 
-<CourseLayout title={`${title} — Online Course`} description={description}>
+<CourseLayout title={`${title}: Online Course`} description={description}>
 	{
 		isEnhanced ? (
 			<>
@@ -149,7 +149,7 @@ const isEnhanced = Boolean(pillars?.length || introVideoId || hook);
 					testimonial && !isEnhanced && (
 						<blockquote class="border-l-4 border-brand pl-5">
 							<p class="text-sm italic leading-relaxed text-text-muted">"{testimonial.quote}"</p>
-							<cite class="mt-2 block text-sm font-semibold not-italic text-text-heading">— {testimonial.author}</cite>
+							<cite class="mt-2 block text-sm font-semibold not-italic text-text-heading">{testimonial.author}</cite>
 						</blockquote>
 					)
 				}
