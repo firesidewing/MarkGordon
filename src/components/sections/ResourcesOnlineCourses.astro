@@ -1,0 +1,33 @@
+---
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
+import { onlineCoursesSection } from '@/data/resources';
+
+const { title, subtitle, intro, courses, cta, ctaHref } = onlineCoursesSection;
+---
+
+<Section id="online-courses">
+	<SectionHeading title={title} subtitle={subtitle} centered class="mb-4" />
+	<p class="mx-auto mb-10 max-w-2xl text-center text-base leading-relaxed text-text-muted">{intro}</p>
+
+	<div class="grid gap-4 sm:grid-cols-2 lg:gap-6">
+		{
+			courses.map((course) => (
+				<a
+					href={course.href}
+					class="card-interactive group border-t-2 border-brand bg-surface px-5 py-5 shadow-sm sm:px-6 sm:py-6"
+				>
+					<h3 class="font-display text-h4 font-semibold leading-snug text-text-heading group-hover:text-brand">
+						{course.title}
+					</h3>
+					<p class="mt-2 text-sm leading-relaxed text-text sm:text-base">{course.description}</p>
+				</a>
+			))
+		}
+	</div>
+
+	<div class="mt-10 flex justify-center">
+		<Button href={ctaHref}>{cta}</Button>
+	</div>
+</Section>

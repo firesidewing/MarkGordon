@@ -1,0 +1,23 @@
+---
+export const prerender = true;
+
+import ResourcesExploreMore from '@/components/sections/ResourcesExploreMore.astro';
+import ResourcesFaithCommunity from '@/components/sections/ResourcesFaithCommunity.astro';
+import ResourcesGoDeeper from '@/components/sections/ResourcesGoDeeper.astro';
+import ResourcesHero from '@/components/sections/ResourcesHero.astro';
+import ResourcesKeepGrowing from '@/components/sections/ResourcesKeepGrowing.astro';
+import ResourcesOnlineCourses from '@/components/sections/ResourcesOnlineCourses.astro';
+import ResourcesStartWhere from '@/components/sections/ResourcesStartWhere.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { resourcesSeo } from '@/data/resources';
+---
+
+<BaseLayout title={resourcesSeo.title} description={resourcesSeo.description}>
+	<ResourcesHero />
+	<ResourcesGoDeeper />
+	<ResourcesOnlineCourses />
+	<ResourcesExploreMore />
+	<ResourcesFaithCommunity />
+	<ResourcesStartWhere />
+	<ResourcesKeepGrowing />
+</BaseLayout>

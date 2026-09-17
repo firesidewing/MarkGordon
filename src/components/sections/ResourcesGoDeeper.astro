@@ -1,0 +1,31 @@
+---
+import ResourceFeatureCard from '@/components/sections/ResourceFeatureCard.astro';
+import SectionHeading from '@/components/sections/SectionHeading.astro';
+import Section from '@/components/ui/Section.astro';
+import acceleratorImage from '@/assets/content/faith-community-packages/FG6A9662-scaled-e1610423538726-1024x806.jpg';
+import relationshipImage from '@/assets/content/relationship-matters/book-cover.png';
+import blindSpotImage from '@/assets/content/home2/Add-a-heading.png';
+import { goDeeperSection } from '@/data/resources';
+
+const images = [acceleratorImage, relationshipImage, blindSpotImage] as const;
+const imageAlts = [
+	'Leadership cohort in discussion',
+	'Relationship Matters book cover',
+	'Blind Spot Assessment',
+] as const;
+---
+
+<Section id="go-deeper" variant="muted" class="scroll-mt-20">
+	<SectionHeading title={goDeeperSection.title} centered class="mb-10" />
+	<div class="grid gap-6 lg:grid-cols-3 lg:gap-8">
+		{
+			goDeeperSection.items.map((item, index) => (
+				<ResourceFeatureCard
+					{...item}
+					image={images[index]}
+					imageAlt={imageAlts[index]}
+				/>
+			))
+		}
+	</div>
+</Section>
