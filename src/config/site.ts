@@ -46,16 +46,15 @@ export const mainNav: NavItem[] = [
 	{ label: 'About', href: '/about-mark/' },
 	{
 		label: 'Resources',
-		href: '/online-courses/',
+		href: '/resources/',
 		children: [
 			{ label: 'Leadership Accelerator', href: '/leadership-accelerator/' },
 			{ label: 'Relationship Matters', href: '/relationship-matters/' },
-			{ label: 'Online Courses', href: '/online-courses/' },
-			{ label: 'Videos', href: '/vlogs/' },
-			{ label: 'Blog', href: '/blog/' },
-			{ label: 'Faith Community Packages', href: '/faith-community-packages/' },
-			{ label: 'Testimonials', href: '/#testimonials' },
 			{ label: 'Blind Spot Assessment', href: '/blind-spot-assessment/' },
+			{ label: 'Online Courses', href: '/online-courses/' },
+			{ label: 'Blog', href: '/blog/' },
+			{ label: 'Videos', href: '/vlogs/' },
+			{ label: 'Faith Community Packages', href: '/faith-community-packages/' },
 		],
 	},
 	{ label: 'Contact', href: '/contact/' },
@@ -69,7 +68,7 @@ export const footerNavLinks = [
 	{ label: 'About Mark', href: '/about-mark/' },
 	{ label: 'Testimonials', href: '/#testimonials' },
 	{ label: 'Relationship Matters', href: '/relationship-matters/' },
-	{ label: 'Resources', href: '/online-courses/' },
+	{ label: 'Resources', href: '/resources/' },
 	{ label: 'Contact', href: '/contact/' },
 ] as const;
 

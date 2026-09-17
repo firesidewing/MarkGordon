@@ -1,0 +1,23 @@
+---
+import Button from '@/components/ui/Button.astro';
+import Section from '@/components/ui/Section.astro';
+import { keepGrowing } from '@/data/resources';
+
+const { title, subtitle, body, primaryCta, primaryHref, secondaryCta, secondaryHref } = keepGrowing;
+---
+
+<Section variant="brand">
+	<div class="mx-auto max-w-3xl text-center">
+		<h2 class="font-display text-h2 font-h2 uppercase tracking-h2 text-text-inverse">{title}</h2>
+		<p class="mt-3 text-lg font-medium text-text-inverse/95">{subtitle}</p>
+		<p class="mt-6 text-base leading-relaxed text-text-inverse/90">{body}</p>
+		<div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:flex-wrap">
+			<Button href={primaryHref} class="w-full border-2 border-text-inverse bg-text-inverse !text-brand hover:!bg-text-inverse/90 sm:w-auto">
+				{primaryCta}
+			</Button>
+			<Button href={secondaryHref} variant="secondary" class="w-full !border-text-inverse !text-text-inverse hover:!bg-text-inverse/10 sm:w-auto">
+				{secondaryCta}
+			</Button>
+		</div>
+	</div>
+</Section>
