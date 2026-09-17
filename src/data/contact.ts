@@ -1,3 +1,5 @@
+import { hubspot } from '@/config/site';
+
 export const contactSeo = {
 	title: 'Contact Mark Gordon | Start a Conversation',
 	description:
@@ -29,7 +31,10 @@ export const contactHelp = {
 			title: 'Bring Mark In to Speak',
 			body:
 				'Looking for a keynote speaker or facilitator who can engage your people and leave them with practical tools they can use?',
-			links: [{ label: 'Book Mark to Speak', href: '/keynote-speaker/' }],
+			links: [
+				{ label: 'Book Mark to Speak', href: hubspot.discoveryCall, external: true },
+				{ label: 'Explore Speaking Topics', href: '/keynote-speaker/' },
+			],
 		},
 		{
 			title: 'Develop Your Leaders',

@@ -13,7 +13,7 @@ export const coachingHero = {
 		'The decisions you make, the relationships you build, and the culture you create all begin with the leader you are becoming.',
 	body: 'Mark Gordon provides practical, relational leadership coaching for leaders who want greater clarity, stronger relationships, and greater impact.',
 	primaryCta: 'Start a Coaching Conversation',
-	secondaryCta: 'Book a Discovery Call',
+	secondaryCta: 'Start a Conversation',
 } as const;
 
 export const coachingOpening = {
@@ -301,5 +301,5 @@ export const coachingBookingClose = {
 		"Let's start there.",
 	],
 	primaryCta: 'Start a Coaching Conversation',
-	secondaryCta: 'Book a Discovery Call',
+	secondaryCta: 'Start a Conversation',
 } as const;

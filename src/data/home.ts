@@ -30,6 +30,10 @@ export const homeChallenge = {
     payoff:
         "Mark helps leaders understand what is happening beneath the surface—then gives them practical tools to lead with greater clarity, confidence, trust, and connection.",
     cta: "Bring Mark to Your Team",
+    quote:
+        "Mark has the ability to take the difficult topics and issues people face and bring sensibility and solutions that can be acted on immediately.",
+    quoteAuthor: "Ron Schlitt",
+    quoteRole: "Lead Strengths Facilitator",
 } as const;
 
 export const homeOfferings = {
@@ -108,6 +112,7 @@ export const homeWhyMark = {
     emphasis: "Mark doesn't speak from theory alone. He speaks from experience.",
     cta: "Meet Mark",
     href: "/about-mark/",
+    image: keynoteImg,
 } as const;
 
 export const homeGoDeeper = {

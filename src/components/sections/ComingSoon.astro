@@ -11,7 +11,7 @@ interface Props {
 
 const {
 	title,
-	description = 'This section is being rebuilt on our new platform. Check back soon or book a discovery call in the meantime.',
+	description = 'This section is being rebuilt. In the meantime, book a short conversation with Mark.',
 	noindex = true,
 } = Astro.props;
 ---
@@ -31,7 +31,7 @@ const {
 		<div class="mx-auto max-w-xl text-center">
 			<p class="mb-8 leading-relaxed text-text-muted">{description}</p>
 			<div class="flex flex-wrap justify-center gap-3">
-				<Button href={hubspot.discoveryCall} external>Book Discovery Call</Button>
+				<Button href={hubspot.discoveryCall} external>Book Mark to Speak</Button>
 				<Button href="/">Back to Home</Button>
 			</div>
 		</div>

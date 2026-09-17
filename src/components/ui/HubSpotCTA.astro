@@ -7,12 +7,12 @@ interface Props {
 	class?: string;
 }
 
-const { label = 'Book Discovery Call', class: className } = Astro.props;
+const { label = 'Book Mark to Speak', class: className } = Astro.props;
 ---
 
 <div class:list={['rounded-sm bg-surface-muted p-6 text-center', className]}>
 	<p class="mb-4 text-sm leading-relaxed text-text-muted">
-		Ready to strengthen your relationships? Schedule a free discovery call.
+		Planning an event or developing your leaders? Start with a short conversation.
 	</p>
 	<Button href={hubspot.discoveryCall} external>
 		{label}

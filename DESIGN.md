@@ -160,7 +160,7 @@ Committed coaching palette: authoritative blue, cool neutrals, sky accent for qu
 - **Section padding:** 4rem default; 3rem for tight stacks (teaser rows).
 - **Hero padding:** `clamp(3rem, 8vw, 5.5rem)` vertical on first viewport.
 - **Mobile priority:** Headline → one short intro → primary CTA visible without scrolling. No 3-up card grids on small screens.
-- **Homepage section count:** Target 7–8 bands, not 10+. Combine newsletter + final CTA when possible.
+- **Homepage section count:** Target 8–10 bands. Combine newsletter + final CTA. Leadership Accelerator may appear once as a teaser after offerings, never as a second cobalt clone of the keynotes band.
 
 ## Elevation & Depth
 
@@ -215,6 +215,11 @@ Never three identical dark-header ProductCards in a row.
 - 2–3 featured speaking topics as compact cards or list blocks.
 - Link: **See All Speaking Topics** → `/keynote-speaker/`.
 
+### Why Mark
+
+- Split: copy + speaking photograph.
+- Emphasis line in cobalt; Meet Mark CTA.
+
 ### CTA band (blind spot)
 
 - Cobalt full-width strip.
@@ -257,4 +262,4 @@ Courses move under **Resources**, not top-level homepage prominence.
 - **Don't** use identical icon-bullet-card grids for every offering.
 - **Don't** rely on video in the homepage hero (inner pages and vlogs may still use video).
 - **Don't** use buzzwords: empower, transform, flourish, unlock, journey (unless in Mark's approved copy).
-- **Don't** add Leadership Accelerator to homepage until the offering page exists.
+- **Don't** stack two full-width cobalt offering bands back-to-back.

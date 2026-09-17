@@ -4,7 +4,7 @@ import Section from "@/components/ui/Section.astro";
 import { hubspot } from "@/config/site";
 import { homeChallenge } from "@/data/home";
 
-const { title, tensions, body, payoff, cta } = homeChallenge;
+const { title, tensions, body, payoff, cta, quote, quoteAuthor, quoteRole } = homeChallenge;
 ---
 
 <Section variant="muted" class="py-section-tight sm:py-section">
@@ -15,6 +15,15 @@ const { title, tensions, body, payoff, cta } = homeChallenge;
             >
                 {title}
             </h2>
+            <blockquote class="mt-8 border-l-2 border-brand pl-5">
+                <p class="text-base font-medium italic leading-relaxed text-text-heading">
+                    &ldquo;{quote}&rdquo;
+                </p>
+                <footer class="mt-3 text-sm text-text-muted">
+                    <cite class="not-italic font-semibold text-text-heading">{quoteAuthor}</cite>
+                    <span class="block">{quoteRole}</span>
+                </footer>
+            </blockquote>
         </div>
 
         <div>

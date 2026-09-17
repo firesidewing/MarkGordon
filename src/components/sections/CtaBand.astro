@@ -1,4 +1,6 @@
 ---
+import { homeBlindSpot } from "@/data/home";
+
 interface Props {
     title?: string;
     subtitle?: string;
@@ -9,11 +11,11 @@ interface Props {
 }
 
 const {
-    title = "Would you like stronger relationships?",
-    subtitle = "Discover how in three minutes by knowing your blind spots",
+    title = homeBlindSpot.title,
+    subtitle = homeBlindSpot.subtitle,
     description,
-    ctaLabel = "Take the Free Test Now",
-    href = "https://blindspots.me/hcWAIr",
+    ctaLabel = homeBlindSpot.cta,
+    href = homeBlindSpot.href,
     class: className,
 } = Astro.props;
 ---
