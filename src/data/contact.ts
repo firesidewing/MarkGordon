@@ -83,12 +83,3 @@ export const contactNotSure = {
 	hint: `You can simply write: "I'm not sure what I need, but here's what's happening…"`,
 	close: "That's often the best place to begin.",
 } as const;
-
-export const contactTopicOptions = [
-	'Speaking',
-	'Workshop / Team Development',
-	'Leadership Coaching',
-	'Leadership Accelerator',
-	'Faith Community',
-	'Not Sure / Just Want to Talk',
-] as const;
