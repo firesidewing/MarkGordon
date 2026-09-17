@@ -25,8 +25,8 @@ Event planners, org leaders, and faith-community buyers land on `/` evaluating a
 
 ## Section sequence
 
-1. **Text hero** — headline, intro, primary + secondary CTA, credibility eyebrow
-2. **Leadership challenge** — tension list, pull quote, Bring Mark to Your Team
+1. **Hero** — headline, recognition hook, three tensions, close, dual CTAs, live-room photo
+2. **Leadership challenge** — payoff plus proof quote, Bring Mark to Your Team
 3. **What Mark does** — keynotes / workshops / coaching (differentiated layouts)
 4. **Leadership Accelerator teaser** — cool-band editorial, not a second cobalt clone
 5. **Speaking topics teaser** — featured first topic + two companions + See All
@@ -42,7 +42,7 @@ Leadership Accelerator: teaser on homepage; full story on `/leadership-accelerat
 
 ### In scope
 
-- Text-only hero (no video, no audience-path cards)
+- Text-led hero with a live-room photograph (no video, no audience-path cards)
 - Course catalogs stay off the homepage
 - Reposition blind spot, newsletter, RM copy for leadership framing
 
@@ -55,7 +55,7 @@ Leadership Accelerator: teaser on homepage; full story on `/leadership-accelerat
 
 ## Mobile
 
-First screen: headline → one intro paragraph → Book Mark to Speak. Primary CTA repeats at challenge and final close. No 3-up card grids. Paragraphs 2–4 lines max.
+First screen: headline → recognition hook → Book Mark to Speak. Photo after the buttons on small screens.
 
 ## CTAs
 

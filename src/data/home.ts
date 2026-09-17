@@ -1,34 +1,32 @@
 import coachingImg from "@/assets/content/home2/Mark-47.jpg";
 import coursesBanner from "@/assets/content/home2/Untitled-design-2.png";
 import keynoteImg from "@/assets/content/home2/tsg-9.jpg";
+import speakingPortrait from "@/assets/content/keynote-speaker/Mark-32-1.jpg";
 import podcastImg from "@/assets/content/home2/Podcast-1-1024x731.png";
 import videoCover from "@/assets/content/home2/Relationship-Matters-video-cover.png";
 import bookImg from "@/assets/content/home2/Untitled-design-2.png";
 
 export const homeHero = {
     title: "Healthy Leaders Build Healthy Cultures.",
-    intro:
-        "Mark Gordon equips leaders and organizations to build trust, strengthen relationships, and create cultures where people can thrive.",
-    experience:
-        "With more than 35 years of leadership experience, Mark brings practical insight, engaging storytelling, and immediately usable tools to conferences, organizations, leadership teams, nonprofits, and faith communities.",
-    credibility:
-        "Keynote Speaker · Leadership Facilitator · Executive Coach · Author",
-    primaryCta: "Book Mark to Speak",
-    secondaryCta: "Explore Speaking Topics",
-} as const;
-
-export const homeChallenge = {
-    title: "Leadership Isn't Just About Strategy. It's About People.",
+    hook: "The room does not fail on strategy. It fails on trust, conflict, and the talk nobody starts.",
     tensions: [
         "Communication breaks down.",
         "Trust gets damaged.",
         "Conflict goes unresolved.",
-        "Leaders become overwhelmed.",
-        "Teams lose connection.",
     ],
-    body: "And what began as a people problem becomes a performance problem. The healthiest organizations develop leaders who know how to address what is happening beneath the surface.",
+    close: "Mark brings that conversation into the room. People leave with tools they can use the same week.",
+    credibility:
+        "Keynote Speaker · Leadership Facilitator · Executive Coach · Author",
+    primaryCta: "Book Mark to Speak",
+    secondaryCta: "Explore Speaking Topics",
+    image: keynoteImg,
+} as const;
+
+export const homeChallenge = {
+    title: "What Began as a People Problem Becomes a Performance Problem.",
+    body: "The healthiest organizations develop leaders who can name what is happening beneath the surface, then do something about it.",
     payoff:
-        "Mark helps leaders understand what is happening beneath the surface. Then he gives them practical tools to lead with greater clarity, confidence, trust, and connection.",
+        "Mark helps those leaders lead with greater clarity, confidence, trust, and connection.",
     cta: "Bring Mark to Your Team",
     quote:
         "Mark has the ability to take the difficult topics and issues people face and bring sensibility and solutions that can be acted on immediately.",
@@ -112,7 +110,7 @@ export const homeWhyMark = {
     emphasis: "Mark doesn't speak from theory alone. He speaks from experience.",
     cta: "Meet Mark",
     href: "/about-mark/",
-    image: keynoteImg,
+    image: speakingPortrait,
 } as const;
 
 export const homeGoDeeper = {

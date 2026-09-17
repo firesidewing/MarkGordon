@@ -95,7 +95,7 @@ components:
 
 The homepage puts Mark where he belongs: in front of leaders who need practical help with culture, trust, and relationships. The visitor should feel they have found a seasoned speaker and facilitator — not a course catalog, not a marriage blog, not a generic coach site.
 
-Visual identity stays **committed cobalt** with cool neutrals. What changes is hierarchy and composition: a **text-first hero** with typographic authority, a single dominant CTA (**Book Mark to Speak**), differentiated offering layouts, and fewer, stronger sections. Warmth comes from copy and photography elsewhere; the homepage sells the conversation.
+Visual identity stays **committed cobalt** with cool neutrals. What changes is hierarchy and composition: a **text-led hero** beside a live-room photograph, a single dominant CTA (**Book Mark to Speak**), differentiated offering layouts, and fewer, stronger sections. The first viewport sells the conversation happening in the room.
 
 **Key characteristics:**
 
@@ -191,11 +191,12 @@ Tonal layering with subtle lift. Depth from alternating surface bands, not stack
 - **Secondary:** White fill, cobalt text and border — pairs with primary in hero and final CTA.
 - **Text CTA:** On cobalt bands; underline on hover, optional arrow.
 
-### Text hero (homepage)
+### Homepage hero
 
-- Full-width **Clean Surface** or light band — no video, no split panel.
-- Composition: h1 → intro (max ~2 lines mobile) → button row → eyebrow credibility line.
-- Secondary action: **Explore Speaking Topics** (outline/secondary style).
+- Split: copy first, then a photograph of Mark in a live room. No video.
+- Composition: h1 → recognition hook → three tension lines → close → button row → credibility eyebrow.
+- Mobile: copy and **Book Mark to Speak** before the photo. Photo crops to a short band (`h-56`) so the CTA stays in the first screen.
+- Secondary action: **Explore Speaking Topics**.
 - No course cards, book promos, or audience-path forks in the hero.
 
 ### Offering panels (What Mark Does)
@@ -247,7 +248,7 @@ Courses move under **Resources**, not top-level homepage prominence.
 
 ### Do
 
-- **Do** lead the homepage with a text hero and **Book Mark to Speak** above the fold on mobile.
+- **Do** lead the homepage with the live-room photo and **Book Mark to Speak** above the fold on mobile.
 - **Do** use cobalt for buttons, one CTA band, and section h2 accents.
 - **Do** differentiate keynote, workshop, and coaching layouts.
 - **Do** keep paragraphs to 2–4 lines on mobile; use lists for tension copy (challenge section).
