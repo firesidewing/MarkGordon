@@ -161,7 +161,6 @@ export const homeFinalCta = {
     secondaryHref: "/contact/",
 } as const;
 
-// Legacy exports — used by inner pages
 export const homeQuote = {
     text: "I am passionate about you enjoying healthy and trusting relationships.",
     body: "Today is filled with damaged relationships both personally and professionally, this epidemic continues to destroy families and erode the personal value people need to experience a flourishing life. For healthy relationships to happen, people need to heal from the inside out.",

@@ -43,7 +43,6 @@ export const socialLinks = [
 	{ label: 'YouTube', href: 'https://www.youtube.com/@rmarkgordon', icon: 'youtube' },
 ] as const;
 
-/** Speaking-first navigation — keep the top bar sparse; fuller links live in Resources + footer */
 export const mainNav: NavItem[] = [
 	{ label: 'Speaking', href: '/keynote-speaker/' },
 	{ label: 'Workshops', href: '/workshop-facilitator/' },
