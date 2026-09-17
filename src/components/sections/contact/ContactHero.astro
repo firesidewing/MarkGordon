@@ -1,0 +1,41 @@
+---
+import Button from '@/components/ui/Button.astro';
+import { contactHero } from '@/data/contact';
+
+const { eyebrow, title, shortIntro, extendedIntro, primaryCta, formAnchor } = contactHero;
+---
+
+<section class="bg-surface-muted" aria-labelledby="contact-hero-heading">
+	<div
+		class="mx-auto w-full max-w-content px-4 py-10 sm:px-6 sm:py-[var(--spacing-hero-y)] lg:px-8"
+	>
+		<div class="mx-auto max-w-2xl text-center lg:max-w-3xl">
+			<p
+				class="font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-brand"
+			>
+				{eyebrow}
+			</p>
+			<h1
+				id="contact-hero-heading"
+				class="mt-2 text-balance font-display text-[length:var(--text-hero)] font-[number:var(--font-weight-hero)] leading-[var(--text-hero--line-height)] tracking-[var(--tracking-hero)] text-text-heading"
+			>
+				{title}
+			</h1>
+			<p class="mt-4 text-base leading-relaxed text-text">
+				{shortIntro}
+			</p>
+			<div class="mt-4 hidden space-y-2 text-base leading-relaxed text-text-muted md:block">
+				{
+					extendedIntro.map((line) => (
+						<p>{line}</p>
+					))
+				}
+			</div>
+			<div class="mt-8">
+				<Button href={formAnchor} class="w-full sm:w-auto">
+					{primaryCta}
+				</Button>
+			</div>
+		</div>
+	</div>
+</section>

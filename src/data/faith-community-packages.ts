@@ -5,6 +5,32 @@ import collageImg2 from '@/assets/content/faith-community-packages/image-from-ra
 import collageImg3 from '@/assets/content/faith-community-packages/FG6A9662-scaled-e1610423538726-1024x806.jpg';
 import collageImg4 from '@/assets/content/faith-community-packages/Mark-32-1-1024x1024.jpg';
 
+export const faithCommunitySeo = {
+	title: 'Faith Community Packages | Mark Gordon',
+	description:
+		'Relational culture packages for churches and faith communities—ongoing training, Relationship Matters, and leadership support for congregations, teams, and pastors.',
+} as const;
+
+export const faithCommunityHero = {
+	eyebrow: 'Faith communities',
+	title: 'Build a Healthier Relational Culture in Your Church.',
+	subhead:
+		'Over more than 30 years, Mark has developed principle-based systems and practical blueprints that help faith communities close the relationship gap—at home, on leadership teams, and in pastoral care.',
+	areasIntro:
+		'Church families flourish when relational health is intentional. These packages serve three areas at once:',
+	primaryCta: 'Book a Discovery Call',
+	secondaryCta: 'Explore the Packages',
+	packagesAnchor: '#faith-packages',
+} as const;
+
+export const faithCommunityBookingClose = {
+	title: "Let's Talk About Your Faith Community.",
+	body:
+		"Whether you're exploring in-person training, an online cohort model, or small group facilitator support, Mark would love to hear what you're hoping to build.",
+	primaryCta: 'Book a Discovery Call',
+	secondaryCta: 'Start a Conversation',
+} as const;
+
 export type CollageImage = {
 	image: ImageMetadata;
 	size: 'small' | 'large';
@@ -29,11 +55,10 @@ export const faithCommunityIntro = {
 		'The Pastors relationships',
 	],
 	paragraphs: [
-		'Over the past 30 years I have developed principal-based systems and practical blueprints that foster healthy relationships, solving the relationship gap we have today.',
-		"Church families flourish most when there is a healthy relational culture and so I offer a variety of plans for faith communities that serves all three area's of church relationships.",
+		'Plans are designed to move beyond a one-time event—combining training, tools, and ongoing support so transformation lasts.',
 	],
 	closing:
-		'I work with all three at the same time helping you develop a healthy relational culture and flourishing church',
+		'Mark works across all three relationship areas at the same time to help you develop a healthy relational culture and a flourishing church.',
 };
 
 export type FaithPackage = {

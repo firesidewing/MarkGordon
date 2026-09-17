@@ -30,6 +30,7 @@ export const RESERVED_PAGE_SLUGS = new Set([
 	'workshop-facilitator',
 	'relationship-leadership-coaching',
 	'about-mark',
+	'contact',
 ]);
 
 export async function getPublishedPosts(): Promise<CollectionEntry<'blog'>[]> {

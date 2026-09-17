@@ -175,6 +175,7 @@ Top bar: email + social icons (FB, Twitter/X, LinkedIn, Instagram, YouTube).
 - [x] Mobile navigation
 - [x] Testimonials carousel (homepage)
 - [x] Newsletter form — HubSpot embed (portal `23748604`, form `14655439-…`)
+- [x] Contact form — HubSpot embed (portal `23748604`, form `47143dc7-…`)
 - [x] Blind spot assessment — Riddle embed (`yMIVAotF`), fallback to blindspots.me
 
 ### 1.7 SEO & redirects

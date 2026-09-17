@@ -1,96 +1,30 @@
 ---
 export const prerender = true;
 
-import { Image } from 'astro:assets';
+import FaithCommunityBookingClose from '@/components/sections/faith/FaithCommunityBookingClose.astro';
+import FaithCommunityHero from '@/components/sections/faith/FaithCommunityHero.astro';
 import SectionHeading from '@/components/sections/SectionHeading.astro';
-import NewsletterCta from '@/components/sections/NewsletterCta.astro';
 import Button from '@/components/ui/Button.astro';
 import Section from '@/components/ui/Section.astro';
 import {
-	faithCommunityCollage,
-	faithCommunityIntro,
 	faithCommunityTestimonials,
 	faithPackages,
+	faithCommunitySeo,
 	smallGroupPackage,
 } from '@/data/faith-community-packages';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { hubspot, site } from '@/config/site';
-
-const description = `Faith Community Packages — ${site.tagline}`;
+import { hubspot } from '@/config/site';
 ---
 
-<BaseLayout title="Faith Community Packages" description={description}>
-	<Section>
-		<div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-12">
-			<div class="grid grid-cols-[0.85fr_1fr] gap-2 sm:gap-3">
-				{
-					faithCommunityCollage.map((column) => (
-						<div class="flex flex-col gap-2 sm:gap-3">
-							{column.map(({ image, size, align }) => (
-								<div
-									class:list={[
-										size === 'small' ? 'w-[45%]' : 'w-full',
-										align === 'right' && 'ml-auto',
-									]}
-								>
-									<Image
-										src={image}
-										alt=""
-										width={image.width}
-										height={image.height}
-										class="h-auto w-full"
-										loading="eager"
-									/>
-								</div>
-							))}
-						</div>
-					))
-				}
-			</div>
+<BaseLayout title={faithCommunitySeo.title} description={faithCommunitySeo.description}>
+	<FaithCommunityHero />
 
-			<div>
-				<p
-					class="font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-brand"
-				>
-					Faith communities
-				</p>
-				<h1
-					class="mt-2 text-balance font-display text-[length:var(--text-hero)] font-[number:var(--font-weight-hero)] leading-[var(--text-hero--line-height)] tracking-[var(--tracking-hero)] text-text-heading"
-				>
-					Faith Community Packages
-				</h1>
-				<p class="mt-4 font-display text-h4 font-semibold leading-snug text-text-heading">
-					Choose the plan that's right for you.
-				</p>
-				{
-					faithCommunityIntro.paragraphs.map((paragraph) => (
-						<p class="mt-4 text-base leading-relaxed text-text">{paragraph}</p>
-					))
-				}
-				<ul class="mt-4 space-y-2" role="list">
-					{
-						faithCommunityIntro.audienceAreas.map((item) => (
-							<li class="flex gap-2.5 text-base leading-relaxed text-text">
-								<span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden="true" />
-								<span>{item}</span>
-							</li>
-						))
-					}
-				</ul>
-				<p class="mt-4 text-base leading-relaxed text-text">
-					{faithCommunityIntro.closing}
-				</p>
-				<div class="mt-8">
-					<Button href={hubspot.discoveryCall} external class="w-full justify-center sm:w-auto">
-						Book Discovery Call
-					</Button>
-				</div>
-			</div>
-		</div>
-	</Section>
-
-	<Section variant="muted">
-		<SectionHeading title="Packages" subtitle="Ongoing training and tools for healthy relational culture." class="mb-10" />
+	<Section id="faith-packages" variant="muted" class="scroll-mt-24">
+		<SectionHeading
+			title="Packages"
+			subtitle="Ongoing training and tools for healthy relational culture."
+			class="mb-10"
+		/>
 
 		<div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
 			{
@@ -116,9 +50,12 @@ const description = `Faith Community Packages — ${site.tagline}`;
 								))
 							}
 						</ul>
-						<div class="mt-8">
-							<Button href={hubspot.discoveryCall} external class="w-full justify-center sm:w-auto">
+						<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+							<Button href={hubspot.discoveryCall} external class="w-full sm:w-auto">
 								{pkg.ctaLabel}
+							</Button>
+							<Button href="/contact/" variant="secondary" class="w-full sm:w-auto">
+								Ask a Question
 							</Button>
 						</div>
 						{
@@ -159,9 +96,12 @@ const description = `Faith Community Packages — ${site.tagline}`;
 					))
 				}
 			</ul>
-			<div class="mt-8">
-				<Button href={hubspot.discoveryCall} external>
+			<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+				<Button href={hubspot.discoveryCall} external class="w-full sm:w-auto">
 					{smallGroupPackage.ctaLabel}
+				</Button>
+				<Button href="/contact/" variant="secondary" class="w-full sm:w-auto">
+					Ask a Question
 				</Button>
 			</div>
 		</article>
@@ -173,7 +113,7 @@ const description = `Faith Community Packages — ${site.tagline}`;
 			{
 				faithCommunityTestimonials.map((testimonial) => (
 					<blockquote class="min-w-0 text-base leading-relaxed text-text">
-						<p>{testimonial.quote}</p>
+						<p>&ldquo;{testimonial.quote}&rdquo;</p>
 						<cite class="mt-4 block text-sm not-italic text-text-muted">{testimonial.author}</cite>
 					</blockquote>
 				))
@@ -181,5 +121,5 @@ const description = `Faith Community Packages — ${site.tagline}`;
 		</div>
 	</Section>
 
-	<NewsletterCta />
+	<FaithCommunityBookingClose />
 </BaseLayout>
