@@ -1,7 +1,6 @@
 ---
 import Button from '@/components/ui/Button.astro';
 import Section from '@/components/ui/Section.astro';
-import { hubspot } from '@/config/site';
 import { acceleratorGetStarted } from '@/data/leadership-accelerator';
 
 const { title, body, primaryCta, secondaryCta, primaryHref } = acceleratorGetStarted;
@@ -24,8 +23,7 @@ const { title, body, primaryCta, secondaryCta, primaryHref } = acceleratorGetSta
 				{primaryCta}
 			</Button>
 			<Button
-				href={hubspot.discoveryCall}
-				external
+				href="/contact/"
 				variant="secondary"
 				class="w-full !border-text-inverse !bg-transparent !text-text-inverse hover:!bg-white/10 sm:w-auto"
 			>
