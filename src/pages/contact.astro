@@ -1,0 +1,19 @@
+---
+export const prerender = true;
+
+import ContactFormSection from '@/components/sections/contact/ContactFormSection.astro';
+import ContactHelp from '@/components/sections/contact/ContactHelp.astro';
+import ContactHero from '@/components/sections/contact/ContactHero.astro';
+import ContactNotSure from '@/components/sections/contact/ContactNotSure.astro';
+import ContactProcess from '@/components/sections/contact/ContactProcess.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { contactSeo } from '@/data/contact';
+---
+
+<BaseLayout title={contactSeo.title} description={contactSeo.description}>
+	<ContactHero />
+	<ContactFormSection />
+	<ContactHelp />
+	<ContactProcess />
+	<ContactNotSure />
+</BaseLayout>

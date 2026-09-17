@@ -23,6 +23,12 @@ export const hubspot = {
 		formId: '14655439-3f03-4321-85b3-fb64acdc4955',
 		region: 'na1',
 	},
+	/** Set formId when HubSpot contact form is wired; empty uses mailto fallback */
+	contactForm: {
+		portalId: '23748604',
+		formId: '',
+		region: 'na1',
+	},
 } as const;
 
 export const blindSpot = {

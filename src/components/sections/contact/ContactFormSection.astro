@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import ContactForm from '@/components/islands/ContactForm.svelte';
+import Section from '@/components/ui/Section.astro';
+import contactPortrait from '@/assets/content/contact/Mark-36-e1569198052878-750x1024.jpg';
+import { contactFormSection, contactHero } from '@/data/contact';
+
+const { title, intro } = contactFormSection;
+---
+
+<Section id="contact-form" class="scroll-mt-24">
+	<div class="grid items-start gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-12">
+		<div class="hidden lg:block">
+			<div class="overflow-hidden shadow-md">
+				<Image
+					src={contactPortrait}
+					alt="Mark Gordon welcoming a conversation"
+					width={contactPortrait.width}
+					height={contactPortrait.height}
+					class="h-auto w-full object-cover"
+					loading="eager"
+					fetchpriority="high"
+				/>
+			</div>
+		</div>
+
+		<div>
+			<h2
+				class="font-display text-h3 font-semibold leading-snug text-text-heading sm:text-h2 sm:leading-tight"
+			>
+				{title}
+			</h2>
+			<p class="mt-2 text-base leading-relaxed text-text-muted">{intro}</p>
+			<div class="mt-4 space-y-2 text-base leading-relaxed text-text-muted md:hidden">
+				{
+					contactHero.extendedIntro.map((line) => (
+						<p>{line}</p>
+					))
+				}
+			</div>
+			<div class="mt-8">
+				<ContactForm client:visible />
+			</div>
+		</div>
+	</div>
+</Section>
