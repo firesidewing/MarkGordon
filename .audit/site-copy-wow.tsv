@@ -2,3 +2,4 @@ ts	phase	decision	why	evidence	result
 2026-09-17T04:11:00Z	frame	done when live CTAs match speaking-first product	event planners book Mark without seeing relationship-coach leftovers	PRODUCT.md	open
 2026-09-17T04:11:00Z	design	architect skipped	PRODUCT.md and DESIGN.md already name the speaking-first layout	DESIGN.md PRODUCT.md	skipped
 2026-09-17T04:11:00Z	copy	retired discovery-call and stronger-relationships defaults	those phrases sold the old product	scripts/check-speaking-copy.ts	open
+2026-09-17T04:28:02Z	copy	rewrote live strings without em dashes	unslop rule 13. periods or commas only	commit 2988bca scripts/check-speaking-copy.ts	bun run check:copy passed
