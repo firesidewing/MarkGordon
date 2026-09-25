@@ -28,14 +28,13 @@ Event planners, org leaders, and faith-community buyers land on `/` evaluating a
 1. **Hero** — headline, recognition hook, three tensions, close, dual CTAs, live-room photo
 2. **Leadership challenge** — payoff, Bring Mark to Your Team, distinct speaking photo
 3. **What Mark does** — keynotes / workshops / coaching (differentiated layouts)
-4. **Speaking topics teaser** — three topics + See All
-5. **Why Mark** — credibility with speaking photograph
-6. **Testimonials** — Wes, Gary, Ron excerpts
-7. **Relationship Matters** — book/framework band
-8. **Blind spot CTA band** — leadership-framed assessment
-9. **Close** — newsletter + final CTA (combined band)
-
-Leadership Accelerator lives under Resources (`/leadership-accelerator/`), not on the homepage.
+4. **Leadership Accelerator teaser** — cohort beyond the keynote
+5. **Speaking topics teaser** — three topics + See All
+6. **Why Mark** — credibility with speaking photograph
+7. **Testimonials** — Wes, Gary, Ron excerpts
+8. **Relationship Matters** — book/framework band
+9. **Blind spot CTA band** — leadership-framed assessment
+10. **Close** — newsletter + final CTA (combined band)
 
 ## Scope and boundaries
 
