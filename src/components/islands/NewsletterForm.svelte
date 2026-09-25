@@ -71,13 +71,19 @@
 			class="min-h-12 w-full flex-1 rounded-button border border-text-muted/30 bg-surface px-4 text-base text-text-heading placeholder:text-text-muted focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
 		/>
 		<button
-			type="submit"
+			type="button"
 			disabled={status === 'submitting'}
 			class="btn-interactive inline-flex min-h-12 shrink-0 items-center justify-center rounded-button bg-brand px-8 py-3 font-display text-button font-button text-text-inverse hover:bg-brand-dark disabled:opacity-70"
+			onclick={() => void subscribe()}
 		>
 			{status === 'submitting' ? 'Subscribing…' : submitLabel}
 		</button>
 	</form>
+	<noscript>
+		<p class="mt-3 text-sm text-text-muted">
+			<a href="/newsletter-signup/" class="font-semibold text-brand hover:underline">Subscribe on the signup page</a>
+		</p>
+	</noscript>
 	{#if status === 'error'}
 		<p class="mt-3 text-sm text-text-muted" role="alert">
 			Unable to subscribe right now.
