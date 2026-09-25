@@ -65,6 +65,12 @@
 	}
 }
 
+@media (min-width: 640px) {
+	:root {
+		--tracking-h2: 0.29375rem;
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
