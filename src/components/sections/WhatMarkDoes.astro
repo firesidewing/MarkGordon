@@ -69,11 +69,11 @@ const [keynotes, workshops, coaching] = items;
         <!-- Coaching: portrait-forward -->
         <article class="grid overflow-hidden bg-surface-muted lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
             <div class="editorial-frame lg:h-full lg:min-h-full lg:aspect-auto">
-                <Image
+                    <Image
                     src={coaching.image}
                     alt="Mark Gordon, executive coach"
-                    width={coaching.image.width}
-                    height={coaching.image.height}
+                    width={800}
+                    densities={[1, 2]}
                     class="editorial-photo object-[center_20%]"
                     loading="lazy"
                 />
