@@ -46,11 +46,15 @@
 	}
 
 	.editorial-frame {
-		@apply overflow-hidden bg-card-dark aspect-[4/3];
+		@apply w-full overflow-hidden bg-card-dark aspect-[4/3];
 	}
 
 	.editorial-photo {
 		@apply block h-full w-full object-cover;
+	}
+
+	.editorial-bleed {
+		@apply -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full;
 	}
 
 	.skip-link:focus {
