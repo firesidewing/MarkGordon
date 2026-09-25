@@ -11,10 +11,13 @@ const { podcastImg } = homeAssets;
 		<div class="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
 			<div>
 				<h2 class="mb-3 font-display text-h2 font-h2 uppercase tracking-h2 text-brand">Subscribe to My Newsletter</h2>
+				<p class="mb-2 text-lg font-medium leading-relaxed text-text-heading">
+					Leadership ideas you can actually use.
+				</p>
 				<p class="mb-6 leading-relaxed text-text-muted">
 					We send out weekly newsletters with relationship tips, news on upcoming events and the latest courses.
 				</p>
-				<NewsletterForm client:visible />
+				<NewsletterForm client:visible inputId="courses-newsletter-email" />
 			</div>
 			<a
 				href="https://open.spotify.com/show/24p7utX5IUjVIAz3RrCiPh"

@@ -81,7 +81,7 @@ import { homeNewsletter } from '@/data/home';
 					href="/newsletter-signup/"
 					class="btn-interactive inline-flex items-center justify-center rounded-button bg-brand px-8 py-3.5 font-display text-sm text-button font-button uppercase text-text-inverse hover:bg-brand-dark"
 				>
-					{homeNewsletter.cta}
+					{homeNewsletter.footerCta}
 				</a>
 			</div>
 		</div>
@@ -90,9 +90,14 @@ import { homeNewsletter } from '@/data/home';
 	<div class="border-t border-white/10">
 		<div class="mx-auto flex w-full max-w-content flex-col items-center justify-between gap-3 px-4 py-5 text-xs sm:flex-row sm:px-6 lg:px-8">
 			<p>{site.copyright}</p>
-			<a href={`mailto:${site.email}`} class="inline-flex min-h-11 items-center transition-colors hover:text-text-inverse">
-				{site.email}
-			</a>
+			<div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 sm:justify-end">
+				<a href="/sign-in/" class="inline-flex min-h-11 items-center transition-colors hover:text-text-inverse">
+					Course login
+				</a>
+				<a href={`mailto:${site.email}`} class="inline-flex min-h-11 items-center transition-colors hover:text-text-inverse">
+					{site.email}
+				</a>
+			</div>
 		</div>
 	</div>
 </footer>

@@ -172,6 +172,15 @@
 					</li>
 				{/each}
 			</ul>
+			<div class="border-t border-surface-muted px-4 py-3">
+				<a
+					href="/sign-in/"
+					class="link-interactive block py-3 text-sm text-text-muted hover:text-brand"
+					onclick={closeMenu}
+				>
+					Course login
+				</a>
+			</div>
 		</nav>
 	{/if}
 </div>

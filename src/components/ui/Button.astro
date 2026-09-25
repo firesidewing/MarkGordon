@@ -1,7 +1,7 @@
 ---
 interface Props {
     href: string;
-    variant?: "primary" | "secondary" | "text";
+    variant?: "primary" | "secondary" | "inverse" | "text";
     external?: boolean;
     class?: string;
 }
@@ -15,10 +15,12 @@ const {
 
 const variantClasses = {
     primary:
-        "btn-interactive inline-flex min-h-11 items-center justify-center rounded-button bg-brand px-8 py-3 font-display text-button font-button uppercase text-text-inverse hover:bg-brand-dark",
+        "btn-interactive inline-flex min-h-11 items-center justify-center rounded-button bg-brand px-8 py-3 font-display text-button font-button text-text-inverse hover:bg-brand-dark",
     secondary:
-        "btn-interactive inline-flex min-h-11 items-center justify-center rounded-button border-2 border-brand bg-surface px-8 py-3 font-display text-button font-button uppercase text-brand hover:bg-surface-muted",
-    text: "link-interactive inline-flex min-h-11 items-center font-display text-button font-button uppercase text-text-inverse underline-offset-4 hover:underline",
+        "btn-interactive inline-flex min-h-11 items-center justify-center rounded-button border-2 border-brand bg-surface px-8 py-3 font-display text-button font-button text-brand hover:bg-surface-muted",
+    inverse:
+        "btn-interactive inline-flex min-h-11 items-center justify-center rounded-button bg-surface px-8 py-3 font-display text-button font-button text-brand hover:bg-surface-muted",
+    text: "link-interactive inline-flex min-h-11 items-center font-display text-button font-button text-text-inverse underline-offset-4 hover:underline",
 };
 
 const classes = [variantClasses[variant], className];

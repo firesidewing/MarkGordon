@@ -27,10 +27,7 @@ export const homeChallenge = {
     payoff:
         "Mark helps those leaders lead with greater clarity, confidence, trust, and connection.",
     cta: "Bring Mark to Your Team",
-    quote:
-        "Mark has the ability to take the difficult topics and issues people face and bring sensibility and solutions that can be acted on immediately.",
-    quoteAuthor: "Ron Schlitt",
-    quoteRole: "Lead Strengths Facilitator",
+    image: keynoteImg,
 } as const;
 
 export const homeOfferings = {
@@ -144,9 +141,11 @@ export const homeBlindSpot = {
 
 export const homeNewsletter = {
     title: "Get Practical Leadership Insights.",
+    invite: "Leadership ideas you can actually use.",
     description:
         "Short, useful insights from Mark Gordon on leadership, relationships, culture, and personal growth.",
-    cta: "Join the Leadership Conversation",
+    cta: "Subscribe",
+    footerCta: "Join the Leadership Conversation",
 } as const;
 
 export const homeFinalCta = {

@@ -14,7 +14,7 @@ const [keynotes, workshops, coaching] = items;
 
     <div class="space-y-6">
         <!-- Keynotes: text-forward band -->
-        <article class="bg-brand px-5 py-8 text-text-inverse sm:px-10 sm:py-12">
+        <article class="bg-brand px-6 py-8 text-text-inverse sm:px-10 sm:py-12">
             <p class="font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-text-inverse/80">
                 {keynotes.title}
             </p>
@@ -32,7 +32,7 @@ const [keynotes, workshops, coaching] = items;
         </article>
 
         <!-- Workshops: list-forward split -->
-        <article class="grid gap-8 border border-surface-muted bg-surface p-6 shadow-sm sm:p-10 lg:grid-cols-2 lg:items-center">
+        <article class="grid gap-8 border-t-2 border-brand bg-surface p-6 sm:p-10 lg:grid-cols-2 lg:items-center">
             <div>
                 <p class="font-display text-[length:var(--text-eyebrow)] font-semibold uppercase tracking-[var(--tracking-eyebrow)] text-brand">
                     {workshops.title}
@@ -68,13 +68,13 @@ const [keynotes, workshops, coaching] = items;
 
         <!-- Coaching: portrait-forward -->
         <article class="grid overflow-hidden bg-surface-muted lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-            <div class="relative min-h-64 bg-card-dark lg:min-h-full">
+            <div class="editorial-frame lg:h-full lg:min-h-full lg:aspect-auto">
                 <Image
                     src={coaching.image}
                     alt="Mark Gordon, executive coach"
                     width={coaching.image.width}
                     height={coaching.image.height}
-                    class="h-full w-full object-cover object-[center_20%]"
+                    class="editorial-photo object-[center_20%]"
                     loading="lazy"
                 />
             </div>
