@@ -24,7 +24,7 @@ const { title, description, primaryCta, secondaryCta, secondaryHref } =
                 {homeNewsletter.description}
             </p>
             <div class="mt-8">
-				<NewsletterForm client:visible submitLabel={homeNewsletter.cta} inputId="home-newsletter-email" />
+				<NewsletterForm client:load submitLabel={homeNewsletter.cta} inputId="home-newsletter-email" />
             </div>
         </div>
     </Section>

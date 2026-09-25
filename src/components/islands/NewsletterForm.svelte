@@ -52,7 +52,12 @@
 		You're in. Watch your inbox for practical leadership notes from Mark.
 	</p>
 {:else}
-	<form class="flex flex-col gap-3 sm:flex-row sm:items-stretch" onsubmit={handleSubmit}>
+	<form
+		method="post"
+		action="/newsletter-signup/"
+		class="flex flex-col gap-3 sm:flex-row sm:items-stretch"
+		onsubmit={handleSubmit}
+	>
 		<label class="sr-only" for={inputId}>Email address</label>
 		<input
 			id={inputId}
