@@ -13,8 +13,7 @@
 
 	const { portalId, formId } = hubspot.newsletterForm;
 
-	async function handleSubmit(event: SubmitEvent) {
-		event.preventDefault();
+	async function subscribe() {
 		if (status === 'submitting') return;
 
 		const value = email.trim();
@@ -53,10 +52,11 @@
 	</p>
 {:else}
 	<form
-		method="post"
-		action="/newsletter-signup/"
 		class="flex flex-col gap-3 sm:flex-row sm:items-stretch"
-		onsubmit={handleSubmit}
+		onsubmit={(event) => {
+			event.preventDefault();
+			void subscribe();
+		}}
 	>
 		<label class="sr-only" for={inputId}>Email address</label>
 		<input
@@ -68,7 +68,7 @@
 			placeholder="Email address"
 			bind:value={email}
 			disabled={status === 'submitting'}
-            class="min-h-12 w-full flex-1 rounded-button border border-text-muted/30 bg-surface px-4 text-base text-text-heading placeholder:text-text-muted focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
+			class="min-h-12 w-full flex-1 rounded-button border border-text-muted/30 bg-surface px-4 text-base text-text-heading placeholder:text-text-muted focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
 		/>
 		<button
 			type="submit"
