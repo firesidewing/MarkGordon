@@ -26,17 +26,15 @@ Event planners, org leaders, and faith-community buyers land on `/` evaluating a
 ## Section sequence
 
 1. **Hero** — headline, recognition hook, three tensions, close, dual CTAs, live-room photo
-2. **Leadership challenge** — payoff plus proof quote, Bring Mark to Your Team
+2. **Leadership challenge** — payoff, Bring Mark to Your Team, distinct speaking photo
 3. **What Mark does** — keynotes / workshops / coaching (differentiated layouts)
-4. **Leadership Accelerator teaser** — cool-band editorial, not a second cobalt clone
-5. **Speaking topics teaser** — featured first topic + two companions + See All
+4. **Leadership Accelerator teaser** — cohort beyond the keynote
+5. **Speaking topics teaser** — three topics + See All
 6. **Why Mark** — credibility with speaking photograph
-7. **Testimonials** — excerpts, "Leaders Experience the Difference"
-8. **Go deeper** — coaching + Relationship Matters (single band, two columns)
+7. **Testimonials** — Wes, Gary, Ron excerpts
+8. **Relationship Matters** — book/framework band
 9. **Blind spot CTA band** — leadership-framed assessment
 10. **Close** — newsletter + final CTA (combined band)
-
-Leadership Accelerator: teaser on homepage; full story on `/leadership-accelerator/`.
 
 ## Scope and boundaries
 

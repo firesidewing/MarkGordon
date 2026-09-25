@@ -32,7 +32,7 @@
 	--font-weight-h2: 900;
 	--font-weight-h1: 900;
 
-	--tracking-h2: 0.29375rem;
+	--tracking-h2: 0.12em;
 
 	/* Colors */
 	--color-brand: #0047ab;
@@ -42,7 +42,7 @@
 	--color-text-muted: #617175;
 	--color-text-subtle: #69727d;
 	--color-text-inverse: #ffffff;
-	--color-quote: #2563a8;
+	--color-quote: #5dade2;
 
 	--color-card-header: #2d2d2d;
 	--color-card-dark: #1e1e1e;

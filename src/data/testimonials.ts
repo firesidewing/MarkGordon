@@ -4,29 +4,21 @@ export type Testimonial = {
 	role?: string;
 };
 
-/** Short excerpts for homepage carousel. Leadership and speaking framing. */
+/** Homepage quotes: experience, transformation, practicality. */
 export const homeTestimonialExcerpts: Testimonial[] = [
 	{
-		quote:
-			'He consistently receives the highest ratings in evaluations and feedback from participants.',
-		author: 'Ron Schlitt',
-		role: 'Lead Strengths Facilitator',
+		quote: 'He has lived what he speaks.',
+		author: 'Wes Jonat',
+		role: 'Owner, Sun Valley Pools & Spas',
 	},
 	{
-		quote:
-			"He's funny, to the point, helpful, and engaging.",
+		quote: 'Gifted at helping people get better and be better.',
 		author: 'Gary Chupik',
 		role: 'Owner, Gary Chupik Leadership LLC',
 	},
 	{
 		quote:
-			'Mark has the ability to communicate truth with passion and compassion.',
-		author: 'Wes Jonat',
-		role: 'Owner, Sun Valley Pools & Spas',
-	},
-	{
-		quote:
-			'Mark has the ability to take the difficult topics and issues people face and bring sensibility and solutions that can be acted on immediately.',
+			'He has the ability to take difficult topics and bring sensibility and solutions that can be acted on immediately.',
 		author: 'Ron Schlitt',
 		role: 'Lead Strengths Facilitator',
 	},

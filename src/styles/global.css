@@ -45,6 +45,18 @@
 		@apply sr-only fixed left-4 top-4 z-[100] rounded-button bg-brand px-6 py-3 font-display text-sm font-medium uppercase text-text-inverse no-underline;
 	}
 
+	.editorial-frame {
+		@apply w-full overflow-hidden bg-card-dark aspect-[4/3];
+	}
+
+	.editorial-photo {
+		@apply block h-full w-full object-cover;
+	}
+
+	.editorial-bleed {
+		@apply -mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:mx-0 lg:w-full;
+	}
+
 	.skip-link:focus {
 		position: fixed;
 		width: auto;
@@ -54,6 +66,12 @@
 		overflow: visible;
 		clip: auto;
 		white-space: normal;
+	}
+}
+
+@media (min-width: 640px) {
+	:root {
+		--tracking-h2: 0.29375rem;
 	}
 }
 

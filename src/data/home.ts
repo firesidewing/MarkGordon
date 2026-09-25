@@ -2,6 +2,7 @@ import coachingImg from "@/assets/content/home2/Mark-47.jpg";
 import coursesBanner from "@/assets/content/home2/Untitled-design-2.png";
 import keynoteImg from "@/assets/content/home2/tsg-9.jpg";
 import speakingPortrait from "@/assets/content/keynote-speaker/Mark-32-1.jpg";
+import challengeImg from "@/assets/content/faith-community-packages/FG6A9662-scaled-e1610423538726-1024x806.jpg";
 import podcastImg from "@/assets/content/home2/Podcast-1-1024x731.png";
 import videoCover from "@/assets/content/home2/Relationship-Matters-video-cover.png";
 import bookImg from "@/assets/content/home2/Untitled-design-2.png";
@@ -27,10 +28,7 @@ export const homeChallenge = {
     payoff:
         "Mark helps those leaders lead with greater clarity, confidence, trust, and connection.",
     cta: "Bring Mark to Your Team",
-    quote:
-        "Mark has the ability to take the difficult topics and issues people face and bring sensibility and solutions that can be acted on immediately.",
-    quoteAuthor: "Ron Schlitt",
-    quoteRole: "Lead Strengths Facilitator",
+    image: challengeImg,
 } as const;
 
 export const homeOfferings = {
@@ -144,9 +142,11 @@ export const homeBlindSpot = {
 
 export const homeNewsletter = {
     title: "Get Practical Leadership Insights.",
+    invite: "Leadership ideas you can actually use.",
     description:
         "Short, useful insights from Mark Gordon on leadership, relationships, culture, and personal growth.",
-    cta: "Join the Leadership Conversation",
+    cta: "Subscribe",
+    footerCta: "Join the Leadership Conversation",
 } as const;
 
 export const homeFinalCta = {

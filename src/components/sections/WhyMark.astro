@@ -30,13 +30,13 @@ const { title, paragraphs, emphasis, cta, href, image } = homeWhyMark;
             </div>
         </div>
 
-        <div class="overflow-hidden">
+        <div class="editorial-frame editorial-bleed">
             <Image
                 src={image}
                 alt="Mark Gordon, leadership speaker and facilitator"
-                width={image.width}
-                height={image.height}
-                class="h-auto w-full object-cover"
+                width={800}
+                densities={[1, 2]}
+                class="editorial-photo object-top"
                 loading="lazy"
             />
         </div>

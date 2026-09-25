@@ -5,6 +5,7 @@ p0_count: 0
 p1_count: 1
 timestamp: 2026-08-15T22-50-00Z
 slug: src-pages-index-astro
+closed: true
 ---
 ## Design Health Score
 
