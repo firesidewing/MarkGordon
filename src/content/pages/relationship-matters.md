@@ -43,7 +43,7 @@ Relationship Matters is designed to help you and your family figure out what wen
 
 Relationship Matters offers insight into your family dynamics and ways to improve them. Learn how to build trust equity. Build authentic relationships. Create a healthy family culture.
 
-[Book Discovery Call](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting)
+[Book Discovery Call](https://calendly.com/rmarkgordon/30min)
 
 ### "
 

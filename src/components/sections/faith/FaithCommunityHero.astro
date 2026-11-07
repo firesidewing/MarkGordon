@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Button from '@/components/ui/Button.astro';
-import { hubspot } from '@/config/site';
+import { booking } from '@/config/site';
 import {
 	faithCommunityCollage,
 	faithCommunityHero,
@@ -70,7 +70,7 @@ const { eyebrow, title, subhead, areasIntro, primaryCta, secondaryCta, packagesA
 				</ul>
 				<p class="mt-4 text-base leading-relaxed text-text-muted">{faithCommunityIntro.closing}</p>
 				<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-					<Button href={hubspot.discoveryCall} external class="w-full sm:w-auto">
+					<Button href={booking.discoveryCall} external class="w-full sm:w-auto">
 						{primaryCta}
 					</Button>
 					<Button href={packagesAnchor} variant="secondary" class="w-full sm:w-auto">

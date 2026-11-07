@@ -32,7 +32,7 @@ Coaching is a journey I am invited on, walking with you in healing the relations
 
 Due to my detail and through approach it takes time which is why I do not provide one-off coaching. If you want to see if we can be a good fit, I do provide a complimentary 15-minute discovery call to discuss our potential journey together. 
 
-[Book Discovery Call](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting) ![](../../assets/content/relationship-leadership-coaching/Mark-38sq-1024x1024.jpg)
+[Book Discovery Call](https://calendly.com/rmarkgordon/30min) ![](../../assets/content/relationship-leadership-coaching/Mark-38sq-1024x1024.jpg)
 
 #### What people say?
 

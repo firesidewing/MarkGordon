@@ -12,4 +12,4 @@ I have been involved in community leadership, coaching, teaching, and keynote sp
 
 My greatest success has been my amazing family. I have been married to my wife Sandi for over 40 years, I have three growth children, who are married, and two grandchildren.
 
-"Mark's devoted and genuine leadership has made a lasting impact on my life. Decades later, and I still hear his gentle and loving voice in my head, telling me that I'm worthy." - G.S. [Book Discovery Call](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting)
+"Mark's devoted and genuine leadership has made a lasting impact on my life. Decades later, and I still hear his gentle and loving voice in my head, telling me that I'm worthy." - G.S. [Book Discovery Call](https://calendly.com/rmarkgordon/30min)

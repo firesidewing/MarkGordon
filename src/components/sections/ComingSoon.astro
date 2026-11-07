@@ -1,7 +1,7 @@
 ---
 import Button from '@/components/ui/Button.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { hubspot, site } from '@/config/site';
+import { booking, site } from '@/config/site';
 
 interface Props {
 	title: string;
@@ -31,7 +31,7 @@ const {
 		<div class="mx-auto max-w-xl text-center">
 			<p class="mb-8 leading-relaxed text-text-muted">{description}</p>
 			<div class="flex flex-wrap justify-center gap-3">
-				<Button href={hubspot.discoveryCall} external>Book Mark to Speak</Button>
+				<Button href={booking.discoveryCall} external>Book Mark to Speak</Button>
 				<Button href="/">Back to Home</Button>
 			</div>
 		</div>

@@ -11,7 +11,7 @@ videoId: "J0flKmjl8Qw"
 
 Relationships are in crisis, that’s why I love to empower people in developing healthy relationships. I do this through transformational Courses and creating content that gives you the tools needed to succeed. People’s lives have been transformed by using the principles taught in my courses, book and keynotes.
 
-[Book Discovery Call](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting) [BUY THE BOOK](http://www.markgordon.ca/relationship-matters/) Would you like stronger relationships?  
+[Book Discovery Call](https://calendly.com/rmarkgordon/30min) [BUY THE BOOK](http://www.markgordon.ca/relationship-matters/) Would you like stronger relationships?  
 Discover how in three minutes by knowing your blindspots [Take the Free Test Now](https://www.markgordon.ca/blind-spot-assessment/)
 
 **"**I am passionate about you enjoying healthy and trusting relationships.**"**
@@ -30,7 +30,7 @@ I am committed to empowering all your relationships through a coaching process a
 - Live with confidence and authentic connections
 - People who treat each other with kindness and respect
 
-[Book Discovery Call](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting)
+[Book Discovery Call](https://calendly.com/rmarkgordon/30min)
 
 ## COURSES with IMpact
 
@@ -95,7 +95,7 @@ Empowering Content Delivered with Passion and Practical Application 
 
 Whether speaking in the faith community or a business, recovery agency or a non-profit or a leadership team, my goal is to be engaging and to always leave people with inspiration and practical life applications. My topics are relevant and empowering concerning relationships or the subjects that hurt or enhance them.
 
-[Book Discovery Call](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting) [Learn More](/keynote-speaker/) ![](../../assets/content/home2/Mark-47.jpg)
+[Book Discovery Call](https://calendly.com/rmarkgordon/30min) [Learn More](/keynote-speaker/) ![](../../assets/content/home2/Mark-47.jpg)
 
 ### Relationship & Leadership Coaching
 
@@ -103,7 +103,7 @@ If you find your family or organization in a relational crisis, I will help you 
 
 I encourage you to invest in learning the skills to improve your personal or professional relationships. 
 
-[Book Discovery Call](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting) [Learn More](/relationship-leadership-coaching/)
+[Book Discovery Call](https://calendly.com/rmarkgordon/30min) [Learn More](/relationship-leadership-coaching/)
 
 #### Subscribe to My Newsletter
 

@@ -6,6 +6,7 @@ import challengeImg from "@/assets/content/faith-community-packages/FG6A9662-sca
 import podcastImg from "@/assets/content/home2/Podcast-1-1024x731.png";
 import videoCover from "@/assets/content/home2/Relationship-Matters-video-cover.png";
 import bookImg from "@/assets/content/home2/Untitled-design-2.png";
+import { booking } from "@/config/site";
 
 export const homeHero = {
     title: "Healthy Leaders Build Healthy Cultures.",
@@ -261,7 +262,7 @@ export const homeFeatures = [
         ctas: [
             {
                 label: "Book a Keynote Call",
-                href: "https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting",
+                href: booking.discoveryCall,
                 external: true,
             },
             { label: "View Keynote Topics", href: "/keynote-speaker/" },
@@ -275,7 +276,7 @@ export const homeFeatures = [
         ctas: [
             {
                 label: "Book a Coaching Call",
-                href: "https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting",
+                href: booking.discoveryCall,
                 external: true,
             },
             {

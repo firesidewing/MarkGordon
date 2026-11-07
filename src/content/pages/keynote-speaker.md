@@ -25,7 +25,7 @@ My topics are relevant and empowering concerning relationships or the subjects t
 
 **Whatever the subject my approach is the same, Inspire, connect and encourage!**
 
-[Book Discovery Call](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting)
+[Book Discovery Call](https://calendly.com/rmarkgordon/30min)
 
 #### What people say?
 

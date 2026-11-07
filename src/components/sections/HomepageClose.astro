@@ -2,7 +2,7 @@
 import Button from "@/components/ui/Button.astro";
 import NewsletterForm from "@/components/islands/NewsletterForm.svelte";
 import Section from "@/components/ui/Section.astro";
-import { hubspot } from "@/config/site";
+import { booking } from "@/config/site";
 import { homeFinalCta, homeNewsletter } from "@/data/home";
 
 const { title, description, primaryCta, secondaryCta, secondaryHref } =
@@ -42,7 +42,7 @@ const { title, description, primaryCta, secondaryCta, secondaryHref } =
                 {description}
             </p>
             <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
-                <Button href={hubspot.discoveryCall} external variant="inverse" class="w-full sm:w-auto">
+                <Button href={booking.discoveryCall} external variant="inverse" class="w-full sm:w-auto">
                     {primaryCta}
                 </Button>
                 <Button

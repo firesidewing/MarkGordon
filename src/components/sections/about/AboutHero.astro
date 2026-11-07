@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Button from '@/components/ui/Button.astro';
-import { hubspot } from '@/config/site';
+import { booking } from '@/config/site';
 import { aboutHero } from '@/data/about-mark';
 import speakingImage from '@/assets/content/keynote-speaker/Mark-32-1.jpg';
 
@@ -30,7 +30,7 @@ const { title, subhead, close, primaryCta, secondaryCta, secondaryHref } = about
 				</p>
 
 				<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap hero-enter hero-enter--3">
-					<Button href={hubspot.discoveryCall} external class="w-full sm:w-auto">
+					<Button href={booking.discoveryCall} external class="w-full sm:w-auto">
 						{primaryCta}
 					</Button>
 					<Button href={secondaryHref} variant="secondary" class="w-full sm:w-auto">

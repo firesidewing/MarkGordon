@@ -6,8 +6,7 @@ import BlindSpotStickyBar from '@/components/sections/BlindSpotStickyBar.astro';
 import Button from '@/components/ui/Button.astro';
 import Section from '@/components/ui/Section.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { blindSpot } from '@/config/site';
-import { hubspot } from '@/config/site';
+import { booking, blindSpot } from '@/config/site';
 import {
 	blindSpotDebrief,
 	blindSpotDefinition,
@@ -234,7 +233,7 @@ import {
 					}
 				</ul>
 				<div class="mt-8">
-					<Button href={hubspot.discoveryCall} external>
+					<Button href={booking.discoveryCall} external>
 						{blindSpotDebrief.cta}
 					</Button>
 				</div>

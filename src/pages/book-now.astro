@@ -6,7 +6,7 @@ import PageHero from '@/components/sections/PageHero.astro';
 import Button from '@/components/ui/Button.astro';
 import Section from '@/components/ui/Section.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { hubspot } from '@/config/site';
+import { booking } from '@/config/site';
 ---
 
 <BaseLayout
@@ -30,7 +30,7 @@ import { hubspot } from '@/config/site';
 				Whether you are booking a keynote, designing a workshop, looking at Leadership Accelerator, or exploring coaching, start with a real conversation, not a form that asks you to pick a package first.
 			</p>
 			<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-				<Button href={hubspot.discoveryCall} external>
+				<Button href={booking.discoveryCall} external>
 					Book Mark to Speak
 				</Button>
 				<Button href="/contact/" variant="secondary">

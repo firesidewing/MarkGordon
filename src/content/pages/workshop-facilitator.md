@@ -9,7 +9,7 @@ draft: true
 
 Mark offers a wide variety of workshops including Anger Management, Strength Based Parenting, Developing a Healthy Relational Culture, Anger at Work, Strength Based Leadership, and many others. He also can custom design workshops for organizations to address specific relational struggles within teams.
 
-[Book Discovery Call](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting)
+[Book Discovery Call](https://calendly.com/rmarkgordon/30min)
 
 #### Subscribe to My Newsletter
 

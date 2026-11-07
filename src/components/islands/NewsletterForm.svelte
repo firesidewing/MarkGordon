@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { hubspot } from '@/config/site';
+	import { site } from '@/config/site';
 
 	interface Props {
 		submitLabel?: string;
@@ -9,38 +9,38 @@
 	let { submitLabel = 'Subscribe', inputId = 'newsletter-email' }: Props = $props();
 
 	let email = $state('');
+	let fax = $state('');
 	let status = $state<'idle' | 'submitting' | 'success' | 'error'>('idle');
+	let errorMessage = $state('');
 
-	const { portalId, formId } = hubspot.newsletterForm;
-
-	async function subscribe() {
+	async function subscribe(event: SubmitEvent) {
+		event.preventDefault();
 		if (status === 'submitting') return;
 
-		const value = email.trim();
-		if (!value) return;
-
 		status = 'submitting';
+		errorMessage = '';
 
 		try {
-			const res = await fetch(
-				`https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`,
-				{
-					method: 'POST',
-					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify({
-						fields: [{ name: 'email', value }],
-						context: {
-							pageUri: window.location.href,
-							pageName: document.title,
-						},
-					}),
-				},
-			);
-
-			if (!res.ok) throw new Error('submit failed');
+			const response = await fetch('/api/newsletter', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+				body: JSON.stringify({ email, fax }),
+			});
+			const data: unknown = await response.json().catch(() => null);
+			const serverError =
+				data && typeof data === 'object' && 'error' in data && typeof data.error === 'string'
+					? data.error
+					: '';
+			if (!response.ok) {
+				errorMessage = serverError || 'Unable to subscribe right now.';
+				status = 'error';
+				return;
+			}
 			status = 'success';
 			email = '';
-		} catch {
+		} catch (cause) {
+			console.error(cause);
+			errorMessage = 'Unable to subscribe right now.';
 			status = 'error';
 		}
 	}
@@ -53,11 +53,17 @@
 {:else}
 	<form
 		class="flex flex-col gap-3 sm:flex-row sm:items-stretch"
-		onsubmit={(event) => {
-			event.preventDefault();
-			void subscribe();
-		}}
+		method="post"
+		action="/api/newsletter"
+		data-astro-reload
+		onsubmit={subscribe}
 	>
+		<div class="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+			<label>
+				Fax
+				<input name="fax" tabindex="-1" autocomplete="off" bind:value={fax} />
+			</label>
+		</div>
 		<label class="sr-only" for={inputId}>Email address</label>
 		<input
 			id={inputId}
@@ -65,31 +71,24 @@
 			type="email"
 			autocomplete="email"
 			required
+			maxlength="254"
 			placeholder="Email address"
 			bind:value={email}
 			disabled={status === 'submitting'}
 			class="min-h-12 w-full flex-1 rounded-button border border-text-muted/30 bg-surface px-4 text-base text-text-heading placeholder:text-text-muted focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
 		/>
 		<button
-			type="button"
+			type="submit"
 			disabled={status === 'submitting'}
 			class="btn-interactive inline-flex min-h-12 shrink-0 items-center justify-center rounded-button bg-brand px-8 py-3 font-display text-button font-button text-text-inverse hover:bg-brand-dark disabled:opacity-70"
-			onclick={() => void subscribe()}
 		>
 			{status === 'submitting' ? 'Subscribing…' : submitLabel}
 		</button>
 	</form>
-	<noscript>
-		<p class="mt-3 text-sm text-text-muted">
-			<a href="/newsletter-signup/" class="font-semibold text-brand hover:underline">Subscribe on the signup page</a>
-		</p>
-	</noscript>
 	{#if status === 'error'}
 		<p class="mt-3 text-sm text-text-muted" role="alert">
-			Unable to subscribe right now.
-			<a href="/newsletter-signup/" class="font-semibold text-brand hover:underline">Try the signup page</a>
-			or email
-			<a href="mailto:mark@markgordon.ca" class="text-brand hover:underline">mark@markgordon.ca</a>.
+			{errorMessage}
+			<a href="mailto:{site.email}" class="text-brand hover:underline">{site.email}</a>.
 		</p>
 	{/if}
 {/if}

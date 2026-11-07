@@ -3,7 +3,7 @@ import TestimonialsCarousel from '@/components/islands/TestimonialsCarousel.svel
 import Button from '@/components/ui/Button.astro';
 import SectionHeading from '@/components/sections/SectionHeading.astro';
 import Section from '@/components/ui/Section.astro';
-import { hubspot } from '@/config/site';
+import { booking } from '@/config/site';
 import { speakingHero, speakingTestimonialExcerpts } from '@/data/keynote-speaker';
 ---
 
@@ -11,7 +11,7 @@ import { speakingHero, speakingTestimonialExcerpts } from '@/data/keynote-speake
 	<SectionHeading title="What Leaders Are Saying" centered class="mb-10" />
 	<TestimonialsCarousel client:load testimonials={speakingTestimonialExcerpts} />
 	<div class="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6">
-		<Button href={hubspot.discoveryCall} external>
+		<Button href={booking.discoveryCall} external>
 			{speakingHero.primaryCta}
 		</Button>
 		<a

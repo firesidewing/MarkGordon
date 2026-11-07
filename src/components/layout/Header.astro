@@ -5,7 +5,7 @@ import MobileNav from '@/components/islands/MobileNav.svelte';
 import Button from '@/components/ui/Button.astro';
 import logo from '@/assets/logo.png';
 import { clerkAppearance } from '@/config/clerk-appearance';
-import { hubspot, mainNav, type NavItem } from '@/config/site';
+import { booking, mainNav, type NavItem } from '@/config/site';
 
 const currentPath = Astro.url.pathname;
 
@@ -94,7 +94,7 @@ function isNavActive(item: NavItem, path: string): boolean {
 
 		<div class="flex shrink-0 items-center gap-2">
 			<Button
-				href={hubspot.discoveryCall}
+				href={booking.discoveryCall}
 				external
 				class="!min-h-10 !px-3 !py-2 !text-sm sm:!min-h-11 sm:!px-5"
 			>

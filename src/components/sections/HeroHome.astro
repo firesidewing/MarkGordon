@@ -1,6 +1,6 @@
 ---
 import Button from "@/components/ui/Button.astro";
-import { hubspot } from "@/config/site";
+import { booking } from "@/config/site";
 import { homeHero } from "@/data/home";
 
 const {
@@ -40,7 +40,7 @@ const {
                 </ul>
 
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap hero-enter hero-enter--3">
-                    <Button href={hubspot.discoveryCall} external class="w-full sm:w-auto">
+                    <Button href={booking.discoveryCall} external class="w-full sm:w-auto">
                         {primaryCta}
                     </Button>
                     <Button href="/keynote-speaker/" variant="secondary" class="w-full sm:w-auto">

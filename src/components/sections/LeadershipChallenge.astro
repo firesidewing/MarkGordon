@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import Button from "@/components/ui/Button.astro";
 import Section from "@/components/ui/Section.astro";
-import { hubspot } from "@/config/site";
+import { booking } from "@/config/site";
 import { homeChallenge } from "@/data/home";
 
 const { title, body, payoff, cta, image } = homeChallenge;
@@ -19,7 +19,7 @@ const { title, body, payoff, cta, image } = homeChallenge;
             <p class="mt-6 text-base leading-relaxed text-text">{body}</p>
             <p class="mt-4 text-base leading-relaxed text-text">{payoff}</p>
             <div class="mt-8">
-                <Button href={hubspot.discoveryCall} external>
+                <Button href={booking.discoveryCall} external>
                     {cta}
                 </Button>
             </div>

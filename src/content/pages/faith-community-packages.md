@@ -21,7 +21,7 @@ Church families flourish most when there is a healthy relational culture and s
 
 I work with all three at the same time helping you develop a healthy relational culture and flourishing church
 
-[BOOK DISCOVERY CALL](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting)
+[BOOK DISCOVERY CALL](https://calendly.com/rmarkgordon/30min)
 
 ## Relational Culture Transformation Package
 
@@ -35,7 +35,7 @@ The goal of this model is to provide ongoing tools and empowerment for people to
 - Leadership Training (via Zoom) for the church leadership team - Quarterly 1 hr meeting
 - Sunday Sermon included
 
-[Get Started Now!](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting) \*Payment Plan available upon request  
+[Get Started Now!](https://calendly.com/rmarkgordon/30min) \*Payment Plan available upon request  
 \*Not including travel expenses
 
 ## Online Relational Culture Transformation Package
@@ -49,7 +49,7 @@ The goal of this model is to provide ongoing tools and empowerment for people to
 - Signed copy of the Relationship Matters book for the church leader
 - Leadership Training (via Zoom) for the church leadership team - Quarterly 1 hr meeting
 
-[Get Started](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting)
+[Get Started](https://calendly.com/rmarkgordon/30min)
 
 \*Payment Plan available upon request
 
@@ -67,7 +67,7 @@ This is designed to be a great interactive small group training, each video is b
 - Includes five access passes to the Online Relationship Matters course
 - Each additional pass is available for $50 each ($29 off!)
 
-[Get Started](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting)
+[Get Started](https://calendly.com/rmarkgordon/30min)
 
 ## Client Testimonials
 
