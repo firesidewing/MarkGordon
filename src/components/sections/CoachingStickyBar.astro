@@ -1,6 +1,6 @@
 ---
 import Button from '@/components/ui/Button.astro';
-import { hubspot } from '@/config/site';
+import { booking } from '@/config/site';
 import { coachingHero } from '@/data/relationship-leadership-coaching';
 ---
 
@@ -12,7 +12,7 @@ import { coachingHero } from '@/data/relationship-leadership-coaching';
 		<p class="min-w-0 truncate font-display text-sm font-semibold text-text-heading">
 			{coachingHero.primaryCta}
 		</p>
-		<Button href={hubspot.discoveryCall} external class="shrink-0 !px-5 !py-2.5 !text-sm">
+		<Button href={booking.discoveryCall} external class="shrink-0 !px-5 !py-2.5 !text-sm">
 			Talk With Mark
 		</Button>
 	</div>

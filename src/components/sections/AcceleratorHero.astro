@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Button from '@/components/ui/Button.astro';
-import { hubspot } from '@/config/site';
+import { booking } from '@/config/site';
 import { acceleratorHero } from '@/data/leadership-accelerator';
 import heroImage from '@/assets/content/keynote-speaker/Mark-32-1.jpg';
 
@@ -31,7 +31,7 @@ const { title, subhead, positioning, primaryCta, secondaryCta, primaryHref } = a
 					<Button href={primaryHref} external class="w-full sm:w-auto">
 						{primaryCta}
 					</Button>
-					<Button href={hubspot.discoveryCall} external variant="secondary" class="w-full sm:w-auto">
+					<Button href={booking.discoveryCall} external variant="secondary" class="w-full sm:w-auto">
 						{secondaryCta}
 					</Button>
 				</div>

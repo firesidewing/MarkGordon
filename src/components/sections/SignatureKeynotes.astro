@@ -2,7 +2,7 @@
 import Button from '@/components/ui/Button.astro';
 import SectionHeading from '@/components/sections/SectionHeading.astro';
 import Section from '@/components/ui/Section.astro';
-import { hubspot } from '@/config/site';
+import { booking } from '@/config/site';
 import { signatureKeynotes, signatureKeynotesSection, speakingHero } from '@/data/keynote-speaker';
 ---
 
@@ -51,7 +51,7 @@ import { signatureKeynotes, signatureKeynotesSection, speakingHero } from '@/dat
 	</div>
 
 	<div class="mt-10 text-center">
-		<Button href={hubspot.discoveryCall} external>
+		<Button href={booking.discoveryCall} external>
 			{speakingHero.primaryCta}
 		</Button>
 	</div>

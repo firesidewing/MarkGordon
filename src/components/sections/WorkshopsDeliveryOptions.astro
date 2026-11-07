@@ -1,7 +1,7 @@
 ---
 import Button from '@/components/ui/Button.astro';
 import Section from '@/components/ui/Section.astro';
-import { hubspot } from '@/config/site';
+import { booking } from '@/config/site';
 import { workshopsDeliverySection } from '@/data/workshops';
 
 const { title, subtitle, intro, formats } = workshopsDeliverySection;
@@ -38,7 +38,7 @@ const { title, subtitle, intro, formats } = workshopsDeliverySection;
 		</div>
 
 		<div class="mt-10 text-center">
-			<Button href={hubspot.discoveryCall} external>
+			<Button href={booking.discoveryCall} external>
 				Let's Talk About What Your Team Needs
 			</Button>
 		</div>

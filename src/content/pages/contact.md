@@ -15,6 +15,6 @@ Feel free to contact Mark by email or book a free 15 minute discovery call.
 
 You can also fill out the form below and he will get in touch with you.
 
-[Book Discovery Call](https://meetings.hubspot.com/rmarkgordon/15-min-discovery-meeting)
+[Book Discovery Call](https://calendly.com/rmarkgordon/30min)
 
 - [rmarkgordon@gmail.com](http://rmarkgordon@gmail.com%20)

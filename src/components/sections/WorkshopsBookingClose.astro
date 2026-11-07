@@ -1,7 +1,7 @@
 ---
 import Button from '@/components/ui/Button.astro';
 import Section from '@/components/ui/Section.astro';
-import { hubspot } from '@/config/site';
+import { booking } from '@/config/site';
 import { workshopsBookingClose } from '@/data/workshops';
 
 const { title, question, primaryCta, secondaryCta } = workshopsBookingClose;
@@ -16,7 +16,7 @@ const { title, question, primaryCta, secondaryCta } = workshopsBookingClose;
 		</h2>
 		<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text">{question}</p>
 		<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
-			<Button href={hubspot.discoveryCall} external class="w-full sm:w-auto">
+			<Button href={booking.discoveryCall} external class="w-full sm:w-auto">
 				{primaryCta}
 			</Button>
 			<Button href="/contact/" variant="secondary" class="w-full sm:w-auto">
