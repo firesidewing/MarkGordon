@@ -47,7 +47,7 @@ export async function sendContactEmail(message: ContactMessage): Promise<'sent' 
 	if (!apiKey) return 'unconfigured';
 
 	const to = import.meta.env.CONTACT_TO_EMAIL || 'mark@markgordon.ca';
-	const from = import.meta.env.CONTACT_FROM_EMAIL || 'Mark Gordon Website <website@markgordon.ca>';
+	const from = import.meta.env.CONTACT_FROM_EMAIL || 'Mark Gordon Website <website@updates.markgordon.ca>';
 
 	const response = await fetch('https://api.resend.com/emails', {
 		method: 'POST',
