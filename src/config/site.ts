@@ -20,14 +20,6 @@ export const booking = {
 	discoveryCall: 'https://calendly.com/rmarkgordon/30min',
 } as const;
 
-export const hubspot = {
-	newsletterForm: {
-		portalId: '23748604',
-		formId: '14655439-3f03-4321-85b3-fb64acdc4955',
-		region: 'na1',
-	},
-} as const;
-
 export const blindSpot = {
 	riddleId: 'yMIVAotF',
 	directUrl: 'https://blindspots.me/hcWAIr',
