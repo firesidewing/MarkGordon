@@ -1,0 +1,56 @@
+---
+import { __experimental_CheckoutButton as CheckoutButton } from '@clerk/astro/components';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { clerkAppearance } from '@/config/clerk-appearance';
+import { getClerkPlanId } from '@/config/billing';
+import { formatPrice, getCourse } from '@/lib/courses';
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+const course = slug ? await getCourse(slug) : undefined;
+if (!course) {
+	return Astro.redirect('/online-courses/');
+}
+
+const planId = getClerkPlanId(course.id);
+if (!planId) {
+	return Astro.redirect(`/courses/${course.id}/`);
+}
+
+const { userId } = Astro.locals.auth();
+const returnUrl = `/courses/${course.id}/`;
+if (!userId) {
+	return Astro.redirect(
+		`/sign-in/?redirect_url=${encodeURIComponent(Astro.url.pathname)}`,
+	);
+}
+
+const price = course.data.price;
+---
+
+<BaseLayout
+	title={`Checkout · ${course.data.title}`}
+	description={`Complete your purchase for ${course.data.title}.`}
+	noindex
+>
+	<div class="mx-auto w-full max-w-md px-4 py-16 text-center sm:px-6 lg:px-8">
+		<h1 class="font-display text-h3 font-semibold text-text-heading">{course.data.title}</h1>
+		<p class="mt-2 text-sm text-text-muted">Secure checkout · 365 days of access</p>
+		<div class="mt-8">
+			<CheckoutButton
+				planId={planId}
+				planPeriod="annual"
+				for="user"
+				newSubscriptionRedirectUrl={`/registration-success/?course=${course.id}`}
+				appearance={clerkAppearance}
+				class="btn-interactive inline-flex w-full items-center justify-center rounded bg-brand px-6 py-3 font-display text-button font-button uppercase text-text-inverse hover:bg-brand-dark"
+			>
+				Buy now · {formatPrice(price)}
+			</CheckoutButton>
+		</div>
+		<p class="mt-6 text-sm">
+			<a href={returnUrl} class="text-brand hover:underline">← Back to course overview</a>
+		</p>
+	</div>
+</BaseLayout>

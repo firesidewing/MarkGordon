@@ -11,8 +11,13 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://www.markgordon.ca',
-	output: 'server',
-	adapter: vercel(),
+	// Hybrid: static by default; only routes with `prerender = false` hit _render.
+	output: 'static',
+	adapter: vercel({
+		// Use Vercel Image Optimization instead of bundling Sharp into _render.
+		imageService: true,
+		excludeFiles: ['node_modules/sharp/**', 'node_modules/@img/**'],
+	}),
 	cache: {
 		provider: cacheVercel(),
 	},
@@ -28,7 +33,10 @@ export default defineConfig({
 		},
 	},
 	integrations: [
-		clerk(),
+		clerk({
+			// Avoid prefetching Clerk UI bundles on every page; load on auth/checkout routes.
+			prefetchUI: false,
+		}),
 		svelte(),
 		sitemap({
 			filter: (page) => {
@@ -46,6 +54,7 @@ export default defineConfig({
 				];
 				if (excluded.includes(path)) return false;
 				if (path.startsWith('/courses/')) return false;
+				if (path.endsWith('/purchase/')) return false;
 				if (path.startsWith('/account/')) return false;
 				return true;
 			},

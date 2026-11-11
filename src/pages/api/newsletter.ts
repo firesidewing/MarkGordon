@@ -1,5 +1,4 @@
 import type { APIRoute } from 'astro';
-import { parseNewsletterSubmission, saveNewsletterContact } from '@/lib/newsletter';
 
 export const prerender = false;
 
@@ -34,6 +33,7 @@ export const POST: APIRoute = async ({ request }) => {
 		return json({ error: 'Invalid request.' }, 400);
 	}
 
+	const { parseNewsletterSubmission, saveNewsletterContact } = await import('@/lib/newsletter');
 	const parsed = parseNewsletterSubmission(payload);
 	if (parsed.status === 'spam') {
 		return wantsHtml

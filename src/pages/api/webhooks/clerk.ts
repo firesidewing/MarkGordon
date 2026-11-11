@@ -1,6 +1,5 @@
 import { verifyWebhook } from '@clerk/astro/webhooks';
 import type { APIRoute } from 'astro';
-import { handleBillingWebhookEvent } from '@/lib/billing-webhook';
 import { isDbConfigured } from '@/lib/db';
 
 const BILLING_EVENTS = new Set([
@@ -31,6 +30,7 @@ export const POST: APIRoute = async ({ request }) => {
 
 	try {
 		if (BILLING_EVENTS.has(event.type) && isDbConfigured()) {
+			const { handleBillingWebhookEvent } = await import('@/lib/billing-webhook');
 			await handleBillingWebhookEvent(event.type, event.data);
 		}
 	} catch (error) {
