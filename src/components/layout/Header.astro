@@ -1,10 +1,8 @@
 ---
 import { Image } from 'astro:assets';
-import { Show, UserButton } from '@clerk/astro/components';
 import MobileNav from '@/components/islands/MobileNav.svelte';
 import Button from '@/components/ui/Button.astro';
 import logo from '@/assets/logo.png';
-import { clerkAppearance } from '@/config/clerk-appearance';
 import { booking, mainNav, type NavItem } from '@/config/site';
 
 const currentPath = Astro.url.pathname;
@@ -101,13 +99,18 @@ function isNavActive(item: NavItem, path: string): boolean {
 				<span class="sm:hidden">Book Mark</span>
 				<span class="hidden sm:inline">Book Mark to Speak</span>
 			</Button>
-			<Show when="signed-in">
-				<UserButton
-					appearance={clerkAppearance}
-					userProfileUrl="/account/"
-					afterSignOutUrl="/"
-				/>
-			</Show>
+			<a
+				href="/sign-in/"
+				class="link-interactive hidden min-h-10 items-center px-2 font-display text-sm font-medium text-text-heading hover:text-brand sm:inline-flex"
+			>
+				Sign in
+			</a>
+			<a
+				href="/account/courses/"
+				class="link-interactive hidden min-h-10 items-center px-2 font-display text-sm font-medium text-brand hover:text-brand-dark sm:inline-flex"
+			>
+				My courses
+			</a>
 
 			<MobileNav client:media="(max-width: 1023px)" nav={mainNav} currentPath={currentPath} />
 		</div>

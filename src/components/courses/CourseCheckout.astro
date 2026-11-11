@@ -1,11 +1,5 @@
 ---
-import {
-	Show,
-	SignInButton,
-	SignUpButton,
-	__experimental_CheckoutButton as CheckoutButton,
-} from '@clerk/astro/components';
-import { clerkAppearance } from '@/config/clerk-appearance';
+import Button from '@/components/ui/Button.astro';
 import { formatPrice } from '@/lib/courses';
 import { getClerkPlanId } from '@/config/billing';
 
@@ -18,9 +12,10 @@ interface Props {
 
 const { courseSlug, price, class: className, compact = false } = Astro.props;
 const planId = getClerkPlanId(courseSlug);
+const purchaseHref = `/courses/${courseSlug}/purchase/`;
 const buttonClass = compact
-	? 'btn-interactive inline-flex shrink-0 items-center justify-center rounded bg-brand px-4 py-2 font-display text-xs font-medium uppercase tracking-wide text-text-inverse hover:bg-brand-dark'
-	: 'btn-interactive inline-flex w-full items-center justify-center rounded bg-brand px-6 py-2 font-display text-button font-button uppercase text-text-inverse hover:bg-brand-dark';
+	? '!min-h-10 !px-4 !py-2 !text-xs'
+	: 'w-full sm:w-auto';
 ---
 
 <div class:list={[className]}>
@@ -30,45 +25,14 @@ const buttonClass = compact
 				Checkout is not configured for this course yet. Contact support to enroll.
 			</p>
 		) : (
-			<>
-				<Show when="signed-out">
-					<div class="space-y-3">
-						<p class="text-sm text-text-muted">Sign in or create an account to purchase.</p>
-						<div class="flex flex-wrap gap-3">
-							<SignInButton
-								mode="redirect"
-								forceRedirectUrl={`/courses/${courseSlug}/`}
-								appearance={clerkAppearance}
-								class={buttonClass}
-							>
-								Sign in to buy. {formatPrice(price)}
-							</SignInButton>
-							<SignUpButton
-								mode="redirect"
-								forceRedirectUrl={`/courses/${courseSlug}/`}
-								appearance={clerkAppearance}
-								class="btn-interactive inline-flex items-center justify-center rounded border border-brand px-6 py-2 font-display text-button font-button uppercase text-brand hover:bg-brand/5"
-							>
-								Create account
-							</SignUpButton>
-						</div>
-					</div>
-				</Show>
-
-				<Show when="signed-in">
-					<CheckoutButton
-						planId={planId}
-						planPeriod="annual"
-						for="user"
-						newSubscriptionRedirectUrl={`/registration-success/?course=${courseSlug}`}
-						appearance={clerkAppearance}
-						class={buttonClass}
-					>
-						Buy now. {formatPrice(price)}
-					</CheckoutButton>
-				</Show>
-			</>
+			<div class="space-y-3">
+				<Button href={purchaseHref} class={buttonClass}>
+					Buy now · {formatPrice(price)}
+				</Button>
+				<p class="text-sm text-text-muted">
+					You'll sign in or create an account on the next step. Checkout loads only when you continue.
+				</p>
+			</div>
 		)
 	}
-	<p class="mt-3 text-xs text-text-muted">365 days of access · secure checkout</p>
 </div>
