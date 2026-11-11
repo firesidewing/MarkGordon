@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Button from '@/components/ui/Button.astro';
-import { getAllCourses, getContinueLessonHref } from '@/lib/courses';
+import { getContinueLessonHref } from '@/lib/course-continue';
+import { getAllCourses } from '@/lib/courses';
 import { listEnrollments, isEnrollmentActive, syncPurchasedEnrollments } from '@/lib/enrollments';
 import { isDbConfigured } from '@/lib/db';
 
